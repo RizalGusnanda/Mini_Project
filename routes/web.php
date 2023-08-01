@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
+use App\Http\Controllers\SpesalisasiController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -72,5 +75,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('assign-user', [AssignUserToRoleController::class, 'store'])->name('assign.user.store');
         Route::get('assing-user/{user}/edit', [AssignUserToRoleController::class, 'edit'])->name('assign.user.edit');
         Route::put('assign-user/{user}', [AssignUserToRoleController::class, 'update'])->name('assign.user.update');
+    });
+
+    Route::prefix('daerah-management')->group(function () {
+        Route::resource('kecamatan',KecamatanController::class);
+        Route::resource('kelurahan',KelurahanController::class);
+    });
+    Route::prefix('pengajaran-management')->group(function () {
+        Route::resource('spesialisasi',SpesalisasiController::class);
+
     });
 });
