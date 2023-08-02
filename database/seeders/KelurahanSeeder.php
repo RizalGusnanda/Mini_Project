@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class KelurahanSeeder extends Seeder
 {
@@ -14,6 +14,24 @@ class KelurahanSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('kelurahans')->insert([
+            'nama_kelurahans' => 'Jatimulyo',
+        ]);
+
+        DB::table('kelurahans')->insert([
+            'nama_kelurahans' => 'Lowokwaru',
+        ]);
+
+        DB::table('kelurahans')->insert([
+            'nama_kelurahans' => 'Tlogomas',
+        ]);
+
+        DB::table('kelurahans')->insert([
+            'nama_kelurahans' => 'Tunggulwulung',
+        ]);
+
+        DB::table('kelurahans')->insert([
+            'nama_kelurahans' => 'Gadang',
+        ]);
     }
 }
