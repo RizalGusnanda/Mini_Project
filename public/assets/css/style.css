@@ -92,7 +92,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 .bg-info {
-    background-color: #  !important;
+    background-color: #3abaf4  !important;
 }
 
 .bg-warning {
@@ -2702,8 +2702,9 @@ body {
     background-color: #d2d8e7;
     font-size: 14px;
     font-weight: 400;
-    font-family: "Nunito", "Segoe UI", arial;
-    color: #6c757d;
+    /* font-family: "Nunito", "Segoe UI", arial; */
+    font-family: "Poppins", "Nunito", "Segoe UI", sans-serif;
+    color: #000;
 }
 
 a.bb {

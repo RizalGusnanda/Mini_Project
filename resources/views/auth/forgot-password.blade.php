@@ -27,16 +27,15 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="../assets/img/stisla-fill.svg" alt="logo" width="100"
-                                class="shadow-light rounded-circle">
+                            <img src="../assets/img/avatar/GuruLink.png" alt="logo" width="40%">
                         </div>
 
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4>Forgot Password</h4>
+                                <h4>Lupa Password</h4>
                             </div>
                             <div class="card-body">
-                                <p>We will send a link to reset your password</p>
+                                <p>Kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda</p>
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}

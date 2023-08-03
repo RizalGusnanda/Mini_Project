@@ -18,87 +18,150 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <style>
+        /* The following styles are reused from the login page */
+        .full-screen-card {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        .full-height-card {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-body {
+            height: 100vh;
+            width: 100%;
+            overflow: auto;
+            margin: 0;
+        }
+
+        .rounded-input {
+            border-radius: 15px;
+        }
+
+        .welcome-text {
+            padding-left: 50px;
+        }
+
+        /* Container untuk input */
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        /* Input style */
+        .input-container input[type="text"],
+        .input-container input[type="email"],
+        .input-container input[type="password"] {
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Button style */
+        .input-container button {
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .text-link {
+            color: #1F3C88;
+        }
+
+        .text-link-register {
+            color: #EE6F57;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <section class="section">
-            <div class="container mt-5">
-                <div class="row">
-                    <div
-                        class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
-                        <div class="login-brand">
-                            <img src="../assets/img/stisla-fill.svg" alt="logo" width="100"
-                                class="shadow-light rounded-circle">
-                        </div>
-
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h4>Register</h4>
+        <section class="section full-screen-section p-0">
+            <div class="row d-flex justify-content-between m-0">
+                <div class="col-md-6 col-sm-6 col-lg-6 full-height-card">
+                    <div style="background-color:#d2d8e7;">
+                        <div class="card-body">
+                            <div class="col mt-1">
+                                <img src="{{ asset('assets/img/avatar/GuruLink.png') }}" alt="" srcset=""
+                                    style="width: 20%">
                             </div>
-                            <div class="card-body">
+                            <div class="col mt-5">
+                                <img src="{{ asset('assets/img/avatar/cuate.png') }}" alt="" srcset=""
+                                    style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 full-height-card">
+                    <div style="background-color:#fff;">
+                        <div class="card-body">
+                            <div class="col mt-5 welcome-text">
+                                <h3>Registrasi</h3>
+                            </div>
+                            <div class="col mt-4 welcome-text">
+                                <p>Daftar untuk mendapatkan akun.</p>
+                            </div>
+
+                            <div class="input-container">
                                 <form action="{{ route('register') }}" method="POST">
                                     @csrf
-                                    <div class="row">
-                                        <div class="form-group col-6">
-                                            <div class="form-group">
-                                                <label for="first_name">Full Name</label>
-                                                <input id="first_name" type="text" name="name"
-                                                    value="{{ old('name') }}"
-                                                    class="form-control @error('name') is-invalid @enderror"
-                                                    placeholder="Masukkan Nama Lengkap" autofocus>
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                    <div class="form-group">
+                                        <label for="first_name">Full Name</label>
+                                        <input id="first_name" type="text" name="name"
+                                            value="{{ old('name') }}"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            placeholder="Masukkan Nama Lengkap" autofocus>
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
-                                        </div>
-
-                                        <div class="form-group col-6">
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input id="email" type="email" class="form-control" name="email"
-                                                    value="{{ old('email') }}"
-                                                    class="form-control @error('email') is-invalid @enderror"
-                                                    placeholder="Masukkan Alamat Email">
-                                                @error('email')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                        @enderror
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-6">
-                                            <div class="form-group">
-                                                <label for="password" class="d-block">Password</label>
-                                                <input id="password" type="password" name="password"
-                                                    class="form-control @error('password') is-invalid @enderror"
-                                                    placeholder="Masukkan Password" data-indicator="pwindicator">
-                                                @error('password')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group col-6">
-                                            <div class="form-group">
-                                                <label for="password_confirmation" class="d-block">Password
-                                                    Confirmation</label>
-                                                <input id="password_confirmation" name="password_confirmation"
-                                                    type="password" class="form-control"
-                                                    placeholder="Masukkan Konfirmasi Password">
-                                                @error('password')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="email" class="form-control" name="email"
+                                            value="{{ old('email') }}"
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            placeholder="Masukkan Alamat Email">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
-                                        </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password" class="d-block">Password</label>
+                                        <input id="password" type="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            placeholder="Masukkan Password" data-indicator="pwindicator">
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password_confirmation" class="d-block">Password Confirmation</label>
+                                        <input id="password_confirmation" name="password_confirmation" type="password"
+                                            class="form-control" placeholder="Masukkan Konfirmasi Password">
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
@@ -107,10 +170,13 @@
                                         </button>
                                     </div>
                                 </form>
+                                <div class="mt-5 text-muted text-center">
+                                    <a href="" class="text-link">Sudah punya akun?</a> <a href="/login" class="text-link-register">MASUK</a>
+                                </div>
+                                <div class="simple-footer">
+                                    Copyright &copy; Stisla 2018
+                                </div>
                             </div>
-                        </div>
-                        <div class="simple-footer">
-                            Copyright &copy; Stisla 2018
                         </div>
                     </div>
                 </div>
