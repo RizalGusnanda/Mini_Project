@@ -4,7 +4,7 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Template Table</h1>
+            <h1>Guru Link</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Template Management</h2>
+            <h2 class="section-title">Spesialisasi</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -25,14 +25,6 @@
                         <div class="card-header">
                             <h4>Template List</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="#">Create
-                                    New Template</a>
-                                <a class="btn btn-info btn-primary active import">
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                    Import Template</a>
-                                <a class="btn btn-info btn-primary active" href="#">
-                                    <i class="fa fa-upload" aria-hidden="true"></i>
-                                    Export Template</a>
                                 <a class="btn btn-info btn-primary active search"> <i class="fa fa-search"
                                         aria-hidden="true"></i> Search Template</a>
                             </div>
@@ -70,9 +62,8 @@
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Permission</th>
+                                            <th style="text-align: center;">ID Spesialisasi</th>
+                                            <th style="text-align: center;">Nama Spesialisasi</th>
                                             <th class="text-right">Action</th>
                                         </tr>
                                     </tbody>
