@@ -88,4 +88,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('spesialisasi',SpesalisasiController::class);
 
     });
+
+    
 });

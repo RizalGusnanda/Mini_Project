@@ -31,18 +31,12 @@ class SpesalisasiController extends Controller
         return view('pengajaran.spesialisasi.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreSpesialisasiRequest $request)
     {
         Spesalisasi::create([
             'nama_spesialisasi' => $request->nama_spesialisasi,
         ]);
-        return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
+        return redirect()->route('spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
     }
 
     /**
