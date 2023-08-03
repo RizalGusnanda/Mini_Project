@@ -17,10 +17,10 @@
                         @csrf
                         <div class="form-group">
                             <label>Spesialisasi</label>
-                            <input type="text" id="namaSpesialisasi" name="spesalisasi"
-                                class="form-control @error('spesalisasi') is-invalid @enderror"
-                                placeholder="Masukan Nama Spesialisasi" autocomplete="off">
-                            @error('spesalisasi')
+                            <input type="text" id="nama_spesialisasi" name="nama_spesialisasi"
+                                class="form-control @error('nama_spesialisasi') is-invalid @enderror"
+                                placeholder="Masukan Nama Spesialisasi">
+                            @error('nama_spesialisasi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

@@ -47,11 +47,32 @@
                                         <tr>
                                             <th style="text-align: center;">ID Spesialisasi</th>
                                             <th style="text-align: center;">Nama Spesialisasi</th>
-                                            <th class="text-right">Action</th>
+                                            <th style="text-align: center;">Action</th>
                                         </tr>
+                                        @foreach ($spesalisasis as $key => $nama_spesialisasi)
+                                            <tr>
+                                                <td>{{ ($spesalisasis->currentPage() - 1) * $spesalisasis->perPage() + $key + 1 }}</td>
+                                                <td>{{ $nama_spesialisasi->nama_spesialisasi }}</td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="{{ route('spesialisasi.edit', $nama_spesialisasi->id) }}"
+                                                            class="btn btn-sm btn-info btn-icon "><i class="fas fa-edit"></i> Edit</a>
+                                                        <form action="{{ route('spesialisasi.destroy', $nama_spesialisasi->id) }}" method="POST" class="ml-2">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                <i class="fas fa-times"></i> Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                                 <div class="d-flex justify-content-center">
+                                {{ $spesalisasis->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
