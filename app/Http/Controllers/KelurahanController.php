@@ -2,29 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
 use App\Models\Kelurahan;
+use App\Http\Requests\StoreKelurahanRequest;
+use App\Http\Requests\UpdateKelurahanRequest;
 use Illuminate\Http\Request;
 
 class KelurahanController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('permission:kelurahan.index')->only('index');
-        $this->middleware('permission:kelurahan.create')->only('create', 'store');
-        $this->middleware('permission:kelurahan.edit')->only('edit', 'update');
-        $this->middleware('permission:kelurahan.destroy')->only('destroy');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view ('daerah.kelurahan.index');
-        
+        $kecamatans = Kecamatan::all();
+        $kelurahanName = $request->input('kelurahan');
+        $kecamatanIds = $request->input('kecamatan');
+        $kelurahan = $request->input('kelurahan');
+
+        $query = Kelurahan::select('kelurahans.id', 'kelurahans.id_kecamatan', 'kelurahans.kelurahan', 'kecamatans.kecamatan')
+            ->leftJoin('kecamatans', 'kelurahans.id_kecamatan', '=', 'kecamatans.id')
+            ->when($request->input('kelurahan'), function ($query, $kelurahan) {
+                return $query->where('kelurahans.kelurahan', 'like', '%' . $kelurahan . '%');
+            })
+            ->when($request->input('kecamatan'), function ($query, $kecamatan) {
+                return $query->whereIn('kelurahans.id_kecamatan', $kecamatan);
+            })
+            ->orderBy('kelurahans.id_kecamatan', 'asc')
+            ->paginate(10);
+        $kecamatanSelected = $request->input('kecamatan');
+
+        $query->appends(['kelurahan' => $kelurahanName, 'kecamatan' => $kecamatanIds]);
+
+        return view('daerah.kelurahan.index')->with([
+            'kelurahans' => $query,
+            'kecamatans' => $kecamatans,
+            'kelurahanName' => $kelurahanName,
+            'kecamatanIds' => $kecamatanIds,
+            'kecamatanSelected' => $kecamatanSelected,
+            'kelurahan' => $kelurahan,
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +54,9 @@ class KelurahanController extends Controller
      */
     public function create()
     {
-        //
+        $kecamatans = Kecamatan::all();
+        return view('daerah.kelurahan.create')->with(['kecamatans' => $kecamatans]);
+        
     }
 
     /**
@@ -42,9 +65,15 @@ class KelurahanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreKelurahanRequest $request)
     {
-        //
+        Kelurahan::create([
+            'kelurahan' => $request->kelurahan,
+            'id_kecamatan' => $request->id_kecamatan,
+        ]);
+
+        return redirect()->route('kelurahan.index')
+            ->with('success', 'Create data successfully.');
     }
 
     /**
@@ -66,7 +95,13 @@ class KelurahanController extends Controller
      */
     public function edit(Kelurahan $kelurahan)
     {
-        //
+        $kecamatans = Kecamatan::all();
+        return view('daerah.kelurahan.edit')->with(
+            [
+                'kelurahan' => $kelurahan,
+                'kecamatans' => $kecamatans
+            ]
+        );
     }
 
     /**
@@ -76,10 +111,14 @@ class KelurahanController extends Controller
      * @param  \App\Models\Kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kelurahan $kelurahan)
+    public function update(UpdateKelurahanRequest $request, Kelurahan $kelurahan)
     {
-        //
+        $kelurahan->update($request->all());
+
+        return redirect()->route('kelurahan.index')
+            ->with('success', 'Updated data successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,6 +128,17 @@ class KelurahanController extends Controller
      */
     public function destroy(Kelurahan $kelurahan)
     {
-        //
+        try {
+            $kelurahan->delete();
+            return redirect()->route('kelurahan.index')->with('success', 'Deleted data Kelurahan successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $error_code = $e->errorInfo[1];
+            if ($error_code == 1451) {
+                return redirect()->route('kelurahan.index')
+                    ->with('error', 'Data kelurahan used in another table');
+            } else {
+                return redirect()->route('kelurahan.index')->with('success', 'Deleted data Kelurahan successfully');
+            }
+        }
     }
 }

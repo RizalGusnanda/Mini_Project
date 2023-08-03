@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
             MenuGroupSeeder::class,
             MenuItemSeeder::class,
             CategorySeeder::class,
+            KecamatanSeeder::class,
+            KelurahanSeeder::class,
+            SpesialisasiTableSeeder::class,
+            ModulTableSeeder::class,
+            PaketsTableSeeder::class,
         ]);
     }
 }

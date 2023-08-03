@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('moduls', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_modul');
+            $table->string('modul');
             $table->timestamps();
         });
     }
