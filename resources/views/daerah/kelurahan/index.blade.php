@@ -22,17 +22,9 @@
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('kelurahan.create') }}">Create
                                     New</a>
-                                <a class="btn btn-info btn-primary active import">
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                    Import</a>
-                                {{-- <a class="btn btn-info btn-primary active" href="">
-                                    <i class="fa fa-upload" aria-hidden="true"></i>
-                                    Export</a> --}}
                                 <a class="btn btn-info btn-primary active search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search</a>
-                                <a class="btn btn-info btn-primary active" href="{{ route('kelurahan.index') }}">
-                                    <i class="fas fa-sync-alt"></i> Reset</a>
                             </div>
                         </div>
                         <div class="card-body">
