@@ -20,7 +20,9 @@
                         <div class="card-header">
                             <h4>Spesialisasi List</h4>
                             <div class="card-header-action">
+
                             <a class="btn btn-icon icon-left btn-primary" href="{{ route('spesialisasi.create') }}">Create
+
                                     New</a>
                                 <a class="btn btn-info btn-primary active search"> <i class="fa fa-search"
                                         aria-hidden="true"></i> Search Template</a>
