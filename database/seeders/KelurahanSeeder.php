@@ -15,28 +15,28 @@ class KelurahanSeeder extends Seeder
     public function run()
     {
         DB::table('kelurahans')->insert([
-            'nama_kelurahans' => 'Jatimulyo',
-            'id_kecamatans' => 2,
+            'kelurahan' => 'Jatimulyo',
+            'id_kecamatan' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
-            'nama_kelurahans' => 'Lowokwaru',
-            'id_kecamatans' => 2,
+            'kelurahan' => 'Lowokwaru',
+            'id_kecamatan' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
-            'nama_kelurahans' => 'Tlogomas',
-            'id_kecamatans' => 2,
+            'kelurahan' => 'Tlogomas',
+            'id_kecamatan' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
-            'nama_kelurahans' => 'Tunggulwulung',
-            'id_kecamatans' => 2,
+            'kelurahan' => 'Tunggulwulung',
+            'id_kecamatan' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
-            'nama_kelurahans' => 'Gadang',
-            'id_kecamatans' => 1,
+            'kelurahan' => 'Gadang',
+            'id_kecamatan' => 1,
         ]);
     }
 }

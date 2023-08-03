@@ -79,7 +79,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::prefix('daerah-management')->group(function () {
         Route::resource('kecamatan',KecamatanController::class);
+        
+         // kelurahan
         Route::resource('kelurahan',KelurahanController::class);
+        Route::post('kelurahan/import', [KelurahanController::class, 'import'])->name('kelurahan.import');
     });
     Route::prefix('pengajaran-management')->group(function () {
         Route::resource('spesialisasi',SpesalisasiController::class);

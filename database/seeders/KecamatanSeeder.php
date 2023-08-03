@@ -15,23 +15,23 @@ class KecamatanSeeder extends Seeder
     public function run()
     {
         DB::table('kecamatans')->insert([
-            'nama_kecamatans' => 'Sukun',
+            'kecamatan' => 'Sukun',
         ]);
 
         DB::table('kecamatans')->insert([
-            'nama_kecamatans' => 'Lowokwaru',
+            'kecamatan' => 'Lowokwaru',
         ]);
 
         DB::table('kecamatans')->insert([
-            'nama_kecamatans' => 'Klojen',
+            'kecamatan' => 'Klojen',
         ]);
 
         DB::table('kecamatans')->insert([
-            'nama_kecamatans' => 'Kedungkadang',
+            'kecamatan' => 'Kedungkadang',
         ]);
 
         DB::table('kecamatans')->insert([
-            'nama_kecamatans' => 'Blimbing',
+            'kecamatan' => 'Blimbing',
         ]);
     }
 }
