@@ -55,11 +55,12 @@
                                                 <td>{{ $nama_spesialisasi->nama_spesialisasi }}</td>
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="{{ route('spesialisasi.edit', $nama_spesialisasi->id) }}"
-                                                            class="btn btn-sm btn-info btn-icon "><i class="fas fa-edit"></i> Edit</a>
+                                                    <a href="{{ route('spesialisasi.edit', $nama_spesialisasi->id) }}" class="btn btn-sm btn-info btn-icon"><i class="fas fa-edit"></i> Edit</a>
+
                                                         <form action="{{ route('spesialisasi.destroy', $nama_spesialisasi->id) }}" method="POST" class="ml-2">
-                                                            @method('DELETE')
-                                                            @csrf
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}">
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>

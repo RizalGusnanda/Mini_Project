@@ -10,5 +10,6 @@ class Spesalisasi extends Model
     protected $fillable = [
         'nama_spesialisasi',
     ];
+    
     use HasFactory;
 }
