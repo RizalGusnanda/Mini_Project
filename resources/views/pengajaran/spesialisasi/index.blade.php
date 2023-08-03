@@ -4,15 +4,10 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Guru Link</h1>
-            <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
-                <div class="breadcrumb-item">Table</div>
-            </div>
+            <h1>Spesialisasi List</h1>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Spesialisasi</h2>
+            <h2 class="section-title">Spesialisasi Manajement</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -23,38 +18,26 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Template List</h4>
+                            <h4>Spesialisasi List</h4>
                             <div class="card-header-action">
+                            <a class="btn btn-icon icon-left btn-primary" href="{{ route('kecamatan.create') }}">Create
+                                    New</a>
                                 <a class="btn btn-info btn-primary active search"> <i class="fa fa-search"
                                         aria-hidden="true"></i> Search Template</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="show-import" style="display: none">
-                                <div class="custom-file">
-                                    <form action="#" method="post" enctype="multipart/form-data">
-                                        {{ csrf_field() }}
-                                        <label class="custom-file-label" for="file-upload">Choose File</label>
-                                        <input type="file" id="file-upload" class="custom-file-input" name="import_file">
-                                        <br /> <br />
-                                        <div class="footer text-right">
-                                            <button class="btn btn-primary">Import File</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="#">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="role">Group</label>
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="Group Name">
+                                            <label for="role">Search</label>
+                                            <input type="text" name="nama_spesialisasi" class="form-control" id="nama_spesialisasi"
+                                                placeholder="Cari Spesialisasi">
                                         </div>
                                     </div>
                                     <div class="text-right">
                                         <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="#">Reset</a>
                                     </div>
                                 </form>
                             </div>
