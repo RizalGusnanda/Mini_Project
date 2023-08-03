@@ -33,6 +33,7 @@ class UpdateSpesialisasiRequest extends FormRequest
         return [
             'nama_spesialisasi.required' => 'Data Spesialisasi cannot be empty',
             'nama_spesialisasi.unique' => 'Data Spesialisasi already exists',
+
         ];
     }
 }
