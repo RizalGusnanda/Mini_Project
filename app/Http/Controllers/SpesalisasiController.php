@@ -39,6 +39,11 @@ class SpesalisasiController extends Controller
         return redirect()->route('spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
     }
 
+    public function show(Spesalisasi $nama_spesialisasi)
+    {
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -50,6 +55,7 @@ class SpesalisasiController extends Controller
         return view('pengajaran.spesialisasi.edit', compact('nama_spesialisasi'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -59,13 +65,14 @@ class SpesalisasiController extends Controller
      */
     public function update(UpdateSpesialisasiRequest $request, Spesalisasi $nama_spesialisasi)
     {
+        
         $request->validate([
             'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi,' . $nama_spesialisasi->id,
         ]);
 
         $nama_spesialisasi->update($request->all());
 
-        return redirect()->route('pengajaran.spesialisasi.index')
+        return redirect()->route('spesialisasi.index')
             ->with('success', 'Data Spesialisasi berhasil diperbarui.');
     }
 
@@ -79,11 +86,11 @@ class SpesalisasiController extends Controller
     {
         try {
             $nama_spesialisasi->delete();
-            return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+            return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
             if ($error_code == 1451) {
-                return redirect()->route('pengajaran.spesialisasi.index')
+                return redirect()->route('spesialisasi.index')
                     ->with('error', 'Data spesialisasi used in another table');
             } else {
                 return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');

@@ -13,7 +13,7 @@ class UpdateSpesialisasiRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,17 @@ class UpdateSpesialisasiRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('spesialisasi')->id;
         return [
-            //
+            'nama_spesialisasi' => 'required|regex:/^[a-zA-Z]+$/u|unique:spesalisasis,nama_spesialisasi,' . $id
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'nama_spesialisasi.required' => 'Data Spesialisasi cannot be empty',
+            'nama_spesialisasi.unique' => 'Data Spesialisasi already exists',
+            'nama_spesialisasi.regex' => 'Data Spesialisasi cannot be characters @!_?',
         ];
     }
 }
