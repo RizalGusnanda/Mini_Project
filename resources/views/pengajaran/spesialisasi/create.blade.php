@@ -4,11 +4,6 @@
     <section class="section">
         <div class="section-header">
             <h1>Table Spesialisasi</h1>
-            <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
-                <div class="breadcrumb-item">Table</div>
-            </div>
         </div>
         <div class="section-body">
             <h2 class="section-title">Tambah Spesialisasi</h2>
@@ -21,11 +16,11 @@
                     <form action="{{ route('spesialisasi.store') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>Kelurahan</label>
-                            <input type="text" id="namaSpesialisasi" name="spesialisasi"
-                                class="form-control @error('spesialisasi') is-invalid @enderror"
+                            <label>Spesialisasi</label>
+                            <input type="text" id="namaSpesialisasi" name="spesalisasi"
+                                class="form-control @error('spesalisasi') is-invalid @enderror"
                                 placeholder="Masukan Nama Spesialisasi" autocomplete="off">
-                            @error('spesialisasi')
+                            @error('spesalisasi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

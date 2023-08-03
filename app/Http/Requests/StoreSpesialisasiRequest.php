@@ -13,7 +13,7 @@ class StoreSpesialisasiRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class StoreSpesialisasiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi|regex:/^[a-zA-Z]+$/u',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'nama_spesialisasi.required' => 'Data Spesialisasi cannot be empty',
+            'nama_spesialisasi.unique' => 'Data Spesialisasi already exists',
+            'nama_spesialisasi.regex' => 'Data Spesialisasi cannot be characters @!_?',
         ];
     }
 }
