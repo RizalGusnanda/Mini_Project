@@ -16,22 +16,27 @@ class KelurahanSeeder extends Seeder
     {
         DB::table('kelurahans')->insert([
             'nama_kelurahans' => 'Jatimulyo',
+            'id_kecamatans' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
             'nama_kelurahans' => 'Lowokwaru',
+            'id_kecamatans' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
             'nama_kelurahans' => 'Tlogomas',
+            'id_kecamatans' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
             'nama_kelurahans' => 'Tunggulwulung',
+            'id_kecamatans' => 2,
         ]);
 
         DB::table('kelurahans')->insert([
             'nama_kelurahans' => 'Gadang',
+            'id_kecamatans' => 1,
         ]);
     }
 }
