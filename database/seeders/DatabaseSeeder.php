@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             KecamatanSeeder::class,
             KelurahanSeeder::class,
             SpesialisasiTableSeeder::class,
-            ModulTableSeeder::class,
+            ModulsTableSeeder::class,
             PaketsTableSeeder::class,
         ]);
     }
