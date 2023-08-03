@@ -36,7 +36,7 @@ class SpesalisasiController extends Controller
         Spesalisasi::create([
             'nama_spesialisasi' => $request->nama_spesialisasi,
         ]);
-        return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
+        return redirect()->route('spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
     }
 
     public function show(Spesalisasi $nama_spesialisasi)
