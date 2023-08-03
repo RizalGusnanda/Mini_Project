@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Spesialisasi;
+use App\Models\Spesalisasi;
+use App\Http\Requests\StoreSpesialisasiRequest;
+use App\Http\Requests\UpdateSpesialisasiRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SpesalisasiController extends Controller
 {
-    public function __construct()
+    public function index(Request $request)
     {
-        $this->middleware('auth');
-        $this->middleware('permission:spesialisasi.index')->only('index');
-        $this->middleware('permission:spesialisasi.create')->only('create', 'store');
-        $this->middleware('permission:spesialisasi.edit')->only('edit', 'update');
-        $this->middleware('permission:spesialisasi.destroy')->only('destroy');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view ('pengajaran.spesialisasi.index');
+        $spesalisasis = DB::table('spesalisasis')
+        ->when($request->input('nama_spesialisasi'), function ($query, $nama_spesialisasi) {
+            return $query->where('nama_spesialisasi', 'like', '%' . $nama_spesialisasi . '%');
+        })
+        ->paginate(10);
+    return view('pengajaran.spesialisasi.index', compact('spesalisasis'));
+
     }
 
     /**
@@ -32,7 +28,7 @@ class SpesalisasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('spesialisasi.create');
     }
 
     /**
@@ -41,53 +37,63 @@ class SpesalisasiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSpesialisasiRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Spesialisasi  $spesialisasi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Spesialisasi $spesialisasi)
-    {
-        //
+        Spesalisasi::create([
+            'nama_spesialisasi' => $request->nama_spesialisasi,
+        ]);
+        return redirect()->route('spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Spesialisasi  $spesialisasi
+     * @param  \App\Models\Spesalisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spesialisasi $spesialisasi)
+    public function edit(Spesalisasi $nama_spesialisasi)
     {
-        //
+        return view('spesialisasi.edit', compact('nama_spesialisasi'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Spesialisasi  $spesialisasi
+     * @param  \App\Models\Spesalisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spesialisasi $spesialisasi)
+    public function update(UpdateSpesialisasiRequest $request, Spesalisasi $nama_spesialisasi)
     {
-        //
+        $request->validate([
+            'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi,' . $nama_spesialisasi->id,
+        ]);
+
+        $nama_spesialisasi->update($request->all());
+
+        return redirect()->route('spesialisasi.index')
+            ->with('success', 'Data Spesialisasi berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Spesialisasi  $spesialisasi
+     * @param  \App\Models\Spesialisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spesialisasi $spesialisasi)
+    public function destroy(Spesalisasi $nama_spesialisasi)
     {
-        //
+        try {
+            $nama_spesialisasi->delete();
+            return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $error_code = $e->errorInfo[1];
+            if ($error_code == 1451) {
+                return redirect()->route('spesialisasi.index')
+                    ->with('error', 'Data spesialisasi used in another table');
+            } else {
+                return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+            }
+        }
     }
 }
