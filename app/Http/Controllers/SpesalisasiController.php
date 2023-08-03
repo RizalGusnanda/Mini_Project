@@ -72,7 +72,7 @@ class SpesalisasiController extends Controller
 
         $spesialisasi->update($request->all());
 
-        return redirect()->route('pengajaran.spesialisasi.index')
+        return redirect()->route('spesialisasi.index')
             ->with('success', 'Data Spesialisasi berhasil diperbarui.');
     }
 
@@ -90,7 +90,7 @@ class SpesalisasiController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
             if ($error_code == 1451) {
-                return redirect()->route('pengajaran.spesialisasi.index')
+                return redirect()->route('spesialisasi.index')
                     ->with('error', 'Data spesialisasi used in another table');
             } else {
                 return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
