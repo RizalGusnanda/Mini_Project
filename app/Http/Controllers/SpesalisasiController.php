@@ -36,7 +36,7 @@ class SpesalisasiController extends Controller
         Spesalisasi::create([
             'nama_spesialisasi' => $request->nama_spesialisasi,
         ]);
-        return redirect()->route('spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
+        return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Data Spesialisasi berhasil ditambahkan.');     
     }
 
     public function show(Spesalisasi $nama_spesialisasi)
@@ -72,7 +72,7 @@ class SpesalisasiController extends Controller
 
         $spesialisasi->update($request->all());
 
-        return redirect()->route('spesialisasi.index')
+        return redirect()->route('pengajaran.spesialisasi.index')
             ->with('success', 'Data Spesialisasi berhasil diperbarui.');
     }
 
@@ -90,10 +90,10 @@ class SpesalisasiController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
             if ($error_code == 1451) {
-                return redirect()->route('spesialisasi.index')
+                return redirect()->route('pengajaran.spesialisasi.index')
                     ->with('error', 'Data spesialisasi used in another table');
             } else {
-                return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+                return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
             }
         }
     }
