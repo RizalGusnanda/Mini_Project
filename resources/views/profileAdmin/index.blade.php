@@ -77,7 +77,6 @@
 
     </section>
 @endsection
-
 @push('customScript')
     <script>
         $(document).ready(function() {

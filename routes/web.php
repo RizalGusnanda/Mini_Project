@@ -112,7 +112,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/profileAdmin', function () {
         return view('profileAdmin.index');
     });
-
    
     
 });
