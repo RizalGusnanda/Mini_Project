@@ -93,7 +93,7 @@ class SpesalisasiController extends Controller
                 return redirect()->route('spesialisasi.index')
                     ->with('error', 'Data spesialisasi used in another table');
             } else {
-                return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+                return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
             }
         }
     }
