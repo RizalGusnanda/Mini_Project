@@ -89,5 +89,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     });
 
+
+
+    //membuat tampilan profile admin
+    Route::get('/profileAdmin', function () {
+        return view('profileAdmin.index');
+    });
     
 });
