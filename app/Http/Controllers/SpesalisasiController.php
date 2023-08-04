@@ -50,9 +50,9 @@ class SpesalisasiController extends Controller
      * @param  \App\Models\Spesalisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spesalisasi $nama_spesialisasi)
+    public function edit(Spesalisasi $spesialisasi)
     {
-        return view('pengajaran.spesialisasi.edit', compact('nama_spesialisasi'));
+        return view('pengajaran.spesialisasi.edit', compact('spesialisasi'));
     }
 
 
@@ -63,14 +63,14 @@ class SpesalisasiController extends Controller
      * @param  \App\Models\Spesalisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSpesialisasiRequest $request, Spesalisasi $nama_spesialisasi)
+    public function update(UpdateSpesialisasiRequest $request, Spesalisasi $spesialisasi)
     {
         
         $request->validate([
-            'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi,' . $nama_spesialisasi->id,
+            'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi,' . $spesialisasi->id,
         ]);
 
-        $nama_spesialisasi->update($request->all());
+        $spesialisasi->update($request->all());
 
         return redirect()->route('spesialisasi.index')
             ->with('success', 'Data Spesialisasi berhasil diperbarui.');
@@ -82,10 +82,10 @@ class SpesalisasiController extends Controller
      * @param  \App\Models\Spesialisasi  $nama_spesialisasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spesalisasi $nama_spesialisasi)
+    public function destroy(Spesalisasi $spesialisasi)
     {
         try {
-            $nama_spesialisasi->delete();
+            $spesialisasi->delete();
             return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
@@ -93,7 +93,7 @@ class SpesalisasiController extends Controller
                 return redirect()->route('spesialisasi.index')
                     ->with('error', 'Data spesialisasi used in another table');
             } else {
-                return redirect()->route('pengajaran.spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
+                return redirect()->route('spesialisasi.index')->with('success', 'Deleted data Spesialisasi successfully');
             }
         }
     }

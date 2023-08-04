@@ -25,7 +25,7 @@ class UpdateSpesialisasiRequest extends FormRequest
     {
         $id = $this->route('spesialisasi')->id;
         return [
-            'nama_spesialisasi' => 'required|regex:/^[a-zA-Z]+$/u|unique:spesalisasis,nama_spesialisasi,' . $id
+            'nama_spesialisasi' => 'required|unique:spesalisasis,nama_spesialisasi,' . $id
         ];
     }
     public function messages()
@@ -33,7 +33,7 @@ class UpdateSpesialisasiRequest extends FormRequest
         return [
             'nama_spesialisasi.required' => 'Data Spesialisasi cannot be empty',
             'nama_spesialisasi.unique' => 'Data Spesialisasi already exists',
-            'nama_spesialisasi.regex' => 'Data Spesialisasi cannot be characters @!_?',
+
         ];
     }
 }
