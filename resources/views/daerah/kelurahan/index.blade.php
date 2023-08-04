@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="show-import"
+                            {{-- <div class="show-import"
                                 @if ($errors->has('import-file')) style="display: block;" @else style="display: none;" @endif>
                                 <div class="custom-file">
                                     <form action="{{ route('kelurahan.import') }}" method="POST"
@@ -55,7 +55,7 @@
                                         <br>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('kelurahan.index') }}">
                                     <div class="form-row">
