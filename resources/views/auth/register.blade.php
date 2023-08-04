@@ -242,6 +242,19 @@
                                     
 
                                     <div class="form-group">
+                                        <label for="role">Role</label>
+                                        <select id="role" name="role" class="form-control rounded-input @error('role') is-invalid @enderror">
+                                            <option value="user">User</option>
+                                            <option value="pengajar">Pengajar</option>
+                                        </select>
+                                        @error('role')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>                                    
+
+                                    <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
                                             Registrasi
                                         </button>
