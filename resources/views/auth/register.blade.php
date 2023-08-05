@@ -167,8 +167,8 @@
                                     <div class="form-group">
                                         <label for="user_type">Daftar sebagai:</label><br>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="user_type" id="user_pengajar" value="user_pengajar" @if(old('user_type') === 'user_pengajar') checked @endif>
-                                            <label class="form-check-label" for="user_pengajar">Pengajar</label>
+                                            <input class="form-check-input" type="radio" name="user_type" id="user-pengajar" value="user-pengajar" @if(old('user_type') === 'user-pengajar') checked @endif>
+                                            <label class="form-check-label" for="user-pengajar">Pengajar</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="user_type" id="user" value="user" @if(old('user_type') === 'user') checked @endif>
