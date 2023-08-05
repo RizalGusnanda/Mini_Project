@@ -4,10 +4,10 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Spesialisasi List</h1>
+            <h1>Kategori Spesialisasi</h1>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Spesialisasi Manajement</h2>
+            <h2 class="section-title">Spesialisasi Management</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -17,42 +17,47 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-primary">
-                        <div class="card-header">
-                            <h4>Spesialisasi List</h4>
-                            <div class="card-header-action">
-                            <a class="btn btn-icon icon-left btn-primary" href="{{ route('spesialisasi.create') }}">Create
-                                    New</a>
-                                <a class="btn btn-info btn-primary active search"> <i class="fa fa-search"
-                                        aria-hidden="true"></i> Search Template</a>
-                            </div>
+                    <div class="card-header">
+                    <h4>Spesialisasi List</h4>
+                    <div class="card-header-action" style="display: flex; align-items: center;">
+                        <form class="form-inline mr-auto" action="#" method="GET">
+                        <div class="input-group">
+                        <input type="text" name="nama_spesialisasi" class="form-control" id="nama_spesialisasi" placeholder="Cari Spesialisasi" 
+                            onfocus="clearPlaceholder()" onblur="restorePlaceholder()">
+                        <div class="input-group-append">
+                            <button class="btn btn-icon icon-left btn-primary ml-2" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
-                        <div class="card-body">
-                            <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="#">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="role">Search</label>
-                                            <input type="text" name="nama_spesialisasi" class="form-control" id="nama_spesialisasi"
-                                                placeholder="Cari Spesialisasi">
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
+                    </div>
+
+                    <script>
+                        function clearPlaceholder() {
+                            var input = document.getElementById("nama_spesialisasi");
+                            input.placeholder = "";
+                        }
+
+                        function restorePlaceholder() {
+                            var input = document.getElementById("nama_spesialisasi");
+                            input.placeholder = "Cari Spesialisasi";
+                        }
+                    </script>
+                        </form>
+                        <a class="btn btn-icon icon-left btn-primary ml-2" href="{{ route('spesialisasi.create') }}">Create New</a>
+                    </div>
+                </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th style="text-align: center;">ID Spesialisasi</th>
+                                            <th style="text-align: center; width: 10%;">ID Spesialisasi</th>
                                             <th style="text-align: center;">Nama Spesialisasi</th>
                                             <th style="text-align: center;">Action</th>
                                         </tr>
                                         @foreach ($spesalisasis as $key => $nama_spesialisasi)
                                             <tr>
-                                                <td>{{ ($spesalisasis->currentPage() - 1) * $spesalisasis->perPage() + $key + 1 }}</td>
-                                                <td>{{ $nama_spesialisasi->nama_spesialisasi }}</td>
+                                                <td style="text-align: center;">{{ ($spesalisasis->currentPage() - 1) * $spesalisasis->perPage() + $key + 1 }}</td>
+                                                <td style="text-align: center;">{{ $nama_spesialisasi->nama_spesialisasi }}</td>
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">
                                                     <a href="{{ route('spesialisasi.edit', $nama_spesialisasi->id) }}" class="btn btn-sm btn-info btn-icon"><i class="fas fa-edit"></i> Edit</a>
