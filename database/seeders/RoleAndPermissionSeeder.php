@@ -93,8 +93,12 @@ class RoleAndPermissionSeeder extends Seeder
         $roleUser = Role::create(['name' => 'user']);
         $roleUser->givePermissionTo([
             'dashboard',
-            'user.management',
-            'user.index',
+        ]);
+
+        // create pegawai 
+        $roleUser = Role::create(['name' => 'user-pengajar']);
+        $roleUser->givePermissionTo([
+            'dashboard',
         ]);
 
         // create Super Admin
@@ -104,7 +108,14 @@ class RoleAndPermissionSeeder extends Seeder
         //assign user id 1 ke super admin
         $user = User::find(1);
         $user->assignRole('super-admin');
-        $user = User::find(2);
-        $user->assignRole('user');
+
+        // //assign user id 2 ke super admin
+        // $user = User::find(2);
+        // $user->assignRole('user-pengajar');
+
+        // //assign user id 3 ke user
+        // $user = User::find(3);
+        // $user->assignRole('user');
+
     }
 }

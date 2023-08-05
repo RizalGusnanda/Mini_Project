@@ -165,17 +165,21 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="role">Role</label>
-                                        <select id="role" name="role" class="form-control rounded-input @error('role') is-invalid @enderror">
-                                            <option value="user">User</option>
-                                            <option value="pengajar">Pengajar</option>
-                                        </select>
-                                        @error('role')
-                                            <div class="invalid-feedback">
+                                        <label for="user_type">Daftar sebagai:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="user_type" id="user_pengajar" value="user_pengajar" @if(old('user_type') === 'user_pengajar') checked @endif>
+                                            <label class="form-check-label" for="user_pengajar">Pengajar</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="user_type" id="user" value="user" @if(old('user_type') === 'user') checked @endif>
+                                            <label class="form-check-label" for="user">User</label>
+                                        </div>
+                                        @error('user_type')
+                                            <div class="invalid-feedback d-block">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>                                    
+                                    </div>                                  
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
