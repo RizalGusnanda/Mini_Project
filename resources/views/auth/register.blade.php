@@ -26,6 +26,10 @@
             margin: 0;
         }
 
+        .input-container label {
+            margin-bottom: 20px;
+        }
+
         .full-height-card {
             height: 100vh;
             width: 100vw;
@@ -53,9 +57,10 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 30px;
             margin-left: 50px;
             margin-right: 50px;
+            
         }
 
         /* Input style */
@@ -67,7 +72,6 @@
             border: 1px solid #ccc;
         }
 
-        /* Button style */
         .input-container button {
             border-radius: 15px;
             padding: 10px;
@@ -75,10 +79,54 @@
 
         .text-link {
             color: #1F3C88;
+
         }
 
         .text-link-register {
             color: #EE6F57;
+        }
+
+        .role-card {
+            cursor: pointer;
+            width: 230px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .role-card img {
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .role-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .role-card.active {
+            box-shadow: 0 0 25px #070D59;
+        }
+
+        #user-pengajar-card {
+            background-color: #d2d8e7;
+        }
+
+        #user-card {
+            background-color: #d2d8e7;
+        }
+
+        .role-card .card-body {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-card .card-body h5 {
+            margin-left: 30px;
+            color: #070D59;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -96,7 +144,7 @@
                             </div>
                             <div class="col mt-5">
                                 <img src="{{ asset('assets/img/avatar/cuate.png') }}" alt="" srcset=""
-                                    style="width: 100%">
+                                    style="width: 100%" >
                             </div>
                         </div>
                     </div>
@@ -108,17 +156,44 @@
                             <div class="col mt-5 welcome-text">
                                 <h3>Registrasi</h3>
                             </div>
-                            <div class="col mt-4 welcome-text">
-                                <p>Daftar untuk mendapatkan akun.</p>
-                            </div>
 
                             <div class="input-container">
                                 <form action="{{ route('register') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
+                                        <label for="user_type">Pilih role sebelum melakukan registrasi!</label><br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card role-card" id="user-pengajar-card"
+                                                    onclick="selectRole('user-pengajar')">
+                                                    <div class="card-body">
+                                                        <img src="{{ asset('assets/img/avatar/pengajar.png') }}"
+                                                            alt="Pengajar">
+                                                        <h5 class="card-title">Tutor</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card role-card" id="user-card" onclick="selectRole('user')">
+                                                    <div class="card-body">
+                                                        <img src="{{ asset('assets/img/avatar/user.png') }}"
+                                                            alt="User">
+                                                        <h5 class="card-title">Siswa</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="user_type" name="user_type">
+                                        @error('user_type')
+                                            <div class="invalid-feedback d-block">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="first_name">Full Name</label>
-                                        <input id="first_name" type="text" name="name"
-                                            value="{{ old('name') }}"
+                                        <input id="first_name" type="text" name="name" value="{{ old('name') }}"
                                             class="form-control @error('name') is-invalid @enderror"
                                             placeholder="Masukkan Nama Lengkap" autofocus>
                                         @error('name')
@@ -130,16 +205,16 @@
 
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email"
-                                            value="{{ old('email') }}"
-                                            class="form-control @error('email') is-invalid @enderror"
-                                            placeholder="Masukkan Alamat Email">
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" placeholder="Masukkan Alamat Email">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
+
 
                                     <div class="form-group">
                                         <label for="password" class="d-block">Password</label>
@@ -164,31 +239,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="user_type">Daftar sebagai:</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="user_type" id="user-pengajar" value="user-pengajar" @if(old('user_type') === 'user-pengajar') checked @endif>
-                                            <label class="form-check-label" for="user-pengajar">Pengajar</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="user_type" id="user" value="user" @if(old('user_type') === 'user') checked @endif>
-                                            <label class="form-check-label" for="user">User</label>
-                                        </div>
-                                        @error('user_type')
-                                            <div class="invalid-feedback d-block">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>                                  
+                                    
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                            Register
+                                            Registrasi
                                         </button>
                                     </div>
                                 </form>
                                 <div class="mt-5 text-muted text-center">
-                                    <a href="" class="text-link">Sudah punya akun?</a> <a href="/login" class="text-link-register">MASUK</a>
+                                    <a href="" class="text-link">Sudah punya akun?</a> <a href="/login"
+                                        class="text-link-register">MASUK</a>
                                 </div>
                                 <div class="simple-footer">
                                     Copyright &copy; Stisla 2018
@@ -200,6 +261,18 @@
             </div>
         </section>
     </div>
+
+    <script>
+        // Script to handle role selection
+        function selectRole(role) {
+            document.getElementById('user_type').value = role;
+            var cards = document.getElementsByClassName('role-card');
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].classList.remove('active');
+            }
+            document.getElementById(role + '-card').classList.add('active');
+        }
+    </script>
 
     <!-- General JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -224,6 +297,7 @@
 
     <!-- Page Specific JS File -->
     <script src="../assets/js/page/auth-register.js"></script>
+
 </body>
 
 </html>
