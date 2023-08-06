@@ -17,16 +17,17 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-primary">
-                        <div class="card-header">
-                            <h4>Spesialisasi List</h4>
-                            <div class="card-header-action">
-
-                            <a class="btn btn-icon icon-left btn-primary" href="{{ route('spesialisasi.create') }}">Create
-
-                                    New</a>
-                                <a class="btn btn-info btn-primary active search"> <i class="fa fa-search"
-                                        aria-hidden="true"></i> Search Template</a>
-                            </div>
+                    <div class="card-header">
+                    <h4>Spesialisasi List</h4>
+                    <div class="card-header-action" style="display: flex; align-items: center;">
+                        <form class="form-inline mr-auto" action="#" method="GET">
+                        <div class="input-group">
+                        <input type="text" name="nama_spesialisasi" class="form-control" id="nama_spesialisasi" placeholder="Cari Spesialisasi" 
+                            onfocus="clearPlaceholder()" onblur="restorePlaceholder()">
+                        <div class="input-group-append">
+                            <button class="btn btn-icon icon-left btn-primary ml-2" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
                     </div>
 
