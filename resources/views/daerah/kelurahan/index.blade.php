@@ -18,18 +18,23 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Kelurahan List</h4>
+                            <h4>List Kelurahan</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('kelurahan.create') }}">Create
-                                    New</a>
+                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('kelurahan.create') }}">Tambah
+                                  Kelurahan Baru</a> 
+                                <a class="btn btn-info btn-primary active import">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    Import Kelurahan</a>  
                                 <a class="btn btn-info btn-primary active search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    Search</a>
+                                    Cari Kelurahan</a> 
                             </div>
                         </div>
                         <div class="card-body">
-                            {{-- <div class="show-import"
+                            <div class="show-import"
                                 @if ($errors->has('import-file')) style="display: block;" @else style="display: none;" @endif>
+                                <p class="text-warning mx-0 my-0 font-weight-bold">type:xlsx, csv,
+                                    xls|max:10mb</p>
                                 <div class="custom-file">
                                     <form action="{{ route('kelurahan.import') }}" method="POST"
                                         enctype="multipart/form-data">
@@ -55,18 +60,29 @@
                                         <br>
                                     </form>
                                 </div>
-                            </div> --}}
-                            <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="{{ route('kelurahan.index') }}">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <input type="text" name="kelurahan" class="form-control" id="kelurahan"
-                                                placeholder="Search....">
+                            </div>
+                            <div class="show-search mb-3" style="display: none;">
+                            <form id="filter-form" method="GET" action="{{ route('kelurahan.index') }}">
+                                    <div class="form-row text-center">
+                                        <div class="form-group col-md-4">
+                                            <select class="form-control" name="filter_kecamatan" id="filter_kecamatan">
+                                                <option value="">-- Pilih Kecamatan --</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                    <option value="{{ $kecamatan->id }}"
+                                                        @if ($kecamatan->id == $kecamatanSelected) selected @endif>
+                                                        {{ $kecamatan->kecamatan }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        {{-- <a class="btn btn-secondary" href="{{ route('kelurahan.index') }}">Reset</a> --}}
+                                        <div class="form-group col-md-6">
+                                            <input type="text" name="kelurahan" class="form-control" id="kelurahan"
+                                                placeholder="Search...." value="{{ app('request')->input('kelurahan') }}">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                            <a class="btn btn-secondary" href="{{ route('kelurahan.index') }}">Reset</a>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -74,7 +90,7 @@
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Kecamatan</th>
                                             <th>Kelurahan</th>
                                             <th class="text-center">Action</th>
@@ -137,7 +153,51 @@
             });
         });
     </script>
+<script>
+        const form = document.getElementById('filter-form');
+        const selectKecamatan = document.getElementById('filter_kecamatan');
+        selectKecamatan.addEventListener('change', function() {
+            form.submit();
+        });
+</script>
+
+
+    <script>
+       const kecamatanSelect = document.getElementById('filter_kecamatan');
+        const kelurahanInput = document.getElementById('kelurahan');
+        const showSearchElement = document.querySelector('.show-search');
+        const resetButton = document.querySelector('.btn-secondary');
+        let initialKecamatanValue = kecamatanSelect.value;
+        let initialKelurahanValue = kelurahanInput.value;
+        function updateDisplay() {
+            const kecamatanValue = kecamatanSelect.value;
+            const kelurahanValue = kelurahanInput.value.trim();
+            if (kecamatanValue !== '' || kelurahanValue !== '') {
+                showSearchElement.style.display = 'block';
+            } else {
+                showSearchElement.style.display = 'none';
+            }
+        }
+        kecamatanSelect.addEventListener('change', function() {
+            updateDisplay();
+        });
+        kelurahanInput.addEventListener('input', function() {
+            updateDisplay();
+        });
+        resetButton.addEventListener('click', function() {
+            initialKecamatanValue = '';
+            initialKelurahanValue = '';
+            kecamatanSelect.value = '';
+            kelurahanInput.value = '';
+            showSearchElement.style.display = 'none';
+        });
+        window.addEventListener('load', function() {
+            updateDisplay();
+        });
+    </script>
 @endpush
 
+
 @push('customStyle')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 @endpush
