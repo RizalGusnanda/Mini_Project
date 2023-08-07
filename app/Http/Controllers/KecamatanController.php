@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\ImportKecamatanRequest;
+use App\Imports\KecamatansImport;
 use App\Models\Kecamatan;
 use App\Http\Requests\StoreKecamatanRequest;
 use App\Http\Requests\UpdateKecamatanRequest;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class KecamatanController extends Controller
@@ -40,7 +42,7 @@ class KecamatanController extends Controller
         Kecamatan::create([
             'kecamatan' => $request->kecamatan,
         ]);
-        return redirect()->route('kecamatan.index')->with('success', 'Create data successfully.');
+        return redirect()->route('kecamatan.index')->with('success', 'Data Kecamatan berhasil ditambahkan.');
     }
 
     public function show(Kecamatan $kecamatan)
@@ -62,22 +64,32 @@ class KecamatanController extends Controller
         $kecamatan->update($request->all());
 
         return redirect()->route('kecamatan.index')
-            ->with('success', 'Updated data successfully.');
+            ->with('success', 'Data Kecamatan berhasil diperbarui.');
     }
 
     public function destroy(Kecamatan $kecamatan)
     {
         try {
             $kecamatan->delete();
-            return redirect()->route('kecamatan.index')->with('success', 'Deleted data Kecamatan successfully');
+            return redirect()->route('kecamatan.index')->with('success', 'Data Kecamatan berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
             if ($error_code == 1451) {
                 return redirect()->route('kecamatan.index')
                     ->with('error', 'Data Kecamatan used in another table');
             } else {
-                return redirect()->route('kecamatan.index')->with('success', 'Deleted data Kecamatan successfully');
+                return redirect()->route('kecamatan.index')->with('success', 'Data Kecamatan berhasil diperbarui');
             }
+        }
+    }
+    public function import(ImportKecamatanRequest $request)
+    {
+        try {
+            $file = $request->file('import-file');
+            Excel::import(new KecamatansImport, $file);
+            return redirect()->route('kecamatan.index')->with('success', 'File data Kecamatan berhasil diimport.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 }

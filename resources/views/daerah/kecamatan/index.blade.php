@@ -19,34 +19,80 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <h4>Kecamatan List</h4>
+                            <div class="card-header-action" style="display: flex; align-items: center;">
+                                    <form class="form-inline mr-auto" action="#" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" name="kecamatan" class="form-control" id="kecamatan" placeholder="Cari" 
+                                            onfocus="clearPlaceholder()" onblur="restorePlaceholder()">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-icon icon-left btn-primary ml-2" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                             </div>
+                            <style>
+                            .btn-primary {
+                            margin-right: 10px;
+                            }
+                        </style>
+                             <script>
+                                function clearPlaceholder() {
+                                    var input = document.getElementById("kecamatan");
+                                    input.placeholder = "";
+                                }
+
+                                function restorePlaceholder() {
+                                    var input = document.getElementById("kecamatan");
+                                    input.placeholder = "Cari";
+                                }
+                            </script>
+                            </form>
+                            </div>
+
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('kecamatan.create') }}">Create
-                                    New</a>
-                                <a class="btn btn-info btn-primary active search">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    Search</a>
+                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('kecamatan.create') }}">Tambah Kecamatan Baru</a>
+                                <a class="btn btn-info btn-primary active import">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    Import Kecamatan</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="{{ route('kecamatan.index') }}">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <input type="text" name="kecamatan" class="form-control" id="kecamatan"
-                                                placeholder="Search....">
+                        <div class="show-import"
+                                @if ($errors->has('import-file')) style="display: block;" @else style="display: none;" @endif></a>
+                                <p class="text-warning mx-0 my-0 font-weight-bold">type:xlsx, csv,
+                                    xls|max:10mb</p>
+                                <div class="custom-file">
+                                    <form action="{{ route('kecamatan.import') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        @method('POST')
+                                        <label
+                                            class="custom-file-label @error('import-file', 'ImportKecamatanRequest') is-invalid @enderror"
+                                            for="file-upload">Pilih File
+                                        </label>
+                                        <input type="file" id="file-upload" class="custom-file-input" name="import-file"
+                                            data-id="send-import">
+                                        <br />
+                                        @error('import-file')
+                                            <div class="invalid-feedback d-flex mb-10" role="alert">
+                                                <div class="alert_alert-dange_mt-1_mb-1 mt-1 ml-1">
+                                                    {{ $message }}
+                                                </div>
+                                            </div>
+                                        @enderror
+                                        <br />
+                                        <div class="footer text-right">
+                                            <button class="btn btn-primary" data-id="submit-import">Import File</button>
                                         </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        {{-- <a class="btn btn-secondary" href="{{ route('kecamatan.index') }}">Reset</a> --}}
-                                    </div>
-                                </form>
+                                        <br>
+                                    </form>
+                                </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Kecamatan</th>
                                             <th class="text-center">Action</th>
                                         </tr>
@@ -67,7 +113,7 @@
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}">
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete </button>
+                                                                <i class="fas fa-times"></i> Hapus </button>
                                                         </form>
                                                     </div>
                                                 </td>
