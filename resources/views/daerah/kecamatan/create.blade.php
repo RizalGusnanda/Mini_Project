@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label for="kecamatan">Kecamatan</label>
                             <input type="text" class="form-control @error('kecamatan') is-invalid @enderror"
-                                id="kecamatan" name="kecamatan" placeholder="Enter Kecamatan">
+                                id="kecamatan" name="kecamatan" placeholder="Masukkan Kecamatan">
                             @error('kecamatan')
                                 <div class="invalid-feedback">
                                     {{ $message }}

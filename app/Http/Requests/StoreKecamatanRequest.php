@@ -24,7 +24,7 @@ class StoreKecamatanRequest extends FormRequest
     public function rules()
     {
         return [
-            'kecamatan' => 'required|unique:kecamatans,kecamatan|regex:/^[a-zA-Z]+$/u',
+            'kecamatan' => 'required|unique:kecamatans,kecamatan',
         ];
     }
 
@@ -33,7 +33,7 @@ class StoreKecamatanRequest extends FormRequest
         return [
             'kecamatan.required' => 'Data Kecamatan cannot be empty',
             'kecamatan.unique' => 'Data Kecamatan already exists',
-            'kecamatan.regex' => 'Data Kecamatan cannot be characters @!_?',
+           
         ];
     }
 }
