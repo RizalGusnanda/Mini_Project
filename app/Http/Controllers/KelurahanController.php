@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ImportKelurahanRequest;
+use App\Imports\KelurahansImport;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Http\Requests\StoreKelurahanRequest;
 use App\Http\Requests\UpdateKelurahanRequest;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KelurahanController extends Controller
 {
@@ -20,30 +23,31 @@ class KelurahanController extends Controller
         $kecamatans = Kecamatan::all();
         $kelurahanName = $request->input('kelurahan');
         $kecamatanIds = $request->input('kecamatan');
-        $kelurahan = $request->input('kelurahan');
+        $kecamatanSelected = $request->input('filter_kecamatan');
 
         $query = Kelurahan::select('kelurahans.id', 'kelurahans.id_kecamatan', 'kelurahans.kelurahan', 'kecamatans.kecamatan')
             ->leftJoin('kecamatans', 'kelurahans.id_kecamatan', '=', 'kecamatans.id')
-            ->when($request->input('kelurahan'), function ($query, $kelurahan) {
+            ->when($kelurahanName, function ($query, $kelurahan) {
                 return $query->where('kelurahans.kelurahan', 'like', '%' . $kelurahan . '%');
             })
-            ->when($request->input('kecamatan'), function ($query, $kecamatan) {
-                return $query->whereIn('kelurahans.id_kecamatan', $kecamatan);
+            ->when($kecamatanSelected, function ($query, $selectedKecamatan) {
+                return $query->where('kelurahans.id_kecamatan', $selectedKecamatan);
             })
             ->orderBy('kelurahans.id_kecamatan', 'asc')
             ->paginate(10);
         $kecamatanSelected = $request->input('kecamatan');
 
-        $query->appends(['kelurahan' => $kelurahanName, 'kecamatan' => $kecamatanIds]);
+        $query->appends(['kelurahan' => $kelurahanName, 'kecamatan' => $kecamatanIds, 'filter_kecamatan' => $kecamatanSelected]);
 
         return view('daerah.kelurahan.index')->with([
             'kelurahans' => $query,
-            'kecamatans' => $kecamatans,
+            'kecamatans' => $kecamatans, // Pastikan $kecamatans terdefinisi dengan benar
             'kelurahanName' => $kelurahanName,
             'kecamatanIds' => $kecamatanIds,
             'kecamatanSelected' => $kecamatanSelected,
-            'kelurahan' => $kelurahan,
-        ]);
+
+    ]);
+
     }
 
 
@@ -73,7 +77,7 @@ class KelurahanController extends Controller
         ]);
 
         return redirect()->route('kelurahan.index')
-            ->with('success', 'Create data successfully.');
+        ->with('success', 'Data Kelurahan dan Kecamatan berhasil ditambahkan.');   
     }
 
     /**
@@ -116,7 +120,7 @@ class KelurahanController extends Controller
         $kelurahan->update($request->all());
 
         return redirect()->route('kelurahan.index')
-            ->with('success', 'Updated data successfully.');
+        ->with('success', 'Data Kelurahan atau Kecamatan berhasil diperbarui.'); 
     }
 
 
@@ -130,15 +134,28 @@ class KelurahanController extends Controller
     {
         try {
             $kelurahan->delete();
-            return redirect()->route('kelurahan.index')->with('success', 'Deleted data Kelurahan successfully');
+            return redirect()->route('kelurahan.index')->with('success', 'Data Kelurahan dan Kecamatan berhasil dihapus.');
         } catch (\Illuminate\Database\QueryException $e) {
             $error_code = $e->errorInfo[1];
             if ($error_code == 1451) {
                 return redirect()->route('kelurahan.index')
-                    ->with('error', 'Data kelurahan used in another table');
+                ->with('error', 'Data Kelurahan sedang digunakan ditabel lain.');   
             } else {
-                return redirect()->route('kelurahan.index')->with('success', 'Deleted data Kelurahan successfully');
+                return redirect()->route('kelurahan.index')->with('success', 'Data Kelurahan dan Kecamatan berhasil dihapus.');
             }
         }
+    }
+
+    public function import(ImportKelurahanRequest $request)
+    {
+        try {
+            Excel::import(new KelurahansImport, $request->file('import-file')->store('import-files'));
+            return redirect()->route('kelurahan.index')->with('success', 'File data Kelurahan dan Kecamatan berhasil diimport.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+        Excel::import(new KelurahansImport, $file->store('import-files'));
+        return redirect()->route('kelurahan.index')->with('success', 'Import data Kelurahan berhasil');
     }
 }

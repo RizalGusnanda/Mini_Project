@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreKelurahanRequest extends FormRequest
+class ImportKelurahanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,16 @@ class StoreKelurahanRequest extends FormRequest
     public function rules()
     {
         return [
-            'kelurahan' => 'required|unique:kelurahans,kelurahan|regex:/^[a-zA-Z\s]+$/u',
-            'id_kecamatan' => 'required'
+            'import-file' => 'required|mimes:xlsx, csv, xls|max:10240'
         ];
     }
 
     public function messages()
     {
         return [
-            'id_kecamatan.required' => 'Data Kecamatan tidak boleh kosong',
-            'kelurahan.required' => 'Data Kelurahan tidak boleh kosong',
-            'kelurahan.unique' => 'Data Kelurahan sudah digunakan sebelumnya',
-            'kelurahan.regex' => 'Data Kelurahan tidak boleh mengandung @!_?',
+            'import-file.mimes' => 'Tipe file yang dimasukkan salah',
+            'import-file.required' => 'File excel tidak boleh kosong',
+            'import-file.max' => 'File excel melebihi 10mb',
         ];
     }
 }
