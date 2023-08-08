@@ -105,7 +105,7 @@
         }
 
         .role-card.active {
-            box-shadow: 0 0 25px #070D59;
+            box-shadow: 0 0 20px #070D59;
         }
 
         #user-pengajar-card {
@@ -123,7 +123,7 @@
             justify-content: center;
         }
 
-        .role-card .card-body h5 {
+        .role-card .card-body h4 {
             margin-left: 30px;
             color: #070D59;
             font-weight: bold;
@@ -169,7 +169,7 @@
                                                     <div class="card-body">
                                                         <img src="{{ asset('assets/img/avatar/pengajar.png') }}"
                                                             alt="Pengajar">
-                                                        <h5 class="card-title">Tutor</h5>
+                                                        <h4 class="card-title">Tutor</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                     <div class="card-body">
                                                         <img src="{{ asset('assets/img/avatar/user.png') }}"
                                                             alt="User">
-                                                        <h5 class="card-title">Siswa</h5>
+                                                        <h4 class="card-title">Siswa</h4>
                                                     </div>
                                                 </div>
                                             </div>
