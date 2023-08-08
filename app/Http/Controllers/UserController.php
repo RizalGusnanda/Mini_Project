@@ -12,6 +12,8 @@ use App\Imports\UsersImport;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class UserController extends Controller
@@ -39,13 +41,23 @@ class UserController extends Controller
             "name" => "Masuk User Page",
         ]);
 
-        // mengambil data
-        $users = DB::table('users')
+        /// mengambil data
+        $users = User::with('roles') // Eager load the 'roles' relationship
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
             })
+            ->when($request->input('roles'), function ($query, $roles) {
+                // The $roles parameter is an array of selected roles
+                // Filter users based on the selected roles
+                return $query->whereHas('roles', function (Builder $query) use ($roles) {
+                    $query->whereIn('name', $roles);
+                });
+            })
             ->select('id', 'name', 'email', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
+            ->select('id', 'name', 'email', DB::raw("DATE_FORMAT(users.email_verified_at, '%d %M %Y') as email_verified_at"))
             ->paginate(10);
+
+        $roles = Role::all();
         return view('users.index', compact('users'));
     }
 
@@ -68,12 +80,21 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        $validatedData = $request->validated();
         //simpan data
-        User::create([
+        $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+
+            'email_verified_at' => now(),
         ]);
+
+        // Assign roles based on the selected user_type
+        $roleName = ($validatedData['user_type'] === 'user') ? 'User' : 'User Pengajar';
+        $role = Role::where('name', $roleName)->first();
+        $user->assignRole($role);
+
         return redirect(route('user.index'))->with('success', 'Data Berhasil Ditambahkan');;
     }
 
@@ -113,6 +134,9 @@ class UserController extends Controller
         $validate = $request->validated();
 
         $user->update($validate);
+        if ($request->has('roles')) {
+            $user->syncRoles($request->roles);
+        }
         return redirect()->route('user.index')->with('success', 'User Berhasil Diupdate');
     }
 
