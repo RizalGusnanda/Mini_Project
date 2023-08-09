@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
-use App\Http\Controllers\ProfileAdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,14 +30,37 @@ use App\Http\Controllers\ProfileAdminController;
 |
 */
 
+Route::get('/login', function () {
+    if (auth()->check()) {
+        return redirect('/dashboard');
+    } else {
+        return view('auth/login');
+    }
+})->name('login');
+
+
+
+  // detailpage
 Route::get('/', function () {
-    return view('auth/login');
+    return view('layoutUser/detail');
 });
+Route::get('/tutor', function () {
+    return view('layoutUser/tutor');
+});
+Route::get('/landing', function () {
+    return view('layoutUser/landingpage');
+});
+Route::get('/profile-tutor', function () {
+    return view('layoutUser/profile-tutor');
+});
+
+
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
+
     //user list
 
     Route::prefix('user-management')->group(function () {
@@ -91,14 +114,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     });
 
-
-
     //membuat tampilan profile admin
     Route::get('/profileAdmin', function () {
         return view('profileAdmin.index');
     });
-    Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
-    Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
-
-
+    
 });
