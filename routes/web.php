@@ -40,6 +40,22 @@ Route::get('/login', function () {
 
 
 
+  // detailpage
+Route::get('/', function () {
+    return view('layoutUser/detail');
+});
+Route::get('/tutor', function () {
+    return view('layoutUser/tutor');
+});
+Route::get('/landing', function () {
+    return view('layoutUser/landingpage');
+});
+Route::get('/profile-tutor', function () {
+    return view('layoutUser/profile-tutor');
+});
+
+
+
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
@@ -101,17 +117,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //membuat tampilan profile admin
     Route::get('/profileAdmin', function () {
         return view('profileAdmin.index');
-    });
-
-    // detailpage
-    Route::get('/', function () {
-        return view('layoutUser/detail');
-    });
-    Route::get('/tutor', function () {
-        return view('layoutUser/tutor');
-    });
-    Route::get('/landing', function () {
-        return view('layoutUser/landingpage');
     });
     
 });
