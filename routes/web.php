@@ -101,5 +101,4 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
     Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
-
 });
