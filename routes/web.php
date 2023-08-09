@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
+use App\Http\Controllers\ProfileAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

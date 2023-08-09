@@ -93,6 +93,50 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4" style="border-radius: 15px;">
+                    <div class="card-header">Detail Akun</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('profile.update') }}">
+                            @csrf
+                            <!-- Form Group (username) -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <input class="form-control" id="inputUsername" type="text" name="username" value="{{ auth()->user()->name }}">
+                            </div>
+                            <!-- Form Group (email address) -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
+                                <input class="form-control" id="inputEmailAddress" type="email" name="email" value="{{ auth()->user()->email }}">
+                            </div>
+                            <!-- Form Row -->
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
+                                    <select id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
+                                        <option value="" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="Perempuan" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
+
+                                    @error('jenis_kelamin')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6">
+        <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
+        <input class="form-control" id="inputPhone" type="tel" name="telepon" value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+    </div>
+                            </div>
+                            <!-- Save changes button -->
+                            <button class="btn btn-primary" type="submit">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </form>
     </section>
 @endsection
