@@ -253,7 +253,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
-                    <a href="#" class="footer-site-logo d-block mb-4"><img src="img/GuruLink.png" alt=""></a>
+                    <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
                     <div style="display: flex; flex-direction: column;">
                         <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
                             cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
