@@ -37,6 +37,16 @@ Route::get('/login', function () {
         return view('auth/login');
     }
 })->name('login');
+ // detailpage
+ Route::get('/', function () {
+    return view('layoutUser/detail');
+});
+Route::get('/tutor', function () {
+    return view('layoutUser/tutor');
+});
+Route::get('/landing', function () {
+    return view('layoutUser/landingpage');
+});
 
 
 
@@ -103,15 +113,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return view('profileAdmin.index');
     });
 
-    // detailpage
-    Route::get('/', function () {
-        return view('layoutUser/detail');
-    });
-    Route::get('/tutor', function () {
-        return view('layoutUser/tutor');
-    });
-    Route::get('/landing', function () {
-        return view('layoutUser/landingpage');
-    });
+   
     
 });

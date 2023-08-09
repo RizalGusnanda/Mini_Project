@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
     
@@ -31,10 +32,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tutor.html">Tutor</a>
+                    <a class="nav-link" href="#">Tutor</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Tentang Kami</a>
@@ -243,13 +244,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
-                    <a href="#" class="footer-site-logo d-block mb-4"><img src="img/GuruLink.png" alt=""></a>
+                    <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
                     <div style="display: flex; flex-direction: column;">
                         <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
                             cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                     </div>
                 </div>
-  
+
                 <div class="col-md" style="margin-right: 100px;">
                     <div style="display: flex; flex-direction: column;">
                         <h5>Kontak Kami</h5>
@@ -261,7 +262,7 @@
                         </ul>
                     </div>
                 </div>
-  
+
                 <div class="col-md" style="margin-right: 10px;">
                     <div style="display: flex; flex-direction: column;">
                         <h5>Ikuti Kami</h5>
@@ -281,8 +282,8 @@
             </div>
         </div>
     </footer>
-  </section>
-  
+</section>
+<!-- End footer section -->
   
 <script src="js/bootstrap.min.js"></script>
 </body>
