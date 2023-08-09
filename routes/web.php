@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
-use App\Http\Controllers\ProfileAdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +47,9 @@ Route::get('/tutor', function () {
 Route::get('/landing', function () {
     return view('layoutUser/landingpage');
 });
+Route::get('/profile-tutor', function () {
+    return view('layoutUser/profile-tutor');
+});
 
 
 
@@ -54,6 +57,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
+
     //user list
 
     Route::prefix('user-management')->group(function () {
