@@ -79,12 +79,21 @@
         <div class="card-search">
             <div class="card-body">
                 <h5 class="card-title-search">Cari tutor sesuai kebutuhanmu</h5>
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="searchInput" class="sr-only">Cari</label>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Masukkan kata kunci">
-                    </div>
-                </form>
+                <div class="search-column">
+                  <form action="" class="search-form">
+                      <div class="search-input">
+                          <i class="material-icons">cast_for_education</i>
+                          <input type="text" name="search1" placeholder="Cari Tutor">
+                      </div>
+                      <div class="search-input">
+                          <i class="material-icons">location_on</i>
+                          <input type="text" name="search2" placeholder="Cari Lokasi">
+                      </div>
+                      <button type="submit">
+                          <i class="fas fa-search"></i>
+                      </button>
+                  </form>
+              </div>
             </div>
         </div>
     </div>

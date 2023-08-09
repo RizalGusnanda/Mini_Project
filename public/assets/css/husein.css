@@ -461,7 +461,57 @@ mt-50{
     margin-top: 20px;
   }
 
+  .card-search .search-form {
+    background: #F6F5F5;
+    display: flex;
+    border-radius: 15px;
+    font-weight: 200;
+    font-size: 16px;
+    overflow: hidden;
+  }
   
+  .search-input {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #ccc;
+    padding: 0 5px;
+    margin-right: 0px;
+    width: 650px;
+  }
+  
+  .search-input:last-child {
+    border-right: none;
+  }
+  
+  .search-input input[type="text"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .search-input i.material-icons {
+    margin-right: 5px;
+    color: #ccc;
+    
+  }
+  .search-input i{
+    margin-right: 5px;
+    color: #1305cf;
+    
+    
+  }
+  button {
+    border: none;
+    background: #F6F5F5;
+    padding: 5px 10px;
+    background-color: #1F3C88;
+  }
+  
+  button i {
+    color: #ffffff;
+  }
 
 
 
