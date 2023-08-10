@@ -71,9 +71,9 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-        <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-        <input class="form-control" id="inputPhone" type="tel" name="telepon" value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
-    </div>
+                                <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
+                                <input class="form-control" id="inputPhone" type="tel" name="telepon" value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                            </div>
                             </div>
                             <!-- Save changes button -->
                             <button class="btn btn-primary" type="submit">Simpan</button>
