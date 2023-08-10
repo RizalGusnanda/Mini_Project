@@ -36,17 +36,29 @@ Route::get('/login', function () {
 })->name('login');
   // detailpage
 Route::get('/', function () {
-    return view('layoutUser/detail');
+    return view('layoutUser/detailTutorPage');
 });
 Route::get('/tutor', function () {
-    return view('layoutUser/tutor');
+    return view('layoutUser/tutorPage');
 });
 Route::get('/landing', function () {
-    return view('layoutUser/landingpage');
+    return view('layoutUser/landingPage');
 });
 Route::get('/profile-tutor', function () {
     return view('layoutUser/profile-tutor');
 });
+Route::get('/paket', function () {
+    return view('layoutUser/paketPage');
+});
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
+Route::get('/riwayat', function () {
+    return view('layoutUser/riwayatPage');
+});
+
+
+
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
