@@ -4,6 +4,7 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -98,6 +99,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::prefix('daerah-management')->group(function () {
         Route::resource('kecamatan',KecamatanController::class);
+        
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
         
          // kelurahan

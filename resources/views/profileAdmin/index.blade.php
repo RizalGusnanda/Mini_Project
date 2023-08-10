@@ -24,15 +24,20 @@
                         <div class="card mb-4" style="border-radius: 15px;">
                             <div class="card-header">Foto Profile</div>
                             <div class="card-body text-center">
-                                <!-- Profile picture image-->
-                                <img class="img-account-profile rounded-circle mb-2"
-                                    src="{{ asset('image/' . auth()->user()->profile_picture) }}" alt=""
-                                    style="width: 190px; height: 190px;">
+                                @php
+                                    $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                                @endphp
+                                @if(file_exists(public_path($profileImagePath)))
+                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset($profileImagePath) }}" alt="" style="width: 150px; height: 150px;">
+                                @else
+                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset('path/to/default/image.jpg') }}" alt="" style="width: 150px; height: 150px;">
+                                @endif
+
                                 <!-- Profile picture help block-->
                                 <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                                 <!-- Profile picture upload button-->
                                 <input type="file" name="image" class="d-none" id="profile-picture-input">
-                                <label for="profile-picture-input" class="btn btn-primary">Upload new image</label>
+                                <label for="profile-picture-input" class="btn btn-primary">Unggah Foto Baru</label>
                             </div>
                         </div>
                     </div>
@@ -41,95 +46,52 @@
                         <div class="card mb-4" style="border-radius: 15px;">
                             <div class="card-header">Detail Akun</div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('profile.update') }}">
-                                    @csrf
-                                    <!-- Form Group (username) -->
-                                    <div class="mb-3">
-                                        <label class="small mb-1" for="inputUsername">Username</label>
-                                        <input class="form-control" id="inputUsername" type="text" name="username"
-                                            value="{{ auth()->user()->name }}">
-                                    </div>
-                                    <!-- Form Group (email address) -->
-                                    <div class="mb-3">
-                                        <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
-                                        <input class="form-control" id="inputEmailAddress" type="email" name="email"
-                                            value="{{ auth()->user()->email }}">
-                                    </div>
-                                    <!-- Form Row -->
-                                    <div class="row gx-3 mb-3">
-                                        <div class="col-md-6">
-                                            <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
-                                            <select id="jenis_kelamin"
-                                                class="form-control @error('jenis_kelamin') is-invalid @enderror"
-                                                name="jenis_kelamin">
-                                                <option value=""
-                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>
-                                                    Pilih Jenis Kelamin</option>
-                                                <option value="Laki-laki"
-                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Laki-laki' ? 'selected' : '' }}>
-                                                    Laki-laki</option>
-                                                <option value="Perempuan"
-                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>
-                                                    Perempuan</option>
-                                            </select>
-
-                                            @error('jenis_kelamin')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-                                            <input class="form-control" id="inputPhone" type="tel" name="telepon"
-                                                value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
-                                        </div>
-                                    </div>
-                                    <!-- Save changes button -->
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-8">
-                <!-- Account details card-->
-                <div class="card mb-4" style="border-radius: 15px;">
-                    <div class="card-header">Detail Akun</div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('profile.update') }}">
-                            @csrf
-                            <!-- Form Group (username) -->
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputUsername">Username</label>
-                                <input class="form-control" id="inputUsername" type="text" name="username" value="{{ auth()->user()->name }}">
-                            </div>
-                            <!-- Form Group (email address) -->
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
-                                <input class="form-control" id="inputEmailAddress" type="email" name="email" value="{{ auth()->user()->email }}">
-                            </div>
-                            <!-- Form Row -->
-                            <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
-                                    <select id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
-                                        <option value="" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>Pilih Jenis Kelamin</option>
-                                        <option value="Laki-laki" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                        <option value="Perempuan" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                                    </select>
-
-                                    @error('jenis_kelamin')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                <!-- Form Group (username) -->
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputUsername">Username</label>
+                                    <input class="form-control" id="inputUsername" type="text" name="username"
+                                        value="{{ auth()->user()->name }}">
                                 </div>
-                                <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-                                <input class="form-control" id="inputPhone" type="tel" name="telepon" value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
-                            </div>
+                                <!-- Form Group (email address) -->
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
+                                    <input class="form-control" id="inputEmailAddress" type="email" name="email"
+                                        value="{{ auth()->user()->email }}">
+                                </div>
+                                <!-- Form Row -->
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
+                                        <select id="jenis_kelamin"
+                                            class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                            name="jenis_kelamin">
+                                            <option value=""
+                                                {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>
+                                                Pilih Jenis Kelamin</option>
+                                            <option value="Laki-laki"
+                                                {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Laki-laki' ? 'selected' : '' }}>
+                                                Laki-laki</option>
+                                            <option value="Perempuan"
+                                                {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>
+                                                Perempuan</option>
+                                        </select>
+
+                                        @error('jenis_kelamin')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
+                                        <input class="form-control" id="inputPhone" type="tel" name="telepon"
+                                            value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                                    </div>
+                                </div>
+                                <!-- Save changes button -->
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,4 +124,5 @@
 @endpush
 
 @push('customStyle')
+    <!-- ... Kode style kustom lainnya ... -->
 @endpush
