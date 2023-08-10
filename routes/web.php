@@ -77,6 +77,13 @@ Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
 
+Route::get('/testimoni', function () {
+    return view('layoutUser/testimoni');
+});
+Route::get('/sertifikat', function () {
+    return view('layoutUser/sertifikat-tutor');
+});
+
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
