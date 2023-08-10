@@ -44,9 +44,7 @@ Route::get('/tutor', function () {
 Route::get('/landing', function () {
     return view('layoutUser/landingPage');
 });
-Route::get('/profile-tutor', function () {
-    return view('layoutUser/profile-tutor');
-});
+
 Route::get('/paket', function () {
     return view('layoutUser/paketPage');
 });
@@ -55,6 +53,9 @@ Route::get('/profileTutor', function () {
 });
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
+});
+Route::get('/testimoni', function () {
+    return view('layoutUser/testimoni');
 });
 
 
