@@ -1,133 +1,316 @@
 @extends('layoutUser.layout.index')
 
 @section('content')
-<style>
-body{
-    background-color: white;
-}
-</style>
-<section class="foto-Profile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <!-- Card Foto Profile -->
-                <div class="card foto-Profile">
-                <label for="picture" class="plus-icon">
-                    <i class="fas fa-plus"></i>
-                </label>
-                <input type="file" name="image" class="d-none" id="picture">
-                <img class="profile-pic" src="assets/img/tutor1.jpeg" alt="Profile Picture">
-            </div>
-                <div class="card-menu">
-                    <div class="menu">
-                        <a href="/tutor">
-                        <div class="menu-item">
-                            <i class="fas fa-user"></i>
-                            <span>Profile</span>
-                        </div>
-                        </a>
-                        <div class="menu-item">
-                            <i class="fas fa-info-circle"></i>
-                            <span>Detail Tutor</span>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Keluar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <!-- Card Header "Cari tutor sesuai kebutuhanmu" -->
-                <div class="card-header-profilTutor">
-                    <div class="card-body">
-                        <h5 class="card-title-search">Informasi Tutor</h5>
-                    </div>
-                </div>
-                
-                <!-- Card Formulir Edit Profile -->
-                <div class="card-formulir">
-                    <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
-                            @csrf
-                           
-                <div class="mb-3">
-                    <label for="inputUsername" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="inputUsername" name="username" >
-                </div>
-                <div class="mb-3">
-                    <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" >
-                </div>
-                <div class="mb-3">
-                    <label for="inputAlamat" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="inputAlamat" name="alamat" value="">
-                </div>
-                <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label for="Kelurahan" class="small mb-1">Kelurahan</label>
-                                    <input type="text" class="form-control" id="inputKelurahan" name="kelurahan" value="#">
-                                </div>
-                                <div class="col-md-6">
-                                <label class="small mb-1" for="inputKecamatan">Kecamatan</label>
-                                <input class="form-control" id="inputKecamatan"  name="Kecamatan" value="#">
-                            </div>
-                            </div>
-                    </div>
-                    <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
-                                    <select id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
-                                     
-                                    </select>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+    <section class="foto-Profile">
 
-                                   
-                                </div>
-                                <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-                                <input class="form-control" id="inputPhone" type="tel" name="telepon" value="">
-                            </div>
-                            </div>
-                            <div class="row gx-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="Pendidikan" class="small mb-1">Pendidikan Terakhir</label>
-                                <select id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
-                                        
-                                    </select>
-                            </div>
-                                <div class="col-md-6">
-                                <label class="small mb-1" for="inputJurusan">Jurusan</label>
-                                <input class="form-control" id="inputJurusan"  name="jurusan" value="#">
-                            </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputInstansi" class="form-label">Instansi</label>
-                                <input type="email" class="form-control" id="inputEmail" name="email" value="#">
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputBank" class="form-label">Rekening Bank</label>
-                                <select id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
-                                      
-                                    </select>
-                                  
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputRekening" class="form-label">Nomor Rekening</label>
-                                <input type="number" class="form-control" id="inputRekening" name="rekening">
-                            </div>
-                            <div class="text-center mt-4"> <!-- Tambahkan div untuk mengatur tombol di tengah form -->
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </div>
-                        </form>
-                    </div>
-                    </div>
-                   
-                </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</section>
+        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Card Foto Profile -->
+                        <div class="card foto-Profile">
+                            <label for="picture" class="plus-icon">
+                                <i class="fas fa-plus"></i>
+                            </label>
+                            <input type="file" name="image" class="d-none" id="picture">
+                            @php
+                                $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                            @endphp
+                            @if (file_exists(public_path($profileImagePath)))
+                                <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt=""
+                                    style="width: 150px; height: 150px;">
+                            @else
+                                <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                    style="width: 150px; height: 150px;">
+                            @endif
+                        </div>
+                        <div class="card-menu">
+                            <div class="menu">
+                                <a href="/tutor">
+                                    <div class="menu-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>Profile</span>
+                                    </div>
+                                </a>
+                                <div class="menu-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Detail Tutor</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Keluar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <!-- Card Header "Cari tutor sesuai kebutuhanmu" -->
+                        <div class="card-header-profilTutor">
+                            <div class="card-body">
+                                <h5 class="card-title-search">Informasi Tutor</h5>
+                            </div>
+                        </div>
+
+                        <!-- Card Formulir Edit Profile -->
+                        <div class="card-formulir">
+                            <div class="card-body">
+                                <form action="#" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputUsername">Username</label>
+                                        <input class="form-control" id="inputUsername" type="text" name="username"
+                                            value="{{ auth()->user()->name }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
+                                        <input class="form-control" id="inputEmailAddress" type="email" name="email"
+                                            value="{{ auth()->user()->email }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputAlamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control" id="inputAlamat" name="alamat"
+                                            value="{{ old('alamat', optional(auth()->user()->profile)->alamat) }}">
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="id_kecamatans" class="small mb-1">Kecamatan</label>
+                                            <select id="id_kecamatans"
+                                                class="form-control @error('id_kecamatans') is-invalid @enderror"
+                                                name="id_kecamatans">
+                                                <option value="">Pilih Kecamatan</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                    <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
+                                                        {{ $kecamatan->kecamatan }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('id_kecamatans')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="id_kelurahans" class="small mb-1">Kelurahan</label>
+                                            <select id="id_kelurahans"
+                                                class="form-control @error('id_kelurahans') is-invalid @enderror"
+                                                name="id_kelurahans" disabled>
+                                                <option value="">Pilih Kelurahan</option>
+                                            </select>
+                                            @error('id_kelurahans')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
+                                            <select id="jenis_kelamin"
+                                                class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                                name="jenis_kelamin">
+                                                <option value=""
+                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>
+                                                    Pilih Jenis Kelamin</option>
+                                                <option value="Laki-laki"
+                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Laki-laki' ? 'selected' : '' }}>
+                                                    Laki-laki</option>
+                                                <option value="Perempuan"
+                                                    {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>
+                                                    Perempuan</option>
+                                            </select>
+
+                                            @error('jenis_kelamin')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
+                                            <input class="form-control" id="inputPhone" type="tel" name="telepon"
+                                                value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                                        </div>
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="pendidikan" class="small mb-1">Pendidikan Terakhir</label>
+                                            <input class="form-control" id="pendidikan" type="tel" name="pendidikan"
+                                                value="{{ old('pendidikan', optional(auth()->user()->profile)->pendidikan) }}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="jurusan" class="small mb-1">Jurusan</label>
+                                            <input class="form-control" id="jurusan" type="tel" name="jurusan"
+                                                value="{{ old('jurusan', optional(auth()->user()->profile)->jurusan) }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="instansi" class="form-label">Instansi</label>
+                                        <input class="form-control" id="instansi" type="instansi" name="instansi"
+                                            value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="bank" class="form-label">Rekening Bank</label>
+                                        <select id="bank" class="form-control @error('bank') is-invalid @enderror"
+                                            name="bank">
+                                            <option value=""
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === null ? 'selected' : '' }}>
+                                                Pilih Bank Tujuan</option>
+                                            <option value="BRI"
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BRI' ? 'selected' : '' }}>
+                                                BRI</option>
+                                            <option value="BCA"
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BCA' ? 'selected' : '' }}>
+                                                BCA</option>
+                                            <option value="BNI"
+                                                {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
+                                                BNI</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="norek" class="form-label">Nomor Rekening</label>
+                                        <input class="form-control" id="norek" type="norek" name="norek"
+                                            value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <!-- Tambahkan div untuk mengatur tombol di tengah form -->
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </form>
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#id_kecamatans').change(function() {
+                var id_kecamatans = this.value;
+                $('#id_kelurahans').html('<option value="">Pilih Nama Kelurahan</option>');
+                if ($(this).val() == '') {
+                    $('#id_kelurahans').attr('disabled', true);
+                }
+                else {
+                    $('#id_kelurahans').removeAttr('disabled', false);
+                }
+                var id_kecamatans = $(this).val();
+                $.ajax({
+                    url: '{{ route('get-kelurahan') }}',
+                    method: 'GET',
+                    dataType: 'json',
+                    data: {
+                        kecamatan_id: id_kecamatans,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        var kelurahanDropdown = $('#id_kelurahans');
+                        kelurahanDropdown.empty();
+                        kelurahanDropdown.html(
+                            '<option value="">Pilih Nama Kelurahan</option>');
+                        $.each(response['kelurahans'], function(index, val) {
+                            console.log('<option value="' + val.id +
+                                '"> ' + val
+                                .kelurahan + ' </option>');
+                            kelurahanDropdown.append('<option value="' + val.id +
+                                '"> ' + val
+                                .kelurahan + ' </option>')
+                        });
+                    }
+                });
+            });
+
+            var selectKecamatanId;
+            var selectKelurahanId;
+            if (selectKecamatanId == null) {
+                selectKecamatanId = '';
+            } else {
+                selectKecamatanId =  "{{$profile->id_kecamatans}}";
+            }
+
+            if (selectKelurahanId == null) {
+                selectKelurahanId = '';
+            } else {
+                selectKelurahanId = "{{ optional(auth()->user()->profile->kelurahan)->id }}";
+            }
+
+            var getKelurahanUrl = '{{ route('get-kelurahan') }}';
+
+            // Mengisi dropdown Kecamatan
+            // $.ajax({
+            //     url: '{{ route('get-kecamatan') }}',
+            //     method: 'GET',
+            //     dataType: 'json',
+            //     success: function(response) {
+            //         console.log(selectKecamatanId);
+            //         console.log(response);
+            //         $('#id_kecamatans').empty();
+            //         $('#id_kecamatans').append('<option value="">Pilih Kecamatan</option>');
+            //         $.each(response, function(key, value) {
+            //             $('#id_kecamatans').append('<option value="' + value.id + '">' + value
+            //                 .nama_kecamatan + '</option>');
+            //         });
+            //         $("#id_kecamatans option[value='" + selectKecamatanId + "']").attr("selected",
+            //             "selected");
+            //     }
+            // });
+
+            // Mengisi dropdown Kelurahan sesuai dengan Kecamatan yang terpilih
+            if (selectKecamatanId != null) {
+                if ($("#id_kecamatans").val() != null) {
+                    $('#id_kelurahans').removeAttr('disabled', true);
+                }
+                var selectkelProfile = "{{ $profile->id_kelurahans }}";
+                var idKecamatanSelected  = $("#id_kecamatans").val();
+                console.log(idKecamatanSelected);
+                $.ajax({
+                    url: '/load-filter',
+                    method: 'POST',
+                    data: {
+                        id: idKecamatanSelected,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        $('#id_kelurahans').empty();
+                        $('#id_kelurahans').append('<option value="">Pilih Kelurahan</option>');
+                        $.each(response['kelurahans'], function(key, value) {
+                            $('#id_kelurahans').append('<option value="' + value.id + '">' +
+                                value.kelurahan + '</option>');
+                        });
+                        $("#id_kelurahans option[value='" + selectkelProfile + "']").attr("selected",
+                            "selected");
+                    }
+                });
+            }
+            // success: function(response) {
+            //     console.log(response);
+            //     var kelurahanDropdown = $('#id_kelurahans');
+            //     kelurahanDropdown.empty();
+            //     kelurahanDropdown.append('<option value="">Pilih Nama Kelurahan</option>');
+            //     $.each(response['kelurahans'], function(index, kelurahan) {
+            //         kelurahanDropdown.append('<option value="' + kelurahan.id + '">' + kelurahan
+            //             .nama_kelurahan + '</option>');
+            //     });
+            // }
+
+        });
+    </script>
 @endsection
