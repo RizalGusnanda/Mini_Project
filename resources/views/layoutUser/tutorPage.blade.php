@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
     
@@ -79,21 +78,12 @@
         <div class="card-search">
             <div class="card-body">
                 <h5 class="card-title-search">Cari tutor sesuai kebutuhanmu</h5>
-                <div class="search-column">
-                  <form action="" class="search-form">
-                      <div class="search-input">
-                          <i class="material-icons">cast_for_education</i>
-                          <input type="text" name="search1" placeholder="Cari Tutor">
-                      </div>
-                      <div class="search-input">
-                          <i class="material-icons">location_on</i>
-                          <input type="text" name="search2" placeholder="Cari Lokasi">
-                      </div>
-                      <button type="submit">
-                          <i class="fas fa-search"></i>
-                      </button>
-                  </form>
-              </div>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="searchInput" class="sr-only">Cari</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Masukkan kata kunci">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -253,7 +243,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
-                    <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
+                    <a href="#" class="footer-site-logo d-block mb-4"><img src="img/GuruLink.png" alt=""></a>
                     <div style="display: flex; flex-direction: column;">
                         <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
                             cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
