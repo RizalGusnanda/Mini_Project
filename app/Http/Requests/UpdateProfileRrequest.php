@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProfileRequest extends FormRequest
+class UpdateProfileRrequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,21 @@ class UpdateProfileRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
-    {
-        return [
-            
-            'telepon' => 'nullable|string|max:255',
-            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
-            'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ];
-    }
+{
+    return [
+        'id_kecamatans' => 'nullable|exists:kecamatans,id',
+        'id_kelurahans' => 'nullable|exists:kelurahans,id',
+        'id_spesalisasis' => 'nullable|exists:spesalisasis,id',
+        'telepon' => 'nullable|string|max:255',
+        'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
+        'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'alamat' => 'nullable|string|max:255',
+        'pendidikan' => 'nullable|string|max:255',
+        'jurusan' => 'nullable|string|max:255',
+        'instansi' => 'nullable|string|max:255',
+        'norek' => 'nullable|string|max:255',
+        'bank' => 'nullable|in:BRI,BCA,BNI',
+    ];
+}
+
 }
