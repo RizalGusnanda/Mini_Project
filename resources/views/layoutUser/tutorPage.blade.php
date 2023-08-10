@@ -1,4 +1,3 @@
-
 @extends('layoutUser.layout.index')
 
 @section('content')

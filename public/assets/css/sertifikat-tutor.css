@@ -113,7 +113,6 @@ mt-50{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-top: 70px;
-    margin-left: 70px;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
   
@@ -142,12 +141,13 @@ mt-50{
   
   .card-menu {
     position: relative;
-    width: 270px;
+    width: 200px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
     margin-left: 70px;
+    margin-right: 50px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
@@ -168,6 +168,7 @@ mt-50{
     border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-left: -70px;
   }
   
   .menu-item:last-child {
@@ -315,7 +316,6 @@ mt-50{
 .tambah-sertifikasi-group .form-control {
     border-radius: 15px;
     border: 1px solid #D9D9D9;
-    padding-left: 20px; /* Berikan ruang untuk ikon dan background */
 }
 
 
@@ -329,8 +329,7 @@ mt-50{
 }
 
 .tambah-sertifikasi-group .form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 15px;
 }
 
 .tambah-sertifikasi-group .btn {
@@ -338,7 +337,7 @@ mt-50{
     border-bottom-left-radius: 0;
 }
 .custom-card {
-    width: 820px; /* Lebar maksimal untuk card */
+    width: 740px; /* Lebar maksimal untuk card */
     margin: 8px auto; /* Pusatkan card horizontal di dalam section */
     border: 1px solid #ced4da;
     border-radius: 20px;
@@ -349,6 +348,9 @@ mt-50{
     text-align: left;
 }
 
+.input-group-text i {
+  font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+}
 
 /* footer */
 /* Styling for the footer section */
@@ -512,6 +514,7 @@ mt-50{
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 60px;
+    margin-left: -70px;
 }
 
 /* Gaya untuk bagian formulir kartu sertifikasi */
@@ -522,4 +525,5 @@ mt-50{
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
+    margin-left: -70px;
 }

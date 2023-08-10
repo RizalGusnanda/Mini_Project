@@ -4,8 +4,6 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
-use App\Http\Controllers\ProfileAdminController;
-use App\Http\Controllers\ProfileUserController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -15,7 +13,6 @@ use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
-use App\Http\Controllers\tutorConntroller;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -44,21 +41,51 @@ Route::get('/', function () {
 Route::get('/tutor', function () {
     return view('layoutUser/tutorPage');
 });
-Route::get('/landing', function () {
-    return view('layoutUser/landingPage');
+// Route::get('/landing', function () {
+//     return view('layoutUser/landingPage');
+// });
+
+// Route::get('/paket', function () {
+//     return view('layoutUser/paketPage');
+// });
+// Route::get('/profileTutor', function () {
+//     return view('layoutUser/profileTutorPage');
+// });
+// Route::get('/riwayat', function () {
+//     return view('layoutUser/riwayatPage');
+// });
+// Route::get('/testimoni', function () {
+//     return view('layoutUser/testimoni');
+// });
+// Route::get('/paket', function () {
+//     return view('layoutUser/paketPage');
+// });
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
 });
+// Route::get('/riwayat', function () {
+//     return view('layoutUser/riwayatPage');
+// });
+
+Route::get('/landing', [LandingController::class, 'showPaketLanding']);
+
+Route::get('/paket', [PaketController::class, 'showPaketPage']);
+
 
 Route::get('/paket', function () {
     return view('layoutUser/paketPage');
 });
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
-
-Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
-        ->name('layoutUser/profileTutorPage');
 Route::get('/testimoni', function () {
     return view('layoutUser/testimoni');
+});
+Route::get('/sertifikat', function () {
+    return view('layoutUser/sertifikat-tutor');
 });
 
 Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
@@ -112,7 +139,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::prefix('daerah-management')->group(function () {
         Route::resource('kecamatan',KecamatanController::class);
-
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
 
          // kelurahan
