@@ -59,6 +59,9 @@ h1{
 h2{}
 p{
     color: #AD6359;
+    font-size: 26px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 /* end typo */
 
@@ -221,16 +224,24 @@ button i {
 }
 
 /* Button Transparent */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #1F3C88;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    margin-top: 80px;
+.btn-price {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #1F3C88;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 80px;
+  color: #1F3C88; /* Warna teks default */
+  background-color: transparent; /* Warna latar belakang default */
 }
+
+.btn-price:hover {
+  background-color: #1F3C88; /* Warna latar belakang saat di-hover */
+  color: #ffffff; /* Warna teks saat di-hover */
+}
+
 
 .btn-transparent {
     background-color: transparent;
@@ -1280,7 +1291,13 @@ button i {
   margin: 10px 0;
   font-size: 16px;
 }
-.price-section-paket .price-card  .price-harga p{
-  font-size: 35px;
+.price-section-paket .price-card .price-harga p {
+  font-size: 18px; /* Anda bisa mengatur ukuran font untuk kata "bulan" di sini */
   color: #005D04;
 }
+
+.price-section-paket .price-card .price-harga .harga {
+  font-size: 30px; 
+  font-weight: bold;
+}
+

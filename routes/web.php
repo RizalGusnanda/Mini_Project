@@ -14,6 +14,8 @@ use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -42,34 +44,37 @@ Route::get('/', function () {
 Route::get('/tutor', function () {
     return view('layoutUser/tutorPage');
 });
-Route::get('/landing', function () {
-    return view('layoutUser/landingPage');
-});
+// Route::get('/landing', function () {
+//     return view('layoutUser/landingPage');
+// });
 
-Route::get('/paket', function () {
-    return view('layoutUser/paketPage');
-});
+// Route::get('/paket', function () {
+//     return view('layoutUser/paketPage');
+// });
+// Route::get('/profileTutor', function () {
+//     return view('layoutUser/profileTutorPage');
+// });
+// Route::get('/riwayat', function () {
+//     return view('layoutUser/riwayatPage');
+// });
+// Route::get('/testimoni', function () {
+//     return view('layoutUser/testimoni');
+// });
+// Route::get('/paket', function () {
+//     return view('layoutUser/paketPage');
+// });
 Route::get('/profileTutor', function () {
     return view('layoutUser/profileTutorPage');
 });
-Route::get('/riwayat', function () {
-    return view('layoutUser/riwayatPage');
-});
-Route::get('/testimoni', function () {
-    return view('layoutUser/testimoni');
-});
-Route::get('/paket', function () {
-    return view('layoutUser/paketPage');
-});
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
-});
-Route::get('/riwayat', function () {
-    return view('layoutUser/riwayatPage');
-});
-Route::get('/paket', function () {
-    return view('layoutUser/paketPage');
-});
+// Route::get('/riwayat', function () {
+//     return view('layoutUser/riwayatPage');
+// });
+
+Route::get('/landing', [LandingController::class, 'showPaketLanding']);
+
+Route::get('/paket', [PaketController::class, 'showPaketPage']);
+
+
 Route::get('/profileTutor', function () {
     return view('layoutUser/profileTutorPage');
 });
