@@ -1,5 +1,3 @@
-sertif-tutor
-
 <!DOCTYPE html>
 <html lang="en">
 

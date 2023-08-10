@@ -1,5 +1,3 @@
-paketpage.blade
-
 @extends('layoutUser.layout.index')
 @section('content')
 <style>
