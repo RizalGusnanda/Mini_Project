@@ -1,3 +1,5 @@
+sertif-tutor
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,20 +125,23 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="nama_sertifikasi">Nama Kegiatan/Sertifikasi</label>
-                                                <input type="text" class="form-control" id="nama_sertifikasi" name="nama_sertifikasi">
+                                                <input type="text" class="form-control" id="nama_sertifikasi" name="nama_sertifikasi" placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti">
                                             </div>
                                             <div class="form-group">
                                                 <label for="link_kegiatan">Link Kegiatan</label>
-                                                <input type="text" class="form-control" id="link_kegiatan" name="link_kegiatan">
-                                            </div>
-                                            <div class="form-group tambah-sertifikasi-group input-group">
-                                                <input type="text" class="form-control" id="tambah_sertifikasi" name="tambah_sertifikasi" placeholder="Tambah Sertifikasi">
-                                                <div class="input-group-append">
-                                                    <button type="button" class="btn btn-secondary btn-tambah">
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fab fa-google-drive"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="link_kegiatan" name="link_kegiatan" placeholder="drive.google.com">
                                                 </div>
                                             </div>
+                                            <div class="form-group tambah-sertifikasi-group input-group">
+                                                <input type="text" class="form-control rounded-right" id="tambah_sertifikasi" name="tambah_sertifikasi" placeholder="   +  Tambah Sertifikasi">
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

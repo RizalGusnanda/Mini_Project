@@ -1,3 +1,5 @@
+main.css
+
 /* Navbar */
 body{
     font-family: 'Poppins', sans-serif;
@@ -267,83 +269,78 @@ button i {
 
 
 /* about me end */
+
 .price-about .text-center {
-    text-align: center;
-   
-    
+  text-align: center;
+ 
+  
 }
 .line-container {
-    text-align: center;
-    margin: 10px 0;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .line {
-    width: 70%;
-    height: 3px;
-    background-color: #000000;
-    display: inline-block;
+  width: 70%;
+  height: 3px;
+  background-color: #000000;
+  display: inline-block;
 }
 .price-about .text-center h1 {
-    font-size: 23px;
-    margin-bottom: 50px;
-    
-    
+  font-size: 23px;
+  margin-bottom: 50px;
+  
+  
 }
 
 .price-about .text-center p {
-    font-size: 25px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #000000;
-    
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #000000;
+  
 }
 .price-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+ 
 }
 
 .background-container {
-    
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
+  
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
 }
 
 .price-card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
 }
 
 .price-card h3 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .price-card ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .price-card ul li {
-    margin: 10px 0;
-    font-size: 16px;
+  margin: 10px 0;
+  font-size: 16px;
 }
 .price-card  .price-harga p{
-    font-size: 35px;
-    color: #005D04;
-}
-
-
-.btn:hover {
-    background-color: #1F3C88;
-    color: #f9f9f9;
+  font-size: 35px;
+  color: #005D04;
 }
 
 
@@ -641,7 +638,7 @@ button i {
   background-color: #ffffff;
   margin-top: 70px;
   margin-right: 50px;
-  margin-left: 0px;
+  margin-left: -50px;
   height: 50px;
 }
 
@@ -654,7 +651,7 @@ button i {
   margin-bottom: 50px;
   background-color: #ffffff;
   margin-right: 50px;
-  margin-left: 0px;
+  margin-left: -50px;
  
 }
 
@@ -681,7 +678,6 @@ button i {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 70px;
-  margin-left: 70px;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -714,10 +710,9 @@ button i {
   position: relative;
   width: 270px;
   background-color: white;
+  margin-top: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-  margin-left: 70px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -725,6 +720,8 @@ button i {
 .foto-Profile .menu {
   display: flex;
   flex-direction: column;
+  margin-left: -70px;
+  margin-right: 30px;
 }
 
 .foto-Profile .menu-item {
@@ -734,10 +731,12 @@ button i {
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 70px;
 }
 
 .foto-Profile .menu-item:last-child {
   border-bottom: none;
+  margin-left: 70px;
 }
 
 .foto-Profile .menu-item:hover {
@@ -891,7 +890,7 @@ button i {
   background-color: #ffffff;
   margin-top: 70px;
   margin-right: 50px;
-  margin-left: 0px;
+  margin-left: -70px;
   height: 50px;
 }
 
@@ -931,7 +930,6 @@ button i {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 70px;
-  margin-left: 70px;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -967,7 +965,6 @@ button i {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
-  margin-left: 70px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -985,10 +982,6 @@ button i {
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.riwayat .menu-item:last-child {
-  border-bottom: none;
 }
 
 .riwayat .menu-item:hover {
@@ -1009,6 +1002,7 @@ button i {
   display: flex; /* Menggunakan tata letak flex untuk mengatur tombol dalam satu baris */
   justify-content: flex-start;
   height: 120px; /* Menggeser tombol-tombol ke sisi kiri */
+  margin-left: -70px;
 }
 
 .button-reservasi .btn {
@@ -1027,8 +1021,7 @@ button i {
   margin-bottom: 20px;
   margin-top: 10px;
   width: 805px;
-  
- 
+  margin-left: -70px;
 }
 
 .riwayat .tutorA-card img {
@@ -1060,6 +1053,7 @@ button i {
   margin-left: 30px;
   color: #666;
 }
+
 
 
 
@@ -1098,6 +1092,7 @@ button i {
   position: relative;
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }
 
 .navbar .nav-item .nav-link:hover{
@@ -1203,4 +1198,89 @@ button i {
   height: 20px;
   margin-left: 25px;
   /* margin-bottom: -100px; */
+}
+
+
+.price-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
+  margin-top: -50px;
+}
+
+.price-about .text-center {
+  text-align: center;
+ 
+  
+}
+.line-container {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.line {
+  width: 70%;
+  height: 3px;
+  background-color: #000000;
+  display: inline-block;
+}
+.price-about .text-center h1 {
+  font-size: 23px;
+  margin-bottom: 50px;
+  
+  
+}
+
+/* HALAMAN paket card */
+.price-about .text-center p {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #000000;
+  
+}
+.price-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+ 
+}
+
+.background-container {
+  
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.price-section-paket .price-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
+}
+
+.price-section-paket .price-card h3 {
+  font-size: 24px;
+}
+
+.price-section-paket .price-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.price-section-paket .price-card ul li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+.price-section-paket .price-card  .price-harga p{
+  font-size: 35px;
+  color: #005D04;
 }
