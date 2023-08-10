@@ -1,3 +1,5 @@
+paketpage.blade
+
 @extends('layoutUser.layout.index')
 @section('content')
 <style>
@@ -27,7 +29,7 @@ body{
 
   </section>
 
-  <section class="price-section">
+  <section class="price-section-paket">
   <div class="background-container">
       <div class="container">
           <div class="row">
