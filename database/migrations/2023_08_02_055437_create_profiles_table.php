@@ -15,24 +15,24 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id(); // Primary key dengan tipe int
-            $table->unsignedBigInteger('id_users');
-            $table->unsignedBigInteger('id_kecamatans');
-            $table->unsignedBigInteger('id_kelurahans');
-            $table->unsignedBigInteger('id_spesalisasis');
-            $table->integer('telepon');
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
+            $table->unsignedBigInteger('id_kecamatans')->nullable();
+            $table->unsignedBigInteger('id_kelurahans')->nullable();
+            $table->unsignedBigInteger('id_spesalisasis')->nullable();
+            $table->string('telepon');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
-            $table->string('profile');
-            $table->string('sertif');
-            $table->integer('pengalaman');
-            $table->text('penjelasan_pengalaman');
+            $table->string('profile')->nullable();//untuk upload image
+            $table->string('sertif')->nullable();
+            $table->integer('pengalaman')->nullable();
+            $table->text('penjelasan_pengalaman')->nullable();
             $table->timestamps();
-
-            $table->foreign('id_users')->references('id')->on('users')->restrictOnDelete();
+    
             $table->foreign('id_kecamatans')->references('id')->on('kecamatans')->restrictOnDelete();
             $table->foreign('id_kelurahans')->references('id')->on('kelurahans')->restrictOnDelete();
             $table->foreign('id_spesalisasis')->references('id')->on('spesalisasis')->restrictOnDelete();
         });
     }
+    
 
     /**
      * Reverse the migrations.
