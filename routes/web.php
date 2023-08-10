@@ -67,6 +67,15 @@ Route::get('/profileTutor', function () {
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
+Route::get('/paket', function () {
+    return view('layoutUser/paketPage');
+});
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
+Route::get('/riwayat', function () {
+    return view('layoutUser/riwayatPage');
+});
 
 
 
