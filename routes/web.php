@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
@@ -18,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +27,6 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -37,8 +34,8 @@ Route::get('/login', function () {
         return view('auth/login');
     }
 })->name('login');
- // detailpage
- Route::get('/', function () {
+  // detailpage
+Route::get('/', function () {
     return view('layoutUser/detail');
 });
 Route::get('/tutor', function () {
@@ -50,23 +47,17 @@ Route::get('/landing', function () {
 Route::get('/profile-tutor', function () {
     return view('layoutUser/profile-tutor');
 });
-
-
-
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
-
     //user list
-
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);
         Route::post('import', [UserController::class, 'import'])->name('user.import');
         Route::get('export', [UserController::class, 'export'])->name('user.export');
         Route::get('demo', DemoController::class)->name('user.demo');
     });
-
     Route::prefix('menu-management')->group(function () {
         Route::resource('menu-group', MenuGroupController::class);
         Route::resource('menu-item', MenuItemController::class);
@@ -76,19 +67,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('role', RoleController::class);
         Route::get('role/export', ExportRoleController::class)->name('role.export');
         Route::post('role/import', ImportRoleController::class)->name('role.import');
-
         //permission
         Route::resource('permission', PermissionController::class);
         Route::get('permission/export', ExportPermissionController::class)->name('permission.export');
         Route::post('permission/import', ImportPermissionController::class)->name('permission.import');
-
         //assign permission
         Route::get('assign', [AssignPermissionController::class, 'index'])->name('assign.index');
         Route::get('assign/create', [AssignPermissionController::class, 'create'])->name('assign.create');
         Route::get('assign/{role}/edit', [AssignPermissionController::class, 'edit'])->name('assign.edit');
         Route::put('assign/{role}', [AssignPermissionController::class, 'update'])->name('assign.update');
         Route::post('assign', [AssignPermissionController::class, 'store'])->name('assign.store');
-
         //assign user to role
         Route::get('assign-user', [AssignUserToRoleController::class, 'index'])->name('assign.user.index');
         Route::get('assign-user/create', [AssignUserToRoleController::class, 'create'])->name('assign.user.create');
@@ -96,11 +84,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('assing-user/{user}/edit', [AssignUserToRoleController::class, 'edit'])->name('assign.user.edit');
         Route::put('assign-user/{user}', [AssignUserToRoleController::class, 'update'])->name('assign.user.update');
     });
-
     Route::prefix('daerah-management')->group(function () {
         Route::resource('kecamatan',KecamatanController::class);
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
-
         
          // kelurahan
         Route::resource('kelurahan',KelurahanController::class);
@@ -108,9 +94,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::prefix('pengajaran-management')->group(function () {
         Route::resource('spesialisasi',SpesalisasiController::class);
-
     });
-
     //membuat tampilan profile admin
     Route::get('/profileAdmin', function () {
         return view('profileAdmin.index');
