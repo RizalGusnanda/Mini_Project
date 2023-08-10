@@ -33,7 +33,7 @@ body{
                           <i class="material-icons">location_on</i>
                           <input type="text" name="search2" placeholder="Cari Lokasi">
                       </div>
-                      <button type="submit">
+                      <button type="submit" class="card-search-tutor button-tutor">
                           <i class="fas fa-search"></i>
                       </button>
                   </form>

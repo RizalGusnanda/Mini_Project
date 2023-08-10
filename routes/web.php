@@ -88,6 +88,15 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
+Route::get('/paket', function () {
+    return view('layoutUser/paketPage');
+});
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
+Route::get('/riwayat', function () {
+    return view('layoutUser/riwayatPage');
+});
 
 
 
