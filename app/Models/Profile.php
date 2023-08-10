@@ -11,12 +11,12 @@ use App\Models\Spesalisasi;
 class Profile extends Model
 {
     protected $fillable = [
-        'id_users',
+        'user_id',
         'id_kecamatans',
         'id_kelurahans',
         'id_spesalisasis',
         'telepon',
-        'jenis_kelamin',    
+        'jenis_kelamin',
         'profile',
         'alamat',
         'pendidikan',

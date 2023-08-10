@@ -5,6 +5,7 @@ use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\ProfileUserController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -91,19 +92,26 @@ Route::get('/sertifikat', function () {
 Route::get('/paket', function () {
     return view('layoutUser/paketPage');
 });
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
-});
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
 
+Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+
+// Route untuk mendapatkan data kecamatan
+Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+
+// Route untuk mendapatkan data spesialisasi
+Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+
+
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow']);
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/dashboard', function () {
-        return view('home', ['users' => User::get(),]);
-    });
+        Route::get('/dashboard', function () {
+            return view('home', ['users' => User::get(),]);
+        });
     //user list
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);
@@ -141,7 +149,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('kecamatan',KecamatanController::class);
         
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
-        
+
          // kelurahan
         Route::resource('kelurahan',KelurahanController::class);
         Route::post('kelurahan/import', [KelurahanController::class, 'import'])->name('kelurahan.import');
@@ -156,3 +164,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
     Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
 });
+
+
