@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,7 +51,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
-
     //user list
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);
