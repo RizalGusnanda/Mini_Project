@@ -120,21 +120,16 @@
                                         <option value="Perempuan" {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                     </select>
 
-                                            @error('jenis_kelamin')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-                                            <input class="form-control" id="inputPhone" type="tel" name="telepon"
-                                                value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
-                                        </div>
-                                    </div>
-                                    <!-- Save changes button -->
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
-                                </form>
+                                    @error('jenis_kelamin')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
+                                <input class="form-control" id="inputPhone" type="tel" name="telepon" value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                            </div>
                             </div>
                         </div>
                     </div>
