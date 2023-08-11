@@ -113,37 +113,38 @@
 
     <!-- price -->
     <section class="price-section-paket">
-      <div class="background-container">
-          <div class="container">
-              <div class="row">
-                  @if(isset($pakets) && count($pakets) > 0)
-                      @foreach ($pakets as $paket)
-                      <div class="col-md-4">
-                          <div class="price-card">
-                              <div class="card-body">
-                                  <h2>{{ $paket->nama_paket }}</h2>
-                                  <div class="line-container">
-                                      <div class="line"></div>
-                                  </div>
-                                  <div class="price-harga">
-                                    <p><span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} / </span> bulan</p>
+        <div class="background-container">
+            <div class="container">
+                <div class="row">
+                    @if (isset($pakets) && count($pakets) > 0)
+                        @foreach ($pakets as $paket)
+                            <div class="col-md-4">
+                                <div class="price-card">
+                                    <div class="card-body">
+                                        <h2>{{ $paket->nama_paket }}</h2>
+                                        <div class="line-container">
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="price-harga">
+                                            <p><span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} /
+                                                </span> bulan</p>
+                                        </div>
+
+                                        <p>{{ $paket->deskripsi }}</p>
+                                        <a href="#" class="btn btn-price">Daftar</a>
+                                    </div>
                                 </div>
-                                
-                                <p>{{ $paket->deskripsi }}</p>
-                                  <a href="#" class="btn btn-price">Daftar</a>
-                              </div>
-                          </div>
-                      </div>
-                      @endforeach
-                  @else
-                      <!-- Debug: No Pakets -->
-                      <p>No Pakets available.</p>
-                  @endif
-              </div>
-          </div>
-      </div>
-  </section>
-  
+                            </div>
+                        @endforeach
+                    @else
+                        <!-- Debug: No Pakets -->
+                        <p>No Pakets available.</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- end price -->
 
 
