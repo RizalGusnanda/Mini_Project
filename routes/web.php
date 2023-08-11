@@ -38,8 +38,9 @@ Route::get('/login', function () {
         return view('auth/login');
     }
 })->name('login');
+
   // detailpage
-Route::get('/', function () {
+Route::get('/detail', function () {
     return view('layoutUser/detailTutorPage');
 });
 Route::get('/tutor', function () {
@@ -76,25 +77,26 @@ Route::get('/landing', [LandingController::class, 'showPaketLanding']);
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
 
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
+Route::get('/paket', function () {
+    return view('layoutUser/paketPage');
 });
+// Route::get('/profileTutor', function () {
+//     return view('layoutUser/profileTutorPage');
+// });
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
-
 Route::get('/testimoni', function () {
     return view('layoutUser/testimoni');
 });
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
-Route::get('/paket', function () {
-    return view('layoutUser/paketPage');
-});
-Route::get('/riwayat', function () {
-    return view('layoutUser/riwayatPage');
-});
+
+
+
+Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
+        ->name('layoutUser/profileTutorPage');
 
 Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
 
@@ -147,7 +149,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::prefix('daerah-management')->group(function () {
         Route::resource('kecamatan',KecamatanController::class);
-        
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
 
          // kelurahan
@@ -164,5 +165,3 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
     Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
 });
-
-
