@@ -689,6 +689,7 @@ button i {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 70px;
+  margin-left: 70px;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -742,7 +743,6 @@ button i {
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-left: 70px;
 }
 
 .foto-Profile .menu-item:last-child {
@@ -976,6 +976,7 @@ button i {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
+  margin-left: 70px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -993,6 +994,10 @@ button i {
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.riwayat .menu-item:last-child {
+  border-bottom: none;
 }
 
 .riwayat .menu-item:hover {
@@ -1064,7 +1069,6 @@ button i {
   margin-left: 30px;
   color: #666;
 }
-
 
 
 
