@@ -1,0 +1,545 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #D2D8E7;
+}
+
+.navbar {
+  background: #FFFFFF !important;
+  padding: 20px 0;
+}
+
+.navbar .nav-item {
+  margin-right: 50px;
+}
+
+.navbar .close-icons {
+  margin-right: 30px;
+}
+
+.navbar .nav-item .nav-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: #54565C;
+  padding: 0;
+  transition: all .4s ease-in-out;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .nav-item .nav-link:hover {
+  color: #070D59;
+}
+
+.nav-item svg {
+  width: 30px;
+  height: 30px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* typogrhaphy */
+h1 {
+  font-size: 40px;
+  line: height 50px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {}
+
+p {
+  color: black;
+}
+
+/* end typo */
+
+/* spacing */
+mt-10 {
+  margin-top: 10px !important;
+}
+
+mt-20 {
+  margin-top: 20px !important;
+}
+
+mt-30 {
+  margin-top: 30px !important;
+}
+
+mt-50 {
+  margin-top: 50px !important;
+}
+
+/* end spacing */
+.navbar {
+  background: #d2d8e700 !important;
+  padding: 20px 0;
+}
+
+.navbar .nav-item {
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.navbar .nav-item .nav-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #54565C;
+  margin: 0 30px;
+  padding: 0;
+  transition: all .4s ease-in-out;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .nav-item .nav-link:hover {
+  color: #070D59;
+}
+
+/*card */
+
+.card {
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 70px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+
+.plus-icon {
+  position: absolute;
+  bottom: 50px;
+  right: 55px;
+  width: 30px;
+  height: 30px;
+  background-color: #070D59;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.plus-icon i {
+  color: white;
+}
+
+.card-menu {
+  position: relative;
+  width: 200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-right: 50px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-menu:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: -70px;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-item i {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+
+.menu-item span {
+  font-size: 0.875rem;
+}
+
+/* Gaya untuk bagian detail tutor */
+.search {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  /* Sesuaikan dengan lebar yang diinginkan */
+  margin: 0 auto;
+  /* Untuk mengatur posisi secara horizontal di tengah layar */
+  margin-top: 20px;
+  /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.search-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gaya untuk bagian form */
+.card-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title-form {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.form-control.pengalaman {
+  border-radius: 100px;
+}
+
+.form-control:focus {
+  border-color: #70b3f0;
+  box-shadow: 0 0 8px #70b3f0;
+}
+
+.btn-primary {
+  background-color: #1F3C88;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #070D59;
+}
+
+/* Gaya untuk tampilan select dalam kotak */
+.select-group,
+.tambah-sertifikasi-group {
+  position: relative;
+}
+
+.select-group select,
+.tambah-sertifikasi-group input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Gaya untuk memposisikan ikon select di dalam kotak */
+.select-group::before {
+  content: '\f078';
+  /* Kode ikon dropdown dari Font Awesome */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 60%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Gaya untuk tampilan ikon plus pada elemen input */
+.tambah-sertifikasi-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 30px;
+  /* Atur jarak dari atas */
+}
+
+.tambah-sertifikasi-group .btn-tambah {
+  border-radius: 50%;
+  /* Membuat latar belakang berbentuk bulat */
+  background-color: #D9D9D9;
+  border: none;
+  color: #000;
+  padding: 10px;
+  margin-right: 10px;
+  /* Ruang antara ikon dan input */
+  cursor: pointer;
+  padding-top: 10%;
+  padding-top: 10%;
+}
+
+.tambah-sertifikasi-group .form-control {
+  border-radius: 15px;
+  border: 1px solid #D9D9D9;
+}
+
+
+.sertifikasi-group .form-group {
+  margin-bottom: 15px;
+}
+
+.tambah-sertifikasi-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.tambah-sertifikasi-group .form-control {
+  border-radius: 15px;
+}
+
+.tambah-sertifikasi-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.custom-card {
+  width: 740px;
+  /* Lebar maksimal untuk card */
+  margin: 8px auto;
+  /* Pusatkan card horizontal di dalam section */
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #E8EBF399;
+  margin-bottom: 30px;
+  margin-top: 3px;
+  text-align: left;
+}
+
+.input-group-text i {
+  font-size: 1.5em;
+  /* Sesuaikan ukuran ikon sesuai kebutuhan */
+}
+
+/* footer */
+/* Styling for the footer section */
+.footer-99382 {
+  padding: 80px 0;
+  color: #000000;
+  text-align: left;
+  background-color: #D2D8E7;
+
+}
+
+/* Styling for the site logo */
+.footer-site-logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Styling for the footer content */
+.footer-99382 p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Styling for the nav-links */
+.nav-links li {
+  margin-bottom: 10px;
+}
+
+.nav-links a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Styling for the social media icons */
+.social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Styling for the copyright text */
+.copyright {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+.card-search {
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #D2D8E7;
+  margin-top: 20px;
+}
+
+
+/* halaman tutuor */
+.tutorA-me-section {
+  padding: 12px 0;
+}
+
+.tutorA-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #fff;
+  margin-bottom: 20px
+}
+
+.tutorA-card img {
+  border-top-left-radius: 15px;
+  /* Melengkungkan sudut kiri atas gambar */
+  border-bottom-left-radius: 15px;
+  object-fit: cover;
+  /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
+  width: 200px;
+  height: 200px;
+}
+
+.deskripsiTutorA {
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.card-tutorA {
+  margin: 0;
+  margin-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-tutor-p {
+  margin: 0;
+  font-size: 14px;
+  margin-left: 30px;
+  color: #666;
+}
+
+.location,
+.teaching-duration,
+.rating {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Gaya ikon */
+.fas {
+  margin-right: 5px;
+}
+
+/* Gaya bingkai kartu pada tampilan ponsel */
+@media (max-width: 767px) {
+  .tutorA-card {
+    margin-bottom: 20px;
+  }
+}
+
+.deskripsiTutorA {
+  position: relative;
+}
+
+.nextArrow {
+  /* Styles for the arrow element */
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 2px solid #007bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: translate(50%, -50%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nextArrow:hover {
+  background-color: #007bff;
+}
+
+.nextArrow a svg {
+  fill: #007bff;
+  width: 20px;
+  height: 20px;
+}
+
+.nextArrow:hover a svg {
+  fill: #fff;
+}
+
+/* Gaya untuk bagian header kartu sertifikat */
+.card-header-sertifikat {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  margin-left: -70px;
+}
+
+/* Gaya untuk bagian formulir kartu sertifikasi */
+.card-formulir-sertifikasi {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: -70px;
+}
