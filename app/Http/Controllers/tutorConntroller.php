@@ -12,7 +12,7 @@ class tutorConntroller extends Controller
     public function tutorShow(){
         $tutors = Profile::with('users', 'kecamatans')->get();
 
-        return view('layoutUser.tutorPage', ['tutors' => $tutors]);
+        return view('layoutUser.tutorPage', ['tutors' => $tutors]);
     }
 
 
