@@ -64,6 +64,9 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
+Route::get('/pembayaran', function () {
+    return view('layoutUser/pembayaran');
+});
 
 
 
