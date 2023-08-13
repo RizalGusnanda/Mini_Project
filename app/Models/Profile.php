@@ -3,17 +3,27 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User; // Tambahkan impor model User
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
+use App\Models\Spesalisasi;
 
 class Profile extends Model
 {
     protected $fillable = [
-        'id_users',
+        'user_id',
         'id_kecamatans',
         'id_kelurahans',
         'id_spesalisasis',
         'telepon',
-        'jenis_kelamin',    
+        'jenis_kelamin',
         'profile',
+        'alamat',
+        'pendidikan',
+        'jurusan',
+        'instansi',
+        'norek',
+        'bank',
         'sertif',
         'pengalaman',
         'penjelasan_pengalaman',
@@ -36,7 +46,7 @@ class Profile extends Model
 
     public function spesialisasi()
     {
-        return $this->belongsTo(Spesalisasis::class, 'id_spesalisasis');
+        return $this->belongsTo(Spesalisasi::class, 'id_spesalisasis');
     }
 
 }

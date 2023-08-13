@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('telepon');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('profile')->nullable();//untuk upload image
+            $table->string('alamat')->nullable();
+            $table->string('pendidikan')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('instansi')->nullable();
+            $table->integer('norek')->nullable();
+            $table->enum('bank',['BRI','BCA','BNI'])->nullable();
             $table->string('sertif')->nullable();
             $table->integer('pengalaman')->nullable();
             $table->text('penjelasan_pengalaman')->nullable();
