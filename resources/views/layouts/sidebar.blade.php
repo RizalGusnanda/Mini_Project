@@ -6,64 +6,6 @@
         <a href="index.html"></a>
     </div>
     <ul class="sidebar-menu">
-                    <!-- <li>
-                        <a class="nav-link" href="/dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard
-                    </span></a>
-                    </li> -->
-
-                    <!-- <li>
-                    <a class="nav-link" href="">
-                        <i class="custom-svg-icon "style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 50 50" fill="none">
-                            <g mask="url(#mask0_420_2810)">
-                            <path d="M16.25 12.375V4.125H26.25V12.375H16.25ZM3.75 17.875V4.125H13.75V17.875H3.75ZM16.25 28.875V15.125H26.25V28.875H16.25ZM3.75 28.875V20.625H13.75V28.875H3.75ZM6.25 15.125H11.25V6.875H6.25V15.125ZM18.75 26.125H23.75V17.875H18.75V26.125ZM18.75 9.625H23.75V6.875H18.75V9.625ZM6.25 26.125H11.25V23.375H6.25V26.125Z" fill="black" fill-opacity="0.6"/>
-                            </g>
-                            </svg>
-                        </i>
-                        <span>Dashboard</span>
-                    </a>
-                </li> -->
-                      <!-- <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i>
-                        <span>User Management</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="nav-link " href="{{ route('user.index') }}">Users List</a></li>
-                    </ul>
-                </li> -->
-                     <!-- <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i>
-                <span>Role and Permission</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link " href="{{ route('role.index') }}">Role</a></li>
-                <li><a class="nav-link " href="{{ route('permission.index') }}">Permission</a></li>
-                <li><a class="nav-link " href="{{ route('assign.index') }}">Permission To Role</a></li>
-                <li><a class="nav-link " href="{{ route('assign.user.index') }}">User To Role</a></li>
-            </ul>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-bars"></i>
-                <span>Menu Management</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link " href="{{ route('menu-group.index') }}">Menu Group</a></li>
-                <li><a class="nav-link " href="{{ route('menu-item.index') }}">Menu Item</a></li>
-            </ul>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-location-arrow"></i>
-                <span>Daerah Management</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link " href="{{ route('kecamatan.index') }}">Kecamatan</a></li>
-                <li><a class="nav-link " href="{{ route('kelurahan.index') }}">Kelurahan</a></li>
-            </ul>
-        </li> -->
-        
-        <!-- <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chalkboard-teacher"></i>
-                <span>Spesialisasi Management</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link " href="{{ route('spesialisasi.index') }}">Spesialisasi</a></li>
-            </ul> 
-        </li>-->
 
                 <li class="nav-item dropdown">
                 <a href="/dashboard" class="nav-link has-dropdown" data-toggle="dropdown">
@@ -80,7 +22,7 @@
                     <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
                 </ul>
             </li>
-   
+
 
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
@@ -106,8 +48,6 @@
                         <path d="M15 15C13.625 15 12.4479 14.5104 11.4688 13.5312C10.4896 12.5521 10 11.375 10 10C10 8.625 10.4896 7.44792 11.4688 6.46875C12.4479 5.48958 13.625 5 15 5C16.375 5 17.5521 5.48958 18.5312 6.46875C19.5104 7.44792 20 8.625 20 10C20 11.375 19.5104 12.5521 18.5312 13.5312C17.5521 14.5104 16.375 15 15 15ZM5 25V21.5C5 20.7917 5.18229 20.1406 5.54688 19.5469C5.91146 18.9531 6.39583 18.5 7 18.1875C8.29167 17.5417 9.60417 17.0573 10.9375 16.7344C12.2708 16.4115 13.625 16.25 15 16.25C16.375 16.25 17.7292 16.4115 19.0625 16.7344C20.3958 17.0573 21.7083 17.5417 23 18.1875C23.6042 18.5 24.0885 18.9531 24.4531 19.5469C24.8177 20.1406 25 20.7917 25 21.5V25H5ZM7.5 22.5H22.5V21.5C22.5 21.2708 22.4427 21.0625 22.3281 20.875C22.2135 20.6875 22.0625 20.5417 21.875 20.4375C20.75 19.875 19.6146 19.4531 18.4688 19.1719C17.3229 18.8906 16.1667 18.75 15 18.75C13.8333 18.75 12.6771 18.8906 11.5312 19.1719C10.3854 19.4531 9.25 19.875 8.125 20.4375C7.9375 20.5417 7.78646 20.6875 7.67188 20.875C7.55729 21.0625 7.5 21.2708 7.5 21.5V22.5ZM15 12.5C15.6875 12.5 16.276 12.2552 16.7656 11.7656C17.2552 11.276 17.5 10.6875 17.5 10C17.5 9.3125 17.2552 8.72396 16.7656 8.23438C16.276 7.74479 15.6875 7.5 15 7.5C14.3125 7.5 13.724 7.74479 13.2344 8.23438C12.7448 8.72396 12.5 9.3125 12.5 10C12.5 10.6875 12.7448 11.276 13.2344 11.7656C13.724 12.2552 14.3125 12.5 15 12.5Z" fill="black" fill-opacity="0.6"/>
                         </g>
                         </svg>
-
-                    </svg>
                 </div>
                     <span style="margin-left:10px;">Role and Permission</span>
                 </a>
@@ -125,13 +65,7 @@
                     <g mask="url(#mask0_420_2304)">
                     <path d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z" fill="#1C1B1F" fill-opacity="0.6"/>
                     </g>
-                    </svg>
-
-                        </g>
-                    </svg>
-
-                    </g>
-                    </svg>
+                </svg>
                 </div>
                     <span style="margin-left:16px;">Menu Management</span>
                 </a>
@@ -141,7 +75,7 @@
                 </ul>
             </li>
 
-        
+
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                 <div class="custom-svg-icon">
@@ -158,7 +92,7 @@
                 <li><a class="nav-link " href="{{ route('kelurahan.index') }}">Kelurahan</a></li>
                 </ul>
             </li>
-            
+
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                 <div class="custom-svg-icon" >

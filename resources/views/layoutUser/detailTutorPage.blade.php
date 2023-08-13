@@ -1,4 +1,5 @@
 @extends('layoutUser.layout.index')
+
 @section('content')
 <style>
 body{

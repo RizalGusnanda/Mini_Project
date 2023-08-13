@@ -1,4 +1,3 @@
-
 @extends('layoutUser.layout.index')
 
 @section('content')
@@ -50,146 +49,45 @@ body{
                 <div class="tutorA-card">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="assets/img/tutor1.jpeg" class="card-img-top" alt="Tutor 1">
+
+                        @php
+                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                        @endphp
+                        @if(file_exists(public_path($profileImagePath)))
+                            <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
+                        @else
+                            <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                        @endif
+
                         </div>
-                        
-                        <div class="col-md-7">
-                            <div class="deskripsiTutorA">
-                                <div class="nextArrow">
-                                    <a href="detail-tutor.html" class="next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 13H16.175L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4L4 13Z" fill="currentColor"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="card-body-tutorA">
-                                    <h4 class="card-tutorA">Atmayanti</h4>
-                                    <h6 class="card-tutor-p">Project Manager</h6>
-                                </div>
-                                <div class="location">
-                                    <i class="fas fa-map-marker-alt"></i> Lowokwaru, Malang
-                                </div>
-                                <div class="teaching-duration">
-                                    <i class="fas fa-clock"></i> 3 tahun mengajar
-                                </div>
-                                <div class="rating">
-                                    <i class="fas fa-star" style="color: gold;"></i> 4.9/5
+                        @if (isset($tutors) && count($tutors)>0)
+                        @foreach ($tutors as $tutor)
+                            <div class="col-md-7">
+                                <div class="deskripsiTutorA">
+                                    <div class="card-body-tutorA">
+                                        <h4 class="card-tutorA">{{ $tutor->user->name }}</h4> <!-- Perbaikan di sini -->
+                                        <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
+                                    </div>
+                                    <div class="location">
+                                        <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }}, {{$tutor->kecamatan->name}} <!-- Perbaikan di sini -->
+                                    </div>
+                                    <div class="teaching-duration">
+                                        <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        @endforeach
+                    @else
+                        <p>No tutors available</p>
+                    @endif
+
+
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="tutorA-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="assets/img/tutor1.jpeg" class="card-img-top" alt="Tutor 1">
-                        </div>
-                        
-                        <div class="col-md-7">
-                            <div class="deskripsiTutorA">
-                                <div class="nextArrow">
-                                    <a href="detail-tutor.html" class="next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 13H16.175L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4L4 13Z" fill="currentColor"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="card-body-tutorA">
-                                    <h4 class="card-tutorA">Atmayanti</h4>
-                                    <h6 class="card-tutor-p">Project Manager</h6>
-                                </div>
-                                <div class="location">
-                                    <i class="fas fa-map-marker-alt"></i> Lowokwaru, Malang
-                                </div>
-                                <div class="teaching-duration">
-                                    <i class="fas fa-clock"></i> 3 tahun mengajar
-                                </div>
-                                <div class="rating">
-                                    <i class="fas fa-star" style="color: gold;"></i> 4.9/5
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="tutorA-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="assets/img/tutor1.jpeg" class="card-img-top" alt="Tutor 1">
-                        </div>
-                        
-                        <div class="col-md-7">
-                            <div class="deskripsiTutorA">
-                                <div class="nextArrow">
-                                    <a href="detail-tutor.html" class="next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 13H16.175L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4L4 13Z" fill="currentColor"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="card-body-tutorA">
-                                    <h4 class="card-tutorA">Atmayanti</h4>
-                                    <h6 class="card-tutor-p">Project Manager</h6>
-                                </div>
-                                <div class="location">
-                                    <i class="fas fa-map-marker-alt"></i> Lowokwaru, Malang
-                                </div>
-                                <div class="teaching-duration">
-                                    <i class="fas fa-clock"></i> 3 tahun mengajar
-                                </div>
-                                <div class="rating">
-                                    <i class="fas fa-star" style="color: gold;"></i> 4.9/5
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="tutorA-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="assets/img/tutor1.jpeg" class="card-img-top" alt="Tutor 1">
-                        </div>
-                        
-                        <div class="col-md-7">
-                            <div class="deskripsiTutorA">
-                                <div class="nextArrow">
-                                    <a href="detail-tutor.html" class="next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 13H16.175L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4L4 13Z" fill="currentColor"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="card-body-tutorA">
-                                    <h4 class="card-tutorA">Atmayanti</h4>
-                                    <h6 class="card-tutor-p">Project Manager</h6>
-                                </div>
-                                <div class="location">
-                                    <i class="fas fa-map-marker-alt"></i> Lowokwaru, Malang
-                                </div>
-                                <div class="teaching-duration">
-                                    <i class="fas fa-clock"></i> 3 tahun mengajar
-                                </div>
-                                <div class="rating">
-                                    <i class="fas fa-star" style="color: gold;"></i> 4.9/5
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>
-    
+
 </section>
 
 @endsection
