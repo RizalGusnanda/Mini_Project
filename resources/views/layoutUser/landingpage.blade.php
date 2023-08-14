@@ -134,7 +134,7 @@
                                         </div>
 
                                         <p>{{ $paket->deskripsi }}</p>
-                                        <a href="{{ route('tutor.show') }}" class="btn btn-price">Daftar</a>
+                                        <a href="{{ route('tutor') }}" class="btn btn-price">Daftar</a>
                                     </div>
                                 </div>
                             </div>
