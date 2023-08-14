@@ -17,9 +17,8 @@ class ProfileAdminController extends Controller
 
     public function index(){
         $kelurahans = Kelurahan::all();
-        return view('profileAdmin.index', compact('kelurahans')); // Kirimkan variabel $kelurahans ke view
+        return view('profileAdmin.index', compact('kelurahans'));
     }
-
     public function show(){
         return view('profileAdmin.index');
     }
@@ -31,12 +30,6 @@ class ProfileAdminController extends Controller
 
 
 
-    public function update(UpdateProfileRrequest $request)
-{
-    $user = Auth::user();
-
-
-
 
     public function getKelurahanByKecamatan(Request $request)
     {
@@ -45,35 +38,10 @@ class ProfileAdminController extends Controller
         return response()->json(['Kelurahan' => $kelurahans]);
     }
 
-    $profile->jenis_kelamin = $request->input('jenis_kelamin');
-    $profile->telepon = $request->input('telepon');
-    $profile->alamat = $request->input('alamat');
-    $profile->pendidikan = $request->input('pendidikan');
-    $profile->jurusan = $request->input('jurusan');
-    $profile->instansi = $request->input('instansi');
-    $profile->norek = $request->input('norek');
-    $profile->bank = $request->input('bank');
-
-        // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
-        $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
-        $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
-        $spesialisasi = Spesalisasi::find($request->input('id_spesalisasis'));
-
-        // Hubungkan data yang diambil dengan model Profile
-        if ($kecamatan) {
-            $profile->kecamatan()->associate($kecamatan);
-        }
-
-        if ($kelurahan) {
-            $profile->kelurahan()->associate($kelurahan);
-        }
-
-        if ($spesialisasi) {
-            $profile->spesialisasi()->associate($spesialisasi);
-        }
-    // Set profile to null if not provided
-    if (!$request->filled('jenis_kelamin')) {
-        $profile->jenis_kelamin = null;
+    public function getKecamatan()
+    {
+        $kecamatans = Kecamatan::all();
+        return response()->json($kecamatans);
     }
 
     public function loadFilter()
@@ -81,37 +49,95 @@ class ProfileAdminController extends Controller
         $spesialisasi = Spesalisasi::all();
         return response()->json($spesialisasi);
     }
-    if (!$request->filled('pendidikan')) {
-        $profile->pendidikan = null;
-    }
-    if (!$request->filled('jurusan')) {
-        $profile->jurusan = null;
-    }
-    if (!$request->filled('instansi')) {
-        $profile->instansi = null;
-    }
-    if (!$request->filled('norek')) {
-        $profile->norek = null;
-    }
-    if (!$request->filled('bank')) {
-        $profile->bank  = null;
-    }
 
 
 
-    if ($request->hasFile('image')) {
-        // Hapus gambar sebelumnya (jika ada)
-        if ($profile->profile) {
-            Storage::disk('public')->delete($profile->profile);
+
+
+
+
+            public function update(UpdateProfileRrequest $request)
+        {
+            $user = Auth::user();
+
+            // Update User data
+            $user->name = $request->input('username');
+            $user->email = $request->input('email');
+            $user->save();
+
+            // Update or Create Profile data
+            $profile = $user->profile;
+
+            if (!$profile) {
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+            }
+
+            $profile->jenis_kelamin = $request->input('jenis_kelamin');
+            $profile->telepon = $request->input('telepon');
+            $profile->alamat = $request->input('alamat');
+            $profile->pendidikan = $request->input('pendidikan');
+            $profile->jurusan = $request->input('jurusan');
+            $profile->instansi = $request->input('instansi');
+            $profile->norek = $request->input('norek');
+            $profile->bank = $request->input('bank');
+
+                // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
+                $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
+                $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
+                $spesialisasi = Spesalisasi::find($request->input('id_spesalisasis'));
+
+                // Hubungkan data yang diambil dengan model Profile
+                if ($kecamatan) {
+                    $profile->kecamatan()->associate($kecamatan);
+                }
+
+                if ($kelurahan) {
+                    $profile->kelurahan()->associate($kelurahan);
+                }
+
+                if ($spesialisasi) {
+                    $profile->spesialisasi()->associate($spesialisasi);
+                }
+            // Set profile to null if not provided
+            if (!$request->filled('jenis_kelamin')) {
+                $profile->jenis_kelamin = null;
+            }
+
+            if (!$request->filled('telepon')) {
+                $profile->telepon = null;
+            }
+            if (!$request->filled('pendidikan')) {
+                $profile->pendidikan = null;
+            }
+            if (!$request->filled('jurusan')) {
+                $profile->jurusan = null;
+            }
+            if (!$request->filled('instansi')) {
+                $profile->instansi = null;
+            }
+            if (!$request->filled('norek')) {
+                $profile->norek = null;
+            }
+            if (!$request->filled('bank')) {
+                $profile->bank  = null;
+            }
+
+
+
+            if ($request->hasFile('image')) {
+                // Hapus gambar sebelumnya (jika ada)
+                if ($profile->profile) {
+                    Storage::disk('public')->delete($profile->profile);
+                }
+
+                // Simpan gambar baru
+                $imagePath = $request->file('image')->store('profile_images', 'public');
+                $profile->profile = $imagePath; // Ganti profile_image menjadi profile_picture
+            }
+
+            $profile->save();
+
+            return redirect()->back()->with('success', 'Profil berhasil diperbarui.');
         }
-
-        // Simpan gambar baru
-        $imagePath = $request->file('image')->store('profile_images', 'public');
-        $profile->profile = $imagePath; // Ganti profile_image menjadi profile_picture
-    }
-
-    $profile->save();
-
-    return redirect()->back()->with('success', 'Profil berhasil diperbarui.');
-}
 }

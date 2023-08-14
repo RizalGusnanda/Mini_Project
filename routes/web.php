@@ -2,8 +2,13 @@
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\profileUserController;
+use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -41,43 +46,11 @@ Route::get('/', function () {
 Route::get('/tutor', function () {
     return view('layoutUser/tutorPage');
 });
-// Route::get('/landing', function () {
-//     return view('layoutUser/landingPage');
-// });
+Route::get('/landing', [LandingController::class, 'showLanding'])->name('landing.show');
 
-// Route::get('/paket', function () {
-//     return view('layoutUser/paketPage');
-// });
-// Route::get('/profileTutor', function () {
-//     return view('layoutUser/profileTutorPage');
-// });
-// Route::get('/riwayat', function () {
-//     return view('layoutUser/riwayatPage');
-// });
-// Route::get('/testimoni', function () {
-//     return view('layoutUser/testimoni');
-// });
-// Route::get('/paket', function () {
-//     return view('layoutUser/paketPage');
-// });
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
-});
-// Route::get('/riwayat', function () {
-//     return view('layoutUser/riwayatPage');
-// });
-
-Route::get('/landing', [LandingController::class, 'showPaketLanding']);
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
-
-Route::get('/paket', function () {
-    return view('layoutUser/paketPage');
-});
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
-});
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
 });
@@ -87,22 +60,28 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
-
-Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
-
-// Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
-
-// Route untuk mendapatkan data spesialisasi
-Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
 
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow']);
+
+
+Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
+
+
+        Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+
+        // Route untuk mendapatkan data kecamatan
+        Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+
+        // Route untuk mendapatkan data spesialisasi
+        Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+
+
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-        Route::get('/dashboard', function () {
-            return view('home', ['users' => User::get(),]);
+    Route::get('/dashboard', function () {
+        return view('home', ['users' => User::get(),]);
         });
     //user list
     Route::prefix('user-management')->group(function () {

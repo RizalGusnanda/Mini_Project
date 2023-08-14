@@ -46,48 +46,53 @@ body{
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="tutorA-card">
-                    <div class="row">
-                        <div class="col-md-4">
+                @if (isset($otherTutors) && count($otherTutors) > 0)
+                    @foreach ($otherTutors as $tutor)
+                        <div class="tutorA-card"> <!-- Pindahkan tag pembuka ke dalam loop -->
+                            <div class="row">
+                                <div class="col-md-4">
 
-                        @php
-                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
-                        @endphp
-                        @if(file_exists(public_path($profileImagePath)))
-                            <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
-                        @else
-                            <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}" alt="">
-                        @endif
+                                    @php
+                                    $profileImagePath = 'storage/' . ($tutor->user->profile->profile ?? 'default.jpg');
+                                    @endphp
+                                    @if(file_exists(public_path($profileImagePath)))
+                                    <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
+                                    @else
+                                    <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                                    @endif
 
-                        </div>
-                        @if (isset($tutors) && count($tutors)>0)
-                        @foreach ($tutors as $tutor)
-                            <div class="col-md-7">
-                                <div class="deskripsiTutorA">
-                                    <div class="card-body-tutorA">
-                                        <h4 class="card-tutorA">{{ $tutor->user->name }}</h4> <!-- Perbaikan di sini -->
-                                        <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
-                                    </div>
-                                    <div class="location">
-                                        <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }}, {{$tutor->kecamatan->name}} <!-- Perbaikan di sini -->
-                                    </div>
-                                    <div class="teaching-duration">
-                                        <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="deskripsiTutorA">
+                                        <div class="nextArrow">
+                                            <a href="{{ route('tutor', ['id' => $tutor->user_id]) }}" class="next">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M4 13H16.175L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4L4 13Z" fill="currentColor"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-body-tutorA">
+                                            <h4 class="card-tutorA">{{ $tutor->user->name }}</h4>
+                                            <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
+                                        </div>
+                                        <div class="location">
+                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }}, {{ $tutor->kecamatan->kecamatan }}
+                                        </div>
+                                        <div class="teaching-duration">
+                                            <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-                        <p>No tutors available</p>
-                    @endif
-
-
-                    </div>
-                </div>
+                        </div> <!-- Pindahkan tag penutup ke dalam loop -->
+                    @endforeach
+                @else
+                    <p>No other tutors available</p>
+                @endif
             </div>
         </div>
     </div>
-
 </section>
+
 
 @endsection

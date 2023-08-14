@@ -18,16 +18,15 @@ class profileUserController extends Controller
         return view('layoutUser.layout.tutorProfilePage', compact('kelurahans'));
     }
      public function profile(){
-         $userId = Auth::id();
-         $profile = Profile::where('user_id',$userId)->first();
+        $userId = Auth::id();
+        $profile = Profile::where('user_id', $userId)->first();
         $kecamatans = Kecamatan::all();
         $kelurahans = Kelurahan::all();
 
-        return view ('layoutUser.profileTutorPage')->with([
-            'kecamatans'=>$kecamatans,
-            'kelurahans'=>$kelurahans,
-            'profile'=>$profile,
-
+        return view('layoutUser.profileTutorPage')->with([
+            'kecamatans' => $kecamatans,
+            'kelurahans' => $kelurahans,
+            'profile' => $profile,
         ]);
      }
 
