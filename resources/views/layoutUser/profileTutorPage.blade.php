@@ -86,11 +86,21 @@
                                                 class="form-control @error('id_kecamatans') is-invalid @enderror"
                                                 name="id_kecamatans">
                                                 <option value="">Pilih Kecamatan</option>
+                                                @if ($profile && $profile->id_kecamatans == null)
+                                                    @foreach ($kecamatans as $kecamatan)
+                                                        <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
+                                                            {{ $kecamatan->kecamatan }}
+                                                        </option>
+                                                    @endforeach
+                                                @else
                                                 @foreach ($kecamatans as $kecamatan)
-                                                    <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
-                                                        {{ $kecamatan->kecamatan }}
-                                                    </option>
-                                                @endforeach
+                                                        <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
+                                                            {{ $kecamatan->kecamatan }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
+
+
                                             </select>
                                             @error('id_kecamatans')
                                                 <div class="invalid-feedback">
@@ -205,8 +215,7 @@
                 $('#id_kelurahans').html('<option value="">Pilih Nama Kelurahan</option>');
                 if ($(this).val() == '') {
                     $('#id_kelurahans').attr('disabled', true);
-                }
-                else {
+                } else {
                     $('#id_kelurahans').removeAttr('disabled', false);
                 }
                 var id_kecamatans = $(this).val();
@@ -236,21 +245,14 @@
                 });
             });
 
-            var selectKecamatanId;
-            var selectKelurahanId;
-            if (selectKecamatanId == null) {
-                selectKecamatanId = '';
-            } else {
-                selectKecamatanId =  "{{$profile->id_kecamatans}}";
-            }
+            var selectKecamatanId = "{{ $profile ? $profile->id_kecamatans : '' }}";
 
-            if (selectKelurahanId == null) {
-                selectKelurahanId = '';
-            } else {
-                selectKelurahanId = "{{ optional(auth()->user()->profile->kelurahan)->id }}";
-            }
+            var selectKelurahanId =
+                "{{ auth()->user()->profile ? optional(auth()->user()->profile->kelurahan)->id : '' }}";
 
             var getKelurahanUrl = '{{ route('get-kelurahan') }}';
+
+
 
             // Mengisi dropdown Kecamatan
             // $.ajax({
@@ -276,8 +278,8 @@
                 if ($("#id_kecamatans").val() != null) {
                     $('#id_kelurahans').removeAttr('disabled', true);
                 }
-                var selectkelProfile = "{{ $profile->id_kelurahans }}";
-                var idKecamatanSelected  = $("#id_kecamatans").val();
+                var selectkelProfile = "{{ $profile ? $profile->id_kelurahans : '' }}";
+                var idKecamatanSelected = $("#id_kecamatans").val();
                 console.log(idKecamatanSelected);
                 $.ajax({
                     url: '/load-filter',

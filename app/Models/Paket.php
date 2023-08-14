@@ -9,8 +9,8 @@ class Paket extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama_paket', 
-        'deskripsi', 
+        'nama_paket',
+        'deskripsi',
         'harga'
     ];
 }

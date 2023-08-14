@@ -16,19 +16,19 @@ class ProfileAdminController extends Controller
 {
 
     public function index(){
-        $kelurahans = Kelurahan::all(); 
-        return view('profileAdmin.index', compact('kelurahans')); 
+        $kelurahans = Kelurahan::all();
+        return view('profileAdmin.index', compact('kelurahans'));
     }
     public function show(){
         return view('profileAdmin.index');
     }
-    
+
     public function edit()
     {
         return view('profileAdmin.index');
     }
 
-            
+
 
 
     public function getKelurahanByKecamatan(Request $request)
@@ -81,21 +81,21 @@ class ProfileAdminController extends Controller
             $profile->instansi = $request->input('instansi');
             $profile->norek = $request->input('norek');
             $profile->bank = $request->input('bank');
-            
+
                 // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
                 $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
                 $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
                 $spesialisasi = Spesalisasi::find($request->input('id_spesalisasis'));
-                
+
                 // Hubungkan data yang diambil dengan model Profile
                 if ($kecamatan) {
                     $profile->kecamatan()->associate($kecamatan);
                 }
-                
+
                 if ($kelurahan) {
                     $profile->kelurahan()->associate($kelurahan);
                 }
-                
+
                 if ($spesialisasi) {
                     $profile->spesialisasi()->associate($spesialisasi);
                 }
@@ -130,14 +130,14 @@ class ProfileAdminController extends Controller
                 if ($profile->profile) {
                     Storage::disk('public')->delete($profile->profile);
                 }
-            
+
                 // Simpan gambar baru
                 $imagePath = $request->file('image')->store('profile_images', 'public');
                 $profile->profile = $imagePath; // Ganti profile_image menjadi profile_picture
             }
 
             $profile->save();
-        
+
             return redirect()->back()->with('success', 'Profil berhasil diperbarui.');
         }
 }
