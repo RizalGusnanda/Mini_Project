@@ -21,7 +21,6 @@ margin-right: 30px;
 font-size: 14px;
 font-weight: 400;
 color: #54565C;
-margin: 0 30px;
 padding: 0;
 transition: all .4s ease-in-out;
 align-items: flex-start;
@@ -58,9 +57,6 @@ h1{
 h2{}
 p{
   color: #AD6359;
-  font-size: 26px;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 /* end typo */
 
@@ -106,13 +102,7 @@ mt-50{
   color: #070D59 ;
 }
 
-@media (max-width: 768px) {
-  /* Gaya untuk layar kurang dari 768px lebarnya */
-}
 
-@media (max-width: 768px) {
-/* Gaya untuk layar kurang dari 768px lebarnya */
-}
 
 /* start herro */
 .hero{
@@ -159,7 +149,7 @@ color: #fff;
 button {
 border: none;
 background: #F6F5F5;
-padding: 10px 15px;
+padding: 10px 32px;
 background-color: #1F3C88;
 }
 
@@ -229,22 +219,15 @@ margin-top: 20px;
 }
 
 /* Button Transparent */
-.btn-price {
-display: inline-block;
-padding: 10px 20px;
-border: 2px solid #1F3C88;
-border-radius: 15px;
-text-decoration: none;
-font-weight: bold;
-transition: background-color 0.3s, color 0.3s;
-margin-top: 80px;
-color: #1F3C88; /* Warna teks default */
-background-color: transparent; /* Warna latar belakang default */
-}
-
-.btn-price:hover {
-background-color: #1F3C88; /* Warna latar belakang saat di-hover */
-color: #ffffff; /* Warna teks saat di-hover */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #1F3C88;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 80px;
 }
 
 .btn-transparent {
@@ -285,83 +268,115 @@ color: #ffffff; /* Warna teks saat di-hover */
 
 /* about me end */
 
+.price-section-paket .title-about .text-center {
+  text-align: center;
+  margin-bottom: 50px;
+
+}
+.price-section-paket .title-about .text-center h1 {
+  font-size: 25px;
+
+}
+
+.price-section-paket .title-about .text-center p {
+  font-size: 25px;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000000;
+
+}
+
+
 .price-about .text-center {
-text-align: center;
+  text-align: center;
 
 
 }
 .line-container {
-text-align: center;
-margin: 10px 0;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .line {
-width: 70%;
-height: 3px;
-background-color: #000000;
-display: inline-block;
+  width: 70%;
+  height: 3px;
+  background-color: #000000;
+  display: inline-block;
 }
 .price-about .text-center h1 {
-font-size: 23px;
-margin-bottom: 50px;
+  font-size: 23px;
+  margin-bottom: 50px;
 
 
 }
 
 .price-about .text-center p {
-font-size: 25px;
-margin-top: 20px;
-margin-bottom: 20px;
-font-size: 16px;
-color: #000000;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #000000;
 
 }
 .price-section {
-display: flex;
-align-items: center;
-justify-content: center;
-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
 
 }
 
 .background-container {
 
-background-size: cover;
-background-position: center;
-padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
 }
 
 .price-card {
-background-color: rgba(255, 255, 255, 0.9);
-border: none;
-padding: 20px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-text-align: center;
-border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
 }
 
 .price-card h3 {
-font-size: 24px;
+  font-size: 24px;
 }
 
 .price-card ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .price-card ul li {
-margin: 10px 0;
-font-size: 16px;
+  margin: 10px 0;
+  font-size: 16px;
 }
 .price-card  .price-harga p{
-font-size: 35px;
-color: #005D04;
+  font-size: 35px;
+  color: #005D04;
 }
 
 
-/* tutor */
+.btn:hover {
+  background-color: #1F3C88;
+  color: #f9f9f9;
+}
 
-.tutor-card{
+
+/* tutor Landig */
+
+.tutorLanding .card-body-tutor h6{
+  margin-left: 0%;
+}
+.tutorLanding  {
+  padding: 100px 0;
+  background-color: #f7f7f7;
+}
+.tutorLanding .tutor-card{
   border: none;
   text-align: center;
   /* padding: 20px; */
@@ -373,52 +388,45 @@ color: #005D04;
 
 }
 
-.location,
-.teaching-duration,
-.rating {
+.tutorLanding .location,.teaching-duration, .rating {
 text-align: justify;
 margin-left: 30px;
 font-size: 15px;
 }
 
-.location i,
-.teaching-duration i,
-.rating i {
+.tutorLanding .location i, .teaching-duration i, .rating i {
 display: inline-block;
 vertical-align: middle;
 margin-right: 5px;
 font-size: 15px;
 }
-.card-tutor-p {
+.tutorLanding .card-tutor-p {
   color: #808080;
   margin-top: 5px ;
 }
-.card-tutor{
+.tutorLanding .card-tutor{
   margin-top: 10px;
   margin-bottom: 2px ;
 }
-.rating {
+.tutorLanding .rating {
   color: green;
   font-size: 15px;
 }
 
-.Selengkapnya {
+.tutorLanding .Selengkapnya {
   margin-top: 20px; /* Atur margin di bagian atas */
   margin-bottom: 30px; /* Atur margin di bagian bawah */
 }
 
-.btn-selengkapnya {
+.tutorLanding .btn-selengkapnya {
   margin: 10px; /* Atur margin secara seragam di semua sisi tombol */
 }
 
-.btn-selengkapnya {
-margin: 10px; /* Atur margin secara seragam di semua sisi tombol */
-}
-
-.card-img-top {
-border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
-border-top-right-radius: 15px; /* Melengkungkan sudut kanan atas gambar */
-object-fit: cover; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
+.tutorLanding .card-img-top {
+  border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
+  border-top-right-radius: 15px; /* Melengkungkan sudut kanan atas gambar */
+  height: 300px;
+  width: 300px; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
 }
 
 /* tutor */
@@ -657,7 +665,7 @@ margin-bottom: 20px;
 background-color: #ffffff;
 margin-top: 70px;
 margin-right: 50px;
-margin-left: -50px;
+margin-left: 0px;
 height: 50px;
 }
 
@@ -670,7 +678,7 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 margin-bottom: 50px;
 background-color: #ffffff;
 margin-right: 50px;
-margin-left: -50px;
+margin-left: 0px;
 
 }
 
@@ -697,6 +705,7 @@ border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 text-align: center;
 margin-top: 70px;
+margin-left: 70px;
 transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -729,9 +738,10 @@ color: white;
 position: relative;
 width: 270px;
 background-color: white;
-margin-top: 20px;
 border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+margin-left: 70px;
 transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -739,8 +749,6 @@ transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 .foto-Profile .menu {
 display: flex;
 flex-direction: column;
-margin-left: -70px;
-margin-right: 30px;
 }
 
 .foto-Profile .menu-item {
@@ -750,12 +758,10 @@ padding: 15px;
 border-bottom: 1px solid #e0e0e0;
 cursor: pointer;
 transition: background-color 0.3s;
-margin-left: 70px;
 }
 
 .foto-Profile .menu-item:last-child {
 border-bottom: none;
-margin-left: 70px;
 }
 
 .foto-Profile .menu-item:hover {
@@ -909,7 +915,7 @@ margin-bottom: 0px;
 background-color: #ffffff;
 margin-top: 70px;
 margin-right: 50px;
-margin-left: -70px;
+margin-left: 0px;
 height: 50px;
 }
 
@@ -949,6 +955,7 @@ border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 text-align: center;
 margin-top: 70px;
+margin-left: 70px;
 transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -984,6 +991,7 @@ background-color: white;
 border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 margin-top: 50px;
+margin-left: 70px;
 transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -1001,6 +1009,10 @@ padding: 15px;
 border-bottom: 1px solid #e0e0e0;
 cursor: pointer;
 transition: background-color 0.3s;
+}
+
+.riwayat .menu-item:last-child {
+border-bottom: none;
 }
 
 .riwayat .menu-item:hover {
@@ -1021,7 +1033,6 @@ margin-top: -70px; /* Menggeser tombol-tombol naik untuk mendekatkan dengan head
 display: flex; /* Menggunakan tata letak flex untuk mengatur tombol dalam satu baris */
 justify-content: flex-start;
 height: 120px; /* Menggeser tombol-tombol ke sisi kiri */
-margin-left: -70px;
 }
 
 .button-reservasi .btn {
@@ -1040,7 +1051,8 @@ background-color: #fff;
 margin-bottom: 20px;
 margin-top: 10px;
 width: 805px;
-margin-left: -70px;
+
+
 }
 
 .riwayat .tutorA-card img {
@@ -1072,7 +1084,6 @@ font-size: 14px;
 margin-left: 30px;
 color: #666;
 }
-
 
 
 
@@ -1111,105 +1122,10 @@ justify-content: flex-start;
 position: relative;
 display: flex;
 flex-direction: row;
-margin-top: 10px;
 }
 
 .navbar .nav-item .nav-link:hover{
 color: #070D59;
-}
-
-
-.testimoni-title {
-font-family: 'Poppins', sans-serif;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-font-weight: bold;
-margin-left: 43px;
-height: 70px;
-}
-
-.card {
-border: none;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.beri-testimoni-tittle{
-font-family: 'Poppins', sans-serif;
-margin-left: 30px;
-}
-
-.input-container input.form-control {
-background-color: #D2D8E7;
-border: 1px solid #070D59;
-border-radius: 15px;
-font-family: 'Poppins', sans-serif;
-font-size: 14px;
-}
-
-.input-container label {
-font-family: 'Poppins', sans-serif;
-font-size: 14px;
-color: #ccc;
-}
-
-.input-container textarea.form-control {
-background-color: #D2D8E7;
-border: 1px solid #070D59;
-border-radius: 15px;
-font-family: 'Poppins', sans-serif;
-font-size: 14px;
-}
-
-.input-container {
-margin-left: 70px;
-}
-
-.btn-submit-testimoni {
-margin-left: 70px;
-background-color: #1F3C88;
-border-radius: 15px;
-width: 200px;
-
-}
-
-.star-rating {
-display: flex;
-flex-direction: row-reverse;
-justify-content: flex-end;
-align-items: center;
-gap: 5px;
-font-size: 24px;
-width: 100%;
-}
-
-
-.star-rating input {
-display: none;
-}
-
-.star-rating label {
-cursor: pointer;
-color: #ccc; /* Warna bintang default (belum dipilih) */
-font-size: 23px;
-margin-bottom: 20px;
-}
-
-.star-rating input:checked + label {
-color: #FFD700; /* Warna bintang setelah dipilih */
-}
-
-.star-rating label:hover,
-.star-rating input:checked + label,
-.star-rating input:checked ~ label {
-color: #FFD700; /* Warna bintang setelah dipilih */
-}
-
-
-.rating-container label {
-display: flex;
-align-items: center;
-gap: 10px;
 }
 
 .riwayat .tanggal .nav-tanggal svg {
@@ -1220,323 +1136,96 @@ margin-left: 25px;
 }
 
 
-.price-card {
-background-color: rgba(255, 255, 255, 0.9);
-border: none;
-padding: 20px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-text-align: center;
-border-radius: 15px;
-margin-top: -50px;
-}
-
-.price-about .text-center {
-text-align: center;
-
-
-}
-.line-container {
-text-align: center;
-margin: 10px 0;
-}
-
-.line {
-width: 70%;
-height: 3px;
-background-color: #000000;
-display: inline-block;
-}
-.price-about .text-center h1 {
-font-size: 23px;
-margin-bottom: 50px;
-
-
-}
-
-/* HALAMAN paket card */
-.price-about .text-center p {
-font-size: 25px;
-margin-top: 20px;
-margin-bottom: 20px;
-font-size: 16px;
-color: #000000;
-
-}
-.price-section {
-display: flex;
-align-items: center;
-justify-content: center;
-height: 80vh;
-
-}
-
-.background-container {
-
-background-size: cover;
-background-position: center;
-padding: 100px 0;
-}
-
-.price-section-paket .price-card {
-background-color: rgba(255, 255, 255, 0.9);
-border: none;
-padding: 20px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-text-align: center;
-border-radius: 15px;
-}
-
-.price-section-paket .price-card h3 {
-font-size: 24px;
-}
-
-.price-section-paket .price-card ul {
-list-style: none;
-padding: 0;
-}
-
-.price-section-paket .price-card ul li {
-margin: 10px 0;
-font-size: 16px;
-}
-.price-section-paket .price-card .price-harga p {
-font-size: 18px; /* Anda bisa mengatur ukuran font untuk kata "bulan" di sini */
-color: #005D04;
-}
-
-.price-section-paket .price-card .price-harga .harga {
-font-size: 30px;
-font-weight: bold;
-}
-
-
-
-/* HALAMAN RIWAYAT */
-.riwayat .card-header-profilTutor{
-  border: none;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 0px;
-  background-color: #ffffff;
-  margin-top: 70px;
-  margin-right: 50px;
-  margin-left: 0px;
-  height: 50px;
-}
-
-
-.riwayat .card-formulir{
-  border: none;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 50px;
-  background-color: #ffffff;
-  margin-right: 50px;
-  margin-left: 0px;
-
-}
-
-.riwayat .btn {
-  display: inline-block;
-  padding: 1px 20px;
-  border: 2px solid #1F3C88;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: lighter;
-  transition: background-color 0.3s, color 0.3s;
-  margin-top: 80px;
-  justify-content: center; /* Mengatur konten menjadi di tengah secara horizontal */
-  align-items: center;
-
-}
-
-.riwayat .card {
-  position: relative;
-  width: 270px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 70px;
-  margin-left: 70px;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-
-.riwayat .profile-pic {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  margin: 0 auto 10px;
-  object-fit: cover;
-}
-
-.riwayat .plus-icon {
-  position: absolute;
-  bottom: 48px;
-  right: 48px;
-  width: 30px;
-  height: 30px;
-  background-color:#070D59;
-  border-radius: 50%;
-  padding: 4px;
-  cursor: pointer;
-}
-
-.riwayat.plus-icon i {
-  color: white;
-}
-
-.riwayat .card-menu {
-  position: relative;
-  width: 270px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-  margin-left: 70px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-
-.riwayat .menu {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 80px;
-}
-
-.riwayat .menu-item {
+/* Testimoni */
+.testimoni-title {
+  font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #e0e0e0;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.riwayat .menu-item:last-child {
-  border-bottom: none;
-}
-
-.riwayat .menu-item:hover {
-  background-color: #f5f5f5;
-}
-
-.riwayat.menu-item i {
-  font-size: 1.25rem;
-  margin-right: 10px;
-}
-
-.riwayat.menu-item span {
-  font-size: 0.875rem;
-}
-
-.button-reservasi {
-  margin-top: -70px; /* Menggeser tombol-tombol naik untuk mendekatkan dengan header kartu */
-  display: flex; /* Menggunakan tata letak flex untuk mengatur tombol dalam satu baris */
   justify-content: flex-start;
-  height: 120px; /* Menggeser tombol-tombol ke sisi kiri */
-}
-
-.button-reservasi .btn {
-  margin-right: 10px; /* Memberikan jarak antara tombol-tombol */
-}
-
-
-.riwayat .tutorA-me-section {
-  padding: 12px 0;
-}
-
-.riwayat .tutorA-card {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  background-color: #fff;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  width: 805px;
-
-
-}
-
-.riwayat .tutorA-card img {
-  border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
-  border-bottom-left-radius: 15px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-
-  object-fit: cover; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
-  width: 150px;
-  height:150px;
-}
-
-.riwayat .deskripsiTutorA {
-  padding: 10px 0;
-  margin-top: 20px;
-}
-
-.riwayat .card-tutorA {
-  margin: 0;
-  margin-left: 30px;
-  font-size: 18px;
   font-weight: bold;
+  margin-left: 43px;
+  height: 70px;
 }
 
-.riwayat .card-tutor-p {
-  margin: 0;
-  font-size: 14px;
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.beri-testimoni-tittle{
+  font-family: 'Poppins', sans-serif;
   margin-left: 30px;
-  color: #666;
 }
 
-
-
-/* Gaya bingkai kartu pada tampilan ponsel */
-@media (max-width: 767px) {
-  .riwayat .tutorA-card {
-      margin-bottom: 20px;
-  }
-}
-
-.riwayat .deskripsiTutorA {
-  position: relative;
-}
-
-.riwayat .selengkapnya .btn-selengkapnya {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  transform: translate(170%, -400%);
-  transition: background-color 0.3s ease-in-out;
-
-}
-
-
-.riwayat .tanggal .nav-tanggal{
+.input-container input.form-control {
+  background-color: #D2D8E7;
+  border: 1px solid #070D59;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  font-weight: 400;
-  color: #54565C;
-  padding: 0;
-  transition: all .4s ease-in-out;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: relative;
+}
+
+.input-container label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input-container textarea.form-control {
+  background-color: #D2D8E7;
+  border: 1px solid #070D59;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.input-container {
+  margin-left: 70px;
+}
+
+.btn-submit-testimoni {
+  margin-left: 70px;
+  background-color: #1F3C88;
+  border-radius: 15px;
+  width: 200px;
+
+}
+
+.star-rating {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  font-size: 24px;
+  width: 100%;
 }
 
-.navbar .nav-item .nav-link:hover{
-  color: #070D59;
+
+.star-rating input {
+  display: none;
 }
 
-.riwayat .tanggal .nav-tanggal svg {
-  width: 20px;
-  height: 20px;
-  margin-left: 25px;
-  /* margin-bottom: -100px; */
+.star-rating label {
+  cursor: pointer;
+  color: #ccc; /* Warna bintang default (belum dipilih) */
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.star-rating input:checked + label {
+  color: #FFD700; /* Warna bintang setelah dipilih */
+}
+
+.star-rating label:hover,
+.star-rating input:checked + label,
+.star-rating input:checked ~ label {
+  color: #FFD700; /* Warna bintang setelah dipilih */
+}
+
+
+.rating-container label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

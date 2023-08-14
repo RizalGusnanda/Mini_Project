@@ -51,7 +51,7 @@ Route::get('/profileTutor', function () {
     return view('layoutUser/profileTutorPage');
 });
 
-Route::get('/landing', [LandingController::class, 'showPaketLanding'])->name('landing.show');
+Route::get('/landing', [LandingController::class, 'showLanding'])->name('landing.show');
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
