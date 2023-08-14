@@ -64,7 +64,7 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
+
 
 
 
@@ -82,7 +82,7 @@ Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('pr
         // Route untuk mendapatkan data spesialisasi
         Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
 
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.show');
+        Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {

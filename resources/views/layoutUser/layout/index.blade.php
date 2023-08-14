@@ -30,7 +30,7 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('tutor.show') }}">Tutor</a>
+                <a class="nav-link" href="{{ route('tutor') }}">Tutor</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link"  href="#about-me">Tentang Kami</a>
