@@ -133,7 +133,7 @@
                                                 </span> bulan</p>
                                         </div>
 
-                                        <p>{{ $paket->deskripsi }}</p>
+                                        <p class="black-text">{{ $paket->deskripsi }}</p>
                                         <a href="{{ route('tutor') }}" class="btn btn-price">Daftar</a>
                                     </div>
                                 </div>

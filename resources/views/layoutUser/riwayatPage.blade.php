@@ -13,9 +13,6 @@ body{
             <div class="col-md-4">
                 <!-- Card Foto Profile -->
                 <div class="card foto-Profile">
-                <label for="picture" class="plus-icon">
-                    <i class="fas fa-plus"></i>
-                </label>
                 <input type="file" name="image" class="d-none" id="picture">
                 <img class="profile-pic" src="assets/img/tutor1.jpeg" alt="Profile Picture">
             </div>
