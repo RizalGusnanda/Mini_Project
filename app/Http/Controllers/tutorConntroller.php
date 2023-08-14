@@ -17,7 +17,7 @@ class tutorConntroller extends Controller
                             ->with('user','kecamatan')
                             ->get();
 
-        return view('layoutUser.tutorPage', ['otherTutors' => $otherTutors]);
+        return view('layoutUser.tutorPage', ['tutors' => $tutors]);
     }
 
     public function showTutor($id)

@@ -27,10 +27,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Tutor</a>
+                <a class="nav-link" href="{{ route('tutor.show') }}">Tutor</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link"  href="#about-me">Tentang Kami</a>
@@ -69,7 +69,7 @@
               <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
                   <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
                   <div style="display: flex; flex-direction: column;">
-                      <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
+                      <p style="font-size: 14px; margin-bottom: 0; margin-left: 0px;">Kami adalah platform inovatif yang menyediakan
                           cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                   </div>
               </div>
@@ -90,7 +90,7 @@
                   <div style="display: flex; flex-direction: column;">
                       <h5>Ikuti Kami</h5>
                       <ul class="social list-unstyled" style="margin: 0;">
-                          <p style="font-size: 14px; margin-bottom: 5px;">Ikuti social media kami</p>
+                          <p style="font-size: 14px; margin-bottom: 5px; margin-left: 0px;">Ikuti social media kami</p>
                           <ul class="social list-unstyled" style="margin: 0;">
                               <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x" style="color: #EE6F57;"></i></a>
                               </li>

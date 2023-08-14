@@ -6,7 +6,7 @@
         <div class="container d-flex align-items-center">
             <div class="row align-items-center">
                 <div class="col">
-                    <p>Bergabunglah dengan kami</p>
+                    <p style="margin-left: 0;">Bergabunglah dengan kami</p>
                     <h2 class="mt-50">Temukan Guru Privat Terbaik untuk Mengasah Potensimu di <img
                             src="assets/img/GuruLink.png" alt="GuruLink" style="zoom: 1.5;"></h2>
                     <br>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <img src="assets/img/cuate.png" alt="">
+                    <img src="assets/img/cuate.png" alt="" class="img-fluid" style="margin-top: 80px;">
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <div class="title-about">
                     <div class="col-md-12 text-center">
                         <h1>kenapa harus <img src="img/GuruLink.png" alt=""></h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p>Kami menawarkan proses pencarian guru privat yang cepat, aman, dan terpercaya. </p>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <img src="assets/img/profesional.png" alt="">
                             <h4>Tutor Profesional</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Memiliki keahlian mendalam di bidangnya. </p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <div class="card-body">
                             <img src="assets/img/terpercaya.png" alt="">
                             <h4>Terpercaya</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Kepercayaan merupakan pondasi utama, dengan menjamin guru berkualitas. </p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <div class="card-body">
                             <img src="assets/img/personal.png" alt="">
                             <h4>Pendekatan Interaktif</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Pengalaman belajar yang disesuaikan dengan kebutuhan pengguna. </p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         <div class="card-body">
                             <img src="assets/img/inovatif.png" alt="">
                             <h4>Dukungan Penuh</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Menyajikan platform inovatif dalam mencari guru privat yang tepat. </p>
                         </div>
                     </div>
                 </div>
@@ -97,9 +97,7 @@
                     <div class="about-content">
                         <span>Tentang</span>
                         <h1>GuruLink</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates non, dolores iure quia
-                            aliquid ex voluptate tenetur. Earum delectus voluptatibus fugiat error aperiam sed, cum, odio
-                            porro reiciendis illum similique?</p>
+                        <p style="font-size: 14px; margin-right: 0; margin-left: 0;">Platform inovatif yang menyediakan cara mudah dan cepat untuk menemukan guru privat yang berkualitas dan sesuai dengan tujuan belajarmu. Tim kami dengan penuh semangat siap membantu menghubungkanmu dengan guru privat yang tepat, sehingga kamu bisa belajar dengan percaya diri.</p>
                         <a href="" class="btn btn-transparent">Cek Selengkapnya</a>
                     </div>
                 </div>
@@ -136,7 +134,7 @@
                                         </div>
 
                                         <p>{{ $paket->deskripsi }}</p>
-                                        <a href="#" class="btn btn-price">Daftar</a>
+                                        <a href="{{ route('tutor.show') }}" class="btn btn-price">Daftar</a>
                                     </div>
                                 </div>
                             </div>

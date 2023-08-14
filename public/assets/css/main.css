@@ -21,6 +21,7 @@ body{
   font-size: 14px;
   font-weight: 400;
   color: #54565C;
+  margin: 0 30px;
   padding: 0;
   transition: all .4s ease-in-out;
   align-items: flex-start;
@@ -109,6 +110,9 @@ body{
     /* Gaya untuk layar kurang dari 768px lebarnya */
   }
 
+@media (max-width: 768px) {
+  /* Gaya untuk layar kurang dari 768px lebarnya */
+}
 
   /* start herro */
   .hero{
@@ -407,11 +411,15 @@ body{
     margin: 10px; /* Atur margin secara seragam di semua sisi tombol */
   }
 
-  .card-img-top {
-    border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
-    border-top-right-radius: 15px; /* Melengkungkan sudut kanan atas gambar */
-    object-fit: cover; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
-  }
+.btn-selengkapnya {
+  margin: 10px; /* Atur margin secara seragam di semua sisi tombol */
+}
+
+.card-img-top {
+  border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
+  border-top-right-radius: 15px; /* Melengkungkan sudut kanan atas gambar */
+  object-fit: cover; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
+}
 
   /* tutor */
   /* footer */

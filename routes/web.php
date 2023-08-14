@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
@@ -32,6 +33,7 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -39,15 +41,17 @@ Route::get('/login', function () {
         return view('auth/login');
     }
 })->name('login');
-  // detailpage
-Route::get('/', function () {
+
+// detailpage
+Route::get('/detail', function () {
     return view('layoutUser/detailTutorPage');
 });
-Route::get('/tutor', function () {
-    return view('layoutUser/tutorPage');
-});
-Route::get('/landing', [LandingController::class, 'showLanding'])->name('landing.show');
 
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
+
+Route::get('/landing', [LandingController::class, 'showPaketLanding'])->name('landing.show');
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
@@ -64,6 +68,8 @@ Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
 
 
+Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
+    ->name('layoutUser/profileTutorPage');
 
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
@@ -76,13 +82,13 @@ Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('pr
         // Route untuk mendapatkan data spesialisasi
         Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
 
-
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.show');
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
-        });
+    });
     //user list
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);
@@ -117,15 +123,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::put('assign-user/{user}', [AssignUserToRoleController::class, 'update'])->name('assign.user.update');
     });
     Route::prefix('daerah-management')->group(function () {
-        Route::resource('kecamatan',KecamatanController::class);
+        Route::resource('kecamatan', KecamatanController::class);
         Route::post('kecamtan/import', [KecamatanController::class, 'import'])->name('kecamatan.import');
 
-         // kelurahan
-        Route::resource('kelurahan',KelurahanController::class);
+        // kelurahan
+        Route::resource('kelurahan', KelurahanController::class);
         Route::post('kelurahan/import', [KelurahanController::class, 'import'])->name('kelurahan.import');
     });
     Route::prefix('pengajaran-management')->group(function () {
-        Route::resource('spesialisasi',SpesalisasiController::class);
+        Route::resource('spesialisasi', SpesalisasiController::class);
     });
     //membuat tampilan profile admin
     Route::get('/profileAdmin', function () {
@@ -134,5 +140,3 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
     Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
 });
-
-
