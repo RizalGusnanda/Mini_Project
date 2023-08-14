@@ -86,20 +86,12 @@
                                                 class="form-control @error('id_kecamatans') is-invalid @enderror"
                                                 name="id_kecamatans">
                                                 <option value="">Pilih Kecamatan</option>
-                                                @if ($profile && $profile->id_kecamatans == null)
-                                                    @foreach ($kecamatans as $kecamatan)
-                                                        <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
-                                                            {{ $kecamatan->kecamatan }}
-                                                        </option>
-                                                    @endforeach
-                                                @else
                                                 @foreach ($kecamatans as $kecamatan)
-                                                        <option @selected($profile->id_kecamatans == $kecamatan->id) value="{{ $kecamatan->id }}">
-                                                            {{ $kecamatan->kecamatan }}
-                                                        </option>
-                                                    @endforeach
-                                                @endif
-
+                                                <option @if ($profile && $profile->id_kecamatans == $kecamatan->id) selected @endif
+                                                    value="{{ $kecamatan->id }}">
+                                                    {{ $kecamatan->kecamatan }}
+                                                </option>
+                                            @endforeach
 
                                             </select>
                                             @error('id_kecamatans')

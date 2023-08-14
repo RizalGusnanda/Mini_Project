@@ -1134,3 +1134,98 @@ button i {
   margin-left: 25px;
   /* margin-bottom: -100px; */
 }
+
+
+/* Testimoni */
+.testimoni-title {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    margin-left: 43px;
+    height: 70px;
+  }
+
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .beri-testimoni-tittle{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 30px;
+  }
+
+  .input-container input.form-control {
+    background-color: #D2D8E7;
+    border: 1px solid #070D59;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+  }
+
+  .input-container label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .input-container textarea.form-control {
+    background-color: #D2D8E7;
+    border: 1px solid #070D59;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+  }
+
+  .input-container {
+    margin-left: 70px;
+  }
+
+  .btn-submit-testimoni {
+    margin-left: 70px;
+    background-color: #1F3C88;
+    border-radius: 15px;
+    width: 200px;
+
+  }
+
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    font-size: 24px;
+    width: 100%;
+  }
+
+
+  .star-rating input {
+    display: none;
+  }
+
+  .star-rating label {
+    cursor: pointer;
+    color: #ccc; /* Warna bintang default (belum dipilih) */
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+
+  .star-rating input:checked + label {
+    color: #FFD700; /* Warna bintang setelah dipilih */
+  }
+
+  .star-rating label:hover,
+  .star-rating input:checked + label,
+  .star-rating input:checked ~ label {
+    color: #FFD700; /* Warna bintang setelah dipilih */
+  }
+
+
+  .rating-container label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
