@@ -11,7 +11,7 @@ class PaketController extends Controller
         $pakets = Paket::all(); // Ambil data paket dari database
 
         return view('layoutUser.paketPage', ['pakets' => $pakets]);
-        
+
     }
 }
 

@@ -3,10 +3,13 @@
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
-use App\Http\Controllers\ProfileUserController;
+use App\Http\Controllers\profileUserController;
+use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -16,9 +19,6 @@ use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
-use App\Http\Controllers\PaketController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\tutorConntroller;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -51,7 +51,7 @@ Route::get('/profileTutor', function () {
     return view('layoutUser/profileTutorPage');
 });
 
-Route::get('/landing', [LandingController::class, 'showPaketLanding'])->name('landing.show');
+Route::get('/landing', [LandingController::class, 'showLanding'])->name('landing.show');
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
@@ -70,18 +70,22 @@ Route::get('/pembayaran', function () {
 
 
 
+
 Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
     ->name('layoutUser/profileTutorPage');
 
-Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
-// Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
 
-// Route untuk mendapatkan data spesialisasi
-Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+        Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
 
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.show');
+        // Route untuk mendapatkan data kecamatan
+        Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+
+        // Route untuk mendapatkan data spesialisasi
+        Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+
+        Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {

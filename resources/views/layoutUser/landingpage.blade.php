@@ -36,7 +36,7 @@
     <!-- end hero -->
 
     <!-- about me -->
-    <section class="about-me-section">
+    <section class="about-me-section" id="about-me">
         <div class="container">
             <div class="row">
                 <div class="title-about">
@@ -114,6 +114,11 @@
         <div class="background-container">
             <div class="container">
                 <div class="row">
+                    <div class="title-about">
+                        <div class="col-md-12 text-center">
+                            <h1>Paket Belajar <img src="assets/img/GuruLink.png" alt=""></h1>
+                        </div>
+                    </div>
                     @if (isset($pakets) && count($pakets) > 0)
                         @foreach ($pakets as $paket)
                             <div class="col-md-4">
@@ -129,7 +134,7 @@
                                         </div>
 
                                         <p>{{ $paket->deskripsi }}</p>
-                                        <a href="{{ route('tutor.show') }}" class="btn btn-price">Daftar</a>
+                                        <a href="{{ route('tutor') }}" class="btn btn-price">Daftar</a>
                                     </div>
                                 </div>
                             </div>
@@ -147,50 +152,55 @@
 
 
     <!-- tutor section -->
-    <section class="about-me-section">
+    <section class="tutorLanding">
         <div class="container">
             <div class="row">
                 <div class="title-about">
                     <div class="col-md-12 text-center">
                         <h1>Rekomendasi Tutor <img src="assets/img/GuruLink.png" alt=""></h1>
-
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-md-3">
-                        <div class="tutor-card">
-                            <div class="">
-
+                @if (isset($otherTutors) && count($otherTutors) > 0)
+                    <div class="row mt-4">
+                        @foreach ($otherTutors as $tutor)
+                            <div class="col-md-3">
+                                <div class="tutor-card">
+                                    @php
+                                    $profileImagePath = 'storage/' . ($tutor->user->profile->profile ?? 'default.jpg');
+                                    @endphp
+                                    @if(file_exists(public_path($profileImagePath)))
+                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
+                                    @else
+                                        <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                                    @endif
+                                    <div class="card-body-tutor">
+                                        <h4 class="card-tutor">{{ $tutor->user->name }}</h4>
+                                        <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
+                                        <div class="location">
+                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }},
+                                            {{ $tutor->kecamatan->kecamatan }}
+                                        </div>
+                                        <div class="teaching-duration">
+                                            <i class="fas fa-clock"></i> {{ $tutor->pengalaman }}tahun mengajar
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star" style="color: gold;"></i> 4.9/5
+                                        </div>
+                                        <div class="Selengkapnya">
+                                            <a href="#" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <img src="assets/img/tutor1.jpeg" class="card-img-top" alt="Tutor 1">
-                            <div class="card-body-tutor">
-                                <h4 class="card-tutor">Atmayanti</h4>
-                                <h6 class="card-tutor-p">Project Manager</h6>
-                                <br>
-                            </div>
-                            <div class="location">
-                                <i class="fas fa-map-marker-alt"></i> Lowokwaru, Malang
-                            </div>
-                            <div class="teaching-duration">
-                                <i class="fas fa-clock"></i> 3 tahun mengajar
-                            </div>
-                            <div class="rating">
-                                <i class="fas fa-star" style="color: gold;"></i> 4.9/5
-                            </div>
-                            <div class="Selengkapnya">
-                                <a href="detail-tutor.html" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
-                            </div>
-
-                        </div>
+                        @endforeach
                     </div>
-
-                </div>
-
+                @else
+                    <p>No other tutors available</p>
+                @endif
             </div>
-
-
         </div>
     </section>
+
     <!-- end tutor section -->
 @endsection

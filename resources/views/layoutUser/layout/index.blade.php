@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-    
+
     <title>Guru Link</title>
 </head>
 <body>
@@ -30,10 +30,10 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('tutor.show') }}">Tutor</a>
+                <a class="nav-link" href="{{ route('tutor') }}">Tutor</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Tentang Kami</a>
+                  <a class="nav-link"  href="#about-me">Tentang Kami</a>
               </li>
               <li class="nav-item close-icons">
                   <a class="nav-link">
