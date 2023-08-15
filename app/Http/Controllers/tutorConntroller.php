@@ -24,7 +24,7 @@ class tutorConntroller extends Controller
     {
         // Mengambil data profil tutor berdasarkan $id
         $tutorProfile = Profile::where('user_id', $id)
-                        ->with('user','kecamatan')
+                        ->with('user','kecamatan','profile')
                         ->first();
 
         return view('layoutUser.tutorDetail', ['tutorProfile' => $tutorProfile]);

@@ -22,13 +22,16 @@ class profileUserController extends Controller
         $profile = Profile::where('user_id', $userId)->first();
         $kecamatans = Kecamatan::all();
         $kelurahans = Kelurahan::all();
+        $spesalisasis = Spesalisasi::all();
 
         return view('layoutUser.profileTutorPage')->with([
             'kecamatans' => $kecamatans,
             'kelurahans' => $kelurahans,
             'profile' => $profile,
+            'spesalisasis'=>$spesalisasis,
         ]);
      }
+
 
      public function getKecamatan()
     {
@@ -45,7 +48,24 @@ class profileUserController extends Controller
      {
          $kelurahans = Kelurahan::all()->where('id_kecamatan', $request->id);
          return response()->json(['kelurahans' => $kelurahans]);
+
+
      }
+     public function loadFilterSpesialisasi(Request $request)
+     {
+        $spesalisasis = Spesalisasi::all();
+        return response()->json(['spesalisasis' => $spesalisasis]);
+
+
+     }
+
+
+
+     public function getAllSpesialisasi()
+    {
+        $spesalisasis = Spesalisasi::all();
+        return response()->json(['spesalisasis' => $spesalisasis]);
+    }
 
     public function show(){
         return view('layoutUser.layout.tutorProfilePage');
@@ -87,7 +107,7 @@ class profileUserController extends Controller
             // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
             $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
             $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
-            $spesialisasi = Spesalisasi::find($request->input('id_spesalisasis'));
+            $spesalisasis = Spesalisasi::find($request->input('id_spesalisasis'));
 
             // Hubungkan data yang diambil dengan model Profile
             if ($kecamatan) {
@@ -98,8 +118,8 @@ class profileUserController extends Controller
                 $profile->kelurahan()->associate($kelurahan);
             }
 
-            if ($spesialisasi) {
-                $profile->spesialisasi()->associate($spesialisasi);
+            if ($spesalisasis) {
+                $profile->spesialisasi()->associate($spesalisasis); // Menggunakan "spesialisasi" bukan "spesialisasis"
             }
         // Set profile to null if not provided
         if (!$request->filled('jenis_kelamin')) {

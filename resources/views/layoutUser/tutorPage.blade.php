@@ -55,8 +55,9 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <!-- Gambar Profil -->
+
                                     @php
-                                        $profileImagePath = 'storage/' . ($tutor->user->profile->profile ?? 'default.jpg');
+                                        $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
                                     @endphp
                                     @if (file_exists(public_path($profileImagePath)))
                                         <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">

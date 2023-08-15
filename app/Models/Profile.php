@@ -30,9 +30,10 @@ class Profile extends Model
     ];
 
     public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id'); // Menambahkan 'id_users' sebagai foreign key
-    }
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
 
     public function kecamatan()
     {
