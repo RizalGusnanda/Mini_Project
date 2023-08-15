@@ -90,6 +90,8 @@ Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name(
 Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 
+
+
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
