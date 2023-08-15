@@ -369,6 +369,23 @@ button i {
 
 /* tutor Landig */
 
+
+.tutorLanding  .title-about .text-center {
+    text-align: center;
+
+}
+.tutorLanding  .title-about .text-center h1 {
+    font-size: 25px;
+
+}
+.tutorLanding  .title-about .text-center p {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #000000;
+
+}
 .tutorLanding .card-body-tutor h6{
     margin-left: 0%;
 }
@@ -376,7 +393,7 @@ button i {
     padding: 100px 0;
     background-color: #f7f7f7;
 }
-.tutorLanding .tutor-card{
+.tutorLanding .owl-carousel .tutor-card{
     border: none;
     text-align: center;
     /* padding: 20px; */
@@ -385,6 +402,8 @@ button i {
     margin-bottom: 20px;
     background-color: #F5F5F5;
     margin-top: 20px;
+    width: 300px;
+
 
 }
 
@@ -429,8 +448,44 @@ button i {
     width: 300px; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
   }
 
+  .tutorLanding  .btn:hover {
+    background-color: #1F3C88;
+    color: #f9f9f9;
+}
+
+
+.tutorLanding .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #1F3C88;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 80px;
+}
+
+.tutorLanding .btn-transparent {
+    background-color: transparent;
+    color: #1F3C88;
+}
+.tutorLanding  .btn-transparent:hover {
+    background-color: #1F3C88;
+    color: #f9f9f9;
+}
 /* tutor */
-/* footer */
+
+
+
+
+
+
+
+
+
+
+
+
 /* Styling for the footer section */
 .footer-99382 {
   padding: 80px 0;
@@ -1229,3 +1284,4 @@ button i {
     align-items: center;
     gap: 10px;
   }
+

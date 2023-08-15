@@ -65,7 +65,6 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <span class="plus-icon"><i class="fas fa-plus"></i></span>
                         <img class="profile-pic" src="assets/img/tutor1.jpeg" alt="Profile Picture">
                     </div>
                     <div class="card-menu">

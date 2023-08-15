@@ -46,7 +46,7 @@
                                       <p><span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} / </span> bulan</p>
                                   </div>
 
-                                  <p>{{ $paket->deskripsi }}</p>
+                                  <p class="black-text">{{ $paket->deskripsi }}</p>
                                     <a href="#" class="btn btn-price">Daftar</a>
                                 </div>
                             </div>

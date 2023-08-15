@@ -87,11 +87,11 @@
                                                 name="id_kecamatans">
                                                 <option value="">Pilih Kecamatan</option>
                                                 @foreach ($kecamatans as $kecamatan)
-                                                <option @if ($profile && $profile->id_kecamatans == $kecamatan->id) selected @endif
-                                                    value="{{ $kecamatan->id }}">
-                                                    {{ $kecamatan->kecamatan }}
-                                                </option>
-                                            @endforeach
+                                                    <option @if ($profile && $profile->id_kecamatans == $kecamatan->id) selected @endif
+                                                        value="{{ $kecamatan->id }}">
+                                                        {{ $kecamatan->kecamatan }}
+                                                    </option>
+                                                @endforeach
 
                                             </select>
                                             @error('id_kecamatans')
@@ -162,6 +162,18 @@
                                             value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="spesalisasis" class="form-label">Spesialisasi</label>
+                                        <select id="spesalisasis" class="form-control @error('spesalisasis') is-invalid @enderror" name="spesalisasis">
+                                            <option value="">Pilih Spesialisasi</option>
+                                            @foreach ($spesalisasis as $spesalisasis)
+                                                <option @if ($profile && $profile->id_spesalisasis == $spesalisasis->id) selected @endif
+                                                    value="{{ $spesalisasis->id }}">
+                                                    {{ $spesalisasis->nama_spesialisasi }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="bank" class="form-label">Rekening Bank</label>
                                         <select id="bank" class="form-control @error('bank') is-invalid @enderror"
                                             name="bank">
@@ -175,7 +187,7 @@
                                                 {{ old('bank', optional(auth()->user()->profile)->bank) === 'BCA' ? 'selected' : '' }}>
                                                 BCA</option>
                                             <option value="BNI"
-                                                {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BNI' ? 'selected' : '' }}>
                                                 BNI</option>
                                         </select>
                                     </div>
@@ -238,32 +250,10 @@
             });
 
             var selectKecamatanId = "{{ $profile ? $profile->id_kecamatans : '' }}";
-
             var selectKelurahanId =
                 "{{ auth()->user()->profile ? optional(auth()->user()->profile->kelurahan)->id : '' }}";
-
             var getKelurahanUrl = '{{ route('get-kelurahan') }}';
 
-
-
-            // Mengisi dropdown Kecamatan
-            // $.ajax({
-            //     url: '{{ route('get-kecamatan') }}',
-            //     method: 'GET',
-            //     dataType: 'json',
-            //     success: function(response) {
-            //         console.log(selectKecamatanId);
-            //         console.log(response);
-            //         $('#id_kecamatans').empty();
-            //         $('#id_kecamatans').append('<option value="">Pilih Kecamatan</option>');
-            //         $.each(response, function(key, value) {
-            //             $('#id_kecamatans').append('<option value="' + value.id + '">' + value
-            //                 .nama_kecamatan + '</option>');
-            //         });
-            //         $("#id_kecamatans option[value='" + selectKecamatanId + "']").attr("selected",
-            //             "selected");
-            //     }
-            // });
 
             // Mengisi dropdown Kelurahan sesuai dengan Kecamatan yang terpilih
             if (selectKecamatanId != null) {
@@ -294,17 +284,26 @@
                     }
                 });
             }
-            // success: function(response) {
-            //     console.log(response);
-            //     var kelurahanDropdown = $('#id_kelurahans');
-            //     kelurahanDropdown.empty();
-            //     kelurahanDropdown.append('<option value="">Pilih Nama Kelurahan</option>');
-            //     $.each(response['kelurahans'], function(index, kelurahan) {
-            //         kelurahanDropdown.append('<option value="' + kelurahan.id + '">' + kelurahan
-            //             .nama_kelurahan + '</option>');
-            //     });
-            // }
 
+        });
+
+
+        $(document).ready(function() {
+            // Mengisi dropdown spesialisasi saat halaman dimuat
+            $.ajax({
+                url: '{{ route('get-all-spesialisasi') }}',
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    var spesialisasiDropdown = $('#spesalisasis');
+                    spesialisasiDropdown.empty();
+                    spesialisasiDropdown.append('<option value="">Pilih Spesialisasi</option>');
+                    $.each(response['spesalisasis'], function(key, value) {
+                        spesialisasiDropdown.append('<option value="' + value.id + '">' +
+                            value.nama_spesialisasi + '</option>');
+                    });
+                }
+            });
         });
     </script>
 @endsection
