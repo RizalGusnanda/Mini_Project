@@ -60,7 +60,8 @@
                         <div class="card-body">
                             <img src="assets/img/terpercaya.png" alt="">
                             <h4>Terpercaya</h4>
-                            <p style="margin-right: 0; margin-left: 0;">Kepercayaan merupakan pondasi utama, dengan menjamin guru berkualitas. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Kepercayaan merupakan pondasi utama, dengan menjamin
+                                guru berkualitas. </p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +70,8 @@
                         <div class="card-body">
                             <img src="assets/img/personal.png" alt="">
                             <h4>Pendekatan Interaktif</h4>
-                            <p style="margin-right: 0; margin-left: 0;">Pengalaman belajar yang disesuaikan dengan kebutuhan pengguna. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Pengalaman belajar yang disesuaikan dengan kebutuhan
+                                pengguna. </p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +80,8 @@
                         <div class="card-body">
                             <img src="assets/img/inovatif.png" alt="">
                             <h4>Dukungan Penuh</h4>
-                            <p style="margin-right: 0; margin-left: 0;">Menyajikan platform inovatif dalam mencari guru privat yang tepat. </p>
+                            <p style="margin-right: 0; margin-left: 0;">Menyajikan platform inovatif dalam mencari guru
+                                privat yang tepat. </p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +100,10 @@
                     <div class="about-content">
                         <span>Tentang</span>
                         <h1>GuruLink</h1>
-                        <p style="font-size: 14px; margin-right: 0; margin-left: 0;">Platform inovatif yang menyediakan cara mudah dan cepat untuk menemukan guru privat yang berkualitas dan sesuai dengan tujuan belajarmu. Tim kami dengan penuh semangat siap membantu menghubungkanmu dengan guru privat yang tepat, sehingga kamu bisa belajar dengan percaya diri.</p>
+                        <p style="font-size: 14px; margin-right: 0; margin-left: 0;">Platform inovatif yang menyediakan cara
+                            mudah dan cepat untuk menemukan guru privat yang berkualitas dan sesuai dengan tujuan belajarmu.
+                            Tim kami dengan penuh semangat siap membantu menghubungkanmu dengan guru privat yang tepat,
+                            sehingga kamu bisa belajar dengan percaya diri.</p>
                         <a href="" class="btn btn-transparent">Cek Selengkapnya</a>
                     </div>
                 </div>
@@ -162,17 +168,18 @@
                 </div>
 
                 @if (isset($otherTutors) && count($otherTutors) > 0)
-                    <div class="row mt-4">
+                    <div class="owl-carousel">
                         @foreach ($otherTutors as $tutor)
                             <div class="col-md-3">
                                 <div class="tutor-card">
                                     @php
-                                    $profileImagePath = 'storage/' . ($tutor->user->profile->profile ?? 'default.jpg');
+                                        $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
                                     @endphp
-                                    @if(file_exists(public_path($profileImagePath)))
+                                    @if (file_exists(public_path($profileImagePath)))
                                         <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
                                     @else
-                                        <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                                        <img class="card-img-top"s src="{{ asset('path/to/default/image.jpg') }}"
+                                            alt="">
                                     @endif
                                     <div class="card-body-tutor">
                                         <h4 class="card-tutor">{{ $tutor->user->name }}</h4>
@@ -195,12 +202,42 @@
                             </div>
                         @endforeach
                     </div>
-                @else
-                    <p>No other tutors available</p>
-                @endif
             </div>
+
+        </div>
+    @else
+        <p>No other tutors available</p>
+        @endif
+        </div>
         </div>
     </section>
 
     <!-- end tutor section -->
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+            items: 4, // Jumlah item per slide
+            loop: true, // Putar secara terus menerus
+            nav: true, // Tampilkan tombol navigasi
+            margin: 20, // Ruang antar item
+            responsive: {
+                0: {
+                    items: 1 // Jumlah item pada layar kecil
+                },
+                768: {
+                    items: 2 // Jumlah item pada layar sedang
+                },
+                992: {
+                    items: 3 // Jumlah item pada layar besar
+                },
+                1200: {
+                    items: 4 // Jumlah item pada layar sangat besar
+                }
+            }
+        });
+    });
+</script>

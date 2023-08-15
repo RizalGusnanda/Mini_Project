@@ -51,7 +51,7 @@ Route::get('/profileTutor', function () {
     return view('layoutUser/profileTutorPage');
 });
 
-Route::get('/landing', [LandingController::class, 'showLanding'])->name('landing.show');
+Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
@@ -79,8 +79,12 @@ Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('pr
         // Route untuk mendapatkan data kecamatan
         Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
 
-        // Route untuk mendapatkan data spesialisasi
+
         Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+
+        Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
+
+
 
         Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
