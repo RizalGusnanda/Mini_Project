@@ -1,5 +1,5 @@
 /* Navbar */
-body {
+body{
     font-family: 'Poppins', sans-serif;
     background-color: #D2D8E7;
 }
@@ -147,12 +147,12 @@ button i.fas.fa-search {
 }
 
 .hero  button {
-  border: none;
-  background: #F6F5F5;
-  padding: 10px 32px;
-  background-color: #1F3C88;
+    border: none;
+    background: #F6F5F5;
+    padding: 10px 32px;
+    background-color: #1F3C88;
 
-}
+  }
 
 button i {
   color: #333;
@@ -212,6 +212,7 @@ button i {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .about-content p {
     font-size: 16px;
     line-height: 1.6;
@@ -361,22 +362,12 @@ button i {
     color: #005D04;
 }
 
-  .price-card .price-harga p span {
-    font-size: 35px;
-  }
 
 .btn:hover {
     background-color: #1F3C88;
     color: #f9f9f9;
 }
 
-  .black-text {
-    color: black;
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    line-height: 1.5;
-  }
 
 /* tutor Landig */
 
@@ -403,19 +394,20 @@ button i {
 .tutorLanding  {
     padding: 100px 0;
     background-color: #f7f7f7;
-}
+  }
 
-.tutorLanding .tutor-card {
-  border: none;
-  text-align: center;
-  /* padding: 20px; */
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  background-color: #F5F5F5;
-  margin-top: 20px;
+  .tutorLanding .tutor-card {
+    border: none;
+    text-align: center;
+    /* padding: 20px; */
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-color: #F5F5F5;
+    margin-top: 20px;
+    width: 300px;
 
-}
+  }
 
 .tutorLanding .location,.teaching-duration, .rating {
   text-align: justify;
@@ -431,11 +423,11 @@ button i {
 }
 .tutorLanding .card-tutor-p {
     color: #808080;
-    margin-top: 5px;
+    margin-top: 5px ;
   }
 .tutorLanding .card-tutor{
     margin-top: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 2px ;
   }
 .tutorLanding .rating {
     color: green;
@@ -455,114 +447,14 @@ button i {
     border-top-left-radius: 15px; /* Melengkungkan sudut kiri atas gambar */
     border-top-right-radius: 15px; /* Melengkungkan sudut kanan atas gambar */
     height: 300px;
-    width: 300px;
+    width: 300px; /* Memastikan gambar mengisi seluruh area dengan mempertahankan aspek rasio */
   }
 
-  /* tutor */
-  /* footer */
-  .footer-99382 {
-    padding: 80px 0;
-    color: #000000;
-    text-align: left;
-    background-color: #D2D8E7;
-  }
-
-  .footer-site-logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    color: #000000;
-    text-decoration: none;
-  }
-
-  .footer-99382 p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .nav-links li {
-    margin-bottom: 10px;
-  }
-
-  .nav-links a {
-    color: #000000;
-    text-decoration: none;
-  }
-
-  .social li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .copyright {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    margin-top: 30px;
-  }
-
-  /* TUTOR HALAMAN */
-  .card-search-tutor {
-    border: none;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    background-color: #D2D8E7;
-    margin-top: 20px;
-  }
-
-  .card-search-tutor .search-form {
-    background: #F6F5F5;
-    display: flex;
-    border-radius: 15px;
-    font-weight: 200;
-    font-size: 16px;
-    overflow: hidden;
-    height: 50px;
-  }
-
-  .card-search-tutor .search-input {
-    display: flex;
-    align-items: center;
-    border-right: 1px solid #ccc;
-    padding: 0 5px;
-    margin-right: 0px;
-    width: 650px;
-  }
-
-  .card-search-tutor .search-input:last-child {
-    border-right: none;
-  }
-
-  .card-search-tutor .search-input input[type="text"] {
-    border: none;
-    background: transparent;
-    outline: none;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .card-search-tutor .search-input i.material-icons {
-    margin-right: 10px;
-    color: #ccc;
-  }
-
-  .card-search-tutor .search-input i {
-    margin-right: 10px;
-    color: #1305cf;
-    margin-top: 0px;
-  }
-
-  .card-search-tutor .button-tutor {
-    border: none;
-    background: #F6F5F5;
+  .tutorLanding  .btn:hover {
     background-color: #1F3C88;
     color: #f9f9f9;
 }
 
-  .card-search-tutor .button-tutor i {
-    color: #ffffff;
-  }
 
 .tutorLanding .btn {
     display: inline-block;
@@ -586,109 +478,6 @@ button i {
 /* tutor */
 
 
-  .detailTutor .card-text {
-    margin-bottom: 10px;
-  }
-
-  .detailTutor .card-text.d-flex.flex-column {
-    margin-right: 110px;
-  }
-
-  .beri-testimoni-tittle{
-    font-family: 'Poppins', sans-serif;
-    margin-left: 30px;
-  }
-
-  .detailTutor .card-text span:not(:first-child) {
-    margin-top: 5px;
-    font-weight: bold;
-  }
-
-  .detailTutor .pagination {
-    display: flex;
-    align-items: center;
-  }
-
-  .detailTutor .pagination span {
-    margin: 0 5px;
-    padding: 5px;
-    border-radius: 50%;
-    background-color: #EBEBEB;
-    cursor: pointer;
-  }
-
-  .detailTutor .rounded-icon {
-    border-radius: 50%;
-    padding: 8px;
-    background-color: #EBEBEB;
-    cursor: pointer;
-  }
-
-  .detailTutor .material-icons {
-    font-size: 24px;
-    width: 24px;
-    height: 24px;
-    vertical-align: bottom;
-    display: inline-block;
-  }
-
-  .detailTutor .row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .detailTutor .card.mb-3 {
-    margin: 5px;
-    margin-right: 5px;
-    flex: 1;
-    border: none;
-    box-shadow: none;
-  }
-
-  .detailTutor .col-md-6 {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  .detailTutor .testimonial-card {
-    background-color: #D2D8E7;
-    border-radius: 15px;
-    max-height: 250px;
-  }
-
-  .detailTutor .card-container {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  .detailTutor .profile-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
-
-  .detailTutor .yellow-star {
-    color: #FFC54D;
-  }
-
-  .detailTutor p {
-    color: #0f0f0f;
-  }
-
-  /* HALAMAN RIWAYAT */
-  /* HALAMAN RIWAYAT */
-  .riwayat .card-header-profilTutor {
-    border: none;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0px;
-    background-color: #ffffff;
-    margin-top: 70px;
-    margin-right: 50px;
-    margin-left: -70px;
-    height: 50px;
-  }
 
 
 
@@ -729,10 +518,10 @@ button i {
   margin-bottom: 10px;
 }
 
-.nav-links a {
-  color: #000000;
-  text-decoration: none;
-}
+  .nav-links a {
+    color: #000000;
+    text-decoration: none;
+  }
 
 /* Styling for the social media icons */
 .social li {
@@ -760,36 +549,36 @@ button i {
   margin-top: 20px;
 }
 
-.card-search-tutor .search-form {
-  background: #F6F5F5;
-  display: flex;
-  border-radius: 15px;
-  font-weight: 200;
-  font-size: 16px;
-  overflow: hidden;
-  height: 50px;
-}
+  .card-search-tutor .search-form {
+    background: #F6F5F5;
+    display: flex;
+    border-radius: 15px;
+    font-weight: 200;
+    font-size: 16px;
+    overflow: hidden;
+    height: 50px;
+  }
 
-.card-search-tutor .search-input {
-  display: flex;
-  align-items: center;
-  border-right: 1px solid #ccc;
-  padding: 0 5px;
-  margin-right: 0px;
-  width: 650px;
-}
+  .card-search-tutor .search-input {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #ccc;
+    padding: 0 5px;
+    margin-right: 0px;
+    width: 650px;
+  }
 
-.card-search-tutor .search-input:last-child {
-  border-right: none;
-}
+  .card-search-tutor .search-input:last-child {
+    border-right: none;
+  }
 
-.card-search-tutor .search-input input[type="text"] {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  padding: 10px;
-}
+  .card-search-tutor .search-input input[type="text"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+  }
 
 .card-search-tutor .search-input i.material-icons {
   margin-right: 10px;
@@ -802,18 +591,15 @@ button i {
   color: #1305cf;
   margin-top: 0px;
 
-
-}
-.card-search-tutor .button-tutor {
-  border: none;
-  background: #F6F5F5;
-  /* padding: 10px 30px; */
-  background-color: #1F3C88;
-  height: 50px;
-  width: 80px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius:0px;
-  margin-top: 0px;
+  .card-search-tutor .button-tutor {
+    border: none;
+    background: #F6F5F5;
+    background-color: #1F3C88;
+    height: 50px;
+    width: 80px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-top: 0px;
 
 }
 
@@ -1415,83 +1201,80 @@ button i {
     height: 70px;
   }
 
-  .card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .beri-testimoni-tittle {
+  .beri-testimoni-tittle{
     font-family: 'Poppins', sans-serif;
     margin-left: 30px;
   }
 
-  .input-container input.form-control {
-    background-color: #D2D8E7;
-    border: 1px solid #070D59;
-    border-radius: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-  }
+.input-container input.form-control {
+  background-color: #D2D8E7;
+  border: 1px solid #070D59;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
 
-  .input-container label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #ccc;
-  }
+.input-container label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #ccc;
+}
 
-  .input-container textarea.form-control {
-    background-color: #D2D8E7;
-    border: 1px solid #070D59;
-    border-radius: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-  }
+.input-container textarea.form-control {
+  background-color: #D2D8E7;
+  border: 1px solid #070D59;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
 
-  .input-container {
-    margin-left: 70px;
-  }
+.input-container {
+  margin-left: 70px;
+}
 
-  .btn-submit-testimoni {
-    margin-left: 70px;
-    background-color: #1F3C88;
-    border-radius: 15px;
-    width: 200px;
+.btn-submit-testimoni {
+  margin-left: 70px;
+  background-color: #1F3C88;
+  border-radius: 15px;
+  width: 200px;
 
-  }
+}
 
-  .star-rating {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 5px;
-    font-size: 24px;
-    width: 100%;
-  }
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  font-size: 24px;
+  width: 100%;
+}
 
 
-  .star-rating input {
-    display: none;
-  }
+.star-rating input {
+  display: none;
+}
 
   .star-rating label {
     cursor: pointer;
-    color: #ccc;
-    /* Warna bintang default (belum dipilih) */
+    color: #ccc; /* Warna bintang default (belum dipilih) */
     font-size: 23px;
     margin-bottom: 20px;
   }
 
-  .star-rating input:checked+label {
-    color: #FFD700;
-    /* Warna bintang setelah dipilih */
+  .star-rating input:checked + label {
+    color: #FFD700; /* Warna bintang setelah dipilih */
   }
 
   .star-rating label:hover,
-  .star-rating input:checked+label,
-  .star-rating input:checked~label {
-    color: #FFD700;
-    /* Warna bintang setelah dipilih */
+  .star-rating input:checked + label,
+  .star-rating input:checked ~ label {
+    color: #FFD700; /* Warna bintang setelah dipilih */
   }
 
 
