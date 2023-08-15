@@ -7,8 +7,10 @@
         }
     </style>
     <section class="foto-Profile">
+
         <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -90,6 +92,7 @@
                                                         {{ $kecamatan->kecamatan }}
                                                     </option>
                                                 @endforeach
+
                                             </select>
                                             @error('id_kecamatans')
                                                 <div class="invalid-feedback">
@@ -110,6 +113,7 @@
                                                 </div>
                                             @enderror
                                         </div>
+
                                     </div>
                                     <div class="row gx-3 mb-3">
                                         <div class="col-md-6">
@@ -127,6 +131,7 @@
                                                     {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === 'Perempuan' ? 'selected' : '' }}>
                                                     Perempuan</option>
                                             </select>
+
                                             @error('jenis_kelamin')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -158,9 +163,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="spesalisasis" class="form-label">Spesialisasi</label>
-                                        <select id="spesalisasis"
-                                            class="form-control @error('spesalisasis') is-invalid @enderror"
-                                            name="spesalisasis">
+                                        <select id="spesalisasis" class="form-control @error('spesalisasis') is-invalid @enderror" name="spesalisasis">
                                             <option value="">Pilih Spesialisasi</option>
                                             @foreach ($spesalisasis as $spesalisasis)
                                                 <option @if ($profile && $profile->id_spesalisasis == $spesalisasis->id) selected @endif
@@ -206,31 +209,11 @@
             </div>
             </div>
         </form>
+
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#spesalisasis').change(function() {
-                var idSpesialisasi = $(this).val();
-
-                // Melakukan permintaan AJAX untuk memperbarui spesialisasi
-                $.ajax({
-                    url: '{{ route('update-spesialisasi') }}',
-                    method: 'POST',
-                    data: {
-                        id_spesialisasis: idSpesialisasi,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log('Spesialisasi berhasil diperbarui:', response);
-                    },
-                    error: function(error) {
-                        console.error('Error dalam memperbarui spesialisasi:', error);
-                    }
-                });
-            });
-
             $('#id_kecamatans').change(function() {
                 var id_kecamatans = this.value;
                 $('#id_kelurahans').html('<option value="">Pilih Nama Kelurahan</option>');
@@ -271,6 +254,7 @@
                 "{{ auth()->user()->profile ? optional(auth()->user()->profile->kelurahan)->id : '' }}";
             var getKelurahanUrl = '{{ route('get-kelurahan') }}';
 
+
             // Mengisi dropdown Kelurahan sesuai dengan Kecamatan yang terpilih
             if (selectKecamatanId != null) {
                 if ($("#id_kecamatans").val() != null) {
@@ -302,6 +286,8 @@
             }
 
         });
+
+
         $(document).ready(function() {
             // Mengisi dropdown spesialisasi saat halaman dimuat
             $.ajax({
