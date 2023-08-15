@@ -594,10 +594,10 @@ button i {
     margin-right: 110px;
   }
 
-.beri-testimoni-tittle {
-  font-family: 'Poppins', sans-serif;
-  margin-left: 30px;
-}
+  .beri-testimoni-tittle{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 30px;
+  }
 
   .detailTutor .card-text span:not(:first-child) {
     margin-top: 5px;
