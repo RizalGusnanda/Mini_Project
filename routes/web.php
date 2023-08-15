@@ -8,7 +8,9 @@ use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\profileSiswaController;
 use App\Http\Controllers\profileUserController;
+use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
@@ -34,6 +36,14 @@ use App\Models\Category;
 |
 */
 
+
+
+Route::get('/admin', function () {
+    return view('dashboardAdmin');
+});
+
+
+
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -42,46 +52,14 @@ Route::get('/login', function () {
     }
 })->name('login');
 
-// detailpage
-Route::get('/detail', function () {
-    return view('layoutUser/detailTutorPage');
+
+Route::get('/modul', function () {
+    return view('layoutUser/modul');
 });
 
-Route::get('/profileTutor', function () {
-    return view('layoutUser/profileTutorPage');
-});
 
-Route::get('/pembayaran', function () {
-    return view('layoutUser/pembayaran');
-});
-Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
-Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
-
-Route::get('/paket', [PaketController::class, 'showPaketPage']);
-
-Route::get('/riwayat', function () {
-    return view('layoutUser/riwayatPage');
-});
-Route::get('/testimoni', function () {
-    return view('layoutUser/testimoni');
-});
-Route::get('/sertifikat', function () {
-    return view('layoutUser/sertifikat-tutor');
-});
-
-Route::get('/kelas-guru', function () {
-    return view('layoutUser/kelasGuru');
-});
-
-Route::get('/kelas-siswa', function () {
-    return view('layoutUser/kelasSiswa');
-});
-
-Route::get('/edit-kelas-guru', function () {
-    return view('layoutUser/editKelasGuru');
-});
-
+// Tutor profile
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
 Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
@@ -95,13 +73,78 @@ Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name(
 
 Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
+
+// siswa profile
+Route::get('/profileSiswa', [profileSiswaController::class, 'profile'])->name('profile.siswa');
+Route::post('/profile/update', [profileSiswaController::class, 'update'])->name('profile.update');
+
+
+// SISWA PROFILE
+Route::get('/get-kelurahan', [profileSiswaController::class, 'getKelurahans'])->name('get-kelurahan');
+
+// Route untuk mendapatkan data kecamatan
+Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->name('get-kecamatan');
+
+Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
+
+
+
+// landing
+Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
+
+
+
+
+
+
+
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
+
+Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
+// detailpage
+Route::get('/detail', function () {
+    return view('layoutUser/detailTutorPage');
+});
+
+
+Route::get('/pembayaran', function () {
+    return view('layoutUser/pembayaran');
+});
+Route::get('/uploadModul', function () {
+    return view('layoutUser/uploadModul');
+});
+
+
+Route::get('/profileSiswa', function () {
+    return view('layoutUser/profileSiswa');
+});
+
+
+
+
+
+Route::get('/paket', [PaketController::class, 'showPaketPage']);
+
+Route::get('/riwayat', function () {
+    return view('layoutUser/riwayatPage');
+});
+Route::get('/testimoni', function () {
+    return view('layoutUser/testimoni');
+});
+Route::get('/sertifikat', function () {
+    return view('layoutUser/sertifikat-tutor');
+});
+Route::prefix('sertifikat-layout')->group(function () {
+    Route::get('/', [sertifikatController::class, 'edit'])->name('sertifikat-layout.edit');
+    Route::post('/', [sertifikatController::class, 'updateSertif'])->name('sertifikat-layout.update');
+});
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
+//
     //user list
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);

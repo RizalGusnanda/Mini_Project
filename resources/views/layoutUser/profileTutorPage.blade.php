@@ -74,8 +74,14 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="inputAlamat" name="alamat"
+                                        <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                            id="inputAlamat" name="alamat"
                                             value="{{ old('alamat', optional(auth()->user()->profile)->alamat) }}">
+                                        @error('alamat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="row gx-3 mb-3">
                                         <div class="col-md-6">
@@ -135,26 +141,50 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
-                                            <input class="form-control" id="inputPhone" type="tel" name="telepon"
+                                            <input class="form-control @error('telepon') is-invalid @enderror"
+                                                id="inputPhone" type="tel" name="telepon"
                                                 value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                                            @error('telepon')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row gx-3 mb-3">
                                         <div class="col-md-6">
                                             <label for="pendidikan" class="small mb-1">Pendidikan Terakhir</label>
-                                            <input class="form-control" id="pendidikan" type="tel" name="pendidikan"
+                                            <input class="form-control @error('pendidikan') is-invalid @enderror"
+                                                id="pendidikan" type="tel" name="pendidikan"
                                                 value="{{ old('pendidikan', optional(auth()->user()->profile)->pendidikan) }}">
+                                            @error('pendidikan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6">
                                             <label for="jurusan" class="small mb-1">Jurusan</label>
-                                            <input class="form-control" id="jurusan" type="tel" name="jurusan"
+                                            <input class="form-control @error('jurusan') is-invalid @enderror"
+                                                id="jurusan" type="tel" name="jurusan"
                                                 value="{{ old('jurusan', optional(auth()->user()->profile)->jurusan) }}">
+                                            @error('jurusan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="instansi" class="form-label">Instansi</label>
-                                        <input class="form-control" id="instansi" type="instansi" name="instansi"
+                                        <input class="form-control @error('instansi') is-invalid @enderror" id="instansi"
+                                            type="instansi" name="instansi"
                                             value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
+                                        @error('instansi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="spesalisasis" class="form-label">Spesialisasi</label>
@@ -169,6 +199,11 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        @error('spesalisasis')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="bank" class="form-label">Rekening Bank</label>
@@ -187,11 +222,22 @@
                                                 {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
                                                 BNI</option>
                                         </select>
+                                        @error('bank')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="norek" class="form-label">Nomor Rekening</label>
-                                        <input class="form-control" id="norek" type="norek" name="norek"
+                                        <input class="form-control @error('norek') is-invalid @enderror" id="norek"
+                                            type="norek" name="norek"
                                             value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                        @error('norek')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="text-center mt-4">
                                         <!-- Tambahkan div untuk mengatur tombol di tengah form -->
