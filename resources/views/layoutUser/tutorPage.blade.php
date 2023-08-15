@@ -8,14 +8,7 @@
         }
     </style>
     <section class="breadcrumb">
-        <div class="container">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Tutor</a></li>
-                </ol>
-            </nav>
-        </div>
+        <!-- Kode Breadcrumb -->
     </section>
 
     <section class="search">
@@ -24,10 +17,10 @@
                 <div class="card-body">
                     <h5 class="card-title-search">Cari tutor sesuai kebutuhanmu</h5>
                     <div class="search-column">
-                        <form action="" class="search-form">
+                        <form action="{{ route('tutor') }}" class="search-form" method="GET">
                             <div class="search-input">
                                 <i class="material-icons">cast_for_education</i>
-                                <input type="text" name="search1" placeholder="Cari Tutor">
+                                <input type="text" name="search1" placeholder="Cari Bidang Ilmu">
                             </div>
                             <div class="search-input">
                                 <i class="material-icons">location_on</i>
@@ -44,9 +37,10 @@
     </section>
     <section class="tutorA-me-section">
         <div class="container">
-            @if (isset($otherTutors) && count($otherTutors) > 0)
+            @if (isset($searchResults) && count($searchResults) > 0)
+                {{-- Tampilkan hasil pencarian --}}
                 @php $counter = 0; @endphp
-                @foreach ($otherTutors as $tutor)
+                @foreach ($searchResults as $tutor)
                     @if ($counter % 2 === 0)
                         <div class="row">
                     @endif
@@ -80,7 +74,11 @@
                                         </div>
                                         <div class="card-body-tutorA">
                                             <h4 class="card-tutorA">{{ $tutor->user->name }}</h4>
-                                            <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
+                                            @if ($tutor->spesialisasi)
+                                                <h6 class="card-tutor-p">{{ $tutor->spesialisasi->nama_spesialisasi }}</h6>
+                                            @else
+                                                <h6 class="card-tutor-p">Tidak Ada Bidang Keahlian</h6>
+                                            @endif
                                         </div>
                                         <div class="location">
                                             <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }},
@@ -96,16 +94,13 @@
                     </div>
                     @php $counter++; @endphp
                     @if ($counter % 2 === 0 || $loop->last)
-        </div>
-        @endif
-        @endforeach
-    @else
-        <p>No other tutors available</p>
-        @endif
+                        </div>
+                    @endif
+                @endforeach
+            @else
+                <p>No tutors available</p>
+            @endif
         </div>
     </section>
-
-
-
 
 @endsection

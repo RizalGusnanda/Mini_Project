@@ -12,8 +12,10 @@ class LandingController extends Controller
         $pakets = Paket::all();
 
         $otherTutors = Profile::where('user_id', '!=', 1)
-                        ->with('user', 'kecamatan')
+                        ->with('user', 'kecamatan','spesialisasi')
                         ->get();
+
+
 
         return view('layoutUser.landingpage', [
             'pakets' => $pakets,
