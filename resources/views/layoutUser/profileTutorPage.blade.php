@@ -184,7 +184,7 @@
                                                 {{ old('bank', optional(auth()->user()->profile)->bank) === 'BCA' ? 'selected' : '' }}>
                                                 BCA</option>
                                             <option value="BNI"
-                                                {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BNI' ? 'selected' : '' }}>
                                                 BNI</option>
                                         </select>
                                     </div>
