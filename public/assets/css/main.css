@@ -149,12 +149,11 @@ button i.fas.fa-search {
   color: #fff;
 }
 
-.hero  button {
+button {
   border: none;
   background: #F6F5F5;
-  padding: 10px 32px;
+  padding: 10px 15px;
   background-color: #1F3C88;
-
 }
 
 button i {
@@ -393,7 +392,6 @@ button i {
   margin-bottom: 20px;
   background-color: #F5F5F5;
   margin-top: 20px;
-  width: 300px;
 
 }
 
