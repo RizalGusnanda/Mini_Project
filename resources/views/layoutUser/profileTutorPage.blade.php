@@ -99,17 +99,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="id_kelurahans" class="small mb-1">Kelurahan</label>
-                                            <select id="id_kelurahans" class="form-control @error('id_kelurahans') is-invalid @enderror" name="id_kelurahans" @if (!$profile || $profile->id_kecamatans == null) disabled @endif>
+                                            <select id="id_kelurahans"
+                                                class="form-control @error('id_kelurahans') is-invalid @enderror"
+                                                name="id_kelurahans" disabled>
                                                 <option value="">Pilih Kelurahan</option>
-                                                @foreach ($kelurahans as $kelurahan)
-                                                    <option value="{{ $kelurahan->id }}" @if (old('id_kelurahans', optional($profile)->id_kelurahans) == $kelurahan->id) selected @endif>
-                                                        {{ $kelurahan->kelurahan }}
-                                                    </option>
-                                                @endforeach
                                             </select>
                                             @error('id_kelurahans')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror                                            
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row gx-3 mb-3">

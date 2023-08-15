@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Guru Link</title>
@@ -21,7 +21,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/img/GuruLink.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset('assets/img/GuruLink.png') }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tutor') }}">Tutor</a>
+                        <a class="nav-link" href="{{ route('tutor.search') }}">Tutor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about-me">Tentang Kami</a>
@@ -52,7 +52,16 @@
                     <li class="nav-item close-icons custom-dropdown">
                         <!-- Gambar profil dan "Hi, [Nama User]" -->
                         <div class="dropdown-trigger">
-                            <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
+                            @php
+                                $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                            @endphp
+                            @if (file_exists(public_path($profileImagePath)))
+                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt=""
+                                   >
+                            @else
+                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                   >
+                            @endif
                             <span class="profile-name">
                                 Hi,
                                 @if (auth()->check() && auth()->user()->name)
@@ -65,7 +74,7 @@
                         </div>
 
                         <!-- Dropdown dengan opsi "Profile" dan "Logout" -->
-                        <div class="dropdown-content">
+                        <div class="dropdown-content" style="z-index: 1">
                             <a href="{{ url('/profileTutor') }}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
@@ -80,6 +89,7 @@
                             </form>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </div>

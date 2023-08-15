@@ -112,6 +112,17 @@ mt-50 {
   height: 100vh;
 }
 
+.hero .search-column{
+
+  display: flex;
+  border-radius: 15px;
+  font-weight: 200;
+  font-size: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 80px;
+
+}
 .hero .search-form {
   background: #F6F5F5;
   display: flex;
@@ -119,13 +130,17 @@ mt-50 {
   font-weight: 200;
   font-size: 16px;
   overflow: hidden;
+  width: 600px;
+  margin-bottom: 20px;
+  height: 40px; /* Tambahkan margin bawah agar ada jarak dengan konten di bawahnya */
 }
 
 .search-input {
   display: flex;
   align-items: center;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ffffff;
   padding: 0 5px;
+  width: 900px;
 }
 
 .search-input:last-child {
@@ -140,6 +155,16 @@ mt-50 {
   padding: 10px;
 }
 
+.search-input select {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-inline-start: auto;
+}
 .search-input i.material-icons {
   margin-right: 5px;
   color: #ccc;
@@ -154,6 +179,12 @@ button i.fas.fa-search {
   background: #F6F5F5;
   padding: 10px 32px;
   background-color: #1F3C88;
+  margin-inline-start: auto;
+  height: 40px;
+  margin-top: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+
 
 }
 
@@ -798,9 +829,10 @@ button i {
 }
 
 .detailTutor .col-md-4 img.img-fluid.rounded-start {
-  border-radius: 15px;
+  border-radius: 6px;
   margin: 30px;
-  max-width: 250px;
+  max-width: 220px;
+  margin-left: 70px;
 }
 
 .detailTutor .d-flex.flex-row.justify-content-between {
@@ -2782,7 +2814,11 @@ button i {
   border-radius: 50%;
   margin-right: 5px;
 }
-
+/* Gaya ikon */
+.dropdown-trigger .fas {
+  margin-right: 5px;
+  margin-left: 10px;
+}
 .profile-name {
   font-weight: 500;
 }
@@ -2815,4 +2851,1084 @@ button i {
 
 .dropdown-content .fas {
   margin-left: 5px;
+}
+
+
+
+/* PEMBAYARAN */
+
+.pembayaran .card {
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  margin-right: 20px;
+}
+
+.pembayaran .profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px; /* Adjust the value to control the roundness */
+  margin: 0 auto 10px;
+}
+
+.pembayaran .name {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.pembayaran .profession {
+  font-size: 1rem;
+  color: #666;
+}
+
+.pembayaran .stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.pembayaran .stars i {
+  color: gold;
+  font-size: 1 rem;
+  margin: 0 2px;
+}
+
+.pembayaran .menu-item span {
+  font-size: 0.875rem;
+}
+
+/* Styling for the Ringkasan Produk card */
+.pembayaran .card-ringkasan {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  width: 800px;
+  height: 402px;
+}
+
+.pembayaran .ringkasan-title {
+  margin: 0;
+  font-size: 20px;
+  color: #00000099;
+}
+
+.pembayaran .ringkasan-content {
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.pembayaran .row {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 100px;
+}
+
+.pembayaran .label {
+  flex: 1;
+}
+
+.pembayaran .label-bold {
+  flex: 1;
+}
+
+.pembayaran .value {
+  margin-right: 10px;
+}
+
+.pembayaran .price {
+  text-align: right;
+  font-weight: lighter;
+}
+
+.pembayaran .total-price {
+  text-align: right;
+}
+
+.value {
+  color: #00000099;
+}
+
+.pembayaran  payment-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pembayaran .payment-button button {
+  background-color: #1f3c88;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Set width to 100% to match the card width */
+  border: none; /* Menghilangkan border */
+  margin-top: 80px;
+}
+
+.payment-button button:hover {
+  background-color: #2980b9;
+}
+
+.paket-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.value-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran .harga {
+  text-align: right;
+}
+
+.pembayaran .price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+}
+
+/* Styling for the nav-links */
+.pembayaran .nav-links li {
+  margin-bottom: 10px;
+}
+
+.pembayaran .nav-links a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Styling for the social media icons */
+.pembayaran .social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.pembayaran .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pembayaran .col-md-4,
+.col-md-8 {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pembayaran .card-title-search {
+  margin: 0;
+  font-size: 24px;
+  color: #333; /* Ubah warna sesuai kebutuhan */
+}
+
+/* CSS untuk membagi kolom */
+.pembayaran .row {
+  display: flex;
+
+}
+
+.pembayaran .col-1 {
+  flex: 0 0 auto;
+  margin-top: 22px;
+}
+
+.pembayaran .col-11 {
+  flex: 1 1 auto;
+}
+
+.pembayaran .card-search-pem {
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: -35px;
+  background-color: #b2c0de;
+  margin-top: 20px;
+}
+
+.pembayaran .back-icon {
+  display: inline-block;
+  font-size: 30px;
+  color: #333; /* Warna ikon saat normal */
+  text-decoration: none;
+  background-color: #d2d8e7; /* Warna latar belakang blok ikon */
+  padding: 10px; /* Ruang dalam blok ikon */
+  border-radius: 8px; /* Sudut melengkung blok ikon */
+}
+.pembayaran .back-icon:hover {
+  color: #d2d8e7; /* Warna ikon saat hover */
+  background-color: #333; /* Warna latar belakang blok ikon saat hover */
+}
+
+
+
+
+
+
+/* Gaya untuk bagian header kartu sertifikat */
+.card-header-sertifikat {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  margin-left: -70px;
+}
+
+.card-header-sertifikat p{
+
+  font-size: 20px;
+  color: #0f0f0f;
+  margin-bottom: 5px;
+  margin-top: 5px;
+
+}
+/* Gaya untuk bagian formulir kartu sertifikasi */
+.card-formulir-sertifikasi {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: -70px;
+}
+
+/* Gaya untuk tampilan select dalam kotak */
+.select-group,
+.tambah-sertifikasi-group {
+position: relative;
+}
+
+.select-group select,
+.tambah-sertifikasi-group input {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background-color: transparent;
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 10px;
+}
+
+/* Gaya untuk memposisikan ikon select di dalam kotak */
+.select-group::before {
+content: '\f078'; /* Kode ikon dropdown dari Font Awesome */
+font-family: 'Font Awesome 5 Free';
+font-weight: 900;
+position: absolute;
+top: 60%;
+right: 10px;
+transform: translateY(-50%);
+pointer-events: none;
+}
+
+/* Gaya untuk tampilan ikon plus pada elemen input */
+.tambah-sertifikasi-group {
+position: relative;
+display: inline-flex;
+align-items: center;
+margin-top: 30px; /* Atur jarak dari atas */
+}
+
+.tambah-sertifikasi-group .btn-tambah {
+border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+background-color: #D9D9D9;
+border: none;
+color: #000;
+padding: 10px;
+margin-right: 10px; /* Ruang antara ikon dan input */
+cursor: pointer;
+padding-top: 10%;
+padding-top: 10%;
+}
+
+.tambah-sertifikasi-group .form-control {
+border-radius: 15px;
+border: 1px solid #D9D9D9;
+}
+
+
+.sertifikasi-group .form-group {
+margin-bottom: 15px;
+}
+
+.tambah-sertifikasi-group {
+display: flex;
+flex-direction: row;
+}
+
+.tambah-sertifikasi-group .form-control {
+border-radius: 15px;
+}
+
+.tambah-sertifikasi-group .btn {
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+}
+.custom-card {
+width: 740px; /* Lebar maksimal untuk card */
+margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+border: 1px solid #ced4da;
+border-radius: 20px;
+padding: 15px;
+background-color: #E8EBF399;
+margin-bottom: 30px;
+margin-top: 3px;
+text-align: left;
+}
+
+.input-group-text i {
+font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+}
+
+
+.sertifikat .profile-sertif  .card-profile {
+  position: relative;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  margin-right: 20px;
+  margin-left: 70px;
+  margin-top: 74px;
+  width: 270px;
+}
+
+.sertifikat .profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px; /* Adjust the value to control the roundness */
+  margin: 0 auto 10px;
+}
+
+.sertifikat .name {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.sertifikat .profession {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+.sertifikat .profile-sertif  .card-menu {
+  position: relative;
+  width: 270px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-left: 70px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sertifikat .profile-sertif  .menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sertifikat .profile-sertif  .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-sertif .sertifikat.menu-item:last-child {
+  border-bottom: none;
+}
+
+.sertifikat .profile-sertif .menu-item:hover {
+  background-color: #f5f5f5;
+}
+.sertifikat .profile-sertif .menu-item i {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+
+.sertifikat .profile-sertif .menu-item span {
+  font-size: 0.875rem;
+}
+
+
+
+
+/* TAMBAH MODUL side*/
+.tambahModulSide  .card {
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 70px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tambahModulSide .profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+
+
+
+.tambahModulSide .card-menu {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-right: 140px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tambahModulSide .card-menu:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.tambahModulSide .menu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+
+.tambahModulSide .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: -70px;
+}
+
+.tambahModulSide .menu-item:last-child {
+  border-bottom: none;
+}
+
+.tambahModulSide  .menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.tambahModulSide .menu-item i {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+
+.tambahModulSide .menu-item span {
+  font-size: 0.875rem;
+}
+
+/* Gaya untuk bagian detail tutor */
+.tambahModulSide .search {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
+  margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
+  margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.tambahModulSide .search-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Gaya untuk bagian form */
+.tambahModulSide .card-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tambahModulSide .card-title-form {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tambahModulSide .form-group label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tambahModulSide  .form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.form-control.pembelajaran{
+  border-radius: 100px;
+}
+
+
+.tambahModulSide .form-control:focus {
+  border-color: #70b3f0;
+  box-shadow: 0 0 8px #70b3f0;
+}
+
+.tambahModulSide .btn-primary {
+  background-color: #1F3C88;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tambahModulSide .btn-primary:hover {
+  background-color: #070D59;
+}
+
+/* Gaya untuk tampilan select dalam kotak */
+.tambah-modul-group {
+  position: relative;
+}
+
+
+.tambah-modul-group input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+
+/* Gaya untuk tampilan ikon plus pada elemen input */
+.tambah-modul-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 30px; /* Atur jarak dari atas */
+}
+
+.tambah-modul-group .btn-tambah {
+  border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+  background-color: #D9D9D9;
+  border: none;
+  color: #000;
+  padding: 10px;
+  margin-right: 10px; /* Ruang antara ikon dan input */
+  cursor: pointer;
+  padding-top: 10%;
+  padding-top: 10%;
+}
+
+.tambah-tmodul-group .form-control.pembelajaran {
+  border-radius: 15px;
+  border: 1px solid #D9D9D9;
+}
+
+
+.modul-group .form-group {
+  margin-bottom: 15px;
+}
+
+.tambah-modul-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.tambah-modul-group .form-control {
+  border-radius: 15px;
+}
+
+.tambah-modul-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tambahModulSide .custom-card {
+  width: 740px; /* Lebar maksimal untuk card */
+  margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #E8EBF399;
+  margin-bottom: 30px;
+  margin-top: 3px;
+  text-align: left;
+}
+
+.tambahModulSide .input-group-text i {
+font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+}
+
+
+
+/* Gaya untuk bagian header kartu modul */
+.card-header-modul {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  margin-left: -70px;
+}
+
+/* Gaya untuk kartu ikon kembali (back) */
+.back-card {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Gaya untuk kartu teks "Tambah Modul" */
+.text-card {
+  display: inline-block;
+}
+
+
+
+/* Gaya untuk bagian formulir modul */
+.card-formulir-modul {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: -70px;
+}
+
+.tambahModulSide .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+
+/* title class */
+
+.kelasLinkGmeet .kelas-card {
+  margin-left: 730px;
+  background-color: #1F3C88;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 60px;
+
+}
+
+.kelasLinkGmeet .logo {
+  background-color: white;
+  width: 40px; /* Ganti ukuran sesuai keinginan Anda */
+  height: auto; /* Biarkan height otomatis disesuaikan agar proporsi tetap terjaga */
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.kelasLinkGmeet .keterangan {
+  color: white; /* Mengubah warna teks menjadi putih */
+  font-size: medium;
+  margin: 0;
+  text-align: center;
+}
+
+.kelasLinkGmeet .big-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  margin-left: 100px;
+}
+
+
+/* ringkasan */
+.kelasLinkGmeet .ringkasan-title{
+  color: grey;
+}
+.kelasLinkGmeet .ringkasan{
+  padding-top: 10px;
+  width: 100%;
+}
+.kelasLinkGmeet .ringkasan-detail {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;;
+}
+
+
+/* detail kelas */
+.kelasLinkGmeet .container {
+  display: flex;
+  align-items: center;
+}
+
+.kelasLinkGmeet .rounded-icon {
+  background-color: #8F9DC3;
+  border-radius: 50%; /* Ini akan memberikan bentuk lingkaran */
+  padding: 10px; /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+  display: inline-flex; /* Flex akan memastikan ikon tetap terpusat */
+  justify-content: center;
+  align-items: center;
+}
+
+.kelasLinkGmeet .material-icons {
+  color: #070D59; /* Mengatur warna ikon menjadi putih */
+  font-size: 14px;
+}
+
+.kelasLinkGmeet .title-kelas {
+  margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+}
+
+.kelasLinkGmeet .title-kelas p {
+  font-size: 16px;  /* Mengatur ukuran teks judul */
+  color: #070D59;
+  margin: 0;
+}
+
+.kelasLinkGmeet .card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.kelasLinkGmeet .card-left {
+  width: 70%;  /* Menyesuaikan lebar card */
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  margin-right: 1%;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kelasLinkGmeet .tutor-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.kelasLinkGmeet .card-left h3 {
+  font-size: 20px;
+}
+
+.kelasLinkGmeet .card-left p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Card Kanan */
+.kelasLinkGmeet .card-right {
+  width: 35%;  /* Menyesuaikan lebar card */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  margin-right: 120px;
+}
+
+.kelasLinkGmeet .presentase-card {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.kelasLinkGmeet .modul-card {
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.kelasLinkGmeet .week-card {
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.kelasLinkGmeet .modul {
+  flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+}
+
+.kelasLinkGmeet .tutor-image-small {
+  width: 60px;            /* Mengatur lebar gambar */
+  height: 60px;           /* Mengatur tinggi gambar */
+  border-radius: 50%;     /* Membuat gambar menjadi lingkaran */
+  margin-bottom: 20px;    /* Memberikan jarak ke elemen di bawahnya */
+  object-fit: cover;      /* Menjaga aspek rasio gambar */
+}
+
+.kelasLinkGmeet .card-title-kelas {
+  font-size: 40px;       /* Mengatur ukuran huruf */
+  font-weight: bold;     /* Membuat teks menjadi tebal */
+  margin-bottom: 20px;  /* Memberikan jarak ke elemen di bawahnya */
+}
+
+.kelasLinkGmeet .kelas-tutor-details {
+  display: flex;        /* Menggunakan flexbox */
+  align-items: center;  /* Menyelaraskan item-item di tengah secara vertikal */
+  gap: 20px;            /* Memberikan jarak antara gambar dan nama tutor */
+}
+
+.kelasLinkGmeet .kelas-info {
+  display: flex; /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+  width: 100%;
+  justify-content: space-between; /* Memberi jarak antara duration dan referensi */
+  border-bottom: 1px solid black; /* Menambahkan garis bawah */
+  padding-bottom: 20px; /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+}
+
+.kelasLinkGmeet .referensi {
+  margin-right: 150px; /* Menambahkan margin kanan 10px pada elemen duration */
+}
+
+.kelasLinkGmeet .duration-title {
+  color: #ccc;
+}
+
+.kelasLinkGmeet .duration-details {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+.kelasLinkGmeet .referensi-title {
+  color: #ccc;
+}
+
+.kelasLinkGmeet .referensi-details {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+.kelasLinkGmeet .berikutnya {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.kelasLinkGmeet .berikutnya-icon i.material-icons {
+  color: #070D59;
+  font-size: 18px;
+}
+
+.kelasLinkGmeet .berikutnya-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #070D59;
+  margin: 0;
+}
+
+/* Gaya untuk elemen navigasi */
+.kelasLinkGmeet .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 200px;
+}
+
+.kelasLinkGmeet .navigation a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #070D59;
+}
+
+.kelasLinkGmeet .navigation a:hover {
+  color: #1c0bd8;
+}
+
+.kelasLinkGmeet .sebelumnya{
+  display: flex;
+  align-items: center;
+}
+
+.kelasLinkGmeet .sebelumnya p{
+ color: #0f0f0f;
+}
+
+.kelasLinkGmeet .selanjutnya p{
+  color: #0f0f0f;
+}
+.kelasLinkGmeet .selanjutnya {
+  display: flex;
+  align-items: center;
+  margin-left: 635px;
+}
+
+.kelasLinkGmeet .sebelumnya-icon{
+  background-color: transparent;
+  border: 2px solid #070D59;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+  margin-top: -10px;
+  transition: background-color 0.3s;
+
+}
+.kelasLinkGmeet .selanjutnya-icon {
+  background-color: transparent;
+  border: 2px solid #070D59;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: -10px;
+  transition: background-color 0.3s;
+}
+
+.kelasLinkGmeet .navigation a:hover .sebelumnya-icon,
+.navigation a:hover .selanjutnya-icon {
+  background-color: #1c0bd8;
+  border-color: #1c0bd8;
+}
+
+.kelasLinkGmeet .selanjutnya .material-icons {
+  color: #070D59;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.kelasLinkGmeet .sebelumnya .material-icons {
+  color: #070D59;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.kelasLinkGmeet .navigation a:hover .material-icons {
+  color: #ffffff;
+}
+
+.kelasLinkGmeet .sebelumnya-text
+{
+  margin-left: 10px;
+
+}
+.kelasLinkGmeet .selanjutnya-text {
+ margin-left:0px;
+}
+
+.kelasLinkGmeet .progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #E0E0E0; /* Warna latar belakang progress bar */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+
+/* Gaya bagian yang mengisi progress */
+.kelasLinkGmeet .progress-fill {
+  height: 100%;
+  background-color: #AD6359; /* Warna yang mengisi progress */
+  width: 30%; /* Ubah angka ini sesuai dengan persentase yang diinginkan */
+}
+
+.kelasLinkGmeet .pembuka-title {
+  color: #ccc;
+}
+
+.kelasLinkGmeet .modul-content {
+  background-color: #FFFFFF;
+  border: 1px solid #070D59;
+  border-radius: 20px;
+  margin-top: -10px;
+  padding: 20px;
+  height: 20px;
+}
+
+.kelasLinkGmeet .modul-card-inner {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+}
+
+.kelasLinkGmeet .modul-card-inner p {
+  color: black;
+  margin: 0%;
+  font-size: 14px;
+}
+
+.kelasLinkGmeet .modul-card-inner i.material-icons {
+  color: black;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 80px;
+}
+
+.kelasLinkGmeet .wek-wek-card{
+  margin-top: -20px;
+}
+
+.kelasLinkGmeet .wek1-title {
+  color: #ccc;
+}
+
+.kelasLinkGmeet .wek1-content {
+  background-color: #FFFFFF;
+  border: 1px solid #070D59;
+  border-radius: 20px;
+  padding: 20px;
+  height: 20px;
+  margin-bottom: 5px;
 }
