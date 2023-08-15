@@ -12,10 +12,10 @@
                     <br>
                     <br>
                     <div class="search-column">
-                        <form action="" class="search-form">
+                        <form action="{{ route('tutor') }}" class="search-form" method="GET">
                             <div class="search-input">
                                 <i class="material-icons">cast_for_education</i>
-                                <input type="text" name="search1" placeholder="Cari Tutor">
+                                <input type="text" name="search1" placeholder="Cari Bidang Ilmu">
                             </div>
                             <div class="search-input">
                                 <i class="material-icons">location_on</i>
@@ -157,18 +157,25 @@
     <!-- end price -->
 
 
-    <!-- tutor section -->
     <section class="tutorLanding">
         <div class="container">
-            <div class="row">
+            @if (isset($searchResults) && count($searchResults) > 0)
+            @php $counter = 0; @endphp
+                @foreach ( $searchResults as $tutor )
+                    @if ($counter % 2 === 0)
+                         <div class="row">
+                    @endif
+                @endforeach
+            @endif
+
                 <div class="title-about">
                     <div class="col-md-12 text-center">
                         <h1>Rekomendasi Tutor <img src="assets/img/GuruLink.png" alt=""></h1>
                     </div>
                 </div>
 
-                @if (isset($otherTutors) && count($otherTutors) > 0)
-                    <div class="owl-carousel">
+                <div class="owl-carousel">
+                    @if (isset($otherTutors) && count($otherTutors) > 0)
                         @foreach ($otherTutors as $tutor)
                             <div class="col-md-3">
                                 <div class="tutor-card">
@@ -183,13 +190,17 @@
                                     @endif
                                     <div class="card-body-tutor">
                                         <h4 class="card-tutor">{{ $tutor->user->name }}</h4>
-                                        <h6 class="card-tutor-p">{{ $tutor->jurusan }}</h6>
+                                        @if ($tutor->spesialisasi)
+                                            <h6 class="card-tutor-p">{{ $tutor->spesialisasi->nama_spesialisasi }}</h6>
+                                        @else
+                                            <h6 class="card-tutor-p">Tidak Ada Spesialisasi</h6>
+                                        @endif
                                         <div class="location">
                                             <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }},
                                             {{ $tutor->kecamatan->kecamatan }}
                                         </div>
                                         <div class="teaching-duration">
-                                            <i class="fas fa-clock"></i> {{ $tutor->pengalaman }}tahun mengajar
+                                            <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
                                         </div>
                                         <div class="rating">
                                             <i class="fas fa-star" style="color: gold;"></i> 4.9/5
@@ -201,43 +212,59 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>
-            </div>
+                    @else
+                        <p>No other tutors available</p>
+                    @endif
+                </div>
 
-        </div>
-    @else
-        <p>No other tutors available</p>
-        @endif
-        </div>
+                <!-- Tombol navigasi berbentuk ikon panah -->
+                <div class="text-center">
+                    <button class="btn btn-nav owl-prev">
+                        <i class="fas fa-chevron-left"></i> <!-- Ikon panah ke kiri -->
+                    </button>
+                    <button class="btn btn-nav owl-next">
+                        <i class="fas fa-chevron-right"></i> <!-- Ikon panah ke kanan -->
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- end tutor section -->
+
 @endsection
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
     $(document).ready(function() {
-        $(".owl-carousel").owlCarousel({
-            items: 4, // Jumlah item per slide
-            loop: true, // Putar secara terus menerus
-            nav: true, // Tampilkan tombol navigasi
-            margin: 20, // Ruang antar item
+        var owl = $(".owl-carousel").owlCarousel({
+            items: 4,
+            loop: true,
+            nav: false, // Matikan tombol navigasi default
+            margin: 20,
             responsive: {
                 0: {
-                    items: 1 // Jumlah item pada layar kecil
+                    items: 1
                 },
                 768: {
-                    items: 2 // Jumlah item pada layar sedang
+                    items: 2
                 },
                 992: {
-                    items: 3 // Jumlah item pada layar besar
+                    items: 3
                 },
                 1200: {
-                    items: 4 // Jumlah item pada layar sangat besar
+                    items: 4
                 }
             }
+        });
+
+        // Tombol navigasi kustom
+        $(".owl-prev").click(function() {
+            owl.trigger("prev.owl.carousel");
+        });
+
+        $(".owl-next").click(function() {
+            owl.trigger("next.owl.carousel");
         });
     });
 </script>

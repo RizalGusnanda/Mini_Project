@@ -83,6 +83,8 @@ Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')-
 
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
+
+
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
