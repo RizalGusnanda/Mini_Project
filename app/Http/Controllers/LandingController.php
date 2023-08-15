@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
+use App\Models\Spesalisasi;
 use App\Models\Paket;
 use App\Models\Profile;
 
@@ -30,12 +32,20 @@ class LandingController extends Controller
                         ->with('user', 'kecamatan')
                         ->get();
 
+
+
         return view('layoutUser.landingpage', [
             'pakets' => $pakets,
             'otherTutors' => $otherTutors
         ]);
     }
+    public function index()
+    {
+        $spesialisasiData = Spesalisasi::all();
+        $kecamatanData = Kecamatan::all();
 
+        return view('layoutUser.landingpage', compact('spesialisasiData', 'kecamatanData'));
+    }
 
 
 
