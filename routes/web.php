@@ -65,29 +65,20 @@ Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
 
-
-
-
-Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
-    ->name('layoutUser/profileTutorPage');
-
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
+Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 
-        Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
 
-        // Route untuk mendapatkan data kecamatan
-        Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+// Route untuk mendapatkan data kecamatan
+Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
 
+Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
 
-        Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
-        Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
-
-
-
-        Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
-
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
