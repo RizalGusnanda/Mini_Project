@@ -56,6 +56,8 @@ Route::get('/pembayaran', function () {
 });
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
+Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
+
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
 Route::get('/riwayat', function () {

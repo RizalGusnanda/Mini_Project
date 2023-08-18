@@ -20,6 +20,19 @@ class LandingController extends Controller
             'otherTutors' => $otherTutors
         ]);
     }
+    public function showDashboard()
+    {
+        $pakets = Paket::all();
+
+        $otherTutors = Profile::where('user_id', '!=', 1)
+                        ->with('user', 'kecamatan')
+                        ->get();
+
+        return view('layoutUser.landingpage', [
+            'pakets' => $pakets,
+            'otherTutors' => $otherTutors
+        ]);
+    }
 
 
 
