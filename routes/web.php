@@ -100,8 +100,6 @@ Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show')
 
 
 
-
-
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);

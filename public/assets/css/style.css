@@ -775,7 +775,7 @@ select.form-control:not([size]):not([multiple]) {
     background-color: #191d21;
 }
 
-/* 3.5 Card */
+/* 3.5 Card TUTOR SISWA */
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     background-color: #fff;
@@ -4126,4 +4126,153 @@ body:not(.sidebar-mini)
         -webkit-transform: scale(1.2, 1.2);
         opacity: 0;
     }
+}
+
+
+
+
+/* DASHOARD */
+.card-Atas {
+    padding: 20px;
+  }
+
+  /* Styling for individual cards */ BORDER
+  .card {
+
+
+  }
+
+
+
+  /* Styling for card icons */
+  .icon-big {
+    font-size: 36px;
+    line-height: 1;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  /* Styling for card categories */
+  .card-category {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+  }
+
+  /* Styling for card titles */
+  .card-title {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  /* Styling for card numbers */
+  .numbers {
+    text-align: left;
+  }
+
+.card .card-header  .numbers h4 {
+    font-size: 20px;
+    line-height: 28px;
+    color: #1F3C88;
+    padding-right: 10px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+  /* Styling for different card colors */
+  .icon-primary {
+    background-color: #ee7057c8;
+    color: #fff;
+    width: 60px;
+    margin-top: 15px;
+    border-radius: 15px;
+  }
+
+  .icon-tutor {
+    background-color: #1f3d8893;
+    color: #fff;
+    width: 60px;
+    margin-top: 15px;
+    border-radius: 15px;
+  }
+
+  .icon-info {
+    background-color: #01a8fe;
+    color: #fff;
+  }
+
+  .icon-success {
+    background-color: #2dce89;
+    color: #fff;
+  }
+
+  .icon-secondary {
+    background-color: #f5365c;
+    color: #fff;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .col-stats {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+
+
+.adminDashborad .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    height: 125px;
+
+    border: 1px solid #e5e5e5;
+
+
+}
+.adminDashborad .fas {
+    font-size: 13px;
+    height: 25px;
+    width: 25px;
+
+}
+
+
+
+/* Styles for the calendar */
+.calendar-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.calendar-section .card {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 300px;
+}
+
+.calendar-section .card-header {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.calendar-section .card-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.calendar-section .card-body {
+    padding: 15px;
+}
+
+#calendar {
+    width: 100%;
 }
