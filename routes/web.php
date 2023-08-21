@@ -73,6 +73,8 @@ Route::get('/modul', function () {
 });
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
+Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
+
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
 Route::get('/riwayat', function () {
@@ -106,7 +108,6 @@ Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name(
 Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
-
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
