@@ -70,6 +70,18 @@ Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
 
+Route::get('/kelas-guru', function () {
+    return view('layoutUser/kelasGuru');
+});
+
+Route::get('/kelas-siswa', function () {
+    return view('layoutUser/kelasSiswa');
+});
+
+Route::get('/edit-kelas-guru', function () {
+    return view('layoutUser/editKelasGuru');
+});
+
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
 Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');

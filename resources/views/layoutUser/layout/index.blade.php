@@ -58,11 +58,33 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item close-icons">
-                        <a class="nav-link">
+                    <li class="nav-item close-icons dropdown">
+                        <!-- Gambar profil dan "Hi, [Nama User]" -->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
+                            Hi, 
+                            @if(auth()->check() && auth()->user()->name)
+                                {{ auth()->user()->name }}
+                            @else
+                                Anonymous
+                            @endif
                         </a>
+                        
+                        <!-- Dropdown dengan opsi "Profile" dan "Logout" -->
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a href="{{ url('/profileAdmin') }}" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
                     </li>
+                    
                 </ul>
             </div>
         </div>

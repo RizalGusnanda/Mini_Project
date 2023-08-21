@@ -1,0 +1,516 @@
+/* Navbar */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #D2D8E7;
+  }
+  
+  .navbar {
+    background: #FFFFFF !important;
+    padding: 20px 0;
+  }
+  
+  .navbar .nav-item {
+    margin-right: 50px;
+  }
+  
+  .navbar .close-icons {
+    margin-right: 30px;
+  }
+  
+  .navbar .nav-item .nav-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: #54565C;
+    padding: 0;
+    transition: all .4s ease-in-out;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .navbar .nav-item .nav-link:hover {
+    color: #070D59;
+  }
+  
+  .nav-item svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  /* typogrhaphy */
+  h1 {
+    font-size: 40px;
+    line: height 50px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2 {}
+  
+  p {
+    color: #AD6359;
+  }
+  
+  mt-10 {
+    margin-top: 10px !important;
+  }
+  
+  mt-20 {
+    margin-top: 20px !important;
+  }
+  
+  mt-30 {
+    margin-top: 30px !important;
+  }
+  
+  mt-50 {
+    margin-top: 50px !important;
+  }
+  
+  .navbar {
+    background: rgba(210, 216, 231, 0) !important;
+    padding: 20px 0;
+  }
+  
+  .navbar .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+  
+  }
+  
+  .navbar .nav-item .nav-link {
+    font-size: 16px;
+    font-weight: 400;
+    color: #54565C;
+    margin: 0 30px;
+    padding: 0;
+    transition: all .4s ease-in-out;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  
+  }
+  
+  .navbar .nav-item .nav-link:hover {
+    color: #070D59;
+  }
+  
+
+  /* footer */
+  .footer-99382 {
+    padding: 80px 0;
+    color: #000000;
+    text-align: left;
+    background-color: #D2D8E7;
+  }
+  
+  .footer-site-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .footer-99382 p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-links a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .social li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .copyright {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+  
+  /* Halaman Detail Kelas*/
+  .container {
+    display: flex;
+    align-items: center;
+}
+
+.rounded-icon {
+    background-color: #8F9DC3;
+    border-radius: 50%; /* Ini akan memberikan bentuk lingkaran */
+    padding: 10px; /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+    display: inline-flex; /* Flex akan memastikan ikon tetap terpusat */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.material-icons {
+    color: #070D59; /* Mengatur warna ikon menjadi putih */
+    font-size: 14px;
+}
+
+.title-kelas {
+    margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+}
+
+.title-kelas p {
+    font-size: 16px;  /* Mengatur ukuran teks judul */
+    color: #070D59;
+    margin: 0;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.card-left {
+    width: 70%;  /* Menyesuaikan lebar card */
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    margin-right: 1%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin-left: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tutor-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card-left h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-left p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Card Kanan */
+.card-right {
+    width: 35%;  /* Menyesuaikan lebar card */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin-right: 120px;
+}
+
+.presentase-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.modul-card {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.week-card {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.modul {
+    flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+}
+
+.tutor-image-small {
+    width: 60px;            /* Mengatur lebar gambar */
+    height: 60px;           /* Mengatur tinggi gambar */
+    border-radius: 50%;     /* Membuat gambar menjadi lingkaran */
+    margin-bottom: 20px;    /* Memberikan jarak ke elemen di bawahnya */
+    object-fit: cover;      /* Menjaga aspek rasio gambar */
+}
+
+.card-title-kelas {
+    font-size: 40px;       /* Mengatur ukuran huruf */
+    font-weight: bold;     /* Membuat teks menjadi tebal */
+    margin-bottom: 20px;  /* Memberikan jarak ke elemen di bawahnya */
+}
+
+.kelas-tutor-details {
+    display: flex;        /* Menggunakan flexbox */
+    align-items: center;  /* Menyelaraskan item-item di tengah secara vertikal */
+    gap: 20px;            /* Memberikan jarak antara gambar dan nama tutor */
+}
+
+.kelas-info {
+    display: flex; /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+    width: 100%;
+    justify-content: space-between; /* Memberi jarak antara duration dan referensi */
+    border-bottom: 1px solid black; /* Menambahkan garis bawah */
+    padding-bottom: 20px; /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+}
+
+.referensi {
+    margin-right: 150px; /* Menambahkan margin kanan 10px pada elemen duration */
+}
+
+.duration-title {
+    color: #ccc;
+}
+
+.duration-details {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.referensi-title {
+    color: #ccc;
+}
+
+.referensi-details {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.gambaran-umum {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.gambaran-title {
+    color: #ccc;
+}
+
+.gambaran-detail {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.produk-desain {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.produk-title {
+    color: #ccc;
+}
+
+.produk-detail {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.selanjutnya {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.selanjutnya-icon {
+    background-color: transparent;
+    border: 2px solid #070D59;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.selanjutnya-icon i.material-icons {
+    color: #070D59;
+    font-size: 18px;
+    margin-left: 75px
+}
+
+.selanjutnya-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #070D59;
+    margin: 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #E0E0E0; /* Warna latar belakang progress bar */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* Gaya bagian yang mengisi progress */
+.progress-fill {
+    height: 100%;
+    background-color: #AD6359; /* Warna yang mengisi progress */
+    width: 30%; /* Ubah angka ini sesuai dengan persentase yang diinginkan */
+}
+
+.pembuka-title {
+    color: #ccc;
+}
+
+.modul-content {
+    background-color: #FFFFFF; 
+    border: 1px solid #070D59; 
+    border-radius: 20px; 
+    margin-top: -10px; 
+    padding: 20px; 
+    height: 20px;
+}
+
+.modul-card-inner {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+}
+
+.modul-card-inner p {
+    color: black;
+    margin: 0%;
+    font-size: 14px;
+}
+
+.modul-card-inner i.material-icons {
+    color: black;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 80px;
+}
+
+.wek-wek-card{
+    margin-top: -20px;
+}
+
+.wek1-title {
+    color: #ccc;
+}
+
+.wek1-content {
+    background-color: #FFFFFF; 
+    border: 1px solid #070D59; 
+    border-radius: 20px; 
+    padding: 20px; 
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.edit-button-container {
+  margin: 10px 0;
+  text-align: right;
+  justify-content: flex-end;
+  margin-left: 550px;
+}
+
+.edit-button-container2 {
+  margin: 10px 0;
+  text-align: right;
+  justify-content: flex-end;
+  margin-left: 550px;
+}
+
+.edit-button {
+  background-color: #1F3C88;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  align-items: center;
+  text-decoration: none;
+}
+
+.edit-button2 {
+  background-color: white;
+  color: #1F3C88;
+  padding: 10px 20px;
+  border: 2px solid #1F3C88;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  align-items: center;
+}
+
+.edit-button i {
+  margin-right: 8px;
+}
+
+.bagian-title , .deskripsi-kelas-title{
+  color: #ccc;
+}
+
+.bagian-detail-input {
+  width: 100%;
+  padding: 10px;
+  background-color: #D2D8E7;
+  border: 1px solid #1F3C88;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.deskripsi-detail-input{
+  height: 200px;
+  width: 100%;
+  padding: 10px;
+  background-color: #D2D8E7;
+  border: 1px solid #1F3C88;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.save-kelas-button {
+  margin-left: 580px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  background-color: #1F3C88;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.save-kelas-button:hover {
+  background-color: #16355f; 
+}
