@@ -24,18 +24,61 @@ class UpdateProfileRrequest extends FormRequest
     public function rules()
 {
     return [
-        'id_kecamatans' => 'nullable|exists:kecamatans,id',
-        'id_kelurahans' => 'nullable|exists:kelurahans,id',
-        'id_spesalisasis' => 'nullable|exists:spesalisasis,id',
-        'telepon' => 'nullable|string|max:255',
-        'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
-        'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        'alamat' => 'nullable|string|max:255',
-        'pendidikan' => 'nullable|string|max:255',
-        'jurusan' => 'nullable|string|max:255',
-        'instansi' => 'nullable|string|max:255',
-        'norek' => 'nullable|string|max:255',
-        'bank' => 'nullable|in:BRI,BCA,BNI',
+        'id_kecamatans' => 'required|exists:kecamatans,id',
+        'id_kelurahans' => 'required|exists:kelurahans,id',
+        'id_spesalisasis' => 'required|exists:spesalisasis,id',
+        'telepon' => 'required|string|max:255',
+        'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+        'profile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'alamat' => 'required|string|max:255',
+        'pendidikan' => 'required|string|max:255',
+        'jurusan' => 'required|string|max:255',
+        'instansi' => 'required|string|max:255',
+        'norek' => 'required|string|max:255',
+        'bank' => 'required|in:BRI,BCA,BNI',
+        'pengalaman' => 'nullable|string|max:255',
+        'penjelasan_pengalaman' => 'nullable|string|max:255',
+
+    ];
+}
+
+
+
+public function messages(){
+
+    return[
+        'id_kecamatans.required' => 'Kolom kecamatan harus diisi.',
+
+        'id_kelurahans.required' => 'Kolom kelurahan harus diisi.',
+
+        'id_spesalisasis.required' => 'Kolom spesialisasi harus diisi.',
+
+        'telepon.required' => 'Kolom telepon harus diisi.',
+        'telepon.string' => 'format telepon tidak sesuai.',
+
+        'jenis_kelamin.required' => 'Kolom jenis kelamin harus diisi.',
+
+        'profile.required' => 'image harus diisi.',
+        'profile.mimes' => 'Format foto harus : jpeg,png,jpg.',
+
+        'alamat.required' => 'Kolom alamat harus diisi.',
+        'alamat.string' => 'format alamat tidak sesuai.',
+
+        'pendidikan.required' => 'Kolom pendidikan harus diisi.',
+        'pendidikan.string' => 'format pendidikan tidak sesuai.',
+
+        'jurusan.required' => 'Kolom jurusan harus diisi.',
+        'jurusan.string' => 'format jurusan tidak sesuai.',
+
+        'instansi.required' => 'Kolom instansi harus diisi.',
+        'instansi.string' => 'format instansi tidak sesuai.',
+
+        'norek.required' => 'Kolom pendidikan harus diisi.',
+        'norek.string' => 'format pendidikan tidak sesuai.',
+
+        'bank.required' => 'Kolom pendidikan harus diisi.',
+        'bank.string' => 'format pendidikan tidak sesuai.',
+
     ];
 }
 
