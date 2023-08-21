@@ -8,9 +8,11 @@ use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\LoginResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -32,12 +34,13 @@ class FortifyServiceProvider extends ServiceProvider
                             ? response()->json(['two_factor' => false])
                             : redirect()->intended(config('fortify.home'));
                     }
+
                     if (Auth::user()->hasRole('user')) {
                         return $request->wantsJson()
                             ? response()->json(['two_factor' => false])
                             : redirect()->intended(config('fortify.home-user'));
                     }
-                    if (Auth::user()->hasRole('tutor')) {
+                    if (Auth::user()->hasRole('user-pengajar')) {
                         return $request->wantsJson()
                             ? response()->json(['two_factor' => false])
                             : redirect()->intended(config('fortify.home-tutor'));
