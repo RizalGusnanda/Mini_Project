@@ -57,6 +57,14 @@ Route::get('/login', function () {
 Route::get('/modul', function () {
     return view('layoutUser/modul');
 });
+Route::get('/uploadModul', function () {
+    return view('layoutUser/uploadModul');
+});
+
+
+Route::get('/modul', function () {
+    return view('layoutUser/modul');
+});
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
 
@@ -75,6 +83,13 @@ Route::get('/kelas-siswa', function () {
 Route::get('/edit-kelas-guru', function () {
     return view('layoutUser/editKelasGuru');
 });
+Route::prefix('sertifikat-layout')->group(function () {
+    Route::get('/', [sertifikatController::class, 'edit'])->name('sertifikat-layout.edit');
+    Route::post('/', [sertifikatController::class, 'updateSertif'])->name('sertifikat-layout.update');
+});
+
+
+
 
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
