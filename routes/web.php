@@ -8,7 +8,6 @@ use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
-use App\Http\Controllers\profileSiswaController;
 use App\Http\Controllers\profileUserController;
 use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
@@ -53,13 +52,18 @@ Route::get('/login', function () {
 })->name('login');
 
 
+
+
 Route::get('/modul', function () {
     return view('layoutUser/modul');
 });
+Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
 
 
-// Tutor profile
+
+
+
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
 Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
@@ -74,32 +78,6 @@ Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name(
 Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 
-// siswa profile
-Route::get('/profileSiswa', [profileSiswaController::class, 'profile'])->name('profile.siswa');
-Route::post('/profile/update', [profileSiswaController::class, 'update'])->name('profile.update');
-
-
-// SISWA PROFILE
-Route::get('/get-kelurahan', [profileSiswaController::class, 'getKelurahans'])->name('get-kelurahan');
-
-// Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->name('get-kecamatan');
-
-Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
-
-
-
-// landing
-Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
-
-
-
-
-
-
-
-
-
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
@@ -111,6 +89,9 @@ Route::get('/detail', function () {
     return view('layoutUser/detailTutorPage');
 });
 
+Route::get('/profileTutor', function () {
+    return view('layoutUser/profileTutorPage');
+});
 
 Route::get('/pembayaran', function () {
     return view('layoutUser/pembayaran');
@@ -118,14 +99,6 @@ Route::get('/pembayaran', function () {
 Route::get('/uploadModul', function () {
     return view('layoutUser/uploadModul');
 });
-
-
-Route::get('/profileSiswa', function () {
-    return view('layoutUser/profileSiswa');
-});
-
-
-
 
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
