@@ -1217,3 +1217,1548 @@ body {
     align-items: center;
     gap: 10px;
   }
+
+
+
+  /* APLOUAD MODUL */
+
+  .uploadModul  .kelas-2-guru, .kelas-2-guru * {
+    box-sizing: border-box;
+    }
+    .uploadModul .kelas-2-guru {
+   background: #ffffff;
+    width: 1512px;
+    height: 1277px;
+    position: relative;
+    overflow: hidden;
+   }
+
+   .uploadModul .rectangle-122 {
+   background: rgba(210, 216, 231, 0.50);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 745px;
+    height: 264px;
+    position: absolute;
+    left: 131px;
+   top: 444px;
+   }
+
+   .uploadModul .nav-bar {
+   width: 1512px;
+    height: 97px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+   }
+
+   .uploadModul .frame-3 {
+   display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 850px;
+   top: 38px;
+   }
+
+   .uploadModul .home {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: relative;
+    width: 50px;
+    height: 19px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .tutor {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: relative;
+    width: 59px;
+    height: 19px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .tentang-kami {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: relative;
+    width: 126px;
+    height: 19px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .frame-4 {
+   width: 120px;
+    height: 40px;
+    position: absolute;
+    left: 1262px;
+   top: 28px;
+   }
+
+   .uploadModul .notifications {
+   position: absolute;
+    left: 0px;
+   top: 0px;
+    overflow: visible;
+   }
+
+   .uploadModul .ellipse-1 {
+   border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 80px;
+   top: 0px;
+   }
+
+   .uploadModul .guru-link {
+   text-align: left;
+    font: 400 24px 'Ultra', sans-serif;
+    position: absolute;
+    left: 130px;
+   top: 36px;
+    width: 158px;
+    height: 25px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .guru-link-span {
+
+           color: #070d59;
+
+           font: 400 24px 'Ultra', sans-serif;
+
+
+
+       }
+
+       .uploadModul .guru-link-span2 {
+
+           color: #ee6f57;
+
+           font: 400 24px 'Ultra', sans-serif;
+
+
+
+       }
+
+       .uploadModul .detail-kelas {
+   color: #070d59;
+    text-align: left;
+    font: 500 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 180px;
+   top: 130px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .bagian-1 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 131px;
+   top: 346px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .deskripsi {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 133px;
+   top: 420px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .lorem-ipsum-dolor-sit-amet-consectetur-posuere-elit-consequat-iaculis-viverra-faucibus-aenean-quis-sodales-donec-quam-egestas-quam-metus-tortor-mi-pretium-eros-aliquet-egestas-orci-consequat-et-velit-urna-urna-commodo-vitae-amet-pulvinar-tortor-leo-pellentesque-ut-vitae-neque-sagittis-egestas-tristique-diam-quam-tristique-neque-vitae-curabitur-nibh-eget-mauris-sed-pharetra-fames-condimentum-et-felis-amet-amet-laoreet-eleifend-vitae-feugiat-non-tempus-consectetur-fermentum-purus-aliquet-dui-venenatis-quam-leo-enim-amet-tristique-neque-ullamcorper-libero-urna-accumsan-ac-enim-consectetur-mauris-aliquet-dignissim-adipiscing-tellus-amet-aenean-ultrices-sit-augue-sagittis-lectus-massa-morbi-risus-tellus-mi {
+   color: #000000;
+    text-align: left;
+    font: 500 15px 'Poppins', sans-serif;
+    position: absolute;
+    left: 161px;
+   top: 466px;
+    width: 689px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .dasar-desain-visual {
+   color: #000000;
+    text-align: left;
+    font: 700 40px 'Poppins', sans-serif;
+    position: absolute;
+    left: 131px;
+   top: 180px;
+    width: 531px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-back {
+   display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 130px;
+   top: 127px;
+   }
+
+   .uploadModul .ellipse-17 {
+   background: #8f9dc3;
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+   }
+
+   .uploadModul .chevron-left {
+   flex-shrink: 0;
+    position: absolute;
+    left: 3px;
+   top: 3px;
+    overflow: visible;
+   }
+
+   .uploadModul .tutor2 {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .ellipse-18 {
+   border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 131px;
+   top: 253px;
+   }
+
+   .uploadModul .camilla-belle {
+   color: #000000;
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 189px;
+   top: 262px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .line-25 {
+   position: absolute;
+    left: 129.97px;
+   top: 320.24px;
+    transform: translate(-0.5px, -0.5px);
+    overflow: visible;
+   }
+
+   .uploadModul .modul-pembelajaran {
+   width: 401px;
+    height: 954px;
+    position: absolute;
+    left: 981px;
+   top: 148px;
+   }
+
+   .uploadModul .rectangle-111 {
+   background: #ffffff;
+    border-radius: 20px;
+    width: 401px;
+    height: 954px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.08);
+   }
+
+   .uploadModul .modul-pembelajaran2 {
+   color: #000000;
+    text-align: left;
+    font: 600 20px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 24px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .pembuka {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .pembuka2 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 74px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .materi {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+   .uploadModul .rectangle-112 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 27px;
+   top: 105px;
+   }
+
+   .uploadModul .pengenalan-kelas {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 38px;
+   top: 110px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right {
+   position: absolute;
+    left: 343px;
+   top: 109px;
+    overflow: visible;
+   }
+
+   .uploadModul .minggu-4 {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .minggu-42 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 682px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .materi-10 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+   .uploadModul .rectangle-1122 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 713px;
+   }
+
+   .uploadModul .dasar-desain-visual2 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 718px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right3 {
+   position: absolute;
+    left: 341px;
+   top: 717px;
+    overflow: visible;
+   }
+
+   .uploadModul .materi-11 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+   .uploadModul .rectangle-1123 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 759px;
+   }
+
+   .uploadModul .dasar-desain-visual3 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 764px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right5 {
+   position: absolute;
+    left: 341px;
+   top: 763px;
+    overflow: visible;
+   }
+
+.materi-12 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1124 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 805px;
+   }
+
+.dasar-desain-visual4 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 810px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right7 {
+   position: absolute;
+    left: 341px;
+   top: 809px;
+    overflow: visible;
+   }
+
+.penutup {
+   position: absolute;
+    inset: 0;
+   }
+
+.penutup2 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 27px;
+   top: 857px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.eval {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1125 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 22px;
+   top: 888px;
+   }
+
+.evaluasi {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 33px;
+   top: 893px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right9 {
+   position: absolute;
+    left: 338px;
+   top: 892px;
+    overflow: visible;
+   }
+
+.minggu-3 {
+   position: absolute;
+    inset: 0;
+   }
+
+.minggu-32 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 507px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.materi-7 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1126 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 538px;
+   }
+
+.dasar-desain-visual5 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 543px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right11 {
+   position: absolute;
+    left: 341px;
+   top: 542px;
+    overflow: visible;
+   }
+
+.materi-8 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1127 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 584px;
+   }
+
+.dasar-desain-visual6 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 589px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right13 {
+   position: absolute;
+    left: 341px;
+   top: 588px;
+    overflow: visible;
+   }
+
+.materi-9 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1128 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 630px;
+   }
+
+.dasar-desain-visual7 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 635px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right15 {
+   position: absolute;
+    left: 341px;
+   top: 634px;
+    overflow: visible;
+   }
+
+.minggu-2 {
+   position: absolute;
+    inset: 0;
+   }
+
+.minggu-22 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 332px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.materi-4 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-1129 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 363px;
+   }
+
+.dasar-desain-visual8 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 368px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right17 {
+   position: absolute;
+    left: 341px;
+   top: 367px;
+    overflow: visible;
+   }
+
+.materi-5 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-11210 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 409px;
+   }
+
+.dasar-desain-visual9 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 414px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.arrow-circle-right19 {
+   position: absolute;
+    left: 341px;
+   top: 413px;
+    overflow: visible;
+   }
+
+.materi-6 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+.rectangle-11211 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 27px;
+   top: 455px;
+   }
+
+   .uploadModul .dasar-desain-visual10 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 38px;
+   top: 460px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right21 {
+   position: absolute;
+    left: 343px;
+   top: 459px;
+    overflow: visible;
+   }
+
+   .uploadModul .minggu-1 {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .minggu-12 {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 25px;
+   top: 157px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .rectangle-11212 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 188px;
+   }
+
+   .uploadModul .dasar-desain-visual11 {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 193px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right23 {
+   position: absolute;
+    left: 341px;
+   top: 192px;
+    overflow: visible;
+   }
+
+   .uploadModul .materi-2 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+   .uploadModul .rectangle-11213 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 234px;
+   }
+
+   .uploadModul .elemen-visual-design {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 239px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right25 {
+   position: absolute;
+    left: 341px;
+   top: 238px;
+    overflow: visible;
+   }
+
+   .uploadModul .materi-3 {
+   width: 351px;
+    height: 32px;
+    position: static;
+   }
+
+   .uploadModul .rectangle-11214 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 351px;
+    height: 32px;
+    position: absolute;
+    left: 25px;
+   top: 280px;
+   }
+
+   .uploadModul .prinsip-visual-design {
+   color: #000000;
+    text-align: left;
+    font: 500 14px 'Poppins', sans-serif;
+    position: absolute;
+    left: 36px;
+   top: 285px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-circle-right27 {
+   position: absolute;
+    left: 341px;
+   top: 284px;
+    overflow: visible;
+   }
+
+   .uploadModul .next {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .arrow-back2 {
+   display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 875px;
+   top: 1056px;
+    transform-origin: 0 0;
+    transform: rotate(180deg) scale(1, 1);
+   }
+
+   .uploadModul .ellipse-172 {
+   background: #ffffff;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+   }
+
+   .uploadModul .chevron-left3 {
+   flex-shrink: 0;
+    position: absolute;
+    left: 3px;
+   top: 3px;
+    overflow: visible;
+   }
+
+   .uploadModul .selanjutnya {
+   color: #070d59;
+    text-align: left;
+    font: 500 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 729px;
+   top: 1029px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .arrow-back3 {
+   display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 130px;
+   top: 1026px;
+    transform-origin: 0 0;
+    transform: rotate(0deg) scale(1, 1);
+   }
+
+   .uploadModul .chevron-left5 {
+   flex-shrink: 0;
+    position: absolute;
+    left: 3px;
+   top: 3px;
+    overflow: visible;
+   }
+
+   .uploadModul .sebelumnya {
+   color: #070d59;
+    text-align: left;
+    font: 500 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 178px;
+   top: 1029px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .edit-kelas {
+   position: absolute;
+    inset: 0;
+   }
+
+   .uploadModul .rectangle-117 {
+   border-radius: 15px;
+    border-style: solid;
+    border-color: #1f3c88;
+    border-width: 2px;
+    width: 131px;
+    height: 42px;
+    position: absolute;
+    left: 744px;
+   top: 151px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+   }
+
+   .uploadModul .edit-kelas2 {
+   color: #1f3c88;
+    text-align: left;
+    font: 600 12px 'Poppins', sans-serif;
+    position: absolute;
+    left: 800px;
+   top: 162px;
+    width: 70px;
+    height: 19px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .icon-edit {
+   position: absolute;
+    left: 763px;
+   top: 161px;
+    overflow: visible;
+   }
+
+   .uploadModul .rectangle-121 {
+   background: rgba(210, 216, 231, 0.50);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 745px;
+    height: 39px;
+    position: absolute;
+    left: 130px;
+   top: 370px;
+   }
+
+   .uploadModul .ringkasan {
+   color: #000000;
+    text-align: left;
+    font: 500 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 160px;
+   top: 378px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+.uploadModul .rectangle-123 {
+   background: rgba(210, 216, 231, 0.50);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #070d59;
+    border-width: 1px;
+    width: 745px;
+    height: 45px;
+    position: absolute;
+    left: 130px;
+   top: 764px;
+   }
+
+   .uploadModul .link-modul-jika-diperlukan {
+   color: rgba(0, 0, 0, 0.60);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 133px;
+   top: 740px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .drive-google-com {
+   color: rgba(0, 0, 0, 0.50);
+    text-align: left;
+    font: 600 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 214px;
+   top: 775px;
+    display: flex;
+   align-items: center;
+   justify-content: flex-start}
+
+   .uploadModul .add-link {
+   position: absolute;
+    left: 164px;
+   top: 775px;
+    overflow: visible;
+   }
+
+   .uploadModul .rectangle-1172 {
+   background: #1f3c88;
+    border-radius: 15px;
+    width: 131px;
+    height: 50px;
+    position: absolute;
+    left: 744px;
+   top: 856px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+   }
+
+   .uploadModul .simpan {
+   color: #ffffff;
+    text-align: center;
+    font: 600 16px 'Poppins', sans-serif;
+    position: absolute;
+    left: 775px;
+   top: 871px;
+    width: 70px;
+    height: 19px;
+    display: flex;
+   align-items: center;
+   justify-content: center}
+
+
+
+
+
+
+
+
+  /* Halaman MODUL */
+.Modul .container {
+    display: flex;
+    align-items: center;
+}
+
+.Modul .rounded-icon {
+    background-color: #8F9DC3;
+    border-radius: 50%; /* Ini akan memberikan bentuk lingkaran */
+    padding: 10px; /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+    display: inline-flex; /* Flex akan memastikan ikon tetap terpusat */
+    justify-content: center;
+    align-items: center;
+}
+
+.Modul .material-icons {
+    color: #070D59; /* Mengatur warna ikon menjadi putih */
+    font-size: 14px;
+}
+
+.Modul .editKelas .title-kelas {
+    margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+}
+
+.Modul .editKelas .title-kelas p {
+    font-size: 16px;  /* Mengatur ukuran teks judul */
+    color: #070D59;
+    margin: 0;
+}
+
+.Modul .card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.Modul .card-left {
+    width: 61%;  /* Menyesuaikan lebar card */
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    margin-right: 1%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin-left: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Modul .tutor-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.Modul .card-left h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.Modul .card-left p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Card Kanan */
+.Modul .card-right {
+    width: 35%;  /* Menyesuaikan lebar card */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin-right: 120px;
+}
+
+.Modul .presentase-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.Modul .modul-card {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.Modul .week-card {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.Modul .modul {
+    flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+}
+
+.Modul .tutor-image-small {
+    width: 60px;            /* Mengatur lebar gambar */
+    height: 60px;           /* Mengatur tinggi gambar */
+    border-radius: 50%;     /* Membuat gambar menjadi lingkaran */
+    margin-bottom: 20px;    /* Memberikan jarak ke elemen di bawahnya */
+    object-fit: cover;      /* Menjaga aspek rasio gambar */
+}
+
+.Modul .card-title-kelas {
+    font-size: 38px;       /* Mengatur ukuran huruf */
+    font-weight: bold;     /* Membuat teks menjadi tebal */
+    margin-bottom: 20px;  /* Memberikan jarak ke elemen di bawahnya */
+}
+
+.Modul .kelas-tutor-details {
+    display: flex;        /* Menggunakan flexbox */
+    align-items: center;  /* Menyelaraskan item-item di tengah secara vertikal */
+    gap: 20px;            /* Memberikan jarak antara gambar dan nama tutor */
+}
+
+.Modul .kelas-info {
+    display: flex; /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+    width: 98.5%;
+    justify-content: space-between; /* Memberi jarak antara duration dan referensi */
+    border-bottom: 1px solid black; /* Menambahkan garis bawah */
+     /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+}
+
+.Modul .referensi {
+    margin-right: 150px; /* Menambahkan margin kanan 10px pada elemen duration */
+}
+
+.Modul .duration-title {
+    color: #ccc;
+}
+
+.Modul .duration-details {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.Modul .referensi-title {
+    color: #ccc;
+}
+
+.Modul .referensi-details {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.Modul .Bagian {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.Modul .Bagian-title {
+    color: #ccc;
+}
+
+.Modul .Bagian .form-control {
+    font-size: 16px;
+    margin-top: -5px;
+    border-radius: 9px;
+    background-color: #7b88b646;
+    border: 1px solid black;;
+    width: 99%;
+}
+
+.Modul .gambaran-detail {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.Modul .deskripsi {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.Modul .deskripsi-title {
+    color: #ccc;
+}
+
+.Modul .deskripsi textarea {
+    font-size: 16px;
+    margin-top: -5px;
+    border-radius: 15px;
+    background-color: #5b6ca346;
+}
+.Modul .drive {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.Modul .drive-title {
+    color: #ccc;
+    margin-top: 20px;
+}
+
+.Modul .drive .form-control {
+    font-size: 16px;
+    margin-top: -5px;
+    border-radius: 9px;
+    background-color: #7b88b646;
+    border: 1px solid black;
+    width: 99%;
+
+}
+
+
+
+ .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 200px;
+}
+
+.navigation a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #070D59;
+}
+
+.navigation a:hover {
+    color: #1c0bd8;
+}
+
+.sebelumnya{
+    display: flex;
+    align-items: center;
+}
+
+.sebelumnya p{
+   color: #0f0f0f;
+}
+
+.selanjutnya p{
+    color: #0f0f0f;
+ }
+.selanjutnya {
+    display: flex;
+    align-items: center;
+    margin-left: 582px;
+}
+
+.sebelumnya-icon{
+    background-color: transparent;
+    border: 2px solid #070D59;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 0px;
+    margin-top: -10px;
+    transition: background-color 0.3s;
+
+}
+.selanjutnya-icon {
+    background-color: transparent;
+    border: 2px solid #070D59;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: -10px;
+    transition: background-color 0.3s;
+}
+
+.navigation a:hover .sebelumnya-icon,
+.navigation a:hover .selanjutnya-icon {
+    background-color: #1c0bd8;
+    border-color: #1c0bd8;
+}
+
+.selanjutnya .material-icons {
+    color: #070D59;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.sebelumnya .material-icons {
+    color: #070D59;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.navigation a:hover .material-icons {
+    color: #ffffff;
+}
+
+.sebelumnya-text
+{
+    margin-left: 10px;
+
+}
+.selanjutnya-text {
+   margin-left: 0px;
+}
+
+
+
+
+
+.Modul .simpan {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-left: 744px;
+
+}
+
+.Modul .simpan-button {
+    background-color: #070D59;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.Modul .simpan-button:hover {
+    background-color: #4da8ee;
+}
+
+.Modul .simpan-button .material-icons {
+    font-size: 18px;
+    margin-right: 5px;
+    color: #ffffff;
+}
+
+.Modul .simpan-button .span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+
+
+.Modul .editKelas {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+
+}
+
+.Modul .editKelas-button {
+    background-color: #070D59;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 1px 15px;
+    cursor: pointer;
+    width: 132px;
+    display: flex;
+    align-items: center;
+    margin-left: 195px;
+    transition: background-color 0.3s;
+    height: 50px;
+}
+
+.Modul .editKelas-button:hover {
+    background-color: #4da8ee;
+}
+
+.Modul .editKelas-button .material-icons {
+    font-size: 18px;
+    margin-right: 5px;
+    color: #ffffff;
+}
+
+.Modul .editKelas .span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+.Modul .selanjutnya-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #070D59;
+    margin: 0;
+}
+
+
+
+.Modul .pembuka-title {
+    color: #ccc;
+}
+
+.Modul .modul-content {
+    background-color: #FFFFFF;
+    border: 1px solid #070D59;
+    border-radius: 20px;
+    margin-top: -10px;
+    padding: 20px;
+    height: 20px;
+}
+
+.Modul .modul-card-inner {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+}
+
+.Modul .modul-card-inner p {
+    color: black;
+    margin: 0%;
+    font-size: 14px;
+}
+
+.Modul .modul-card-inner i.material-icons {
+    color: black;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 80px;
+}
+
+.Modul .wek-wek-card{
+    margin-top: -20px;
+}
+
+.Modul .wek1-title {
+    color: #ccc;
+}
+
+.Modul .wek1-content {
+    background-color: #FFFFFF;
+    border: 1px solid #070D59;
+    border-radius: 20px;
+    padding: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}

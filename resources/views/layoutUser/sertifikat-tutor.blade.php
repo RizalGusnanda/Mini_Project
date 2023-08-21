@@ -26,7 +26,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="assets/img/GuruLink.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,16 +43,27 @@
                     </li>
                     <li class="nav-item close-icons">
                         <a class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
                                 <g mask="url(#mask0_27_22)">
-                                    <path d="M6.66663 31.6666V28.3333H9.99996V16.6666C9.99996 14.3611 10.6944 12.3125 12.0833 10.5208C13.4722 8.72915 15.2777 7.55554 17.5 6.99998V5.83331C17.5 5.13887 17.743 4.54859 18.2291 4.06248C18.7152 3.57637 19.3055 3.33331 20 3.33331C20.6944 3.33331 21.2847 3.57637 21.7708 4.06248C22.2569 4.54859 22.5 5.13887 22.5 5.83331V6.99998C24.7222 7.55554 26.5277 8.72915 27.9166 10.5208C29.3055 12.3125 30 14.3611 30 16.6666V28.3333H33.3333V31.6666H6.66663ZM20 36.6666C19.0833 36.6666 18.2986 36.3403 17.6458 35.6875C16.993 35.0347 16.6666 34.25 16.6666 33.3333H23.3333C23.3333 34.25 23.0069 35.0347 22.3541 35.6875C21.7013 36.3403 20.9166 36.6666 20 36.6666ZM13.3333 28.3333H26.6666V16.6666C26.6666 14.8333 26.0138 13.2639 24.7083 11.9583C23.4027 10.6528 21.8333 9.99998 20 9.99998C18.1666 9.99998 16.5972 10.6528 15.2916 11.9583C13.9861 13.2639 13.3333 14.8333 13.3333 16.6666V28.3333Z" fill="#1C1B1F" />
+                                    <path
+                                        d="M6.66663 31.6666V28.3333H9.99996V16.6666C9.99996 14.3611 10.6944 12.3125 12.0833 10.5208C13.4722 8.72915 15.2777 7.55554 17.5 6.99998V5.83331C17.5 5.13887 17.743 4.54859 18.2291 4.06248C18.7152 3.57637 19.3055 3.33331 20 3.33331C20.6944 3.33331 21.2847 3.57637 21.7708 4.06248C22.2569 4.54859 22.5 5.13887 22.5 5.83331V6.99998C24.7222 7.55554 26.5277 8.72915 27.9166 10.5208C29.3055 12.3125 30 14.3611 30 16.6666V28.3333H33.3333V31.6666H6.66663ZM20 36.6666C19.0833 36.6666 18.2986 36.3403 17.6458 35.6875C16.993 35.0347 16.6666 34.25 16.6666 33.3333H23.3333C23.3333 34.25 23.0069 35.0347 22.3541 35.6875C21.7013 36.3403 20.9166 36.6666 20 36.6666ZM13.3333 28.3333H26.6666V16.6666C26.6666 14.8333 26.0138 13.2639 24.7083 11.9583C23.4027 10.6528 21.8333 9.99998 20 9.99998C18.1666 9.99998 16.5972 10.6528 15.2916 11.9583C13.9861 13.2639 13.3333 14.8333 13.3333 16.6666V28.3333Z"
+                                        fill="#1C1B1F" />
                                 </g>
                             </svg>
                         </a>
                     </li>
                     <li class="nav-item close-icons">
                         <a class="nav-link">
-                            <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
+
+                            @php
+                                $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                            @endphp
+                            @if (file_exists(public_path($profileImagePath)))
+                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
+                            @else
+                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                            @endif
                         </a>
                     </li>
                 </ul>
@@ -65,7 +77,16 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img class="profile-pic" src="assets/img/tutor1.jpeg" alt="Profile Picture">
+                        @php
+                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                        @endphp
+                        @if (file_exists(public_path($profileImagePath)))
+                            <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt=""
+                                style="width: 150px; height: 150px;">
+                        @else
+                            <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                style="width: 150px; height: 150px;">
+                        @endif
                     </div>
                     <div class="card-menu">
                         <div class="menu">
@@ -90,39 +111,33 @@
                             <p class="search-text">Detail Tutor</p>
                         </div>
                     </div>
-                    <div class="card-formulir-sertifikasi">
-                        <div class="card-body">
-                            <form>
+                    <form  action= "{{ route('sertifikat-layout.update') }}"method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-formulir-sertifikasi">
+                            <div class="card-body">
                                 <div class="form-group">
-                                    <label for="deskripsi">Deskripsi Pembelajaran</label>
-                                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                                    <label for="penjelasan_pengalaman">Deskripsi Pembelajaran</label>
+                                    <textarea class="form-control" id="penjelasan_pengalaman" name="penjelasan_pengalaman" rows="3">{{ old('penjelasan_pengalaman', optional(auth()->user()->profile)->penjelasan_pengalaman) }}</textarea>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group select-group">
-                                    <label for="pengalaman">Pengalaman Mengajar</label>
-                                    <div class="input-group">
-                                        <select class="form-control" id="pengalaman" name="pengalaman">
-                                            <option value="1">Kurang dari 1 tahun</option>
-                                            <option value="2-3">2-3 tahun</option>
-                                            <option value="4-5">4-5 tahun</option>
-                                            <option value="6">Lebih dari 5 tahun</option>
-                                        </select>
-                                    </div>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="pengalaman">Pengalaman Mengajar (@ tahun)</label>
+                                    <input type="number" class="form-control" id="pengalaman"  name="pengalaman" placeholder=" 1"
+                                    value="{{ old('pengalaman', optional(auth()->user()->profile)->pengalaman) }}">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-body">
-                            <form>
+                            </div>
+                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="pengalaman">Sertifikasi</label>
                                     <div class="sertifikasi-group card custom-card">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="nama_sertifikasi">Nama Kegiatan/Sertifikasi</label>
-                                                <input type="text" class="form-control" id="nama_sertifikasi" name="nama_sertifikasi" placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti">
+                                                <input type="text" class="form-control" id="nama_sertifikasi"
+                                                    name="nama_sertifikasi"
+                                                    placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti">
                                             </div>
                                             <div class="form-group">
                                                 <label for="link_kegiatan">Link Kegiatan</label>
@@ -132,22 +147,24 @@
                                                             <i class="fab fa-google-drive"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="link_kegiatan" name="link_kegiatan" placeholder="drive.google.com">
+                                                    <input type="text" class="form-control" id="link_kegiatan"
+                                                        name="link_kegiatan" placeholder="drive.google.com">
                                                 </div>
                                             </div>
                                             <div class="form-group tambah-sertifikasi-group input-group">
-                                                <input type="text" class="form-control rounded-right" id="tambah_sertifikasi" name="tambah_sertifikasi" placeholder="   +  Tambah Sertifikasi">
+                                                <input type="text" class="form-control rounded-right"
+                                                    id="tambah_sertifikasi" name="tambah_sertifikasi"
+                                                    placeholder="   +  Tambah Sertifikasi">
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary">Perbarui dan Simpan</button>
+                            </div>
                         </div>
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Perbarui dan Simpan</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -159,9 +176,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
-                        <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
+                        <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png"
+                                alt=""></a>
                         <div style="display: flex; flex-direction: column;">
-                            <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
+                            <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang
+                                menyediakan
                                 cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                         </div>
                     </div>
@@ -171,7 +190,8 @@
                             <h5>Kontak Kami</h5>
                             <ul class="list-unstyled nav-links" style="font-size: 14px;">
                                 <li style="margin-bottom: 2px;"><a href="#">hellotutor@gurulink.co.id</a></li>
-                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9, Lowokwaru, Kota
+                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9,
+                                        Lowokwaru, Kota
                                         Malang</a></li>
                                 <li style="margin-bottom: 2px;"><a href="#">+6289823456789</a></li>
                             </ul>
@@ -184,11 +204,14 @@
                             <ul class="social list-unstyled" style="margin: 0;">
                                 <p style="font-size: 14px; margin-bottom: 5px;">Ikuti social media kami</p>
                                 <ul class="social list-unstyled" style="margin: 0;">
-                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x" style="color: #EE6F57;"></i></a>
+                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x"
+                                                style="color: #EE6F57;"></i></a>
                                     </li>
-                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-facebook fa-2x" style="color: #EE6F57;"></i></a>
+                                    <li style="margin-right: 20px;"><a href="#"><i
+                                                class="fab fa-facebook fa-2x" style="color: #EE6F57;"></i></a>
                                     </li>
-                                    <li><a href="#"><i class="fab fa-instagram fa-2x" style="color: #EE6F57;"></i></a>
+                                    <li><a href="#"><i class="fab fa-instagram fa-2x"
+                                                style="color: #EE6F57;"></i></a>
                                     </li>
                                 </ul>
                             </ul>

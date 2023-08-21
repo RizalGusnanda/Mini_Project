@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+
 
     <!-- CSS Libraries -->
     @stack('customStyle')
@@ -70,8 +72,7 @@
                                 class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>
@@ -79,7 +80,7 @@
                 </ul>
             </nav>
             <div class="main-sidebar">
-                    @include('layouts.sidebar')
+                @include('layouts.sidebar')
             </div>
 
             <!-- Main Content -->
@@ -92,7 +93,7 @@
         </div>
     </div>
 
-    <!-- General JS Scripts -->
+    <!-- Skrip JS Umum -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -105,16 +106,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="/assets/js/stisla.js"></script>
 
-    <!-- JS Libraies -->
+    <!-- Skrip Pustaka JS -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/assets/js/page/modules-sweetalert.js"></script>
 
-    <!-- Template JS File -->
+    <!-- Berkas Skrip Template JS -->
     <script src="/assets/js/scripts.js"></script>
     <script src="/assets/js/custom.js"></script>
 
-    <!-- Page Specific JS File -->
+    <!-- Berkas Skrip Khusus Halaman -->
     @stack('customScript')
+
+    <!-- Skrip FullCalendar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth' // Tampilan default saat kalender dimuat
+                // Anda dapat menambahkan lebih banyak opsi konfigurasi di sini
+            });
+
+            calendar.render();
+        });
+    </script>
+
+
 </body>
 
 </html>

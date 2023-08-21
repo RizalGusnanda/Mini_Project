@@ -9,6 +9,7 @@ use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileUserController;
+use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
@@ -34,6 +35,14 @@ use App\Models\Category;
 |
 */
 
+
+
+Route::get('/admin', function () {
+    return view('dashboardAdmin');
+});
+
+
+
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -54,6 +63,14 @@ Route::get('/profileTutor', function () {
 Route::get('/pembayaran', function () {
     return view('layoutUser/pembayaran');
 });
+Route::get('/uploadModul', function () {
+    return view('layoutUser/uploadModul');
+});
+
+
+Route::get('/modul', function () {
+    return view('layoutUser/modul');
+});
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
@@ -67,6 +84,13 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
+Route::prefix('sertifikat-layout')->group(function () {
+    Route::get('/', [sertifikatController::class, 'edit'])->name('sertifikat-layout.edit');
+    Route::post('/', [sertifikatController::class, 'updateSertif'])->name('sertifikat-layout.update');
+});
+
+
+
 
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
