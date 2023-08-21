@@ -21,7 +21,30 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->instance(
+            LoginResponse::class,
+            new class implements LoginResponse
+            {
+                public function toResponse($request)
+                {
+                    if (Auth::user()->hasRole('super-admin')) {
+                        return $request->wantsJson()
+                            ? response()->json(['two_factor' => false])
+                            : redirect()->intended(config('fortify.home'));
+                    }
+                    if (Auth::user()->hasRole('user')) {
+                        return $request->wantsJson()
+                            ? response()->json(['two_factor' => false])
+                            : redirect()->intended(config('fortify.home-user'));
+                    }
+                    if (Auth::user()->hasRole('tutor')) {
+                        return $request->wantsJson()
+                            ? response()->json(['two_factor' => false])
+                            : redirect()->intended(config('fortify.home-tutor'));
+                    }
+                }
+            }
+        );
     }
 
     /**
