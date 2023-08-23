@@ -9,9 +9,6 @@
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
-
-
-
     </section>
 
     <section class="adminDashborad">
@@ -26,9 +23,8 @@
                         </div>
                         <div class="col col-stats ml-3 ml-sm-0">
                             <div class="numbers">
-                                <h4 class="card-title">1,294</h4>
-                                <p class="card-category">Siswa</p>
-
+                                <h4 class="card-title" style="color: black">1,294</h4>
+                                <p class="card-category"> Total Siswa</p>
                             </div>
                         </div>
                     </div>
@@ -45,9 +41,8 @@
                         </div>
                         <div class="col col-stats ml-3 ml-sm-0">
                             <div class="numbers">
-                                <h4 class="card-title">1,294</h4>
-                                <p class="card-category">Tutor</p>
-
+                                <h4 class="card-title" style="color: black">1,294</h4>
+                                <p class="card-category"> Total Tutor</p>
                             </div>
                         </div>
                     </div>
@@ -57,40 +52,65 @@
         </div>
     </section>
 
-
-
-    <!-- Calendar Card -->
-    <section class="calendar-section">
+    <section>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Calendar</h4>
+                        <h4>Statistics</h4>
+                        {{-- <div class="card-header-action">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary">Week</a>
+                                <a href="#" class="btn">Month</a>
+                            </div>
+                        </div> --}}
                     </div>
                     <div class="card-body">
-                        <div id="calendar"></div>
+                        <canvas id="myChart" height="192"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Calendar</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="fc-overflow">
+                            <div id="myEvent"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 @endsection
+@push('customScript')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/fullcalendar.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('assets/js/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('assets/js/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="{{ asset('assets/js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/mudules-calendar.js') }}"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/fullcalendar.min.js"></script>
-<script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth' // Tampilan default saat kalender dimuat
+                // Anda dapat menambahkan lebih banyak opsi konfigurasi di sini
+            });
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth' // Tampilan default saat kalender dimuat
-            // Anda dapat menambahkan lebih banyak opsi konfigurasi di sini
+            calendar.render();
         });
-
-        calendar.render();
-    });
-</script>
+    </script>
+@endpush
+@push('customStyle')
+    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.min.css') }}">
+@endpush
