@@ -4,24 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <title>Guru Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-    <!-- Owl Carousel JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-
-
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Guru Link</title>
 </head>
@@ -58,10 +49,36 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item close-icons">
-                        <a class="nav-link">
+                    <li class="nav-item close-icons custom-dropdown">
+                        <!-- Gambar profil dan "Hi, [Nama User]" -->
+                        <div class="dropdown-trigger">
                             <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
-                        </a>
+                            <span class="profile-name">
+                                Hi,
+                                @if (auth()->check() && auth()->user()->name)
+                                    {{ auth()->user()->name }}
+                                @else
+                                    Anonymous
+                                @endif
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+
+                        <!-- Dropdown dengan opsi "Profile" dan "Logout" -->
+                        <div class="dropdown-content">
+                            <a href="{{ url('/profileTutor') }}" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -92,7 +109,8 @@
                             <h5>Kontak Kami</h5>
                             <ul class="list-unstyled nav-links" style="font-size: 14px;">
                                 <li style="margin-bottom: 2px;"><a href="#">hellotutor@gurulink.co.id</a></li>
-                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9, Lowokwaru,
+                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9,
+                                        Lowokwaru,
                                         Kota
                                         Malang</a></li>
                                 <li style="margin-bottom: 2px;"><a href="#">+6289823456789</a></li>
@@ -110,8 +128,8 @@
                                     <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x"
                                                 style="color: #EE6F57;"></i></a>
                                     </li>
-                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-facebook fa-2x"
-                                                style="color: #EE6F57;"></i></a>
+                                    <li style="margin-right: 20px;"><a href="#"><i
+                                                class="fab fa-facebook fa-2x" style="color: #EE6F57;"></i></a>
                                     </li>
                                     <li><a href="#"><i class="fab fa-instagram fa-2x"
                                                 style="color: #EE6F57;"></i></a>
@@ -128,7 +146,12 @@
     <!-- end footer section -->
 
 
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
+        integrity="sha384-4B1skEiYt4hE4+sfk+GY3G5z7PDIaRkaC5VO7Q2Cme7B/A3W2WwO+W48Hh5W1uI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 
 </html>
