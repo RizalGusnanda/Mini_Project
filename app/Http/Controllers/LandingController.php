@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
-use App\Models\Spesalisasi;
 use App\Models\Paket;
 use App\Models\Profile;
+use App\Models\Spesalisasi;
 
 class LandingController extends Controller
 {
     public function showLanding()
     {
         $pakets = Paket::all();
+        $spesialisasiData = Spesalisasi::all();
+        $kecamatanData = Kecamatan::all();
 
         $otherTutors = Profile::where('user_id', '!=', 1)
                         ->with('user', 'kecamatan','spesialisasi')
@@ -21,31 +23,31 @@ class LandingController extends Controller
 
         return view('layoutUser.landingpage', [
             'pakets' => $pakets,
+            'spesialisasiData' => $spesialisasiData,
+            'kecamatanData' => $kecamatanData,
             'otherTutors' => $otherTutors
         ]);
     }
     public function showDashboard()
     {
         $pakets = Paket::all();
+        $spesialisasiData = Spesalisasi::all();
+        $kecamatanData = Kecamatan::all();
 
         $otherTutors = Profile::where('user_id', '!=', 1)
-                        ->with('user', 'kecamatan')
+                        ->with('user', 'kecamatan','spesialisasi')
                         ->get();
 
 
 
         return view('layoutUser.landingpage', [
             'pakets' => $pakets,
+            'spesialisasiData' => $spesialisasiData,
+            'kecamatanData' => $kecamatanData,
             'otherTutors' => $otherTutors
         ]);
     }
-    public function index()
-    {
-        $spesialisasiData = Spesalisasi::all();
-        $kecamatanData = Kecamatan::all();
 
-        return view('layoutUser.landingpage', compact('spesialisasiData', 'kecamatanData'));
-    }
 
 
 

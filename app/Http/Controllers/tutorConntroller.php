@@ -2,33 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
+use App\Models\Spesalisasi;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 
-
 class tutorConntroller extends Controller
 {
-
     public function tutorShow(Request $request)
     {
-        $search1 = $request->input('search1');
-        $search2 = $request->input('search2');
+        $spesialisasiData = Spesalisasi::all();
+        $kecamatanData = Kecamatan::all();
+        $search1 = $request->input('spesialisasis');
+        $search2 = $request->input('id_kecamatans');
 
-        // Mendapatkan semua tutor (jika tidak ada pencarian)
         $otherTutors = Profile::where('user_id', '!=', 1)
-                        ->with('user', 'kecamatan', 'spesialisasi')
-                        ->get();
+            ->with('user', 'kecamatan', 'spesialisasi');
 
-                        if ($search1 && $search2) {
-                            $tutors = Profile::whereHas('spesialisasi', function ($query) use ($search1) {
-                                            $query->where('nama_spesialisasi', 'like', '%' . $search1 . '%');
-                                        })
-                                        ->where('alamat', 'like', '%' . $search2 . '%')
-                                        ->with('spesialisasi')
-                                        ->get();
-                        } else {
-                            $tutors = $otherTutors;
-                        }
-        return view('layoutUser.tutorPage', ['otherTutors' => $otherTutors, 'searchResults' => $tutors]);
+        if ($search1) {
+            $otherTutors->whereHas('spesialisasi', function ($query) use ($search1) {
+                $query->where('id', $search1);
+            });
+        }
+
+        if ($search2) {
+            $otherTutors->whereHas('kecamatan', function ($query) use ($search2) {
+                $query->where('id', $search2);
+            });
+        }
+
+        $searchResults = $otherTutors->get();
+
+        return view('layoutUser.tutorPage', [
+            'spesialisasiData' => $spesialisasiData,
+            'kecamatanData' => $kecamatanData,
+            'searchResults' => $searchResults,
+            'otherTutors' => $otherTutors
+        ]);
     }
+
 }

@@ -32,7 +32,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tutor') }}">Tutor</a>
+                        <a class="nav-link" href="{{ route('tutor.search') }}">Tutor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about-me">Tentang Kami</a>
@@ -52,7 +52,16 @@
                     <li class="nav-item close-icons custom-dropdown">
                         <!-- Gambar profil dan "Hi, [Nama User]" -->
                         <div class="dropdown-trigger">
-                            <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
+                            @php
+                                $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                            @endphp
+                            @if (file_exists(public_path($profileImagePath)))
+                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt=""
+                                   >
+                            @else
+                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                   >
+                            @endif
                             <span class="profile-name">
                                 Hi,
                                 @if (auth()->check() && auth()->user()->name)

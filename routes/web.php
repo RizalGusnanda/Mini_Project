@@ -74,12 +74,9 @@ Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name(
 Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 
-// siswa profile
-Route::get('/profileSiswa', [profileSiswaController::class, 'profile'])->name('profile.siswa');
-Route::post('/profile/update', [profileSiswaController::class, 'update'])->name('profile.update');
+// PROFILE siswa
+Route::get('/profileSiswa', [profileSiswaController::class, 'profile'])->name('profile.index');
 
-
-// SISWA PROFILE
 Route::get('/get-kelurahan', [profileSiswaController::class, 'getKelurahans'])->name('get-kelurahan');
 
 // Route untuk mendapatkan data kecamatan
@@ -89,11 +86,28 @@ Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name
 
 
 
-// landing
+
+
+
+
+
+
+
+
+Route::get('/kelasGmeet', function () {
+    return view('layoutUser/kelasLinkGmeet');
+});
+
+Route::get('/modulTambah', function () {
+    return view('layoutUser/modulTambah');
+});
+
+
+
+
+// Route untuk halaman Pencarian Tutor
+Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
-
-
-
 
 
 
@@ -119,14 +133,16 @@ Route::get('/uploadModul', function () {
     return view('layoutUser/uploadModul');
 });
 
-
-Route::get('/profileSiswa', function () {
-    return view('layoutUser/profileSiswa');
+Route::get('/transaksi', function () {
+    return view('layoutUser/transaksi');
+});
+Route::get('/sertifikat', function () {
+    return view('layoutUser/sertifikat');
 });
 
-
-
-
+Route::get('/sertif', function () {
+    return view('layoutUser/sertifikat-tutor');
+});
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
@@ -136,14 +152,12 @@ Route::get('/riwayat', function () {
 Route::get('/testimoni', function () {
     return view('layoutUser/testimoni');
 });
-Route::get('/sertifikat', function () {
-    return view('layoutUser/sertifikat-tutor');
-});
+
 Route::prefix('sertifikat-layout')->group(function () {
     Route::get('/', [sertifikatController::class, 'edit'])->name('sertifikat-layout.edit');
     Route::post('/', [sertifikatController::class, 'updateSertif'])->name('sertifikat-layout.update');
 });
-Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
+// Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 //
     //user list
     Route::prefix('user-management')->group(function () {
