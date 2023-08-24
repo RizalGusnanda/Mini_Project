@@ -2,6 +2,7 @@
 
 use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
+use Laravel\Fortify\Contracts\LoginResponse;
 
 return [
 
@@ -62,6 +63,8 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
+    'home-user' => RouteServiceProvider::HOME_USER,
+    'home-tutor' => RouteServiceProvider::HOME_TUTOR,
 
     /*
     |--------------------------------------------------------------------------
@@ -142,5 +145,8 @@ return [
             'confirmPassword' => true,
         ]),
     ],
+    'home' => RouteServiceProvider::HOME,
+    'home-user' => RouteServiceProvider::HOME_USER,
+    'home-tutor' => RouteServiceProvider::HOME_TUTOR,
 
 ];

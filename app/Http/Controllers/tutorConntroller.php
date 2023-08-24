@@ -2,31 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
+use App\Models\Spesalisasi;
 use Illuminate\Http\Request;
 use App\Models\Profile;
-use App\Models\User;
 
 class tutorConntroller extends Controller
 {
-
-
-    public function tutorShow()
+    public function tutorShow(Request $request)
     {
-        // Mendapatkan data profil dengan user_id selain 1 (superAdmin)
+        $spesialisasiData = Spesalisasi::all();
+        $kecamatanData = Kecamatan::all();
+        $search1 = $request->input('spesialisasis');
+        $search2 = $request->input('id_kecamatans');
+
         $otherTutors = Profile::where('user_id', '!=', 1)
-                            ->with('user','kecamatan')
-                            ->get();
+            ->with('user', 'kecamatan', 'spesialisasi');
 
-        return view('layoutUser.tutorPage', ['otherTutors' => $otherTutors]);
+        if ($search1) {
+            $otherTutors->whereHas('spesialisasi', function ($query) use ($search1) {
+                $query->where('id', $search1);
+            });
+        }
+
+        if ($search2) {
+            $otherTutors->whereHas('kecamatan', function ($query) use ($search2) {
+                $query->where('id', $search2);
+            });
+        }
+
+        $searchResults = $otherTutors->get();
+
+        return view('layoutUser.tutorPage', [
+            'spesialisasiData' => $spesialisasiData,
+            'kecamatanData' => $kecamatanData,
+            'searchResults' => $searchResults,
+            'otherTutors' => $otherTutors
+        ]);
     }
 
-    public function showTutor($id)
-    {
-        // Mengambil data profil tutor berdasarkan $id
-        $tutorProfile = Profile::where('user_id', $id)
-                        ->with('user','kecamatan','profile')
-                        ->first();
-
-        return view('layoutUser.tutorDetail', ['tutorProfile' => $tutorProfile]);
-    }
 }

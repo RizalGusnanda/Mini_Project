@@ -139,60 +139,6 @@
                                                 value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
                                         </div>
                                     </div>
-                                    <div class="row gx-3 mb-3">
-                                        <div class="col-md-6">
-                                            <label for="pendidikan" class="small mb-1">Pendidikan Terakhir</label>
-                                            <input class="form-control" id="pendidikan" type="tel" name="pendidikan"
-                                                value="{{ old('pendidikan', optional(auth()->user()->profile)->pendidikan) }}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="jurusan" class="small mb-1">Jurusan</label>
-                                            <input class="form-control" id="jurusan" type="tel" name="jurusan"
-                                                value="{{ old('jurusan', optional(auth()->user()->profile)->jurusan) }}">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="instansi" class="form-label">Instansi</label>
-                                        <input class="form-control" id="instansi" type="instansi" name="instansi"
-                                            value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="spesalisasis" class="form-label">Spesialisasi</label>
-                                        <select id="spesalisasis"
-                                            class="form-control @error('spesalisasis') is-invalid @enderror"
-                                            name="spesalisasis">
-                                            <option value="">Pilih Spesialisasi</option>
-                                            @foreach ($spesalisasis as $spesalisasis)
-                                                <option @if ($profile && $profile->id_spesalisasis == $spesalisasis->id) selected @endif
-                                                    value="{{ $spesalisasis->id }}">
-                                                    {{ $spesalisasis->nama_spesialisasi }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="bank" class="form-label">Rekening Bank</label>
-                                        <select id="bank" class="form-control @error('bank') is-invalid @enderror"
-                                            name="bank">
-                                            <option value=""
-                                                {{ old('bank', optional(auth()->user()->profile)->bank) === null ? 'selected' : '' }}>
-                                                Pilih Bank Tujuan</option>
-                                            <option value="BRI"
-                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BRI' ? 'selected' : '' }}>
-                                                BRI</option>
-                                            <option value="BCA"
-                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BCA' ? 'selected' : '' }}>
-                                                BCA</option>
-                                            <option value="BNI"
-                                                {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
-                                                BNI</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="norek" class="form-label">Nomor Rekening</label>
-                                        <input class="form-control" id="norek" type="norek" name="norek"
-                                            value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
-                                    </div>
                                     <div class="text-center mt-4">
                                         <!-- Tambahkan div untuk mengatur tombol di tengah form -->
                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
@@ -210,26 +156,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#spesalisasis').change(function() {
-                var idSpesialisasi = $(this).val();
-
-                // Melakukan permintaan AJAX untuk memperbarui spesialisasi
-                $.ajax({
-                    url: '{{ route('update-spesialisasi') }}',
-                    method: 'POST',
-                    data: {
-                        id_spesialisasis: idSpesialisasi,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log('Spesialisasi berhasil diperbarui:', response);
-                    },
-                    error: function(error) {
-                        console.error('Error dalam memperbarui spesialisasi:', error);
-                    }
-                });
-            });
 
             $('#id_kecamatans').change(function() {
                 var id_kecamatans = this.value;
@@ -301,23 +227,6 @@
                 });
             }
 
-        });
-        $(document).ready(function() {
-            // Mengisi dropdown spesialisasi saat halaman dimuat
-            $.ajax({
-                url: '{{ route('get-all-spesialisasi') }}',
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    var spesialisasiDropdown = $('#spesalisasis');
-                    spesialisasiDropdown.empty();
-                    spesialisasiDropdown.append('<option value="">Pilih Spesialisasi</option>');
-                    $.each(response['spesalisasis'], function(key, value) {
-                        spesialisasiDropdown.append('<option value="' + value.id + '">' +
-                            value.nama_spesialisasi + '</option>');
-                    });
-                }
-            });
         });
     </script>
 @endsection
