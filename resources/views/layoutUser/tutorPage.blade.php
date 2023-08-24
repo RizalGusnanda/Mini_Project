@@ -17,14 +17,25 @@
                 <div class="card-body">
                     <h5 class="card-title-search">Cari tutor sesuai kebutuhanmu</h5>
                     <div class="search-column">
-                        <form action="{{ route('tutor') }}" class="search-form" method="GET">
+                        <form action="{{ route('tutor.search') }}" class="search-form" method="GET">
                             <div class="search-input">
                                 <i class="material-icons">cast_for_education</i>
-                                <input type="text" name="search1" placeholder="Cari Bidang Ilmu">
+                                <select name="spesialisasis" id="spesalisasis" class="form-control">
+                                    <option value="">Pilih Spesialisasi</option>
+                                    @foreach ($spesialisasiData as $spesialisasi)
+                                        <option value="{{ $spesialisasi->id }}">{{ $spesialisasi->nama_spesialisasi }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="search-input">
                                 <i class="material-icons">location_on</i>
-                                <input type="text" name="search2" placeholder="Cari Lokasi">
+                                <select name="id_kecamatans" id="id_kecamatans" class="form-control">
+                                    <option value="">Pilih Kecamatan</option>
+                                    @foreach ($kecamatanData as $kecamatan)
+                                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->kecamatan }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <button type="submit" class="card-search-tutor button-tutor">
                                 <i class="fas fa-search"></i>
@@ -54,7 +65,8 @@
                                         $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
                                     @endphp
                                     @if (file_exists(public_path($profileImagePath)))
-                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
+                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt=""
+                                        style="height: 50px">
                                     @else
                                         <img class="card-img-top" src="{{ asset('path/to/default/image.jpg') }}"
                                             alt="">
@@ -81,7 +93,7 @@
                                             @endif
                                         </div>
                                         <div class="location">
-                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }},
+                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat}},
                                             {{ $tutor->kecamatan->kecamatan }}
                                         </div>
                                         <div class="teaching-duration">
