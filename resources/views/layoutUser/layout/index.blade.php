@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Guru Link</title>
@@ -21,7 +21,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/img/GuruLink.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset('assets/img/GuruLink.png') }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@
                         </div>
 
                         <!-- Dropdown dengan opsi "Profile" dan "Logout" -->
-                        <div class="dropdown-content">
+                        <div class="dropdown-content" style="z-index: 1">
                             <a href="{{ url('/profileTutor') }}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>

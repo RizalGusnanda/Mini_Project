@@ -829,9 +829,10 @@ body {
   }
 
   .detailTutor .col-md-4 img.img-fluid.rounded-start {
-    border-radius: 15px;
+    border-radius: 6px;
     margin: 30px;
-    max-width: 250px;
+    max-width: 220px;
+    margin-left: 70px;
   }
 
   .detailTutor .d-flex.flex-row.justify-content-between {

@@ -132,9 +132,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
 // detailpage
-Route::get('/detail', function () {
-    return view('layoutUser/detailTutorPage');
-});
+
+
+
+Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
 
 
 Route::get('/pembayaran', function () {

@@ -41,4 +41,23 @@ class tutorConntroller extends Controller
         ]);
     }
 
+    private function getAllTutors()
+    {
+        return Profile::where('user_id', '!=', 1)
+                        ->with('user', 'kecamatan', 'spesialisasi')
+                        ->get();
+    }
+
+    public function tutorDetail($id) {
+        $tutor = Profile::with('user', 'kecamatan', 'spesialisasi')->find($id);
+
+        if (!$tutor) {
+            return redirect()->route('tutor.show')->with('error', 'Tutor tidak ditemukan.');
+        }
+
+        return view('layoutUser.detailTutorPage', ['tutor' => $tutor]);
+}
+
+
+
 }
