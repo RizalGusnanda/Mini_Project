@@ -63,7 +63,7 @@
                                 <div class="col-md-7">
                                     <div class="deskripsiTutorA">
                                         <div class="nextArrow">
-                                            <a href="{{ route('tutor', ['id' => $tutor->user_id]) }}" class="next">
+                                            <a href="{{ route('tutor.detail', ['id' => $tutor->id]) }}" class="next">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
