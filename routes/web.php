@@ -74,6 +74,13 @@ Route::get('/pembayaran', function () {
 Route::GET('/profileTutor', [ProfileUserController::class, 'profile'])
     ->name('layoutUser/profileTutorPage');
 
+Route::get('/kelas-siswa2', function () {
+    return view('layoutUser/kelas-siswa2');
+});
+Route::get('/tambahModul', function () {
+    return view('layoutUser/tambahModul');
+});
+
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
 
