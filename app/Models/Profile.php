@@ -50,4 +50,9 @@ class Profile extends Model
         return $this->belongsTo(Spesalisasi::class, 'id_spesalisasis');
     }
 
+    public function sertifikats()
+    {
+        return $this->hasMany(Sertifikat::class, 'profile_id');
+    }
+
 }

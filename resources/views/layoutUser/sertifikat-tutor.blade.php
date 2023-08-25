@@ -51,7 +51,15 @@
                     </li>
                     <li class="nav-item close-icons">
                         <a class="nav-link">
-                            <img src="assets/img/tutor1.jpeg" alt="Profile" class="profile-icon">
+
+                            @php
+                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                            @endphp
+                            @if (file_exists(public_path($profileImagePath)))
+                            <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
+                            @else
+                            <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                            @endif
                         </a>
                     </li>
                 </ul>
@@ -65,7 +73,14 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img class="profile-pic" src="assets/img/tutor1.jpeg" alt="Profile Picture">
+                        @php
+                        $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                        @endphp
+                        @if (file_exists(public_path($profileImagePath)))
+                        <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt="" style="width: 150px; height: 150px;">
+                        @else
+                        <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt="" style="width: 150px; height: 150px;">
+                        @endif
                     </div>
                     <div class="card-menu">
                         <div class="menu">
@@ -90,64 +105,65 @@
                             <p class="search-text">Detail Tutor</p>
                         </div>
                     </div>
-                    <div class="card-formulir-sertifikasi">
-                        <div class="card-body">
-                            <form>
+                    <form action="{{ route('sertifikat-layout.update') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-formulir-sertifikasi">
+                            <div class="card-body">
                                 <div class="form-group">
-                                    <label for="deskripsi">Deskripsi Pembelajaran</label>
-                                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                                    <label for="penjelasan_pengalaman">Deskripsi Pembelajaran</label>
+                                    <textarea class="form-control" id="penjelasan_pengalaman" name="penjelasan_pengalaman" rows="3">{{ old('penjelasan_pengalaman', optional(auth()->user()->profile)->penjelasan_pengalaman) }}</textarea>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group select-group">
-                                    <label for="pengalaman">Pengalaman Mengajar</label>
-                                    <div class="input-group">
-                                        <select class="form-control" id="pengalaman" name="pengalaman">
-                                            <option value="1">Kurang dari 1 tahun</option>
-                                            <option value="2-3">2-3 tahun</option>
-                                            <option value="4-5">4-5 tahun</option>
-                                            <option value="6">Lebih dari 5 tahun</option>
-                                        </select>
-                                    </div>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="pengalaman">Pengalaman Mengajar (@ tahun)</label>
+                                    <input type="number" class="form-control" id="pengalaman" name="pengalaman" placeholder=" " value="{{ old('pengalaman', optional(auth()->user()->profile)->pengalaman) }}">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-body">
-                            <form>
+                            </div>
+                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="pengalaman">Sertifikasi</label>
                                     <div class="sertifikasi-group card custom-card">
                                         <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="nama_sertifikasi">Nama Kegiatan/Sertifikasi</label>
-                                                <input type="text" class="form-control" id="nama_sertifikasi" name="nama_sertifikasi" placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="link_kegiatan">Link Kegiatan</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            <i class="fab fa-google-drive"></i>
-                                                        </span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="link_kegiatan" name="link_kegiatan" placeholder="drive.google.com">
+                                            @if (isset($sertifikats) && count($sertifikats) > 0)
+                                            @foreach ($sertifikats as $sertifikat)
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="sertifikasi">Nama Kegiatan/Sertifikasi</label>
+                                                    <input type="text" class="form-control" id="sertifikasi_{{ $loop->index }}" name="sertifikasi[]" placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti" value="{{ old('sertifikasi', $sertifikat->sertifikasi) }}">
+                                                    <!-- Input tersembunyi untuk ID sertifikat yang sudah ada -->
+                                                    <input type="hidden" name="sertifikat_id[]" value="{{ $sertifikat->id }}">
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="link">Link Kegiatan</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="fab fa-google-drive"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="link_{{ $loop->index }}" name="link[]" placeholder="drive.google.com" value="{{ old('link', $sertifikat->link) }}">
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-sm btn-danger btn-icon confirm-delete" data-sertifikat-id="{{ $sertifikat->id }}">
+                                                    <i class="fas fa-times"></i> Hapus
+                                                </button>
                                             </div>
-                                            <div class="form-group tambah-sertifikasi-group input-group">
-                                                <input type="text" class="form-control rounded-right" id="tambah_sertifikasi" name="tambah_sertifikasi" placeholder="   +  Tambah Sertifikasi">
-                                            </div>
+                                            @endforeach
+                                            @endif
 
+                                            <div class="form-group tambah-sertifikasi-group input-group">
+                                                <button type="button" class="btn btn-custom">+ Tambah Sertifikasi</button>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="text-center mt-4">
+                                        <button type="submit" class="btn btn-primary">Perbarui dan Simpan</button>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Perbarui dan Simpan</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -161,7 +177,8 @@
                     <div class="col-md-4 pr-md-5" style="margin-right: 100px;">
                         <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png" alt=""></a>
                         <div style="display: flex; flex-direction: column;">
-                            <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang menyediakan
+                            <p style="font-size: 14px; margin-bottom: 0;">Kami adalah platform inovatif yang
+                                menyediakan
                                 cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                         </div>
                     </div>
@@ -171,7 +188,8 @@
                             <h5>Kontak Kami</h5>
                             <ul class="list-unstyled nav-links" style="font-size: 14px;">
                                 <li style="margin-bottom: 2px;"><a href="#">hellotutor@gurulink.co.id</a></li>
-                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9, Lowokwaru, Kota
+                                <li style="margin-bottom: 2px;"><a href="#">Jalan Soekarno Hatta No.9,
+                                        Lowokwaru, Kota
                                         Malang</a></li>
                                 <li style="margin-bottom: 2px;"><a href="#">+6289823456789</a></li>
                             </ul>
@@ -199,8 +217,89 @@
         </footer>
     </section>
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tambahSertifikasiBtn = document.querySelector('.btn-custom');
+            const sertifikasiGroup = document.querySelector('.sertifikasi-group');
+            let sertifikasiCount = 0;
+
+            tambahSertifikasiBtn.addEventListener('click', tambahSertifikasiForm);
+
+            function tambahSertifikasiForm() {
+                sertifikasiCount++;
+
+                const newSertifikasi = document.createElement('div');
+                newSertifikasi.classList.add('card-body');
+                newSertifikasi.innerHTML = `
+            <div class="form-group">
+                <label for="sertifikasi_${sertifikasiCount}">Nama Kegiatan/Sertifikasi</label>
+                <input type="text" class="form-control" id="sertifikasi_${sertifikasiCount}"
+                    name="sertifikasi[]" placeholder="Tambahkan nama kegiatan/sertifikasi yang pernah diikuti">
+            </div>
+            <div class="form-group">
+                <label for="link_${sertifikasiCount}">Link Kegiatan</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fab fa-google-drive"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="link_${sertifikasiCount}"
+                        name="link[]" placeholder="drive.google.com">
+                </div>
+            </div>
+            <button class="btn btn-sm btn-danger btn-icon confirm-delete" data-sertifikat-id="${sertifikasiCount}">
+                <i class="fas fa-times"></i> Hapus
+            </button>
+        `;
+
+                const btnHapusSertifikasi = newSertifikasi.querySelector('.confirm-delete');
+                btnHapusSertifikasi.addEventListener('click', function() {
+                    sertifikasiGroup.removeChild(newSertifikasi);
+                });
+
+                sertifikasiGroup.appendChild(newSertifikasi);
+            }
+
+            const confirmDeleteButtons = document.querySelectorAll('.confirm-delete');
+
+            confirmDeleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const sertifikatId = button.getAttribute('data-sertifikat-id');
+                    const isConfirmed = confirm('Apakah Anda yakin ingin menghapus sertifikat ini?');
+
+                    if (isConfirmed) {
+                        hapusSertifikat(sertifikatId);
+                    }
+                });
+            });
+
+            function hapusSertifikat(id) {
+                $.ajax({
+                    url: `/sertifikat-layout/sertifikat/${id}`,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            const deletedSertifikat = document.querySelector(`.sertifikat-${id}`);
+                            if (deletedSertifikat) {
+                                deletedSertifikat.remove();
+                            }
+                        }
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+        });
+    </script>
+
+
 </body>
 
 </html>

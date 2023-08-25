@@ -6,6 +6,7 @@ use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileUserController;
@@ -67,6 +68,18 @@ Route::get('/testimoni', function () {
 Route::get('/sertifikat', function () {
     return view('layoutUser/sertifikat-tutor');
 });
+
+Route::get('/createModul', function () {
+    return view('layoutUser/createModul');
+});
+
+Route::prefix('sertifikat-layout')->group(function () {
+    Route::get('/', [SertifikatTutorController::class, 'edit'])->name('sertifikat-layout.edit');
+    Route::post('/', [SertifikatTutorController::class, 'updateSertif'])->name('sertifikat-layout.update');
+    Route::delete('/sertifikat/{sertifikat}', [SertifikatTutorController::class, 'destroySertifikat'])->name('sertifikat.destroy');
+
+});
+
 
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
