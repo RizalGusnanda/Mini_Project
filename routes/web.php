@@ -82,7 +82,7 @@ Route::prefix('sertifikat-layout')->group(function () {
 });
 
 
-Route::get('/profileTutor', [profileUserController::class, 'profile'])->name('profile.tutor');
+Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
 Route::post('/update-spesialisasi', [profileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 
@@ -118,12 +118,7 @@ Route::get('/paketKelas', function () {
     return view('layoutUser/tambahPaketKelas');
 });
 
-Route::get('/paketKelasIklan',  [IklanPaketTutorPOVController::class, 'showIklanPaket'])->name('daftar-paket-iklanTutor');
-Route::get('/tambah-paket', [IklanPaketTutorPOVController::class, 'create'])->name('tambahPaket.create');
-Route::post('/simpan-paket', [IklanPaketTutorPOVController::class, 'store'])->name('simpan-paket');
-Route::get('/edit-paket/{id}', [IklanPaketTutorPOVController::class, 'edit'])->name('editPaket.edit');
-Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
-Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
+
 
 // Route untuk halaman Pencarian Tutor
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
@@ -133,6 +128,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
+
+    Route::get('/paketKelasIklan',  [IklanPaketTutorPOVController::class, 'showIklanPaket'])->name('daftar-paket-iklanTutor');
+    Route::get('/tambah-paket', [IklanPaketTutorPOVController::class, 'create'])->name('tambahPaket.create');
+    Route::post('/simpan-paket', [IklanPaketTutorPOVController::class, 'store'])->name('simpan-paket');
+    Route::get('/edit-paket/{id}', [IklanPaketTutorPOVController::class, 'edit'])->name('editPaket.edit');
+    Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
+    Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
 
 Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
 // detailpage

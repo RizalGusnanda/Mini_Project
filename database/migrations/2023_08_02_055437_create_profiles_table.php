@@ -31,16 +31,15 @@ return new class extends Migration
             $table->string('sertif')->nullable();
             $table->integer('pengalaman')->nullable();
             $table->text('penjelasan_pengalaman')->nullable();
-            $table->text('pilihanAjar')->nullable();
             $table->timestamps();
-
+    
             $table->foreign('id_kecamatans')->references('id')->on('kecamatans')->restrictOnDelete();
             $table->foreign('id_kelurahans')->references('id')->on('kelurahans')->restrictOnDelete();
             $table->foreign('id_spesalisasis')->references('id')->on('spesalisasis')->restrictOnDelete();
-
+            
         });
     }
-
+    
 
     /**
      * Reverse the migrations.
