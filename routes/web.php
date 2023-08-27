@@ -119,7 +119,6 @@ Route::get('/paketKelas', function () {
 });
 
 
-
 // Route untuk halaman Pencarian Tutor
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
