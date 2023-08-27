@@ -31,7 +31,7 @@ class tutorConntroller extends Controller
             });
         }
 
-        $searchResults = $otherTutors->get();
+        $searchResults = $otherTutors->paginate(6);
 
         return view('layoutUser.tutorPage', [
             'spesialisasiData' => $spesialisasiData,

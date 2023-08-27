@@ -3932,3 +3932,603 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
     height: 20px;
     margin-bottom: 5px;
 }
+
+
+
+/* TAMBAH PAKET KELAS */
+  .tambahPaketKelas .card {
+    position: relative;
+    width: 270px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 70px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .tambahPaketKelas.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    object-fit: cover;
+  }
+
+
+
+  .tambahPaketKelas .card-menu {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-right: 140px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .tambahPaketKelas .card-menu:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  .tambahPaketKelas .menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px;
+  }
+
+  .tambahPaketKelas .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: -70px;
+  }
+
+  .tambahPaketKelas.menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .tambahPaketKelas  .menu-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .tambahPaketKelas .menu-item i {
+    font-size: 1.25rem;
+    margin-right: 10px;
+  }
+
+  .tambahPaketKelas .menu-item span {
+    font-size: 0.875rem;
+  }
+
+  /* Gaya untuk bagian detail tutor */
+  .tambahPaketKelas.search {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
+    margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
+    margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+  }
+
+  .tambahPaketKelas .search-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* Gaya untuk bagian form */
+  .tambahPaketKelas .card-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tambahPaketKelas .card-title-form {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .tambahPaketKelas .form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .tambahPaketKelas  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .tambahPaketKelas .form-control.pembelajaran{
+    border-radius: 100px;
+  }
+
+
+  .tambahPaketKelas .form-control:focus {
+    border-color: #70b3f0;
+    box-shadow: 0 0 8px #70b3f0;
+  }
+
+  .tambahPaketKelas .btn-primary {
+    background-color: #1F3C88;
+    border: none;
+    padding: 8px 20px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .tambahPaketKelas .btn-primary:hover {
+    background-color: #070D59;
+  }
+
+  /* Gaya untuk tampilan select dalam kotak */
+  .tambah-modul-group {
+    position: relative;
+  }
+
+
+  .tambahPaketKelas .tambah-modul-group input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+
+  /* Gaya untuk tampilan ikon plus pada elemen input */
+  .tambahPaketKelas  .tambah-modul-group {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 30px; /* Atur jarak dari atas */
+  }
+
+  .tambahPaketKelas .tambah-modul-group .btn-tambah {
+    border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+    background-color: #D9D9D9;
+    border: none;
+    color: #000;
+    padding: 10px;
+    margin-right: 10px; /* Ruang antara ikon dan input */
+    cursor: pointer;
+    padding-top: 10%;
+    padding-top: 10%;
+  }
+
+  .tambahPaketKelas .tambah-tmodul-group .form-control.pembelajaran {
+    border-radius: 15px;
+    border: 1px solid #D9D9D9;
+  }
+
+
+   .tambahPaketKelas.modul-group .form-group {
+    margin-bottom: 15px;
+  }
+
+  .tambahPaketKelas .tambah-modul-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tambahPaketKelas .tambah-modul-group .form-control {
+    border-radius: 15px;
+  }
+
+  .tambahPaketKelas .tambah-modul-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .tambahPaketKelas  .custom-card {
+    width: 740px; /* Lebar maksimal untuk card */
+    margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #E8EBF399;
+    margin-bottom: 30px;
+    margin-top: 3px;
+    text-align: left;
+  }
+
+  .tambahPaketKelas .input-group-text i {
+  font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+  }
+
+
+
+  /* Gaya untuk bagian header kartu modul */
+  .tambahPaketKelas .card-header-modul {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    margin-left: -70px;
+}
+
+/* Gaya untuk kartu ikon kembali (back) */
+.tambahPaketKelas .back-card {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Gaya untuk kartu teks "Tambah Modul" */
+.tambahPaketKelas .text-card {
+    display: inline-block;
+}
+
+
+
+  /* Gaya untuk bagian formulir modul */
+  .tambahPaketKelas .card-formulir-modul {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-left: -70px;
+  }
+
+ .tambahPaketKelas .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+.tutorA-me-section .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.tutorA-me-section .pagination .page-item {
+    margin: 0 5px;
+}
+
+.tutorA-me-section .pagination .page-link {
+    color: #1F3C88;
+    border: 1px solid #1F3C88;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.tutorA-me-section .pagination .page-link:hover {
+    background-color: #1F3C88;
+    color: white;
+    border: 1px solid #1F3C88;
+}
+
+.tutorA-me-section .pagination .page-item.active .page-link {
+    background-color: #1F3C88;
+    color: white;
+    border: 1px solid #1F3C88;
+}
+
+
+/* Button Transparent */
+.filterOnline .btn {
+    display: inline-block;
+    padding: 1px 20px;
+    border: 1px solid #1F3C88;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .filterOnline .btn-transparent {
+    background-color: transparent;
+    color: #1F3C88;
+  }
+
+  .filterOnline .btn-transparent:hover {
+    background-color: #1F3C88;
+    color: #f9f9f9;
+  }
+
+  .filterOnline .filter-button.active,
+  .filter-button:hover {
+      background-color: #1F3C88;
+      color: #ffffff;
+  }
+
+
+
+
+
+
+
+
+
+  /*card */
+
+.paketKelasIklan .card {
+    position: relative;
+    width: 270px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 70px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+.paketKelasIklan  .profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    object-fit: cover;
+  }
+
+.paketKelasIklan  .plus-icon {
+    position: absolute;
+    bottom: 50px;
+    right: 55px;
+    width: 30px;
+    height: 30px;
+    background-color:#070D59;
+    border-radius: 50%;
+    padding: 4px;
+  }
+
+
+
+
+  .tambahPaketKelas.menu-item:last-child {
+    border-bottom: none;
+  }
+
+
+
+  .paketKelasIklan  .card-menu {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-right: 140px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .paketKelasIklan  .menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px;
+  }
+
+  .paketKelasIklan  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: -70px;
+
+  }
+
+  .paketKelasIklan  .menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .paketKelasIklan  .menu-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .paketKelasIklan  .menu-item i {
+    font-size: 1.25rem;
+    margin-right: 10px;
+  }
+
+  .paketKelasIklan  .menu-item a {
+    font-size: 0.875rem;
+  }
+
+  /* Gaya untuk bagian detail tutor */
+  .paketKelasIklan  .search {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
+    margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
+    margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+  }
+
+  .paketKelasIklan  .search-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+
+
+
+
+  /* Gaya untuk bagian header kartu sertifikat */
+  .paketKelasIklan  .card-header-paketKelas {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    margin-left: -70px;
+  }
+
+  .paketKelasIklan  .search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right:0;
+
+}
+
+.paketKelasIklan  #search-button {
+margin-top: 30px;
+padding: 5px 10px;
+margin-left: 400px;
+background-color: #929292;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+
+.paketKelasIklan  #search-input {
+    background-color: #EBEBEB;
+    margin-top: 30px;
+    padding: 5px 10px;
+    margin-left: 400px;
+    border-radius: 20px;
+  padding-left: 30px;
+  border: none;
+}
+
+
+.paketKelasIklan  button i.fas.fa-search {
+    color: #a1a1a1;
+  }
+
+
+.paketKelasIklan  .add-button {
+    background-color: #1F3C88;
+    border: none;
+    color: white;
+    padding: 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+
+  }
+
+  .paketKelasIklan  .add-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .paketKelasIklan  .green-text {
+    color: green;
+}
+.paketKelasIklan .card-formulir-paketKelas {
+    position: relative; /* Menjadikan posisi relatif untuk ikon */
+}
+.paketKelasIklan .ellipsis-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+}
+
+
+.paketKelasIklan .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + -160px);
+        right: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        z-index: 1;
+    }
+
+    .paketKelasIklan .show {
+        display: block;
+    }
+
+
+
+  /* Gaya untuk bagian formulir kartu sertifikasi */
+  .paketKelasIklan  .card-formulir-paketKelas {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-left: -70px;
+  }
+  .paketKelasIklan .form-group span {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #59ad67;
+  }
+  .paketKelasIklan .form-group p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #0f0f0f;
+  }
+
+  .paketKelasIklan .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.paketKelasIklan .pagination .page-item {
+    margin: 0 5px;
+}
+
+.paketKelasIklan .pagination .page-link {
+    color: #1F3C88;
+    border: 1px solid #1F3C88;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.paketKelasIklan .pagination .page-link:hover {
+    background-color: #1F3C88;
+    color: white;
+    border: 1px solid #1F3C88;
+}
+
+.paketKelasIklan .pagination .page-item.active .page-link {
+    background-color: #1F3C88;
+    color: white;
+    border: 1px solid #1F3C88;
+}
