@@ -696,8 +696,7 @@ body {
     margin-bottom: 20px;
     background-color: #ffffff;
     margin-top: 70px;
-    margin-right: 50px;
-    margin-left: 0px;
+    margin-left: -70px;
     height: 50px;
   }
 
@@ -708,8 +707,7 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
     background-color: #ffffff;
-    margin-right: 50px;
-    margin-left: 0px;
+    margin-left: -70px;
 
   }
 
@@ -735,7 +733,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-top: 70px;
-    margin-left: 70px;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
@@ -770,7 +767,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
-    margin-left: 70px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
@@ -3187,6 +3183,11 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.sertifikat .tambah-sertifikasi-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .custom-card {
   width: 740px; /* Lebar maksimal untuk card */
   margin: 8px auto; /* Pusatkan card horizontal di dalam section */
@@ -4314,11 +4315,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
   .paketKelasIklan  .card-menu {
     position: relative;
+    width: 270px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
-    margin-right: 140px;
+    margin-right: 50px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
@@ -4397,13 +4399,13 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   align-items: center;
   position: relative;
   right:0;
-
+  margin-left: -70px;
 }
 
 .paketKelasIklan  #search-button {
 margin-top: 30px;
 padding: 5px 10px;
-margin-left: 400px;
+margin-left: 340px;
 background-color: #929292;
   background: none;
   border: none;
@@ -4416,9 +4418,9 @@ background-color: #929292;
     background-color: #EBEBEB;
     margin-top: 30px;
     padding: 5px 10px;
-    margin-left: 400px;
+    margin-left: 340px;
     border-radius: 20px;
-  padding-left: 30px;
+  padding-left: 45px;
   border: none;
 }
 
@@ -4531,4 +4533,160 @@ background-color: #929292;
     background-color: #1F3C88;
     color: white;
     border: 1px solid #1F3C88;
+}
+
+.sertifikat .card-menu {
+  position: relative;
+  width: 270px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-right: 50px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sertifikat .menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sertifikat .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: -70px;
+}
+
+.sertifikat .menu-item:last-child {
+  border-bottom: none;
+  margin-left: 0px;
+}
+
+.sertifikat .menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.sertifikat .menu-item i {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+
+.sertifikat .menu-item span {
+  font-size: 0.875rem;
+}
+
+.sertifikat .card {
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 70px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.sertifikat .profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+
+.card-header-sertifikat {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  margin-left: -70px;
+}
+
+/* Gaya untuk bagian formulir kartu sertifikasi */
+.card-formulir-sertifikasi {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: -70px;
+}
+
+.sertifikat .custom-card {
+  width: 740px; /* Lebar maksimal untuk card */
+  margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #E8EBF399;
+  margin-bottom: 30px;
+  margin-top: 3px;
+  text-align: left;
+}
+
+.sertifikat .tambah-sertifikasi-group .btn-tambah {
+  border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+  background-color: #D9D9D9;
+  border: none;
+  color: #000;
+  padding: 10px;
+  margin-right: 10px; /* Ruang antara ikon dan input */
+  cursor: pointer;
+  padding-top: 10%;
+  padding-top: 10%;
+}
+
+.sertifikat .btn-primary {
+  background-color: #1F3C88;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sertifikat .btn-primary:hover {
+  background-color: #070D59;
+}
+
+.sertifikat .tambah-sertifikasi-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #D9D9D9;
+  margin-top: 20px; /* Atur jarak dari atas */
+}
+
+.sertifikat .tambah-sertifikasi-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.sertifikat .sertifikasi-group .form-group {
+  margin-bottom: 15px;
+}
+
+.sertifikat .btn-custom{
+  border-radius: 15px;
+  padding: 8px 20px;
+  background-color: #D9D9D9;
+  border: none;
+}
+
+.sertifikat .btn:hover {
+}
+.sertifikat .btn{
+  margin-top: 5px;
+  border: none; 
+  padding: 5px 20px;
 }

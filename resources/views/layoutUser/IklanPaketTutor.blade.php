@@ -37,26 +37,30 @@
                     </div>
                     <div class="card-menu">
                         <div class="menu">
-                            <div class="menu-item">
-                                <i class="fas fa-user"></i>
-                                <span>Profile</span>
-                            </div>
+                            <a href="/profileTutor" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>Profile</span>
+                                </div>
+                            </a>
+                            <a href="/sertifikat-layout" style="text-decoration: none; color: black">
                             <div class="menu-item">
                                 <i class="fas fa-info-circle"></i>
                                 <span>Detail Tutor</span>
                             </div>
-                            <div class="menu-item">
+                            </a>
+                            <a href="#">
+                            <div class="menu-item" style="text-decoration: none; color: black">
                                 <i class="fas fa-calendar"></i>
                                 <span>Reservasi</span>
                             </div>
+                            </a>
+                            <a href="paketKelasIklan" style="text-decoration: none">
                             <div class="menu-item">
                                 <i class="fas fa-graduation-cap"></i>
                                 <span>Paket Kelas</span>
                             </div>
-                            <div class="menu-item">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Keluar</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
