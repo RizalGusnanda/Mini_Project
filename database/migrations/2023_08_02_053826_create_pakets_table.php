@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pakets', function (Blueprint $table) {
-            $table->id(); 
-            $table->string('nama_paket'); 
-            $table->text('deskripsi'); 
-            $table->integer('harga'); 
+            $table->id();
+            $table->string('nama_paket')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->integer('harga')->nullable();
+            $table->integer('durasi')->nullable();
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\IklanPaketTutorPOVController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
@@ -71,18 +72,18 @@ Route::get('/edit-kelas-guru', function () {
     return view('layoutUser/editKelasGuru');
 });
 
-Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
+Route::get('/profileTutor', [profileUserController::class, 'profile'])->name('profile.tutor');
 
-Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
+Route::post('/update-spesialisasi', [profileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 
-Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+Route::get('/get-kelurahan', [profileUserController::class, 'getKelurahans'])->name('get-kelurahan');
 
 // Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+Route::get('/get-kecamatan', [profileUserController::class, 'getKecamatan'])->name('get-kecamatan');
 
-Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+Route::POST('/load-filter', [profileUserController::class, 'loadFilter'])->name('load.filter');
 
-Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
+Route::get('/get-all-spesialisasi', 'profileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 
 // PROFILE siswa
@@ -112,6 +113,17 @@ Route::get('/kelasGmeet', function () {
 Route::get('/modulTambah', function () {
     return view('layoutUser/modulTambah');
 });
+
+Route::get('/paketKelas', function () {
+    return view('layoutUser/tambahPaketKelas');
+});
+
+Route::get('/paketKelasIklan',  [IklanPaketTutorPOVController::class, 'showIklanPaket'])->name('daftar-paket-iklanTutor');
+Route::get('/tambah-paket', [IklanPaketTutorPOVController::class, 'create'])->name('tambahPaket.create');
+Route::post('/simpan-paket', [IklanPaketTutorPOVController::class, 'store'])->name('simpan-paket');
+Route::get('/edit-paket/{id}', [IklanPaketTutorPOVController::class, 'edit'])->name('editPaket.edit');
+Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
+Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
 
 
 
@@ -156,7 +168,10 @@ Route::get('/sertif', function () {
     return view('layoutUser/sertifikat-tutor');
 });
 
-Route::get('/paket', [PaketController::class, 'showPaketPage']);
+Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
+
+
+
 
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
