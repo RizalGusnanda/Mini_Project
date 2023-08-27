@@ -52,7 +52,7 @@
                         <!-- Card Header "Cari tutor sesuai kebutuhanmu" -->
                         <div class="card-header-profilTutor">
                             <div class="card-body">
-                                <h5 class="card-title-search">Informasi Tutor</h5>
+                                <h5 class="card-title-search">Informasi Siswa</h5>
                             </div>
                         </div>
 

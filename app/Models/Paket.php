@@ -11,6 +11,7 @@ class Paket extends Model
     protected $fillable = [
         'nama_paket',
         'deskripsi',
-        'harga'
+        'harga',
+        'durasi'
     ];
 }
