@@ -82,7 +82,7 @@ Route::prefix('sertifikat-layout')->group(function () {
 });
 
 
-Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
+Route::get('/profileTutor', [profileUserController::class, 'profile'])->name('profile.tutor');
 
 Route::post('/update-spesialisasi', [profileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 

@@ -208,6 +208,11 @@
                                             maxlength="10" required
                                             value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="pilihanAjar" class="form-label">Pilihan Mengajar</label>
+                                        <p> Silahkan isi Online atau Offline </p>
+                                        <input class="form-control" id="pilihanAjar" type="text" name="pilihanAjar" value="{{ old('pilihanAjar', optional(auth()->user()->profile)->pilihanAjar) }}">
+                                    </div>
                                     <div class="text-center mt-4">
                                         <!-- Tambahkan div untuk mengatur tombol di tengah form -->
                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
