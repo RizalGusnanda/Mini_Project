@@ -36,6 +36,7 @@ return new class extends Migration
             $table->foreign('id_kecamatans')->references('id')->on('kecamatans')->restrictOnDelete();
             $table->foreign('id_kelurahans')->references('id')->on('kelurahans')->restrictOnDelete();
             $table->foreign('id_spesalisasis')->references('id')->on('spesalisasis')->restrictOnDelete();
+            
         });
     }
     

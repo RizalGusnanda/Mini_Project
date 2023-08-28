@@ -27,7 +27,7 @@ class UpdateProfileRrequest extends FormRequest
         'id_kecamatans' => 'nullable|exists:kecamatans,id',
         'id_kelurahans' => 'nullable|exists:kelurahans,id',
         'id_spesalisasis' => 'nullable|exists:spesalisasis,id',
-        'telepon' => 'nullable|string|max:255',
+        'telepon' => ['nullable', 'regex:/^08\d{9,11}$/', 'max:255'],
         'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
         'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         'alamat' => 'nullable|string|max:255',
@@ -36,6 +36,9 @@ class UpdateProfileRrequest extends FormRequest
         'instansi' => 'nullable|string|max:255',
         'norek' => 'nullable|string|max:255',
         'bank' => 'nullable|in:BRI,BCA,BNI',
+        'pilihanAjar' => 'nullable|string|max:255',
+        'sertifikasi.*' => 'nullable|string|max:255',
+        'link.*' => 'nullable|string|max:255',
     ];
 }
 

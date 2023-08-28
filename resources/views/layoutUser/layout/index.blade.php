@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {{-- summernote --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
-    <title>Guru Link</title>
 </head>
 
 <body>
@@ -56,11 +58,9 @@
                                 $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
                             @endphp
                             @if (file_exists(public_path($profileImagePath)))
-                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt=""
-                                   >
+                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
                             @else
-                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt=""
-                                   >
+                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt="">
                             @endif
                             <span class="profile-name">
                                 Hi,
@@ -108,7 +108,7 @@
                         <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png"
                                 alt=""></a>
                         <div style="display: flex; flex-direction: column;">
-                            <p style="font-size: 14px; margin-bottom: 0; margin-left: 0px;">Kami adalah platform
+                            <p style="font-size: 14px; margin-bottom: 0; margin-left: 0px; color: black">Kami adalah platform
                                 inovatif yang menyediakan
                                 cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                         </div>
@@ -132,7 +132,7 @@
                         <div style="display: flex; flex-direction: column;">
                             <h5>Ikuti Kami</h5>
                             <ul class="social list-unstyled" style="margin: 0;">
-                                <p style="font-size: 14px; margin-bottom: 5px; margin-left: 0px;">Ikuti social media
+                                <p style="font-size: 14px; margin-bottom: 5px; margin-left: 0px; color: black">Ikuti social media
                                     kami</p>
                                 <ul class="social list-unstyled" style="margin: 0;">
                                     <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x"
@@ -162,6 +162,27 @@
         integrity="sha384-4B1skEiYt4hE4+sfk+GY3G5z7PDIaRkaC5VO7Q2Cme7B/A3W2WwO+W48Hh5W1uI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    {{-- summernote js --}}
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#Summernotepertemuan1").summernote();
+            $("#Summernotepertemuan2").summernote();
+            $("#Summernotepertemuan3").summernote();
+            $("#Summernotepertemuan4").summernote();
+            $("#Summernotepertemuan5").summernote();
+            $("#Summernotepertemuan6").summernote();
+            $("#Summernotepertemuan7").summernote();
+            $("#Summernotepertemuan8").summernote();
+            $("#Summernotepertemuan9").summernote();
+            $("#Summernotepertemuan10").summernote();
+            $("#Summernotepertemuan11").summernote();
+            $("#Summernotepertemuan12").summernote();
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+
 </body>
 
 </html>

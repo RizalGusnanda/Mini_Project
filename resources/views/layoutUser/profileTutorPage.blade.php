@@ -31,20 +31,30 @@
                         </div>
                         <div class="card-menu">
                             <div class="menu">
-                                <a href="/tutor">
+                                <a href="/profileTutor" style="text-decoration: none">
                                     <div class="menu-item">
                                         <i class="fas fa-user"></i>
                                         <span>Profile</span>
                                     </div>
                                 </a>
+                                <a href="/sertifikat-layout" style="text-decoration: none; color: black">
                                 <div class="menu-item">
                                     <i class="fas fa-info-circle"></i>
                                     <span>Detail Tutor</span>
                                 </div>
-                                <div class="menu-item">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                    <span>Keluar</span>
+                                </a>
+                                <a href="#">
+                                <div class="menu-item" style="text-decoration: none; color: black">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Reservasi</span>
                                 </div>
+                                </a>
+                                <a href="paketKelasIklan" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Paket Kelas</span>
+                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +84,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="inputAlamat" name="alamat"
+                                        <input type="text" class="form-control" id="inputAlamat" name="alamat" required
                                             value="{{ old('alamat', optional(auth()->user()->profile)->alamat) }}">
                                     </div>
                                     <div class="row gx-3 mb-3">
@@ -82,7 +92,7 @@
                                             <label for="id_kecamatans" class="small mb-1">Kecamatan</label>
                                             <select id="id_kecamatans"
                                                 class="form-control @error('id_kecamatans') is-invalid @enderror"
-                                                name="id_kecamatans">
+                                                name="id_kecamatans" required>
                                                 <option value="">Pilih Kecamatan</option>
                                                 @foreach ($kecamatans as $kecamatan)
                                                     <option @if ($profile && $profile->id_kecamatans == $kecamatan->id) selected @endif
@@ -116,7 +126,7 @@
                                             <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
                                             <select id="jenis_kelamin"
                                                 class="form-control @error('jenis_kelamin') is-invalid @enderror"
-                                                name="jenis_kelamin">
+                                                name="jenis_kelamin" required>
                                                 <option value=""
                                                     {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>
                                                     Pilih Jenis Kelamin</option>
@@ -136,31 +146,35 @@
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
                                             <input class="form-control" id="inputPhone" type="tel" name="telepon"
+                                                maxlength="13" required
                                                 value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
                                         </div>
                                     </div>
                                     <div class="row gx-3 mb-3">
                                         <div class="col-md-6">
                                             <label for="pendidikan" class="small mb-1">Pendidikan Terakhir</label>
-                                            <input class="form-control" id="pendidikan" type="tel" name="pendidikan"
+                                            <input class="form-control" id="pendidikan" type="text" name="pendidikan"
+                                                required
                                                 value="{{ old('pendidikan', optional(auth()->user()->profile)->pendidikan) }}">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="jurusan" class="small mb-1">Jurusan</label>
-                                            <input class="form-control" id="jurusan" type="tel" name="jurusan"
+                                            <input class="form-control" id="jurusan" type="text" name="jurusan"
+                                                required
                                                 value="{{ old('jurusan', optional(auth()->user()->profile)->jurusan) }}">
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="instansi" class="form-label">Instansi</label>
                                         <input class="form-control" id="instansi" type="instansi" name="instansi"
+                                            required
                                             value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="spesalisasis" class="form-label">Spesialisasi</label>
                                         <select id="spesalisasis"
                                             class="form-control @error('spesalisasis') is-invalid @enderror"
-                                            name="spesalisasis">
+                                            name="spesalisasis" required>
                                             <option value="">Pilih Spesialisasi</option>
                                             @foreach ($spesalisasis as $spesalisasis)
                                                 <option @if ($profile && $profile->id_spesalisasis == $spesalisasis->id) selected @endif
@@ -173,7 +187,7 @@
                                     <div class="mb-3">
                                         <label for="bank" class="form-label">Rekening Bank</label>
                                         <select id="bank" class="form-control @error('bank') is-invalid @enderror"
-                                            name="bank">
+                                            name="bank" required>
                                             <option value=""
                                                 {{ old('bank', optional(auth()->user()->profile)->bank) === null ? 'selected' : '' }}>
                                                 Pilih Bank Tujuan</option>
@@ -191,7 +205,13 @@
                                     <div class="mb-3">
                                         <label for="norek" class="form-label">Nomor Rekening</label>
                                         <input class="form-control" id="norek" type="norek" name="norek"
+                                            maxlength="10" required
                                             value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pilihanAjar" class="form-label">Pilihan Mengajar</label>
+                                        <p> Silahkan isi Online atau Offline </p>
+                                        <input class="form-control" id="pilihanAjar" type="text" name="pilihanAjar" value="{{ old('pilihanAjar', optional(auth()->user()->profile)->pilihanAjar) }}">
                                     </div>
                                     <div class="text-center mt-4">
                                         <!-- Tambahkan div untuk mengatur tombol di tengah form -->
@@ -208,6 +228,13 @@
         </form>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @if (session('success'))
+        <script>
+            $(document).ready(function() {
+                alert('{{ session('success') }}');
+            });
+        </script>
+    @endif
     <script>
         $(document).ready(function() {
             $('#spesalisasis').change(function() {
@@ -316,6 +343,40 @@
                         spesialisasiDropdown.append('<option value="' + value.id + '">' +
                             value.nama_spesialisasi + '</option>');
                     });
+                }
+            });
+            $('form').on('submit', function(e) {
+                let alamat = $('#inputAlamat').val();
+                let kecamatan = $('#id_kecamatans').val();
+                let kelurahan = $('#id_kelurahans').val();
+                let jenisKelamin = $('#jenis_kelamin').val();
+                let phone = $('#inputPhone').val();
+                let pendidikan = $('#pendidikan').val();
+                let jurusan = $('#jurusan').val();
+                let instansi = $('#instansi').val();
+                let spesialisasi = $('#spesalisasis').val();
+                let bank = $('#bank').val();
+                let norek = $('#norek').val();
+
+                if (!alamat || !kecamatan || !kelurahan || !jenisKelamin || !phone || !pendidikan || !
+                    jurusan || !instansi || !spesialisasi || !bank || !norek) {
+                    alert('Pastikan semua field telah terisi sebelum melanjutkan!');
+                    e.preventDefault();
+                }
+
+                if (phone.length > 13) {
+                    alert('Nomor Telepon tidak boleh lebih dari 13 angka!');
+                    e.preventDefault();
+                }
+
+                if (norek.length > 10) {
+                    alert('Nomor Rekening tidak boleh lebih dari 10 angka!');
+                    e.preventDefault();
+                }
+                if (phone.length === 0 || !phone.match(/^08\d{9,11}$/) || !phone.match(/^\d+$/)) {
+                    alert(
+                        'Nomor telepon harus dimulai dengan "08", hanya boleh diisi dengan angka, dan memiliki total 11 hingga 13 digit angka.');
+                    e.preventDefault();
                 }
             });
         });

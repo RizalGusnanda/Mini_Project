@@ -6,6 +6,8 @@
         body {
             background-color: white;
         }
+             /* CSS untuk tautan navigasi halaman */
+
     </style>
     <section class="breadcrumb">
         <!-- Kode Breadcrumb -->
@@ -46,6 +48,16 @@
             </div>
         </div>
     </section>
+    <section class="filterOnline">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="btn filter-button active" data-filter="all">Semua</button>
+                <button class="btn filter-button" data-filter="online">Online</button>
+                <button class="btn filter-button" data-filter="offline">Offline</button>
+            </div>
+        </div>
+    </section>
+
     <section class="tutorA-me-section">
         <div class="container">
             @if (isset($searchResults) && count($searchResults) > 0)
@@ -66,7 +78,7 @@
                                     @endphp
                                     @if (file_exists(public_path($profileImagePath)))
                                         <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt=""
-                                        style="height: 50px">
+                                        >
                                     @else
                                         <img class="card-img-top" src="{{ asset('path/to/default/image.jpg') }}"
                                             alt="">
@@ -99,6 +111,9 @@
                                         <div class="teaching-duration">
                                             <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
                                         </div>
+                                        <div class="teaching-duration">
+                                            <i class="fas fa-chalkboard-teacher"></i>{{ $tutor->pilihanAjar }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -109,10 +124,46 @@
                         </div>
                     @endif
                 @endforeach
+                {{ $searchResults->appends(request()->input())->links() }}
             @else
                 <p>No tutors available</p>
             @endif
+
         </div>
     </section>
+    <script>
+        // Fungsi untuk mempertahankan nilai select setelah submit form
+        function setSelectValue(selectId, selectedValue) {
+            var selectElement = document.getElementById(selectId);
+            for (var i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].value === selectedValue) {
+                    selectElement.options[i].selected = true;
+                    break;
+                }
+            }
+        }
 
+        // Memanggil fungsi setelah halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dapatkan nilai yang dipilih sebelumnya dari URL atau sesi
+            var selectedSpesialisasi = "{{ app('request')->input('spesialisasis') }}";
+            var selectedKecamatan = "{{ app('request')->input('id_kecamatans') }}";
+
+            // Set nilai yang dipilih sebelumnya kembali ke select
+            setSelectValue("spesalisasis", selectedSpesialisasi);
+            setSelectValue("id_kecamatans", selectedKecamatan);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterButtons = document.querySelectorAll(".filter-button");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
 @endsection

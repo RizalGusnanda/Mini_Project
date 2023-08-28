@@ -27,6 +27,7 @@ class Profile extends Model
         'sertif',
         'pengalaman',
         'penjelasan_pengalaman',
+        'pilihanAjar',
     ];
 
     public function user()
@@ -48,6 +49,11 @@ class Profile extends Model
     public function spesialisasi()
     {
         return $this->belongsTo(Spesalisasi::class, 'id_spesalisasis');
+    }
+
+    public function sertifikats()
+    {
+        return $this->hasMany(Sertifikat::class, 'profile_id');
     }
 
 }
