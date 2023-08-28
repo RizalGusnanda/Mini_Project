@@ -36,6 +36,7 @@ class UpdateProfileRrequest extends FormRequest
         'instansi' => 'nullable|string|max:255',
         'norek' => 'nullable|string|max:255',
         'bank' => 'nullable|in:BRI,BCA,BNI',
+        'pilihanAjar' => 'nullable|string|max:255',
         'sertifikasi.*' => 'nullable|string|max:255',
         'link.*' => 'nullable|string|max:255',
     ];

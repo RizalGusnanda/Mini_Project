@@ -27,6 +27,7 @@ class Profile extends Model
         'sertif',
         'pengalaman',
         'penjelasan_pengalaman',
+        'pilihanAjar',
     ];
 
     public function user()

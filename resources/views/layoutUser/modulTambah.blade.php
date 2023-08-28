@@ -72,14 +72,17 @@
                                             <label for="nama_modul">Sub Modul Pembelajaran</label>
                                             <label for="pertemuan1">Pertemuan 1</label>
                                             <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan1" id="Summernotepertemuan1" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 2</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan2">Pertemuan 2</label>
+                                            <input type="text" class="form-control" id="pertemuan2" name="pertemuan2" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan2" id="Summernotepertemuan2" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 3</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan3">Pertemuan 3</label>
+                                            <input type="text" class="form-control" id="pertemuan3" name="pertemuan3 placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan3" id="Summernotepertemuan3" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -105,16 +108,19 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="nama_modul">Sub Modul Pembelajaran</label>
-                                            <label for="pertemuan1">Pertemuan 4</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan4">Pertemuan 4</label>
+                                            <input type="text" class="form-control" id="pertemuan4" name="pertemuan4" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan4" id="Summernotepertemuan4" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 5</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan5">Pertemuan 5</label>
+                                            <input type="text" class="form-control" id="pertemuan5" name="pertemuan5" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan5" id="Summernotepertemuan5" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 6</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan6">Pertemuan 6</label>
+                                            <input type="text" class="form-control" id="pertemuan6" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan6" id="Summernotepertemuan6" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -140,16 +146,19 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="nama_modul">Sub Modul Pembelajaran</label>
-                                            <label for="pertemuan1">Pertemuan 7</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan7">Pertemuan 7</label>
+                                            <input type="text" class="form-control" id="pertemuan7" name="pertemuan7" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan7" id="Summernotepertemuan7" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 8</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan8">Pertemuan 8</label>
+                                            <input type="text" class="form-control" id="pertemuan8" name="pertemuan8" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan8" id="Summernotepertemuan8" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 9</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan9">Pertemuan 9</label>
+                                            <input type="text" class="form-control" id="pertemuan9" name="pertemuan9" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan9" id="Summernotepertemuan4" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -175,16 +184,19 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="nama_modul">Sub Modul Pembelajaran</label>
-                                            <label for="pertemuan1">Pertemuan 10</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan10">Pertemuan 10</label>
+                                            <input type="text" class="form-control" id="pertemuan10" name="pertemuan10" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan10" id="Summernotepertemuan10" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 11</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan11">Pertemuan 11</label>
+                                            <input type="text" class="form-control" id="pertemuan11" name="pertemuan11" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan11" id="Summernotepertemuan11" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pertemuan1">Pertemuan 12</label>
-                                            <input type="text" class="form-control" id="pertemuan1" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <label for="pertemuan12">Pertemuan 12</label>
+                                            <input type="text" class="form-control" id="pertemuan12" name="pertemuan1" placeholder="Tambahkan Sub Modul Pembelajaran">
+                                            <textarea name="pertemuan12" id="Summernotepertemuan12" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -203,3 +215,5 @@
 
 </section>
 @endsection
+
+
