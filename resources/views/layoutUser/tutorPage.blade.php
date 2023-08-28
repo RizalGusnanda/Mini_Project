@@ -112,7 +112,7 @@
                                             <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
                                         </div>
                                         <div class="teaching-duration">
-                                            <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
+                                            <i class="fas fa-chalkboard-teacher"></i>{{ $tutor->pilihanAjar }}
                                         </div>
                                     </div>
                                 </div>
