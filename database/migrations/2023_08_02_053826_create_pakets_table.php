@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pakets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->string('nama_paket')->nullable();
             $table->text('deskripsi')->nullable();
             $table->integer('harga')->nullable();

@@ -21,7 +21,7 @@
         }
     </style>
 
-    <section class="paketKelasIklan">
+    <section class="paketKelasIklan" style="margin-bottom: 190px">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">

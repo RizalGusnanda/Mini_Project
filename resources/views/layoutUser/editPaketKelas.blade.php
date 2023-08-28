@@ -26,37 +26,43 @@
                     </div>
                     <div class="card-menu">
                         <div class="menu">
-                            <div class="menu-item">
-                                <i class="fas fa-user"></i>
-                                <span>Profile</span>
-                            </div>
-                            <div class="menu-item">
-                                <i class="fas fa-info-circle"></i>
-                                <span>Detail Tutor</span>
-                            </div>
-                            <div class="menu-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>Reservasi</span>
-                            </div>
-                            <div class="menu-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Paket Kelas</span>
-                            </div>
-                            <div class="menu-item">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Keluar</span>
-                            </div>
+                            <a href="/profileTutor" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>Profile</span>
+                                </div>
+                            </a>
+                            <a href="/sertifikat-layout" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Detail Tutor</span>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="menu-item" style="text-decoration: none; color: black">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Reservasi</span>
+                                </div>
+                            </a>
+                            <a href="paketKelasIklan" style="text-decoration: none">
+                                <div class="menu-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Paket Kelas</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card-header-modul">
                         <div class="card-body">
-                            <div class="back-card">
-                                <i class="fas fa-arrow-left back-icon"></i>
-                            </div>
+                            <a href="/paketKelasIklan" style="color: black">
+                                <div class="back-card">
+                                    <i class="fas fa-arrow-left back-icon"></i>
+                                </div>
+                            </a>
                             <div class="text-card">
-                                <p class="search-text">Tambah Paket Kelas</p>
+                                <p class="search-text">Edit Paket Kelas</p>
                             </div>
                         </div>
                     </div>

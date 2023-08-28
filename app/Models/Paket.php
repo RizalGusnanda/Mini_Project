@@ -14,4 +14,9 @@ class Paket extends Model
         'harga',
         'durasi'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    
 }

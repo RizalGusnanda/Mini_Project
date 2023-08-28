@@ -12,7 +12,7 @@ class IklanPaketTutorPOVController extends Controller
     public function showIklanPaket(Request $request)
 {
     $searchQuery = $request->input('search');
-    $query = Paket::query();
+    $query = Paket::where('user_id', auth()->user()->id);
 
     if ($searchQuery) {
         $query->where('nama_paket', 'LIKE', '%' . $searchQuery . '%');
@@ -32,6 +32,7 @@ class IklanPaketTutorPOVController extends Controller
     {
 
         $kelasPaket = new Paket();
+        $kelasPaket->user_id = auth()->user()->id;
         $kelasPaket->nama_paket = $request->input('nama_paket');
         $kelasPaket->deskripsi = $request->input('deskripsi');
         $kelasPaket->harga = $request->input('harga');
