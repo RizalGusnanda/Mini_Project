@@ -16,25 +16,25 @@ class PaketsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Paket Basic
-        Paket::create([
-            'nama_paket' => 'Paket Basic',
-            'deskripsi' => 'Paket belajar dasar dengan kelas dilakukan 1 kali seminggu, dan materi latihan.',
-            'harga' => 100000,
-        ]);
+        
+        // Paket::create([
+        //     'nama_paket' => 'Paket Basic',
+        //     'deskripsi' => 'Paket belajar dasar dengan kelas dilakukan 1 kali seminggu, dan materi latihan.',
+        //     'harga' => 100000,
+        // ]);
 
-        // Paket Intermediate
-        Paket::create([
-            'nama_paket' => 'Paket Intermediate',
-            'deskripsi' => 'Paket belajar menengah dengan kelas dua kali seminggu dan materi latihan lanjutan.',
-            'harga' => 200000,
-        ]);
+        
+        // Paket::create([
+        //     'nama_paket' => 'Paket Intermediate',
+        //     'deskripsi' => 'Paket belajar menengah dengan kelas dua kali seminggu dan materi latihan lanjutan.',
+        //     'harga' => 200000,
+        // ]);
 
-        // Paket Advanced
-        Paket::create([
-            'nama_paket' => 'Paket Advanced',
-            'deskripsi' => 'Paket belajar lanjutan dengan kelas tiga kali seminggu dan materi latihan intensif.',
-            'harga' => 300000,
-        ]);
+        
+        // Paket::create([
+        //     'nama_paket' => 'Paket Advanced',
+        //     'deskripsi' => 'Paket belajar lanjutan dengan kelas tiga kali seminggu dan materi latihan intensif.',
+        //     'harga' => 300000,
+        // ]);
     }
 }
