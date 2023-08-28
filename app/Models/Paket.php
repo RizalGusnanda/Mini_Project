@@ -11,6 +11,12 @@ class Paket extends Model
     protected $fillable = [
         'nama_paket',
         'deskripsi',
-        'harga'
+        'harga',
+        'durasi'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    
 }

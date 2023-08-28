@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\IklanPaketTutorPOVController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileSiswaController;
 use App\Http\Controllers\profileUserController;
+use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
@@ -42,8 +44,6 @@ Route::get('/admin', function () {
     return view('dashboardAdmin');
 });
 
-
-
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -56,7 +56,6 @@ Route::get('/login', function () {
 Route::get('/modul', function () {
     return view('layoutUser/modul');
 });
-
 
 
 Route::get('/kelas-guru', function () {
@@ -82,23 +81,19 @@ Route::prefix('sertifikat-layout')->group(function () {
 
 });
 
-Route::get('/paketKelas', function () {
-    return view('layoutUser/paketKelas');
-});
 
+Route::get('/profileTutor', [profileUserController::class, 'profile'])->name('profile.tutor');
 
-Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
+Route::post('/update-spesialisasi', [profileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 
-Route::post('/update-spesialisasi', [ProfileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
-
-Route::get('/get-kelurahan', [ProfileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+Route::get('/get-kelurahan', [profileUserController::class, 'getKelurahans'])->name('get-kelurahan');
 
 // Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [ProfileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+Route::get('/get-kecamatan', [profileUserController::class, 'getKecamatan'])->name('get-kecamatan');
 
-Route::POST('/load-filter', [ProfileUserController::class, 'loadFilter'])->name('load.filter');
+Route::POST('/load-filter', [profileUserController::class, 'loadFilter'])->name('load.filter');
 
-Route::get('/get-all-spesialisasi', 'ProfileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
+Route::get('/get-all-spesialisasi', 'profileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
 
 
 // PROFILE siswa
@@ -111,7 +106,6 @@ Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->n
 
 Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
 
-
 Route::get('/kelasGmeet', function () {
     return view('layoutUser/kelasLinkGmeet');
 });
@@ -120,36 +114,41 @@ Route::get('/modulTambah', function () {
     return view('layoutUser/modulTambah');
 });
 
+Route::get('/paketKelas', function () {
+    return view('layoutUser/tambahPaketKelas');
+});
+
 
 // Route untuk halaman Pencarian Tutor
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
-
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('home', ['users' => User::get(),]);
     });
 
+    Route::get('/paketKelasIklan',  [IklanPaketTutorPOVController::class, 'showIklanPaket'])->name('daftar-paket-iklanTutor');
+    Route::get('/tambah-paket', [IklanPaketTutorPOVController::class, 'create'])->name('tambahPaket.create');
+    Route::post('/simpan-paket', [IklanPaketTutorPOVController::class, 'store'])->name('simpan-paket');
+    Route::get('/edit-paket/{id}', [IklanPaketTutorPOVController::class, 'edit'])->name('editPaket.edit');
+    Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
+    Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
+
 Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
 // detailpage
 
-
 Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
-
 
 Route::get('/pembayaran', function () {
     return view('layoutUser/pembayaran');
-});
-Route::get('/uploadModul', function () {
-    return view('layoutUser/uploadModul');
 });
 
 Route::get('/transaksi', function () {
     return view('layoutUser/transaksi');
 });
 
-Route::get('/paket', [PaketController::class, 'showPaketPage']);
+Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
 
 Route::get('/riwayat', function () {
     return view('layoutUser/riwayatPage');
@@ -158,9 +157,6 @@ Route::get('/testimoni', function () {
     return view('layoutUser/testimoni');
 });
 
-
-// Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
-//
     //user list
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);

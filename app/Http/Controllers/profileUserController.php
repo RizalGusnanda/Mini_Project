@@ -116,6 +116,7 @@ class profileUserController extends Controller
         $profile->instansi = $request->input('instansi');
         $profile->norek = $request->input('norek');
         $profile->bank = $request->input('bank');
+        $profile->pilihanAjar = $request->input('pilihanAjar');
 
         // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
         $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
@@ -156,6 +157,9 @@ class profileUserController extends Controller
         }
         if (!$request->filled('bank')) {
             $profile->bank  = null;
+        }
+        if (!$request->filled('pilihanAjar')) {
+            $profile->pilihanAjar  = null;
         }
 
         if ($request->hasFile('image')) {

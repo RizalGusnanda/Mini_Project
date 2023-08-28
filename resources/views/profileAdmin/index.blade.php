@@ -27,10 +27,14 @@
                                 @php
                                     $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
                                 @endphp
-                                @if(file_exists(public_path($profileImagePath)))
-                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset($profileImagePath) }}" alt="" style="width: 150px; height: 150px;">
+                                @if (file_exists(public_path($profileImagePath)))
+                                    <img class="img-account-profile rounded-circle mb-2"
+                                        src="{{ asset($profileImagePath) }}" alt=""
+                                        style="width: 150px; height: 150px;">
                                 @else
-                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset('path/to/default/image.jpg') }}" alt="" style="width: 150px; height: 150px;">
+                                    <img class="img-account-profile rounded-circle mb-2"
+                                        src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                        style="width: 150px; height: 150px;">
                                 @endif
 
                                 <!-- Profile picture help block-->
@@ -64,7 +68,7 @@
                                         <label for="jenis_kelamin" class="small mb-1">Jenis Kelamin</label>
                                         <select id="jenis_kelamin"
                                             class="form-control @error('jenis_kelamin') is-invalid @enderror"
-                                            name="jenis_kelamin">
+                                            name="jenis_kelamin" required>
                                             <option value=""
                                                 {{ old('jenis_kelamin', optional(auth()->user()->profile)->jenis_kelamin) === null ? 'selected' : '' }}>
                                                 Pilih Jenis Kelamin</option>
@@ -85,7 +89,14 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
                                         <input class="form-control" id="inputPhone" type="tel" name="telepon"
-                                            value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                                            maxlength="13"
+                                            value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}"
+                                            required>
+                                        @error('telepon')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!-- Save changes button -->
@@ -118,6 +129,20 @@
                 var i = $(this).prev('label').clone();
                 var file = $('#file-upload')[0].files[0].name;
                 $(this).prev('label').text(file);
+            });
+            $('form').on('submit', function(e) {
+                let jenisKelamin = $('#jenis_kelamin').val();
+                let phone = $('#inputPhone').val();
+
+                if (!jenisKelamin || !phone) {
+                    alert('Silahkan isi Jenis Kelamin dan Nomor Telepon sebelum melanjutkan!');
+                    e.preventDefault();
+                }
+
+                if (phone.length > 13) {
+                    alert('Nomor Telepon tidak boleh lebih dari 13 angka!');
+                    e.preventDefault();
+                }
             });
         });
     </script>

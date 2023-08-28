@@ -8,7 +8,8 @@
     </style>
     <section class="detailTutor">
         <div class="container">
-            <h6><span style="color: #ccc;">Home / Tutor /</span> <span style="color: #070D59;">Detail Tutor</span></h6>
+            <h6><a href="/landing" style="color: #ccc; text-decoration: none;">Home</a> / <a href="/tutor" style="color: #ccc; text-decoration: none;">Tutor</a> / <a style="color: #070D59;">Detail Tutor</a></h6>
+
         </div>
 
         <div class="container mt-3">
@@ -21,7 +22,8 @@
                         @if (file_exists(public_path($profileImagePath)))
                             <img class="img-fluid rounded-start" src="{{ asset($profileImagePath) }}" alt="">
                         @else
-                            <img class="img-fluid rounded-start" src="{{ asset('path/to/default/image.jpg') }}" alt="">
+                            <img class="img-fluid rounded-start" src="{{ asset('path/to/default/image.jpg') }}"
+                                alt="">
                         @endif
                     </div>
                     <div class="col-md-8" style="z-index: 0">
@@ -48,7 +50,7 @@
                                     <span>{{ $tutor->pengalaman }} tahun mengajar</span>
                                 </div>
                             </div>
-                            <button class="btn btn-reservasi mt-3">Reservasi Tutor</button>
+                            <button class="btn btn-reservasi mt-3"><a href="{{ route('daftar-paket', ['id_user' => $tutor->user->id]) }}" style="text-decoration: none; color: white;">Reservasi Tutor</a></button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +70,10 @@
                                 {{ $tutor->kecamatan->kecamatan }} ,{{ $tutor->alamat }}. <br>
                                 <span style="color: #ccc;">Latar Belakang Pendidikan:</span> {{ $tutor->pendidikan }}
                                 {{ $tutor->jurusan }}, {{ $tutor->instansi }}.<br>
-                                <span style="color: #ccc;">Sertifikat Pendidikan:</span> {{ $tutor->sertifikat }}
+                                <span style="color: #ccc;">Sertifikat Pendidikan:</span>
+                                @foreach ($tutor->sertifikats as $sertifikat)
+                                    <div style="font-size: 14px">{{ $sertifikat->link }}</div>
+                                @endforeach
                             </p>
                         </div>
                     </div>
