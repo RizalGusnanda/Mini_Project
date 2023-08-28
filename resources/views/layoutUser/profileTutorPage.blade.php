@@ -31,16 +31,18 @@
                         </div>
                         <div class="card-menu">
                             <div class="menu">
-                                <a href="/tutor">
+                                <a href="/profileTutor">
                                     <div class="menu-item">
                                         <i class="fas fa-user"></i>
                                         <span>Profile</span>
                                     </div>
                                 </a>
+                                <a href="/sertifikat-layout" style="text-decoration: none;">
                                 <div class="menu-item">
                                     <i class="fas fa-info-circle"></i>
                                     <span>Detail Tutor</span>
                                 </div>
+                                </a>
                                 <div class="menu-item">
                                     <i class="fas fa-sign-out-alt"></i>
                                     <span>Keluar</span>

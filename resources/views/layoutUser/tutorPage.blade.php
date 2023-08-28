@@ -65,8 +65,7 @@
                                         $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
                                     @endphp
                                     @if (file_exists(public_path($profileImagePath)))
-                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt=""
-                                        style="height: 50px">
+                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
                                     @else
                                         <img class="card-img-top" src="{{ asset('path/to/default/image.jpg') }}"
                                             alt="">

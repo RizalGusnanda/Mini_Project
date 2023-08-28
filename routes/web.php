@@ -11,7 +11,6 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileSiswaController;
 use App\Http\Controllers\profileUserController;
-use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
@@ -83,6 +82,10 @@ Route::prefix('sertifikat-layout')->group(function () {
 
 });
 
+Route::get('/paketKelas', function () {
+    return view('layoutUser/paketKelas');
+});
+
 
 Route::get('/profileTutor', [ProfileUserController::class, 'profile'])->name('profile.tutor');
 
@@ -109,15 +112,6 @@ Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->n
 Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
 
 
-
-
-
-
-
-
-
-
-
 Route::get('/kelasGmeet', function () {
     return view('layoutUser/kelasLinkGmeet');
 });
@@ -127,15 +121,9 @@ Route::get('/modulTambah', function () {
 });
 
 
-
-
 // Route untuk halaman Pencarian Tutor
 Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
-
-
-
-
 
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -145,7 +133,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
 // detailpage
-
 
 
 Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
@@ -161,13 +148,6 @@ Route::get('/uploadModul', function () {
 Route::get('/transaksi', function () {
     return view('layoutUser/transaksi');
 });
-Route::get('/sertifikat', function () {
-    return view('layoutUser/sertifikat');
-});
-
-Route::get('/sertif', function () {
-    return view('layoutUser/sertifikat-tutor');
-});
 
 Route::get('/paket', [PaketController::class, 'showPaketPage']);
 
@@ -178,10 +158,7 @@ Route::get('/testimoni', function () {
     return view('layoutUser/testimoni');
 });
 
-Route::prefix('sertifikat-layout')->group(function () {
-    Route::get('/', [sertifikatController::class, 'edit'])->name('sertifikat-layout.edit');
-    Route::post('/', [sertifikatController::class, 'updateSertif'])->name('sertifikat-layout.update');
-});
+
 // Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor');
 //
     //user list
