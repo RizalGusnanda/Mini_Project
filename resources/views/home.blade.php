@@ -13,7 +13,7 @@
 
     <section class="adminDashborad">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <div class="col-icon">
@@ -31,7 +31,7 @@
 
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <div class="col-icon">
@@ -47,6 +47,23 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-tutor bubble-shadow-small">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ml-3 ml-sm-0">
+                            <div class="numbers">
+                                <h4 class="card-title" style="color: black">Rp.200.000</h4>
+                                <p class="card-category"> Total Pendapatan</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

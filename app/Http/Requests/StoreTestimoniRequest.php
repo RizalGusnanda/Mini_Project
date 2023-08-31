@@ -13,7 +13,7 @@ class StoreTestimoniRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreTestimoniRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|integer|exists:users,id',
+            'nama' => 'required|string|max:255',
+            'testimoni' => 'required|string',
+            'rating' => 'required|integer|between:1,5'
         ];
     }
 }
