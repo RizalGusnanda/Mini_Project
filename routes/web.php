@@ -7,13 +7,13 @@ use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\ModulController;
 use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileSiswaController;
-use App\Http\Controllers\profileUserController;
-use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\tutorConntroller;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -23,6 +23,7 @@ use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
+use App\Http\Controllers\TutorProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -74,26 +75,33 @@ Route::get('/createModul', function () {
     return view('layoutUser/createModul');
 });
 
+Route::get('/ajar', function () {
+    return view('layoutUser/pilihanAjarTutor');
+});
+
 Route::prefix('sertifikat-layout')->group(function () {
     Route::get('/', [SertifikatTutorController::class, 'edit'])->name('sertifikat-layout.edit');
     Route::post('/', [SertifikatTutorController::class, 'updateSertif'])->name('sertifikat-layout.update');
     Route::delete('/sertifikat/{sertifikat}', [SertifikatTutorController::class, 'destroySertifikat'])->name('sertifikat.destroy');
-
 });
 
 
-Route::get('/profileTutor', [profileUserController::class, 'profile'])->name('profile.tutor');
+Route::get('/profileTutor', [TutorProfileController::class, 'profile'])->name('profile.tutor');
 
-Route::post('/update-spesialisasi', [profileUserController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
+Route::post('/update-spesialisasi', [TutorProfileController::class, 'updateSpesialisasi'])->name('update-spesialisasi');
 
-Route::get('/get-kelurahan', [profileUserController::class, 'getKelurahans'])->name('get-kelurahan');
+Route::get('/get-kelurahan', [TutorProfileController::class, 'getKelurahans'])->name('get-kelurahan');
 
 // Route untuk mendapatkan data kecamatan
-Route::get('/get-kecamatan', [profileUserController::class, 'getKecamatan'])->name('get-kecamatan');
+Route::get('/get-kecamatan', [TutorProfileController::class, 'getKecamatan'])->name('get-kecamatan');
 
-Route::POST('/load-filter', [profileUserController::class, 'loadFilter'])->name('load.filter');
+Route::POST('/load-filter', [TutorProfileController::class, 'loadFilter'])->name('load.filter');
 
-Route::get('/get-all-spesialisasi', 'profileUserController@getAllSpesialisasi')->name('get-all-spesialisasi');
+Route::get('/get-all-spesialisasi', [TutorProfileController::class, 'getAllSpesialisasi'])->name('get-all-spesialisasi');
+Route::post('/profileTutor', [TutorProfileController::class, 'update'])->name('profile.update');
+
+
+
 
 
 // PROFILE siswa
@@ -110,9 +118,12 @@ Route::get('/kelasGmeet', function () {
     return view('layoutUser/kelasLinkGmeet');
 });
 
-Route::get('/modulTambah', function () {
-    return view('layoutUser/modulTambah');
-});
+// Define the GET route for displaying the form
+Route::get('/modulTambah', [ModulController::class, 'create'])->name('modul.create');
+
+// Define the POST route for handling form submission
+Route::post('/modulTambah', [ModulController::class, 'store'])->name('modul.store');
+
 
 Route::get('/paketKelas', function () {
     return view('layoutUser/tambahPaketKelas');
@@ -135,27 +146,27 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
     Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
 
-Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
-// detailpage
+    Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
+    // detailpage
 
-Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
+    Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
 
-Route::get('/pembayaran', function () {
-    return view('layoutUser/pembayaran');
-});
+    Route::get('/pembayaran', function () {
+        return view('layoutUser/pembayaran');
+    });
 
-Route::get('/transaksi', function () {
-    return view('layoutUser/transaksi');
-});
+    Route::get('/transaksi', function () {
+        return view('layoutUser/transaksi');
+    });
 
-Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
+    Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
 
-Route::get('/riwayat', function () {
-    return view('layoutUser/riwayatPage');
-});
-Route::get('/testimoni', function () {
-    return view('layoutUser/testimoni');
-});
+    Route::get('/riwayat', function () {
+        return view('layoutUser/riwayatPage');
+    });
+
+    Route::get('/testimoni', [TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
 
     //user list
     Route::prefix('user-management')->group(function () {
@@ -206,5 +217,5 @@ Route::get('/testimoni', function () {
         return view('profileAdmin.index');
     });
     Route::post('/upload-profile-picture', [ProfileAdminController::class, 'uploadProfilePicture'])->name('uploadProfilePicture');
-    Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.update');
+    Route::post('/profile/update', [ProfileAdminController::class, 'update'])->name('profile.updateAdmin');
 });

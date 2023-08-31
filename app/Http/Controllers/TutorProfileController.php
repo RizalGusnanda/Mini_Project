@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use  App\Http\Requests\UpdateProfileRrequest;
+use App\Http\Requests\UpdateProfileRrequest;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Profile;
 use App\Models\Spesalisasi;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class profileUserController extends Controller
+class TutorProfileController extends Controller
 {
     public function index()
     {
         $kelurahans = Kelurahan::all();
-        return view('layoutUser.layout.tutorProfilePage', compact('kelurahans'));
+        return view('layoutUser.layout.profileTutorPage', compact('kelurahans'));
     }
 
     public function profile()
@@ -68,12 +67,12 @@ class profileUserController extends Controller
 
     public function show()
     {
-        return view('layoutUser.layout.tutorProfilePage');
+        return view('layoutUser.layout.profileTutorPage');
     }
 
     public function edit()
     {
-        return view('layoutUser.layout.tutorProfilePage');
+        return view('layoutUser.layout.profileTutorPage');
     }
 
     public function updateSpesialisasi(Request $request)
@@ -93,6 +92,7 @@ class profileUserController extends Controller
 
     public function update(UpdateProfileRrequest $request)
     {
+
         $user = Auth::user();
 
         // Update User data
@@ -116,7 +116,8 @@ class profileUserController extends Controller
         $profile->instansi = $request->input('instansi');
         $profile->norek = $request->input('norek');
         $profile->bank = $request->input('bank');
-        $profile->pilihanAjar = $request->input('pilihanAjar');
+        $profile->ajar = $request->input('ajar');
+
 
         // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
         $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
@@ -158,8 +159,8 @@ class profileUserController extends Controller
         if (!$request->filled('bank')) {
             $profile->bank  = null;
         }
-        if (!$request->filled('pilihanAjar')) {
-            $profile->pilihanAjar  = null;
+        if (!$request->filled('ajar')) {
+            $profile->ajar = null;
         }
 
         if ($request->hasFile('image')) {
@@ -172,6 +173,7 @@ class profileUserController extends Controller
             $imagePath = $request->file('image')->store('profile_images', 'public');
             $profile->profile = $imagePath; // Ganti profile_image menjadi profile_picture
         }
+
 
         $profile->save();
         return redirect()->back()->with('success', 'Profil berhasil diperbarui.');

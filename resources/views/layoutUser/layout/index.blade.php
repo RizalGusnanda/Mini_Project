@@ -167,21 +167,12 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#Summernotepertemuan1").summernote();
-            $("#Summernotepertemuan2").summernote();
-            $("#Summernotepertemuan3").summernote();
-            $("#Summernotepertemuan4").summernote();
-            $("#Summernotepertemuan5").summernote();
-            $("#Summernotepertemuan6").summernote();
-            $("#Summernotepertemuan7").summernote();
-            $("#Summernotepertemuan8").summernote();
-            $("#Summernotepertemuan9").summernote();
-            $("#Summernotepertemuan10").summernote();
-            $("#Summernotepertemuan11").summernote();
-            $("#Summernotepertemuan12").summernote();
-            $('.dropdown-toggle').dropdown();
+            $('.summernote').summernote({
+                // Konfigurasi Summernote
+            });
         });
     </script>
+
 
 </body>
 
