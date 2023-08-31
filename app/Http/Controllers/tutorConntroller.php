@@ -6,6 +6,7 @@ use App\Models\Kecamatan;
 use App\Models\Spesalisasi;
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\Testimoni;
 
 class tutorConntroller extends Controller
 {
@@ -44,20 +45,21 @@ class tutorConntroller extends Controller
     private function getAllTutors()
     {
         return Profile::where('user_id', '!=', 1)
-                        ->with('user', 'kecamatan', 'spesialisasi')
-                        ->get();
+            ->with('user', 'kecamatan', 'spesialisasi')
+            ->get();
     }
 
-    public function tutorDetail($id) {
+    public function tutorDetail($id)
+    {
         $tutor = Profile::with('user', 'kecamatan', 'sertifikats')->find($id);
+        // Ambil testimoni berdasarkan user_id tutor
+        $testimoni = Testimoni::where('id_users', $tutor->user->id)->paginate(10);
+        $averageRating = Testimoni::where('id_users', $tutor->user->id)->avg('rating');
+
 
         if (!$tutor) {
             return redirect()->route('tutor.show')->with('error', 'Tutor tidak ditemukan.');
         }
-
-        return view('layoutUser.detailTutorPage', ['tutor' => $tutor]);
-}
-
-
-
+        return view('layoutUser.detailTutorPage', ['tutor' => $tutor, 'testimoni' => $testimoni, 'averageRating' => $averageRating]);
+    }
 }

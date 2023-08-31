@@ -4690,3 +4690,12 @@ margin-top: 5px;
 border: none; 
 padding: 5px 20px;
 }
+
+.detailTutor .sertifikat-item {
+  margin-bottom: 20px;  /* Atur jarak antara setiap grup sertifikat */
+}
+
+.detailTutor .sertifikat-name,
+.detailTutor .sertifikat-link {
+  margin-bottom: 5px;  /* Atur jarak antara nama sertifikat dan link sertifikat */
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimoni;
 use App\Http\Requests\StoreTestimoniRequest;
 use App\Http\Requests\UpdateTestimoniRequest;
+use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
@@ -23,9 +24,11 @@ class TestimoniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user_id = $request->input('id_user');
+        $testimoni = Testimoni::where('id_users', $user_id)->latest()->first();
+        return view('layoutUser.testimoni', ['user_id' => $user_id, 'testimoni' => $testimoni]);
     }
 
     /**
@@ -36,7 +39,14 @@ class TestimoniController extends Controller
      */
     public function store(StoreTestimoniRequest $request)
     {
-        //
+        $testimoni = new Testimoni;
+        $testimoni->id_users = $request->input('user_id');  // Gantikan 'user_id' dengan 'id_users'
+        $testimoni->nama = $request->input('nama');
+        $testimoni->testimoni = $request->input('testimoni');
+        $testimoni->rating = $request->input('rating');
+        $testimoni->save();
+
+        return redirect()->route('tutor.search')->with('success', 'Testimoni berhasil ditambahkan!');
     }
 
     /**

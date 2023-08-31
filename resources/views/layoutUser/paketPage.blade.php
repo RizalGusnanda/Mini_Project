@@ -31,36 +31,35 @@
         }
 
         /* CSS untuk tautan navigasi halaman */
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
 
-.pagination .page-item {
-    margin: 0 5px;
-}
+        .pagination .page-item {
+            margin: 0 5px;
+        }
 
-.pagination .page-link {
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-    padding: 5px 10px;
-    text-decoration: none;
-}
+        .pagination .page-link {
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
 
-.pagination .page-link:hover {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-}
+        .pagination .page-link:hover {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
 
-.pagination .page-item.active .page-link {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-}
-
+        .pagination .page-item.active .page-link {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
     </style>
     <section class="breadcrumb">
         <div class="container">
@@ -87,12 +86,8 @@
         <div class="background-container">
             <div class="container">
                 <div class="row">
-
-
                     @if (isset($pakets) && count($pakets) > 0)
                         <!-- Debug: Number of Pakets -->
-
-
                         @foreach ($pakets as $paket)
                             <div class="col-md-4">
                                 <div class="price-card">
@@ -110,7 +105,8 @@
                                             <p><span class="durasiKelas">{{ number_format($paket->durasi, 0, ',', '.') }} /
                                                 </span> bulan</p>
                                         </div>
-                                        <a href="#" class="btn btn-price">Daftar</a>
+                                        <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
+                                            class="btn btn-price">Daftar</a>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +118,6 @@
                 </div>
                 {{ $pakets->appends(request()->input())->links() }}
             </div>
-
         </div>
     </section>
 @endsection
