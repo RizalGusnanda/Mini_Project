@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profile.updateAdmin') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container-xl px-4 mt-4">
                 <hr class="mt-0 mb-4">
@@ -151,3 +151,5 @@
 @push('customStyle')
     <!-- ... Kode style kustom lainnya ... -->
 @endpush
+
+

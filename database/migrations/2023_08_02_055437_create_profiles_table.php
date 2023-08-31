@@ -28,18 +28,18 @@ return new class extends Migration
             $table->string('instansi')->nullable();
             $table->integer('norek')->nullable();
             $table->enum('bank',['BRI','BCA','BNI'])->nullable();
-            $table->string('sertif')->nullable();
             $table->integer('pengalaman')->nullable();
             $table->text('penjelasan_pengalaman')->nullable();
+            $table->enum('ajar',['Online','Offline'])->nullable();
             $table->timestamps();
-    
+
             $table->foreign('id_kecamatans')->references('id')->on('kecamatans')->restrictOnDelete();
             $table->foreign('id_kelurahans')->references('id')->on('kelurahans')->restrictOnDelete();
             $table->foreign('id_spesalisasis')->references('id')->on('spesalisasis')->restrictOnDelete();
-            
+
         });
     }
-    
+
 
     /**
      * Reverse the migrations.

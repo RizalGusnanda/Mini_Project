@@ -6,8 +6,8 @@
         body {
             background-color: white;
         }
-             /* CSS untuk tautan navigasi halaman */
 
+        /* CSS untuk tautan navigasi halaman */
     </style>
     <section class="breadcrumb">
         <!-- Kode Breadcrumb -->
@@ -51,12 +51,18 @@
     <section class="filterOnline">
         <div class="container">
             <div class="filter-buttons">
-                <button class="btn filter-button active" data-filter="all">Semua</button>
-                <button class="btn filter-button" data-filter="online">Online</button>
-                <button class="btn filter-button" data-filter="offline">Offline</button>
+                <button class="btn filter-button {{ Request::get('ajar') === null ? 'active' : '' }}"
+                    data-ajar="all">Semua</button>
+                <button class="btn filter-button {{ Request::get('ajar') === 'Online' ? 'active' : '' }}"
+                    data-ajar="Online">Online</button>
+                <button class="btn filter-button {{ Request::get('ajar') === 'Offline' ? 'active' : '' }}"
+                    data-ajar="Offline">Offline</button>
+
+
             </div>
         </div>
     </section>
+
 
     <section class="tutorA-me-section">
         <div class="container">
@@ -77,8 +83,7 @@
                                         $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
                                     @endphp
                                     @if (file_exists(public_path($profileImagePath)))
-                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt=""
-                                        >
+                                        <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
                                     @else
                                         <img class="card-img-top" src="{{ asset('path/to/default/image.jpg') }}"
                                             alt="">
@@ -99,21 +104,30 @@
                                         <div class="card-body-tutorA">
                                             <h4 class="card-tutorA">{{ $tutor->user->name }}</h4>
                                             @if ($tutor->spesialisasi)
-                                                <h6 class="card-tutor-p">{{ $tutor->spesialisasi->nama_spesialisasi }}</h6>
+                                                <h6 class="card-tutor-p">{{ $tutor->spesialisasi->nama_spesialisasi }}
+                                                </h6>
                                             @else
                                                 <h6 class="card-tutor-p">Tidak Ada Bidang Keahlian</h6>
                                             @endif
                                         </div>
                                         <div class="location">
-                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat}},
+                                            <i class="fas fa-map-marker-alt"></i> {{ $tutor->alamat }},
                                             {{ $tutor->kecamatan->kecamatan }}
                                         </div>
                                         <div class="teaching-duration">
                                             <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
                                         </div>
                                         <div class="teaching-duration">
-                                            <i class="fas fa-chalkboard-teacher"></i>{{ $tutor->pilihanAjar }}
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                            @if ($tutor->ajar === 'Online')
+                                                <span class="teaching-type-online">Online</span>
+                                            @elseif ($tutor->ajar === 'Offline')
+                                                <span class="teaching-type-offline">Offline</span>
+                                            @else
+                                                <span class="teaching-type-unknown">Tidak Diketahui</span>
+                                            @endif
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -121,49 +135,48 @@
                     </div>
                     @php $counter++; @endphp
                     @if ($counter % 2 === 0 || $loop->last)
-                        </div>
-                    @endif
-                @endforeach
-                {{ $searchResults->appends(request()->input())->links() }}
-            @else
-                <p>No tutors available</p>
-            @endif
+        </div>
+        @endif
+        @endforeach
+        {{ $searchResults->appends(request()->input())->links() }}
+    @else
+        <p>No tutors available</p>
+        @endif
 
         </div>
     </section>
     <script>
-        // Fungsi untuk mempertahankan nilai select setelah submit form
-        function setSelectValue(selectId, selectedValue) {
-            var selectElement = document.getElementById(selectId);
-            for (var i = 0; i < selectElement.options.length; i++) {
-                if (selectElement.options[i].value === selectedValue) {
-                    selectElement.options[i].selected = true;
-                    break;
-                }
+       document.addEventListener("DOMContentLoaded", function() {
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const searchForm = document.querySelector(".search-form");
+    const ajarInput = document.createElement("input");
+    ajarInput.type = "hidden";
+    ajarInput.name = "ajar";
+    searchForm.appendChild(ajarInput);
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const filterType = this.getAttribute("data-ajar");
+
+            // Hapus parameter "ajar" dari URL jika "Semua" diklik
+            if (filterType === "all") {
+                const urlParams = new URLSearchParams(window.location.search);
+                urlParams.delete("ajar");
+                const newUrl = window.location.pathname + "?" + urlParams.toString();
+                window.location.href = newUrl;
+                return;
             }
-        }
 
-        // Memanggil fungsi setelah halaman selesai dimuat
-        document.addEventListener("DOMContentLoaded", function() {
-            // Dapatkan nilai yang dipilih sebelumnya dari URL atau sesi
-            var selectedSpesialisasi = "{{ app('request')->input('spesialisasis') }}";
-            var selectedKecamatan = "{{ app('request')->input('id_kecamatans') }}";
-
-            // Set nilai yang dipilih sebelumnya kembali ke select
-            setSelectValue("spesalisasis", selectedSpesialisasi);
-            setSelectValue("id_kecamatans", selectedKecamatan);
+            // Set nilai ajar pada input hidden dan submit form
+            ajarInput.value = filterType;
+            searchForm.submit();
         });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const filterButtons = document.querySelectorAll(".filter-button");
+    });
+});
 
-            filterButtons.forEach(button => {
-                button.addEventListener("click", function() {
-                    filterButtons.forEach(btn => btn.classList.remove("active"));
-                    this.classList.add("active");
-                });
-            });
-        });
     </script>
+
 @endsection

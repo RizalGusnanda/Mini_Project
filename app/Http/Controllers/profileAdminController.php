@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use  App\Http\Requests\UpdateProfileRrequest;
-use App\Models\Kecamatan;
+
 use App\Models\Kelurahan;
 use App\Models\Profile;
-use App\Models\Spesalisasi;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\DB;
 class ProfileAdminController extends Controller
 {
 
-    public function index(){
-        $kelurahans = Kelurahan::all();
-        return view('profileAdmin.index', compact('kelurahans'));
-    }
     public function show(){
         return view('profileAdmin.index');
     }
@@ -27,32 +23,6 @@ class ProfileAdminController extends Controller
     {
         return view('profileAdmin.index');
     }
-
-
-
-
-    public function getKelurahanByKecamatan(Request $request)
-    {
-        $kecamatanId = $request->input('kecamatan_id');
-        $kelurahans = Kelurahan::where('id_kecamatans', $kecamatanId)->get();
-        return response()->json(['Kelurahan' => $kelurahans]);
-    }
-
-    public function getKecamatan()
-    {
-        $kecamatans = Kecamatan::all();
-        return response()->json($kecamatans);
-    }
-
-    public function loadFilter()
-    {
-        $spesialisasi = Spesalisasi::all();
-        return response()->json($spesialisasi);
-    }
-
-
-
-
 
 
 
@@ -76,29 +46,11 @@ class ProfileAdminController extends Controller
             $profile->jenis_kelamin = $request->input('jenis_kelamin');
             $profile->telepon = $request->input('telepon');
             $profile->alamat = $request->input('alamat');
-            $profile->pendidikan = $request->input('pendidikan');
-            $profile->jurusan = $request->input('jurusan');
-            $profile->instansi = $request->input('instansi');
-            $profile->norek = $request->input('norek');
-            $profile->bank = $request->input('bank');
 
-                // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
-                $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
-                $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
-                $spesialisasi = Spesalisasi::find($request->input('id_spesalisasis'));
 
-                // Hubungkan data yang diambil dengan model Profile
-                if ($kecamatan) {
-                    $profile->kecamatan()->associate($kecamatan);
-                }
 
-                if ($kelurahan) {
-                    $profile->kelurahan()->associate($kelurahan);
-                }
 
-                if ($spesialisasi) {
-                    $profile->spesialisasi()->associate($spesialisasi);
-                }
+
             // Set profile to null if not provided
             if (!$request->filled('jenis_kelamin')) {
                 $profile->jenis_kelamin = null;
@@ -107,21 +59,7 @@ class ProfileAdminController extends Controller
             if (!$request->filled('telepon')) {
                 $profile->telepon = null;
             }
-            if (!$request->filled('pendidikan')) {
-                $profile->pendidikan = null;
-            }
-            if (!$request->filled('jurusan')) {
-                $profile->jurusan = null;
-            }
-            if (!$request->filled('instansi')) {
-                $profile->instansi = null;
-            }
-            if (!$request->filled('norek')) {
-                $profile->norek = null;
-            }
-            if (!$request->filled('bank')) {
-                $profile->bank  = null;
-            }
+
 
 
 

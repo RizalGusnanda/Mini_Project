@@ -43,6 +43,12 @@
                                     <span>Detail Tutor</span>
                                 </div>
                                 </a>
+                                <a href="#" style="text-decoration: none;  color: black">
+                                    <div class="menu-item">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span>Pilihan Ajar</span>
+                                    </div>
+                                </a>
                                 <a href="#">
                                 <div class="menu-item" style="text-decoration: none; color: black">
                                     <i class="fas fa-calendar"></i>
@@ -69,9 +75,6 @@
                         <!-- Card Formulir Edit Profile -->
                         <div class="card-formulir">
                             <div class="card-body">
-                                <form action="#" method="POST" enctype="multipart/form-data">
-                                    @csrf
-
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputUsername">Username</label>
                                         <input class="form-control" id="inputUsername" type="text" name="username"
@@ -198,7 +201,7 @@
                                                 {{ old('bank', optional(auth()->user()->profile)->bank) === 'BCA' ? 'selected' : '' }}>
                                                 BCA</option>
                                             <option value="BNI"
-                                                {{ old('bank', optional(auth()->user()->profile)->jenis_kelamin) === 'BNI' ? 'selected' : '' }}>
+                                                {{ old('bank', optional(auth()->user()->profile)->bank) === 'BNI' ? 'selected' : '' }}>
                                                 BNI</option>
                                         </select>
                                     </div>
@@ -209,15 +212,22 @@
                                             value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="pilihanAjar" class="form-label">Pilihan Mengajar</label>
-                                        <p> Silahkan isi Online atau Offline </p>
-                                        <input class="form-control" id="pilihanAjar" type="text" name="pilihanAjar" value="{{ old('pilihanAjar', optional(auth()->user()->profile)->pilihanAjar) }}">
-                                    </div>
+                                        <label for="ajar" class="form-label">Pilihan Mengajar</label>
+                                        <select id="ajar" class="form-control" name="ajar">
+                                            <option value=""
+                                            {{ old('ajar', optional(auth()->user()->profile)->ajar) === null ? 'selected' : '' }}>Pilih Pilihan Mengajar</option>
+                                            <option value="Online"
+                                            {{ old('ajar', optional(auth()->user()->profile)->ajar) === 'Online' ? 'selected' : '' }}>
+                                            Online</option>
+                                            <option value="Offline"
+                                            {{ old('ajar', optional(auth()->user()->profile)->ajar) === 'Offline' ? 'selected' : '' }}>
+                                            Offline</option>
+                                        </select>
+                                    </div>
                                     <div class="text-center mt-4">
                                         <!-- Tambahkan div untuk mengatur tombol di tengah form -->
                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -330,21 +340,6 @@
 
         });
         $(document).ready(function() {
-            // Mengisi dropdown spesialisasi saat halaman dimuat
-            $.ajax({
-                url: '{{ route('get-all-spesialisasi') }}',
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    var spesialisasiDropdown = $('#spesalisasis');
-                    spesialisasiDropdown.empty();
-                    spesialisasiDropdown.append('<option value="">Pilih Spesialisasi</option>');
-                    $.each(response['spesalisasis'], function(key, value) {
-                        spesialisasiDropdown.append('<option value="' + value.id + '">' +
-                            value.nama_spesialisasi + '</option>');
-                    });
-                }
-            });
             $('form').on('submit', function(e) {
                 let alamat = $('#inputAlamat').val();
                 let kecamatan = $('#id_kecamatans').val();
@@ -357,9 +352,10 @@
                 let spesialisasi = $('#spesalisasis').val();
                 let bank = $('#bank').val();
                 let norek = $('#norek').val();
+                let ajar = $('#ajar').val();
 
                 if (!alamat || !kecamatan || !kelurahan || !jenisKelamin || !phone || !pendidikan || !
-                    jurusan || !instansi || !spesialisasi || !bank || !norek) {
+                    jurusan || !instansi || !spesialisasi || !bank || !norek || !ajar) {
                     alert('Pastikan semua field telah terisi sebelum melanjutkan!');
                     e.preventDefault();
                 }
