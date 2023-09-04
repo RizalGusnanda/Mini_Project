@@ -95,23 +95,36 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="durasi">Durasi</label>
-                                        <input type="text" class="form-control" id="durasi" name="durasi"
-                                            placeholder="" value="{{ old('durasi', $kelasPaket->durasi) }}">
+                                        <label for="durasi_start">Durasi Mulai</label>
+                                        <input type="text" class="form-control datepicker" id="durasi_start" name="durasi_start" placeholder="{{ old('durasi', $kelasPaket->durasi_start) }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="durasi_end">Durasi Akhir</label>
+                                        <input type="text" class="form-control datepicker" id="durasi_end" name="durasi_end" placeholder="{{ old('durasi', $kelasPaket->durasi_end) }}">
                                     </div>
                                 </div>
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn btn-primary">Perbarui Dan Simpan</button>
                                 </div>
-
                             </div>
                     </div>
                     </form>
                 </div>
-
             </div>
         </div>
         </div>
-
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#durasi_start", {
+                dateFormat: "d F Y",
+                enableTime: false,
+            });
+    
+            flatpickr("#durasi_end", {
+                dateFormat: "d F Y",
+                enableTime: false,
+            });
+        });
+    </script>
 @endsection

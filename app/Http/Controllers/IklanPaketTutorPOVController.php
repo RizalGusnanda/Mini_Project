@@ -36,7 +36,8 @@ class IklanPaketTutorPOVController extends Controller
         $kelasPaket->nama_paket = $request->input('nama_paket');
         $kelasPaket->deskripsi = $request->input('deskripsi');
         $kelasPaket->harga = $request->input('harga');
-        $kelasPaket->durasi = $request->input('durasi');
+    $kelasPaket->durasi_start = date('Y-m-d', strtotime($request->input('durasi_start')));
+    $kelasPaket->durasi_end = date('Y-m-d', strtotime($request->input('durasi_end')));
         $kelasPaket->save();
 
         // Redirect atau lakukan tindakan lain setelah penyimpanan data
@@ -57,7 +58,8 @@ class IklanPaketTutorPOVController extends Controller
         $kelasPaket->nama_paket = $request->input('nama_paket');
         $kelasPaket->deskripsi = $request->input('deskripsi');
         $kelasPaket->harga = $request->input('harga');
-        $kelasPaket->durasi = $request->input('durasi');
+        $kelasPaket->durasi_start = date('Y-m-d', strtotime($request->input('durasi_start')));
+        $kelasPaket->durasi_end = date('Y-m-d', strtotime($request->input('durasi_end')));
         $kelasPaket->save();
 
         // Redirect atau lakukan tindakan lain setelah pembaruan data

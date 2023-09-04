@@ -12,7 +12,8 @@ class Paket extends Model
         'nama_paket',
         'deskripsi',
         'harga',
-        'durasi'
+        'durasi_start',
+        'durasi_end'
     ];
 
     public function user() {
