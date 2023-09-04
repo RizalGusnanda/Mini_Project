@@ -36,22 +36,22 @@
                                     $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
                                     $emptyStars = 5 - $fullStars - $halfStar;
                                 @endphp
-                            
+
                                 <!-- Full stars -->
                                 @for ($i = 1; $i <= $fullStars; $i++)
                                     <i class="fas fa-star yellow-star"></i>
                                 @endfor
-                            
+
                                 <!-- Half star -->
                                 @if ($halfStar)
                                     <i class="fas fa-star-half-alt yellow-star"></i>
                                 @endif
-                            
+
                                 <!-- Empty stars -->
                                 @for ($i = 1; $i <= $emptyStars; $i++)
                                     <i class="far fa-star"></i>
                                 @endfor
-                            </p>                            
+                            </p>
                             <div class="d-flex flex-row justify-content-between">
                                 <div class="card-text d-flex flex-column">
                                     <span style="color: #ccc;">Keahlian:</span>
@@ -109,7 +109,7 @@
                                     </div>
                                 @endforeach
                             </p>
-                        </div>                        
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Deskripsi Pembelajaran</h5>
                             <p style="font-size: 14px; margin-right: 0; margin-left: 0;">
@@ -138,7 +138,7 @@
                                 </span>
                             </div>
                         </div>
-        
+
                         <div class="row">
                             <div class="row">
                                 @foreach ($testimoni as $index => $testimoni)
@@ -177,25 +177,25 @@
         let currentTestimonialIndex = 0;
         let testimonials = document.getElementsByClassName('card-container');
         let totalTestimonials = testimonials.length;
-    
+
         function showTestimonials(start, end) {
             for (let i = 0; i < totalTestimonials; i++) {
                 testimonials[i].style.display = (i >= start && i < end) ? 'block' : 'none';
             }
         }
-    
+
         function scrollTestimonials(direction) {
             currentTestimonialIndex += direction;
-    
+
             if (currentTestimonialIndex < 0) {
                 currentTestimonialIndex = 0;
             } else if (currentTestimonialIndex > totalTestimonials - 2) {
                 currentTestimonialIndex = totalTestimonials - 2;
             }
-    
+
             showTestimonials(currentTestimonialIndex, currentTestimonialIndex + 2);
         }
-    
+
         // Show the first two testimonials initially
         showTestimonials(0, 2);
     </script>
