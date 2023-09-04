@@ -105,9 +105,9 @@
                                             <p><span class="durasiKelas">{{ number_format($paket->durasi, 0, ',', '.') }} /
                                                 </span> bulan</p>
                                         </div>
-                                        <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                            class="btn btn-price">Daftar</a>
                                     </div>
+                                    <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
+                                        class="btn btn-price">Daftar</a>
                                 </div>
                             </div>
                         @endforeach

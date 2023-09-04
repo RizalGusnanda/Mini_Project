@@ -25,7 +25,7 @@ class StoreKelasPaketRequest extends FormRequest
     {
         return [
             'nama_paket' => 'nullable|string|max:255',
-            'deskripsi'	 => 'nullable|string|max:255',
+            'deskripsi'	 => 'nullable|string|max:1000',
             'harga'	 => 'nullable|integer',
             'durasi' => 'nullable|integer',
         ];
