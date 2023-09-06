@@ -62,7 +62,7 @@
                                 @if (file_exists(public_path($profileImagePath)))
                                     <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
                                 @else
-                                    <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}"
+                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
                                         alt="">
                                 @endif
                                 <span class="profile-name">Hi, {{ auth()->user()->name }}</span>

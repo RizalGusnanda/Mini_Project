@@ -430,13 +430,14 @@ button i {
 }
 
 .price-card .black-text {
-  color: black;
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  line-height: 1.5;
-  flex-grow: 1;
-  overflow: hidden;
+    color: black;
+    font-size: revert;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 /* tutor Landig */
@@ -1118,7 +1119,7 @@ button i {
   background-color: #fff;
   margin-bottom: 20px;
   margin-top: 10px;
-  width: 805px;
+  width: 885px;
   margin-left: -70px;
 }
 
@@ -1139,7 +1140,7 @@ button i {
 
 .riwayat .card-tutorA {
   margin: 0;
-  margin-left: 30px;
+  margin-left: 40px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -1147,7 +1148,8 @@ button i {
 .riwayat .card-tutor-p {
   margin: 0;
   font-size: 14px;
-  margin-left: 30px;
+  margin-top: 7px;
+  margin-left: 40px;
   color: #666;
 }
 
@@ -1162,15 +1164,20 @@ button i {
   position: relative;
 }
 
+.riwayat .card-body-tutorA{
+    margin: -15px;
+
+}
+
 .riwayat .selengkapnya .btn-selengkapnya {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  transform: translate(170%, -400%);
-  transition: background-color 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 50;
+    transform: translate(170%, -400%);
+    transition: background-color 0.3s ease-in-out;
 
 }
 
@@ -1178,7 +1185,7 @@ button i {
 .riwayat .tanggal .nav-tanggal {
   font-size: 14px;
   font-weight: 400;
-  color: #54565C;
+  color: #0B5000;
   padding: 0;
   transition: all .4s ease-in-out;
   align-items: flex-start;

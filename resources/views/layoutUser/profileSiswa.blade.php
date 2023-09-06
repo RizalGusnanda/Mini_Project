@@ -17,15 +17,16 @@
                             <label for="picture" class="plus-icon">
                                 <i class="fas fa-plus"></i>
                             </label>
-                            <input type="file" name="image" class="d-none" id="picture">
+                            <input type="file" name="image" class="d-none" id="picture"
+                            onchange="previewImage(this)">
                             @php
                                 $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
                             @endphp
                             @if (file_exists(public_path($profileImagePath)))
-                                <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt=""
+                                <img class="profile-pic"  id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                <img class="profile-pic"  id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @endif
                         </div>
@@ -229,4 +230,18 @@
 
         });
     </script>
+
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @endsection

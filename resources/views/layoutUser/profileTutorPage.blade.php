@@ -26,7 +26,7 @@
                                 <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
+                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @endif
                         </div>
