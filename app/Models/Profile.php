@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User; // Tambahkan impor model User
@@ -12,6 +13,7 @@ class Profile extends Model
 {
     protected $fillable = [
         'user_id',
+        'id_roles',
         'id_kecamatans',
         'id_kelurahans',
         'id_spesalisasis',
@@ -55,5 +57,12 @@ class Profile extends Model
     {
         return $this->hasMany(Sertifikat::class, 'profile_id');
     }
+
+    public function roles()
+    {
+        return $this->hasMany(Role::class, 'id_roles');
+    }
+
+
 
 }

@@ -24,13 +24,14 @@ class UpdateProfileRrequest extends FormRequest
     public function rules()
 {
     return [
+        'id_roles' => 'nullable|exists:roles,id',
         'id_kecamatans' => 'nullable|exists:kecamatans,id',
         'id_kelurahans' => 'nullable|exists:kelurahans,id',
         'id_spesalisasis' => 'nullable|exists:spesalisasis,id',
         'telepon' => ['nullable', 'regex:/^08\d{9,11}$/', 'max:255'],
         'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
         'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        'alamat' => 'nullable|string|max:255',
+        'alamat' => 'nullable|string',
         'pendidikan' => 'nullable|string|max:255',
         'jurusan' => 'nullable|string|max:255',
         'instansi' => 'nullable|string|max:255',

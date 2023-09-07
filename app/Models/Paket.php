@@ -9,14 +9,16 @@ class Paket extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'nama_paket',
         'deskripsi',
         'harga',
-        'durasi'
+        'durasi_start',
+        'durasi_end'
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
     }
-    
+
 }

@@ -1,5 +1,9 @@
 @extends('layoutUser.layout.index')
 @section('content')
+@php
+    use Carbon\Carbon;
+@endphp
+
     <style>
         body {
             background-color: white;
@@ -101,13 +105,16 @@
                                                 </span> bulan</p>
                                         </div>
                                         <p class="black-text">{{ $paket->deskripsi }}</p>
-                                        <div class="durasiKelas">
-                                            <p><span class="durasiKelas">{{ number_format($paket->durasi, 0, ',', '.') }} /
-                                                </span> bulan</p>
+                                        <div class="durasiKelas" >
+                                            @php
+                                                $formattedDurasiStart = Carbon::parse($paket->durasi_start)->format('j F Y');
+                                                $formattedDurasiEnd = Carbon::parse($paket->durasi_end)->format('j F Y');
+                                            @endphp
+                                            <p style="color: black; font-size: 15px; margin-left: 5px; margin-right: 5px;"><span class="durasiKelas">{{ $formattedDurasiStart }} - {{ $formattedDurasiEnd }}</span></p>
                                         </div>
-                                        <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                            class="btn btn-price">Daftar</a>
                                     </div>
+                                    <a href="{{ route('reservasi-paket', ['paket_id' => $paket->id]) }}" class="btn btn-price">Pilih</a>
+
                                 </div>
                             </div>
                         @endforeach

@@ -156,14 +156,14 @@ mt-50 {
 }
 
 .search-input select {
-  border: none;
-  background: transparent;
-  outline: none;
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-  cursor: pointer;
-  margin-inline-start: auto;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    font-size: revert;
+    font-family: 'Poppins';
+    margin-inline-start: auto;
 }
 .search-input i.material-icons {
   margin-right: 5px;
@@ -263,6 +263,34 @@ button i {
   margin-top: 80px;
 }
 
+
+.price-section-paket .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #1F3C88;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 80px;
+  }
+  .price-card .btn {
+    position: absolute; /* Ini akan membuat tombol memiliki posisi absolut */
+    bottom: 15px; /* Atur jarak dari bawah kartu */
+    left: 50%; /* Pusatkan tombol secara horizontal */
+    transform: translateX(-50%); /* Pusatkan tombol secara horizontal */
+}
+
+  .price-section-paket  .btn-transparent {
+    background-color: transparent;
+    color: #1F3C88;
+  }
+
+  .price-section-paket  .btn-transparent:hover {
+    background-color: #1F3C88;
+    color: #f9f9f9;
+  }
+
 .btn-transparent {
   background-color: transparent;
   color: #1F3C88;
@@ -360,16 +388,21 @@ button i {
 }
 
 .price-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border: none;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 15px;
+    /* Add fixed height for the card */
+    height: 105%;
+    position: relative; /* Ini akan membuat posisi tombol tetap relatif terhadap konten kartu */
+    padding-bottom: 40px;
 }
 
 .price-card h3 {
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .price-card ul {
@@ -396,12 +429,15 @@ button i {
   color: #f9f9f9;
 }
 
-.black-text {
-  color: black;
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  line-height: 1.5;
+.price-card .black-text {
+    color: black;
+    font-size: revert;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 /* tutor Landig */
@@ -770,6 +806,22 @@ button i {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.foto-Profile input{
+    color: #161515;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.foto-Profile select{
+    color: #161515;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.foto-Profile textarea{
+    color: #161515;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
 
 .foto-Profile .menu {
   display: flex;
@@ -1067,7 +1119,7 @@ button i {
   background-color: #fff;
   margin-bottom: 20px;
   margin-top: 10px;
-  width: 805px;
+  width: 885px;
   margin-left: -70px;
 }
 
@@ -1088,7 +1140,7 @@ button i {
 
 .riwayat .card-tutorA {
   margin: 0;
-  margin-left: 30px;
+  margin-left: 40px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -1096,7 +1148,8 @@ button i {
 .riwayat .card-tutor-p {
   margin: 0;
   font-size: 14px;
-  margin-left: 30px;
+  margin-top: 7px;
+  margin-left: 40px;
   color: #666;
 }
 
@@ -1111,15 +1164,20 @@ button i {
   position: relative;
 }
 
+.riwayat .card-body-tutorA{
+    margin: -15px;
+
+}
+
 .riwayat .selengkapnya .btn-selengkapnya {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  transform: translate(170%, -400%);
-  transition: background-color 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 50;
+    transform: translate(170%, -400%);
+    transition: background-color 0.3s ease-in-out;
 
 }
 
@@ -1127,7 +1185,7 @@ button i {
 .riwayat .tanggal .nav-tanggal {
   font-size: 14px;
   font-weight: 400;
-  color: #54565C;
+  color: #0B5000;
   padding: 0;
   transition: all .4s ease-in-out;
   align-items: flex-start;
@@ -4687,7 +4745,7 @@ border: none;
 }
 .sertifikat .btn{
 margin-top: 5px;
-border: none; 
+border: none;
 padding: 5px 20px;
 }
 

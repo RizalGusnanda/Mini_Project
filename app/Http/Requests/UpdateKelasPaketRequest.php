@@ -27,7 +27,8 @@ class UpdateKelasPaketRequest extends FormRequest
             'nama_paket' => 'nullable|string|max:255',
             'deskripsi'	 => 'nullable|string|max:255',
             'harga'	 => 'nullable|integer',
-            'durasi' => 'nullable|integer',
+            'durasi_start' => 'nullable|date',
+            'durasi_end' => 'nullable|date|after_or_equal:durasi_start',
         ];
     }
 }

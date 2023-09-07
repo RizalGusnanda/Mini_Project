@@ -16,6 +16,7 @@
     {{-- summernote --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 
@@ -52,42 +53,64 @@
                         </a>
                     </li>
                     <li class="nav-item close-icons custom-dropdown">
-                        <!-- Gambar profil dan "Hi, [Nama User]" -->
+                        <!-- Gambar profil dan "Hi, [Nama User]" atau "Login" -->
                         <div class="dropdown-trigger">
-                            @php
-                                $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
-                            @endphp
-                            @if (file_exists(public_path($profileImagePath)))
-                                <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
-                            @else
-                                <img class="profile-icon" src="{{ asset('path/to/default/image.jpg') }}" alt="">
-                            @endif
-                            <span class="profile-name">
-                                Hi,
-                                @if (auth()->check() && auth()->user()->name)
-                                    {{ auth()->user()->name }}
+                            @if (auth()->check())
+                                @php
+                                    $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
+                                @endphp
+                                @if (file_exists(public_path($profileImagePath)))
+                                    <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
                                 @else
-                                    Anonymous
+                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
+                                        alt="">
                                 @endif
-                            </span>
+                                <span class="profile-name">Hi, {{ auth()->user()->name }}</span>
+                            @else
+                                <span class="profile-name">Anonymous</span>
+                            @endif
                             <i class="fas fa-chevron-down"></i>
                         </div>
 
-                        <!-- Dropdown dengan opsi "Profile" dan "Logout" -->
+
                         <div class="dropdown-content" style="z-index: 1">
-                            <a href="{{ url('/profileTutor') }}" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> Profile
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                class="dropdown-item has-icon text-danger">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @if (auth()->check())
+                                @php
+                                    $profileRoute = '';
+                                    if (
+                                        auth()
+                                            ->user()
+                                            ->hasRole('user-pengajar')
+                                    ) {
+                                        $profileRoute = url('/profileTutor');
+                                    } elseif (
+                                        auth()
+                                            ->user()
+                                            ->hasRole('user')
+                                    ) {
+                                        $profileRoute = url('/profileSiswa');
+                                    }
+                                @endphp
+                                <a href="{{ $profileRoute }}" class="dropdown-item has-icon">
+                                    <i class="far fa-user"></i> Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    class="dropdown-item has-icon text-danger">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="dropdown-item has-icon">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </a>
+                            @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                         </div>
+
                     </li>
 
                 </ul>
@@ -108,7 +131,8 @@
                         <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/GuruLink.png"
                                 alt=""></a>
                         <div style="display: flex; flex-direction: column;">
-                            <p style="font-size: 14px; margin-bottom: 0; margin-left: 0px; color: black">Kami adalah platform
+                            <p style="font-size: 14px; margin-bottom: 0; margin-left: 0px; color: black">Kami adalah
+                                platform
                                 inovatif yang menyediakan
                                 cara mudah dan cepat untuk menemukan guru privat berkualitas sesuai kebutuhanmu.</p>
                         </div>
@@ -132,7 +156,8 @@
                         <div style="display: flex; flex-direction: column;">
                             <h5>Ikuti Kami</h5>
                             <ul class="social list-unstyled" style="margin: 0;">
-                                <p style="font-size: 14px; margin-bottom: 5px; margin-left: 0px; color: black">Ikuti social media
+                                <p style="font-size: 14px; margin-bottom: 5px; margin-left: 0px; color: black">Ikuti
+                                    social media
                                     kami</p>
                                 <ul class="social list-unstyled" style="margin: 0;">
                                     <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x"
@@ -157,6 +182,7 @@
 
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
         integrity="sha384-4B1skEiYt4hE4+sfk+GY3G5z7PDIaRkaC5VO7Q2Cme7B/A3W2WwO+W48Hh5W1uI" crossorigin="anonymous"></script>
