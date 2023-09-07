@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id(); // Primary key dengan tipe int
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
+            $table->unsignedBigInteger('id_roles')->nullable();
             $table->unsignedBigInteger('id_kecamatans')->nullable();
             $table->unsignedBigInteger('id_kelurahans')->nullable();
             $table->unsignedBigInteger('id_spesalisasis')->nullable();

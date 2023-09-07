@@ -113,8 +113,8 @@
                                             <p style="color: black; font-size: 15px; margin-left: 5px; margin-right: 5px;"><span class="durasiKelas">{{ $formattedDurasiStart }} - {{ $formattedDurasiEnd }}</span></p>
                                         </div>
                                     </div>
-                                    <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                        class="btn btn-price">Daftar</a>
+                                    <a href="{{ route('reservasi-paket', ['paket_id' => $paket->id]) }}" class="btn btn-price">Pilih</a>
+
                                 </div>
                             </div>
                         @endforeach

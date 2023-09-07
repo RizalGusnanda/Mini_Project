@@ -9,6 +9,7 @@ class Paket extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'nama_paket',
         'deskripsi',
         'harga',
@@ -19,5 +20,5 @@ class Paket extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
-    
+
 }

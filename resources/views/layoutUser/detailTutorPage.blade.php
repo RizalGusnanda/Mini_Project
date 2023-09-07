@@ -22,10 +22,12 @@
                         @endphp
                         @if (file_exists(public_path($profileImagePath)))
                             <img class="img-fluid rounded-start" src="{{ asset($profileImagePath) }}" alt="">
+
                         @else
                             <img class="img-fluid rounded-start" src="{{ asset('path/to/default/image.jpg') }}"
                                 alt="">
                         @endif
+
                     </div>
                     <div class="col-md-8" style="z-index: 0">
                         <div class="card-body" style="margin-top: 30px;">

@@ -8,6 +8,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\ModulController;
+use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
@@ -159,11 +160,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return view('layoutUser/transaksi');
     });
 
+    Route::get('/detailReservasi', function () {
+        return view('layoutUser.detailReservasi');
+    });
+
     Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
 
-    Route::get('/riwayat', function () {
-        return view('layoutUser/riwayatPage');
-    });
+
+    Route::get('/riwayat/{paket_id}', [ReservasiController::class, 'index'])->name('reservasi-paket');
 
     Route::get('/testimoni', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
