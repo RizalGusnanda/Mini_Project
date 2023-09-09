@@ -28,19 +28,20 @@
             <div class="card"
                 style="background-color: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 100px;">
                 <h6 class="card-title beri-testimoni-tittle">Beri Testimoni</h6>
-                <form action="{{ route('testimoni.store') }}" method="post">
+                <form action="{{ route('testimoni.store') }}" method="post" id="form">
                     @csrf
                     <input type="hidden" name="user_id" value="{{ $user_id }}">
                     <div class="mb-3 input-container">
                         <label for="nameInput" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nameInput" name="nama"
-                            placeholder="Masukkan nama Anda" required>
+                            placeholder="Masukkan nama Anda">
+                        <small class="form-text text-danger" id="nameError">Masukkan Nama</small>
                     </div>
                     <div class="mb-3 input-container">
                         <label for="testimoniTextarea" class="form-label">Testimoni</label>
                         <textarea class="form-control" id="testimoniTextarea" name="testimoni" rows="3"
-                            placeholder="Masukkan testimoni Anda" required></textarea>
-                        <small class="form-text text-danger">Maksimal 130 karakter.</small>
+                            placeholder="Masukkan testimoni Anda"></textarea>
+                        <small class="form-text text-danger" id="testimoniError">Masukkan testimoni dan maksimal 130 karakter.</small>
                     </div>
                     <div class="mb-3 input-container rating-container">
                         <label for="ratingInput" class="form-label">Kepuasan Pembelajaran</label>
@@ -56,7 +57,7 @@
                             <input type="radio" id="star1" name="rating" value="1"><label for="star1"
                                 title="Sangat Buruk"><i class="fas fa-star"></i></label>
                         </div>
-                        <small class="form-text text-danger" id="ratingError" style="display:none;">Rating harus
+                        <small class="form-text text-danger" id="ratingError">Rating harus
                             diisi.</small>
 
                     </div>
@@ -80,20 +81,37 @@
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector('form');
+      
+            const form = document.getElementById('form');
             const ratingRadios = document.querySelectorAll('input[name="rating"]');
+
             const ratingError = document.getElementById('ratingError');
+
+            console.log('ratingRadios');
 
             // Sembunyikan pesan error rating terlebih dahulu
             ratingError.style.display = 'none';
+            nameError.style.display = 'none';
+            testimoniError.style.display = 'none';
 
             form.addEventListener('submit', function(event) {
                 let isRatingSelected = false;
+                let isNameValid = false;
+                let isTestimoni = false;
+
                 ratingRadios.forEach(radio => {
                     if (radio.checked) {
                         isRatingSelected = true;
                     }
                 });
+
+                if (nameInput.value.trim() !== '') {
+                    isNameValid = true;
+                }
+
+                if (testimoniTextarea.value.trim() !== '') {
+                    isTestimoni = true;
+                }
 
                 // Tampilkan pesan error jika rating belum diisi
                 if (!isRatingSelected) {
@@ -101,6 +119,20 @@
                     ratingError.style.display = 'block';
                 } else {
                     ratingError.style.display = 'none';
+                }
+
+                if (!isNameValid) {
+                    event.preventDefault();
+                    nameError.style.display = 'block';
+                } else {
+                    nameError.style.display = 'none';
+                }
+
+                if (!isTestimoni) {
+                    event.preventDefault();
+                    testimoniError.style.display = 'block';
+                } else {
+                    testimoniError.style.display = 'none';
                 }
             });
         });

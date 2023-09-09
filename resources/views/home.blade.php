@@ -13,7 +13,7 @@
 
     <section class="adminDashborad">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="col-icon">
@@ -23,7 +23,7 @@
                         </div>
                         <div class="col col-stats ml-3 ml-sm-0">
                             <div class="numbers">
-                                <h4 class="card-title" style="color: black">1,294</h4>
+                                <h4 class="card-title" style="color: black">{{ $totalSiswa }}</h4>
                                 <p class="card-category"> Total Siswa</p>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
 
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="col-icon">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col col-stats ml-3 ml-sm-0">
                             <div class="numbers">
-                                <h4 class="card-title" style="color: black">1,294</h4>
+                                <h4 class="card-title" style="color: black">{{ $totalTutor }}</h4>
                                 <p class="card-category"> Total Tutor</p>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
 
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="col-icon">
@@ -71,31 +71,13 @@
 
     <section>
         <div class="row">
-            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Statistics</h4>
-                        {{-- <div class="card-header-action">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-primary">Week</a>
-                                <a href="#" class="btn">Month</a>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="card-body">
-                        <canvas id="myChart" height="192"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Calendar</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="fc-overflow">
-                            <div id="myEvent"></div>
-                        </div>
+                        <canvas id="myChart" height="150"></canvas>
                     </div>
                 </div>
             </div>

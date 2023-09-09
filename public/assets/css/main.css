@@ -4750,3 +4750,148 @@ padding: 5px 20px;
 .detailTutor .sertifikat-link {
   margin-bottom: 5px;  /* Atur jarak antara nama sertifikat dan link sertifikat */
 }
+
+/*Pembayaran*/
+.pembayaran .col-md-4,
+.col-md-8 {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pembayaran-name {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.pembayaran-card {
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  margin-bottom: 50px;
+}
+
+.pembayaran-back-icon {
+  display: inline-block;
+  font-size: 30px;
+  color: #333;
+  text-decoration: none;
+  background-color: #d2d8e7;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pembayaran-card-title-search {
+  margin: 0;
+  font-size: 24px;
+  color: #333; /* Ubah warna sesuai kebutuhan */
+}
+
+.pembayaran-card-search-pem {
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: -35px;
+  background-color: #d2d8e7;
+}
+
+.pembayaran-card-ringkasan {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-left: -60px;
+  width: 800px;
+}
+
+.pembayaran .value-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-ringkasan-title {
+  margin: 0;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.pembayaran-ringkasan-content {
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.pembayaran-paket-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran .value-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-harga {
+  text-align: right;
+}
+
+.pembayaran-price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-label-bold {
+  flex: 1;
+}
+
+.pembayaran-value {
+  margin-right: 10px;
+  color: #ccc;
+}
+
+.pembayaran-price {
+  text-align: right;
+  font-weight: lighter;
+  color: #ccc;
+}
+
+.pembayaran-total-price {
+  text-align: right;
+}
+
+.pembayaran-payment-button {
+  /* text-align: center; */
+  margin-top: 20px;
+}
+
+.pembayaran-profession {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.button-opsional {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  height: 120px;
+  border: none; /* Menghilangkan border */
+}

@@ -31,20 +31,18 @@
                         </div>
                         <div class="card-menu">
                             <div class="menu">
-                                <a href="/tutor">
+                                <a href="/profileSiswa" style="text-decoration: none">
                                     <div class="menu-item">
                                         <i class="fas fa-user"></i>
                                         <span>Profile</span>
                                     </div>
                                 </a>
-                                <div class="menu-item">
-                                    <i class="fas fa-info-circle"></i>
-                                    <span>Detail Tutor</span>
-                                </div>
-                                <div class="menu-item">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                    <span>Keluar</span>
-                                </div>
+                                <a href="#" style="text-decoration: none">
+                                    <div class="menu-item" style="text-decoration: none; color: black">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Reservasi</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@
             background-color: white;
         }
     </style>
+    
     <section class="detailTutor">
         <div class="container">
             <h6><a href="/landing" style="color: #ccc; text-decoration: none;">Home</a> / <a href="/tutor"
@@ -84,15 +85,10 @@
                             <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Informasi Tutor</h5>
                             <p class="card-text" style="font-size: 14px;">
                                 <span style="color: #ccc;">Jenis Kelamin:</span> {{ $tutor->jenis_kelamin }}.<br>
-                                <span style="color: #ccc;">Alamat:</span> {{ $tutor->kelurahan->kelurahan }},
-                                {{ $tutor->kecamatan->kecamatan }} ,{{ $tutor->alamat }}. <br>
+                                <span style="color: #ccc;">Alamat Lengkap:</span> {{ $tutor->alamat }}, {{ $tutor->kelurahan->kelurahan }},
+                                {{ $tutor->kecamatan->kecamatan }}. <br>
                                 <span style="color: #ccc;">Latar Belakang Pendidikan:</span> {{ $tutor->pendidikan }}
                                 {{ $tutor->jurusan }}, {{ $tutor->instansi }}.<br>
-                                {{-- <span style="color: #ccc;">Sertifikat Pendidikan:</span>
-                                @foreach ($tutor->sertifikats as $sertifikat)
-                                    <div style="font-size: 14px">{{ $sertifikat->sertifikasi }}</div>
-                                    <div style="font-size: 14px">{{ $sertifikat->link }}</div>
-                                @endforeach --}}
                             </p>
                         </div>
                     </div>

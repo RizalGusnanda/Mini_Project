@@ -69,8 +69,8 @@
         <div class="container">
             <nav aria-label="Breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Paket</a></li>
+                    <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: #ccc">Beranda</a></li>
+                    <li class="breadcrumb-item active"><a href="#" style="text-decoration: none; color: #1F3C88">Paket</a></li>
                 </ol>
             </nav>
         </div>
@@ -113,8 +113,12 @@
                                             <p style="color: black; font-size: 15px; margin-left: 5px; margin-right: 5px;"><span class="durasiKelas">{{ $formattedDurasiStart }} - {{ $formattedDurasiEnd }}</span></p>
                                         </div>
                                     </div>
-                                    <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                        class="btn btn-price">Daftar</a>
+                                    {{-- <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
+                                        class="btn btn-price">Daftar</a> --}}
+                                        {{-- <a href="{{ route('pembayaran', ['id' => $paket->user_id, 'nama_paket' => $paket->nama_paket, 'harga' => $paket->harga]) }}" class="btn btn-price">Daftar</a> --}}
+
+                                        <a href="{{ route('PembayaranUser.index', ['user_id' => $paket->user_id, 'id' => $paket->id]) }}" class="btn btn-price">Daftar</a>
+
                                 </div>
                             </div>
                         @endforeach

@@ -7,7 +7,7 @@ use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
-use App\Http\Controllers\ModulController;
+// use App\Http\Controllers\ModulController;
 use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileAdminController;
@@ -23,6 +23,8 @@ use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PembayaranUserController;
 use App\Http\Controllers\TutorProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -118,11 +120,11 @@ Route::get('/kelasGmeet', function () {
     return view('layoutUser/kelasLinkGmeet');
 });
 
-// Define the GET route for displaying the form
-Route::get('/modulTambah', [ModulController::class, 'create'])->name('modul.create');
+// // Define the GET route for displaying the form
+// Route::get('/modulTambah', [ModulController::class, 'create'])->name('modul.create');
 
-// Define the POST route for handling form submission
-Route::post('/modulTambah', [ModulController::class, 'store'])->name('modul.store');
+// // Define the POST route for handling form submission
+// Route::post('/modulTambah', [ModulController::class, 'store'])->name('modul.store');
 
 
 Route::get('/paketKelas', function () {
@@ -136,7 +138,15 @@ Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show')
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
-        return view('home', ['users' => User::get(),]);
+        $totalSiswa = User::whereHas('roles', function ($query) {
+            $query->where('name', 'user');
+        })->count();
+
+        $totalTutor = User::whereHas('roles', function ($query) {
+            $query->where('name', 'user-pengajar');
+        })->count();
+    
+        return view('home', ['totalSiswa' => $totalSiswa, 'totalTutor' => $totalTutor]);
     });
 
     Route::get('/paketKelasIklan',  [IklanPaketTutorPOVController::class, 'showIklanPaket'])->name('daftar-paket-iklanTutor');
@@ -151,9 +161,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
 
-    Route::get('/pembayaran', function () {
-        return view('layoutUser/pembayaran');
-    });
+    // Route::get('/pembayaran', function () {
+    //     return view('layoutUser/pembayaran');
+    // })->name('pembayaran');
+
+    Route::get('/pembayaran', [PembayaranUserController::class, 'index'])->name('PembayaranUser.index');
+
 
     Route::get('/transaksi', function () {
         return view('layoutUser/transaksi');
@@ -211,6 +224,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     Route::prefix('pengajaran-management')->group(function () {
         Route::resource('spesialisasi', SpesalisasiController::class);
+    });
+    Route::prefix('pembayaran-management')->group(function () {
+        Route::resource('pembayaran', PembayaranController::class);
     });
     //membuat tampilan profile admin
     Route::get('/profileAdmin', function () {
