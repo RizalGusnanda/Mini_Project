@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
 
 
     <title>Guru Link</title>
@@ -26,8 +28,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/GuruLink.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,12 +44,9 @@
                     </li>
                     <li class="nav-item close-icons">
                         <a class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
-                                fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                                 <g mask="url(#mask0_27_22)">
-                                    <path
-                                        d="M6.66663 31.6666V28.3333H9.99996V16.6666C9.99996 14.3611 10.6944 12.3125 12.0833 10.5208C13.4722 8.72915 15.2777 7.55554 17.5 6.99998V5.83331C17.5 5.13887 17.743 4.54859 18.2291 4.06248C18.7152 3.57637 19.3055 3.33331 20 3.33331C20.6944 3.33331 21.2847 3.57637 21.7708 4.06248C22.2569 4.54859 22.5 5.13887 22.5 5.83331V6.99998C24.7222 7.55554 26.5277 8.72915 27.9166 10.5208C29.3055 12.3125 30 14.3611 30 16.6666V28.3333H33.3333V31.6666H6.66663ZM20 36.6666C19.0833 36.6666 18.2986 36.3403 17.6458 35.6875C16.993 35.0347 16.6666 34.25 16.6666 33.3333H23.3333C23.3333 34.25 23.0069 35.0347 22.3541 35.6875C21.7013 36.3403 20.9166 36.6666 20 36.6666ZM13.3333 28.3333H26.6666V16.6666C26.6666 14.8333 26.0138 13.2639 24.7083 11.9583C23.4027 10.6528 21.8333 9.99998 20 9.99998C18.1666 9.99998 16.5972 10.6528 15.2916 11.9583C13.9861 13.2639 13.3333 14.8333 13.3333 16.6666V28.3333Z"
-                                        fill="#1C1B1F" />
+                                    <path d="M6.66663 31.6666V28.3333H9.99996V16.6666C9.99996 14.3611 10.6944 12.3125 12.0833 10.5208C13.4722 8.72915 15.2777 7.55554 17.5 6.99998V5.83331C17.5 5.13887 17.743 4.54859 18.2291 4.06248C18.7152 3.57637 19.3055 3.33331 20 3.33331C20.6944 3.33331 21.2847 3.57637 21.7708 4.06248C22.2569 4.54859 22.5 5.13887 22.5 5.83331V6.99998C24.7222 7.55554 26.5277 8.72915 27.9166 10.5208C29.3055 12.3125 30 14.3611 30 16.6666V28.3333H33.3333V31.6666H6.66663ZM20 36.6666C19.0833 36.6666 18.2986 36.3403 17.6458 35.6875C16.993 35.0347 16.6666 34.25 16.6666 33.3333H23.3333C23.3333 34.25 23.0069 35.0347 22.3541 35.6875C21.7013 36.3403 20.9166 36.6666 20 36.6666ZM13.3333 28.3333H26.6666V16.6666C26.6666 14.8333 26.0138 13.2639 24.7083 11.9583C23.4027 10.6528 21.8333 9.99998 20 9.99998C18.1666 9.99998 16.5972 10.6528 15.2916 11.9583C13.9861 13.2639 13.3333 14.8333 13.3333 16.6666V28.3333Z" fill="#1C1B1F" />
                                 </g>
                             </svg>
                         </a>
@@ -93,18 +91,28 @@
             </div>
             <div class="gambaran-umum">
                 <p class="gambaran-title">Gambaran Umum</p>
-                <p class="gambaran-detail">Lorem ipsum dolor sit amet consectetur. Auctor mattis ac interdum amet.
-                    Faucibus nisi commodo euismod odio. Laoreet nisl mauris mauris vitae vitae dapibus. Netus
-                    ullamcorper vivamus viverra nulla massa elementum. Sit id in eget posuere.</p>
+                <p class="gambaran-detail">selama kelas dasar-dasar UI/UX Design, Anda akan terlibat dalam berbagai proyek praktis, presentasi, dan diskusi kelompok
+                    untuk memahami konsep dan menerapkannya dalam konteks nyata. Ini adalah langkah awal yang baik bagi siapa pun yang ingin memasuki dunia desain antarmuka
+                    pengguna dan pengalaman pengguna. Selain kelas formal, penting juga untuk terus berlatih dan mempelajari tren terbaru dalam industri UI/UX untuk tetap relevan.</p>
             </div>
             <div class="produk-desain">
                 <p class="produk-title">Yang akan dipelajari</p>
-                <p class="produk-detail">Lorem ipsum dolor sit amet consectetur. Auctor mattis ac interdum amet.
-                    Faucibus nisi commodo euismod odio. Laoreet nisl mauris mauris vitae vitae dapibus. Netus
-                    ullamcorper vivamus viverra nulla massa elementum. Sit id in eget posuere.</p>
+                <p class="produk-detail">Prinsip dasar UI/UX,
+                    Penelitian pengguna dan pembuatan persona, 
+                    Pembuatan wireframe,
+                    Prinsip desain UI,
+                    Prototyping dan alatnya,
+                    Arsitektur informasi dan diagram aliran pengguna,
+                    Pengujian usability,
+                    Desain UI/UX untuk perangkat seluler,
+                    Desain responsif,
+                    Proyek akhir dan presentasi,
+                    Tren terbaru dan peluang karier dalam UI/UX Design.</p>
             </div>
             <div class="selanjutnya">
-                <a href="#"> <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p></a>
+                <a href="#">
+                    <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
+                </a>
                 <div class="selanjutnya-icon">
                     <i class="material-icons">arrow_forward_ios_new</i>
                 </div>
@@ -113,15 +121,7 @@
 
         <!-- Card Kanan (Anda dapat mengisi konten sesuai kebutuhan) -->
         <div class="card-right">
-            <div class="presentase-card">
-                <div class="presentase-top">
-                    <h3 style="color: #ccc; font-size: 14px;">Presentase Kelas</h3>
-                    <p style="color: black; font-size: 10px; margin-bottom: -10px; margin-left: 235px;">30% selesai</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </div>
+
             <div class="modul-card">
                 <div class="modul-modul-card">
                     <h3 style="font-size: 20px; font-weight: bold;">Modul Pembelajaran</h3>
@@ -141,24 +141,14 @@
                     <div class="wek1">
                         <p class="wek1-title">Minggu 1</p>
                     </div>
+                    @foreach($moduls as $modul)
                     <div class="wek1-content">
                         <div class="modul-card-inner">
-                            <p>1. Dasar Desain Visual</p>
+                            <p>{{ $loop->iteration }}. {{ $modul->nama_modul }}</p>
                             <i class="material-icons">arrow_circle_right</i>
                         </div>
                     </div>
-                    <div class="wek1-content">
-                        <div class="modul-card-inner">
-                            <p>2. Elemen Visual Design</p>
-                            <i class="material-icons">arrow_circle_right</i>
-                        </div>
-                    </div>
-                    <div class="wek1-content">
-                        <div class="modul-card-inner">
-                            <p>3. Prinsip Visual Design</p>
-                            <i class="material-icons">arrow_circle_right</i>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="week-card">
@@ -166,24 +156,14 @@
                     <div class="wek1">
                         <p class="wek1-title">Minggu 2</p>
                     </div>
+                    @foreach($moduls as $modul)
                     <div class="wek1-content">
                         <div class="modul-card-inner">
-                            <p>4. Dasar Desain Visual</p>
+                            <p>{{ $loop->iteration }}. {{ $modul->nama_modul }}</p>
                             <i class="material-icons">arrow_circle_right</i>
                         </div>
                     </div>
-                    <div class="wek1-content">
-                        <div class="modul-card-inner">
-                            <p>5. Dasar Desain Visual</p>
-                            <i class="material-icons">arrow_circle_right</i>
-                        </div>
-                    </div>
-                    <div class="wek1-content">
-                        <div class="modul-card-inner">
-                            <p>6. Dasar Desain Visual</p>
-                            <i class="material-icons">arrow_circle_right</i>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -221,11 +201,9 @@
                             <ul class="social list-unstyled" style="margin: 0;">
                                 <p style="font-size: 14px; margin-bottom: 5px;">Ikuti social media kami</p>
                                 <ul class="social list-unstyled" style="margin: 0;">
-                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x"
-                                                style="color: #EE6F57;"></i></a>
+                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-youtube fa-2x" style="color: #EE6F57;"></i></a>
                                     </li>
-                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-facebook fa-2x"
-                                                style="color: #EE6F57;"></i></a>
+                                    <li style="margin-right: 20px;"><a href="#"><i class="fab fa-facebook fa-2x" style="color: #EE6F57;"></i></a>
                                     </li>
                                     <li><a href="#"><i class="fab fa-instagram fa-2x" style="color: #EE6F57;"></i></a>
                                     </li>
@@ -243,3 +221,5 @@
 </body>
 
 </html>
+
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>

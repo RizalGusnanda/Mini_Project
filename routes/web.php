@@ -27,6 +27,7 @@ use App\Http\Controllers\SpesalisasiController;
 use App\Http\Controllers\TutorProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\kelasSiswaController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
 /*
@@ -64,9 +65,10 @@ Route::get('/kelas-guru', function () {
     return view('layoutUser/kelasGuru');
 });
 
-Route::get('/kelas-siswa', function () {
-    return view('layoutUser/kelasSiswa');
-});
+
+Route::get('/kelas-siswa', [kelasSiswaController::class, 'showKelas'])->name('kelas-siswa');
+
+
 
 Route::get('/edit-kelas-guru', function () {
     return view('layoutUser/editKelasGuru');
@@ -101,10 +103,6 @@ Route::POST('/load-filter', [TutorProfileController::class, 'loadFilter'])->name
 Route::get('/get-all-spesialisasi', [TutorProfileController::class, 'getAllSpesialisasi'])->name('get-all-spesialisasi');
 Route::post('/profileTutor', [TutorProfileController::class, 'update'])->name('profile.update');
 
-
-
-
-
 // PROFILE siswa
 Route::get('/profileSiswa', [profileSiswaController::class, 'profile'])->name('profile.index');
 
@@ -118,13 +116,9 @@ Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name
 Route::get('/kelasGmeet', function () {
     return view('layoutUser/kelasLinkGmeet');
 });
-
-// Define the GET route for displaying the form
+  
 Route::get('/modulTambah', [ModulController::class, 'create'])->name('modul.create');
-
-// Define the POST route for handling form submission
 Route::post('/modulTambah', [ModulController::class, 'store'])->name('modul.store');
-
 
 Route::get('/paketKelas', function () {
     return view('layoutUser/tambahPaketKelas');
