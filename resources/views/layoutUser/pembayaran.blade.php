@@ -6,7 +6,7 @@
         }
     </style>
 
-<section class="breadcrumb">
+    <section class="breadcrumb">
         <div class="container">
             <nav aria-label="Breadcrumb">
                 <ol class="breadcrumb">
@@ -45,10 +45,9 @@
                         @if (file_exists(public_path($profileImagePath)))
                             <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt="">
                         @else
-                            <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}"
-                                alt="">
+                            <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt="">
                         @endif
-                    
+
                         <h2 class="pembayaran-name">{{ $tutor->user->name }}</h2>
                         <p class="pembayaran-profession">{{ $tutor->spesialisasi->nama_spesialisasi }}</p>
                         <div class="stars">
@@ -93,13 +92,28 @@
                                     <div class="pembayaran-label-bold" style="text-align: center">Pilih Metode Pembayaran
                                     </div>
                                 </div>
-                                <div class="pembayaran-payment-button">
-                                    <div class="button-opsional">
-                                        <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png"
-                                            class="w-full" alt="" width="150" height="75">
-                                        <p style="color: #ccc">Pay with Mandiri</p>
+
+
+                                @foreach ($channels as $channel)
+                                    <div class="col-6 d-flex justify-content-center">
+                                        <div class="row pembayaran-payment-button">
+                                            <div class="button-opsional">
+                                                <form action="{{ route('PembayaranUser.store') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $paket->id }}">
+                                                <input type="hidden" name="method" value="{{ $channel->code }}">
+                                                <button type="submit" class="bg-white rounded-md shadow-soft">
+                                                    <img src="{{asset('assets/img/bank/'. $channel->code . '.png')  }}"
+                                                            class="w-full" alt="" width="150" height="80">
+                                                        <p style="color: #ccc">Pay with {{ $channel->name }}</p>
+                                                   
+                                                </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

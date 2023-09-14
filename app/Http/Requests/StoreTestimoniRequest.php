@@ -25,7 +25,6 @@ class StoreTestimoniRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer|exists:users,id',
-            'nama' => 'required|string|max:255',
             'testimoni' => 'required|string',
             'rating' => 'required|integer|between:1,5'
         ];

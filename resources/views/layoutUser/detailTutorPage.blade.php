@@ -6,7 +6,7 @@
             background-color: white;
         }
     </style>
-    
+
     <section class="detailTutor">
         <div class="container">
             <h6><a href="/landing" style="color: #ccc; text-decoration: none;">Home</a> / <a href="/tutor"
@@ -18,17 +18,8 @@
             <div class="card" style="background-color: #EBEBEB; border-radius: 15px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        @php
-                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
-                        @endphp
-                        @if (file_exists(public_path($profileImagePath)))
-                            <img class="img-fluid rounded-start" src="{{ asset($profileImagePath) }}" alt="">
-
-                        @else
-                            <img class="img-fluid rounded-start" src="{{ asset('path/to/default/image.jpg') }}"
-                                alt="">
-                        @endif
-
+                        <img src="{{ asset('storage/' . $tutor->profile) }}" class="img-fluid rounded-start"
+                            alt="{{ $tutor->user->name }}">
                     </div>
                     <div class="col-md-8" style="z-index: 0">
                         <div class="card-body" style="margin-top: 30px;">
@@ -36,7 +27,7 @@
                             <p class="card-text">
                                 @php
                                     $fullStars = floor($averageRating);
-                                    $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                    $halfStar = $averageRating - $fullStars >= 0.5 ? 1 : 0;
                                     $emptyStars = 5 - $fullStars - $halfStar;
                                 @endphp
 
@@ -87,7 +78,8 @@
                             <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Informasi Tutor</h5>
                             <p class="card-text" style="font-size: 14px;">
                                 <span style="color: #ccc;">Jenis Kelamin:</span> {{ $tutor->jenis_kelamin }}.<br>
-                                <span style="color: #ccc;">Alamat Lengkap:</span> {{ $tutor->alamat }}, {{ $tutor->kelurahan->kelurahan }},
+                                <span style="color: #ccc;">Alamat Lengkap:</span> {{ $tutor->alamat }},
+                                {{ $tutor->kelurahan->kelurahan }},
                                 {{ $tutor->kecamatan->kecamatan }}. <br>
                                 <span style="color: #ccc;">Latar Belakang Pendidikan:</span> {{ $tutor->pendidikan }}
                                 {{ $tutor->jurusan }}, {{ $tutor->instansi }}.<br>
@@ -138,12 +130,16 @@
                         </div>
 
                         <div class="row">
-                            <div class="row">
-                                @foreach ($testimoni as $index => $testimoni)
+                            @foreach ($testimoni as $index => $testimoni)
                                 <div class="col-md-6 card-container" id="testimonial{{ $index }}">
                                     <div class="card mb-3 testimonial-card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
+                                                @php
+                                                    $profileImagePath = 'storage/' . ($testimoni->profile ?? 'default.jpg');
+                                                @endphp
+                                                <img class="img-fluid rounded-start"
+                                                    src="{{ asset($profileImagePath) }}" alt="">
                                                 <div class="ms-3">
                                                     <h6>{{ $testimoni->nama }}</h6>
                                                     <div>
@@ -156,19 +152,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="mt-3" style="font-size: 14px; margin-left: 20px;">
+                                            <p class="ms-3 mt-4" style="font-size: 14px; margin-left: 20px;">
                                                 {{ $testimoni->testimoni }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                            </div>
+                            @endforeach
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End Card Testimoni Siswa -->
+            <!-- End Card Testimoni Siswa -->
 
     </section>
     <script>

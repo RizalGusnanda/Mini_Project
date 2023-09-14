@@ -40,7 +40,7 @@ class TripayController extends Controller
         
     }
     
-    public function requestTransaksi($method, $alat){
+    public function requestTransaksi($method, $pakets){
         
         $apiKey       =  config('tripay.api_key');
         $privateKey   =  config('tripay.private_key');
@@ -48,7 +48,8 @@ class TripayController extends Controller
         $merchantRef  = 'KM-' . time();
         // percobaan
         // dd($apiKey, $privateKey, $merchantCode, $merchantRef);
-        $amount       = $alat->harga;
+        // dd($pakets);
+        $amount       = $pakets->harga;
         
         $user = auth()->user();
         
@@ -64,8 +65,8 @@ class TripayController extends Controller
             'customer_phone' => $user->no_hp,
             'order_items'    => [
                 [
-                    'name'        => $alat->nama_alat,
-                    'price'       => $alat->harga,
+                    'name'        => $pakets->nama_paket,
+                    'price'       => $pakets->harga,
                     'quantity'    => 1,
                     // 'product_url' => 'https://tokokamu.com/product/nama-produk-1',
                     // 'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
@@ -74,7 +75,7 @@ class TripayController extends Controller
             ],
             'return_url'   => 'https://domainanda.com/redirect',
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$alat->harga, $privateKey)
+            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$pakets->harga, $privateKey)
         ];
         
         $curl = curl_init();
@@ -98,7 +99,7 @@ class TripayController extends Controller
         
         
         $response = json_decode($response)->data;
-        //   dd($response);
+          dd($response);
         
         return $response ?: $err;
         

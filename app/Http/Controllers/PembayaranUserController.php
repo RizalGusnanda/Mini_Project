@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Payment\TripayController;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
@@ -19,6 +20,8 @@ class PembayaranUserController extends Controller
      */
         public function index(Request $request, Paket $pakets)
         {
+            $tripay = new TripayController();
+            $channels = $tripay->getPaymentChannels();
             $user_id = $request->input('user_id');
             $paket_id = $request->input('id');
         
@@ -29,7 +32,7 @@ class PembayaranUserController extends Controller
             $averageRating = Testimoni::where('id_users', $tutor->user->id)->avg('rating');
             // dd($paket);
         
-            return view('layoutUser.pembayaran')->with(['pembayaran' => $pembayaran, 'tutor' => $tutor, 'avg' => $averageRating, 'paket' => $paket]);
+            return view('layoutUser.pembayaran')->with(['pembayaran' => $pembayaran, 'tutor' => $tutor, 'avg' => $averageRating, 'paket' => $paket, 'channels' => $channels]);
         }
     /**
      * Show the form for creating a new resource.
@@ -47,9 +50,16 @@ class PembayaranUserController extends Controller
      * @param  \App\Http\Requests\StorePembayaranRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePembayaranRequest $request)
+    public function store(Request $request)
     {
-        //
+        $paket_id = $request->input('id');
+        // $pakets = paket::where('id', $paket_id)->first();
+        $pakets = Paket::find($paket_id);
+        // dd($pakets);
+        $method = $request->method;
+
+        $tripay = new TripayController();
+        $tripay->requestTransaksi($method, $pakets);
     }
 
     /**

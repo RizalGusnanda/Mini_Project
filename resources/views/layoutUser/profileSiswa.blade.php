@@ -18,28 +18,28 @@
                                 <i class="fas fa-plus"></i>
                             </label>
                             <input type="file" name="image" class="d-none" id="picture"
-                            onchange="previewImage(this)">
+                                onchange="previewImage(this)">
                             @php
                                 $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
                             @endphp
                             @if (file_exists(public_path($profileImagePath)))
-                                <img class="profile-pic"  id="preview" src="{{ asset($profileImagePath) }}" alt=""
+                                <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic"  id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
+                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @endif
                         </div>
                         <div class="card-menu">
                             <div class="menu">
-                                <a href="/profileSiswa" style="text-decoration: none">
+                                <a href="/profileSiswa" style="text-decoration: none;">
                                     <div class="menu-item">
                                         <i class="fas fa-user"></i>
                                         <span>Profile</span>
                                     </div>
                                 </a>
-                                <a href="#" style="text-decoration: none">
-                                    <div class="menu-item" style="text-decoration: none; color: black">
+                                <a href="/reservasiUser" style="text-decoration: none; color: black">
+                                    <div class="menu-item">
                                         <i class="fas fa-calendar"></i>
                                         <span>Reservasi</span>
                                     </div>
@@ -229,17 +229,17 @@
         });
     </script>
 
-<script>
-    function previewImage(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#preview').attr('src', e.target.result);
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
-    }
-</script>
+    </script>
 @endsection

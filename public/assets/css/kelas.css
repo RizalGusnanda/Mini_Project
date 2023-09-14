@@ -171,11 +171,11 @@ body {
 }
 
 .title-kelas {
-    margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+    margin-left: 20px; 
 }
 
 .title-kelas p {
-    font-size: 16px;  /* Mengatur ukuran teks judul */
+    font-size: 16px; 
     color: #070D59;
     margin: 0;
 }
@@ -188,7 +188,7 @@ body {
 }
 
 .card-left {
-    width: 70%;  /* Menyesuaikan lebar card */
+    width: 70%;  
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     margin-right: 1%;
@@ -218,7 +218,7 @@ body {
 
 /* Card Kanan */
 .card-right {
-    width: 35%;  /* Menyesuaikan lebar card */
+    width: 35%;  
     padding: 20px;
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -248,7 +248,7 @@ body {
 }
 
 .modul {
-    flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+    flex-basis: 55%; 
 }
 
 .tutor-image-small {
