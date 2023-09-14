@@ -6,6 +6,7 @@ use App\Models\Testimoni;
 use App\Http\Requests\StoreTestimoniRequest;
 use App\Http\Requests\UpdateTestimoniRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestimoniController extends Controller
 {
@@ -39,9 +40,12 @@ class TestimoniController extends Controller
      */
     public function store(StoreTestimoniRequest $request)
     {
+
+
         $testimoni = new Testimoni;
-        $testimoni->id_users = $request->input('user_id');  // Gantikan 'user_id' dengan 'id_users'
-        $testimoni->nama = $request->input('nama');
+        $testimoni->id_users = $request->input('user_id');
+        $testimoni->nama = Auth::user()->name;
+        $testimoni->user_testimoni = Auth::id();
         $testimoni->testimoni = $request->input('testimoni');
         $testimoni->rating = $request->input('rating');
         $testimoni->save();

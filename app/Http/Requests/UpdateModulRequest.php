@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTestimoniRequest extends FormRequest
+class UpdateModulRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreTestimoniRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,8 @@ class StoreTestimoniRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|integer|exists:users,id',
-            'testimoni' => 'required|string',
-            'rating' => 'required|integer|between:1,5'
+            'nama_modul' => 'nullable|string|max:255',
+            'deskripsi_modul' => 'nullable|string|max:500',
         ];
     }
 }

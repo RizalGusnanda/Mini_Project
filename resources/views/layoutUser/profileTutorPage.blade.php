@@ -26,7 +26,7 @@
                                 <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
+                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @endif
                         </div>
@@ -44,8 +44,8 @@
                                         <span>Detail Tutor</span>
                                     </div>
                                 </a>
-                                <a href="#">
-                                    <div class="menu-item" style="text-decoration: none; color: black">
+                                <a href="/riwayatTutor" style="text-decoration: none; color: black">
+                                    <div class="menu-item">
                                         <i class="fas fa-calendar"></i>
                                         <span>Reservasi</span>
                                     </div>

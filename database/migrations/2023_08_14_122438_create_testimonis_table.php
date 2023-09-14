@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_users')->nullable();
+            $table->unsignedBigInteger('user_testimoni')->nullable();
             $table->string('nama');
             $table->text('testimoni');
             $table->integer('rating');
             $table->timestamps();
 
             $table->foreign('id_users')->references('id')->on('users')->restrictOnDelete();
+            $table->foreign('user_testimoni')->references('id')->on('users')->restrictOnDelete();
         });
     }
 

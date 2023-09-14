@@ -32,16 +32,11 @@
                     @csrf
                     <input type="hidden" name="user_id" value="{{ $user_id }}">
                     <div class="mb-3 input-container">
-                        <label for="nameInput" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nameInput" name="nama"
-                            placeholder="Masukkan nama Anda">
-                        <small class="form-text text-danger" id="nameError">Masukkan Nama</small>
-                    </div>
-                    <div class="mb-3 input-container">
                         <label for="testimoniTextarea" class="form-label">Testimoni</label>
                         <textarea class="form-control" id="testimoniTextarea" name="testimoni" rows="3"
                             placeholder="Masukkan testimoni Anda"></textarea>
-                        <small class="form-text text-danger" id="testimoniError">Masukkan testimoni dan maksimal 130 karakter.</small>
+                        <small class="form-text text-danger" id="testimoniError">Masukkan testimoni dan maksimal 130
+                            karakter.</small>
                     </div>
                     <div class="mb-3 input-container rating-container">
                         <label for="ratingInput" class="form-label">Kepuasan Pembelajaran</label>
@@ -70,33 +65,19 @@
         <!-- End Card Beri Testimoni -->
     </section>
     <script>
-        // Membatasi jumlah karakter dalam textarea testimoni
-        document.getElementById('testimoniTextarea').addEventListener('input', function() {
-            var maxLength = 130;
-            var currentLength = this.value.length;
-
-            if (currentLength > maxLength) {
-                this.value = this.value.substring(0, maxLength);
-            }
-        });
-
         document.addEventListener("DOMContentLoaded", function() {
-      
             const form = document.getElementById('form');
             const ratingRadios = document.querySelectorAll('input[name="rating"]');
-
+            const testimoniTextarea = document.getElementById('testimoniTextarea');
             const ratingError = document.getElementById('ratingError');
+            const testimoniError = document.getElementById('testimoniError');
 
-            console.log('ratingRadios');
-
-            // Sembunyikan pesan error rating terlebih dahulu
+            // Sembunyikan pesan error rating dan testimoni terlebih dahulu
             ratingError.style.display = 'none';
-            nameError.style.display = 'none';
             testimoniError.style.display = 'none';
 
             form.addEventListener('submit', function(event) {
                 let isRatingSelected = false;
-                let isNameValid = false;
                 let isTestimoni = false;
 
                 ratingRadios.forEach(radio => {
@@ -104,10 +85,6 @@
                         isRatingSelected = true;
                     }
                 });
-
-                if (nameInput.value.trim() !== '') {
-                    isNameValid = true;
-                }
 
                 if (testimoniTextarea.value.trim() !== '') {
                     isTestimoni = true;
@@ -121,13 +98,7 @@
                     ratingError.style.display = 'none';
                 }
 
-                if (!isNameValid) {
-                    event.preventDefault();
-                    nameError.style.display = 'block';
-                } else {
-                    nameError.style.display = 'none';
-                }
-
+                // Tampilkan pesan error jika testimoni tidak diisi
                 if (!isTestimoni) {
                     event.preventDefault();
                     testimoniError.style.display = 'block';
