@@ -58,7 +58,7 @@ h1 {
 h2 {}
 
 p {
-  color: #AD6359;
+  color: #000000;
 }
 
 mt-10 {
@@ -112,7 +112,7 @@ mt-50 {
   height: 100vh;
 }
 
-.hero .search-column{
+.hero .search-column {
 
   display: flex;
   border-radius: 15px;
@@ -123,6 +123,7 @@ mt-50 {
   height: 80px;
 
 }
+
 .hero .search-form {
   background: #F6F5F5;
   display: flex;
@@ -132,7 +133,8 @@ mt-50 {
   overflow: hidden;
   width: 600px;
   margin-bottom: 20px;
-  height: 40px; /* Tambahkan margin bawah agar ada jarak dengan konten di bawahnya */
+  height: 40px;
+  /* Tambahkan margin bawah agar ada jarak dengan konten di bawahnya */
 }
 
 .search-input {
@@ -156,15 +158,16 @@ mt-50 {
 }
 
 .search-input select {
-    border: none;
-    background: transparent;
-    outline: none;
-    padding: 10px;
-    width: 100%;
-    font-size: revert;
-    font-family: 'Poppins';
-    margin-inline-start: auto;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: revert;
+  font-family: 'Poppins';
+  margin-inline-start: auto;
 }
+
 .search-input i.material-icons {
   margin-right: 5px;
   color: #ccc;
@@ -174,7 +177,7 @@ button i.fas.fa-search {
   color: #fff;
 }
 
-.hero  button {
+.hero button {
   border: none;
   background: #F6F5F5;
   padding: 10px 32px;
@@ -265,31 +268,36 @@ button i {
 
 
 .price-section-paket .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #1F3C88;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    margin-top: 80px;
-  }
-  .price-card .btn {
-    position: absolute; /* Ini akan membuat tombol memiliki posisi absolut */
-    bottom: 15px; /* Atur jarak dari bawah kartu */
-    left: 50%; /* Pusatkan tombol secara horizontal */
-    transform: translateX(-50%); /* Pusatkan tombol secara horizontal */
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #1F3C88;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 80px;
 }
 
-  .price-section-paket  .btn-transparent {
-    background-color: transparent;
-    color: #1F3C88;
-  }
+.price-card .btn {
+  position: absolute;
+  /* Ini akan membuat tombol memiliki posisi absolut */
+  bottom: 15px;
+  /* Atur jarak dari bawah kartu */
+  left: 50%;
+  /* Pusatkan tombol secara horizontal */
+  transform: translateX(-50%);
+  /* Pusatkan tombol secara horizontal */
+}
 
-  .price-section-paket  .btn-transparent:hover {
-    background-color: #1F3C88;
-    color: #f9f9f9;
-  }
+.price-section-paket .btn-transparent {
+  background-color: transparent;
+  color: #1F3C88;
+}
+
+.price-section-paket .btn-transparent:hover {
+  background-color: #1F3C88;
+  color: #f9f9f9;
+}
 
 .btn-transparent {
   background-color: transparent;
@@ -388,16 +396,17 @@ button i {
 }
 
 .price-card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border-radius: 15px;
-    /* Add fixed height for the card */
-    height: 105%;
-    position: relative; /* Ini akan membuat posisi tombol tetap relatif terhadap konten kartu */
-    padding-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
+  /* Add fixed height for the card */
+  height: 105%;
+  position: relative;
+  /* Ini akan membuat posisi tombol tetap relatif terhadap konten kartu */
+  padding-bottom: 40px;
 }
 
 .price-card h3 {
@@ -430,14 +439,14 @@ button i {
 }
 
 .price-card .black-text {
-    color: black;
-    font-size: revert;
-    margin-left: 20px;
-    margin-right: 20px;
-    line-height: 1.5;
-    flex-grow: 1;
-    overflow: hidden;
-    font-family: sans-serif;
+  color: black;
+  font-size: revert;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 1.5;
+  flex-grow: 1;
+  overflow: hidden;
+  font-family: sans-serif;
 }
 
 /* tutor Landig */
@@ -806,20 +815,22 @@ button i {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.foto-Profile input{
-    color: #161515;
-    font-family: sans-serif;
-    font-size: 15px;
+.foto-Profile input {
+  color: #161515;
+  font-family: sans-serif;
+  font-size: 15px;
 }
-.foto-Profile select{
-    color: #161515;
-    font-family: sans-serif;
-    font-size: 15px;
+
+.foto-Profile select {
+  color: #161515;
+  font-family: sans-serif;
+  font-size: 15px;
 }
-.foto-Profile textarea{
-    color: #161515;
-    font-family: sans-serif;
-    font-size: 15px;
+
+.foto-Profile textarea {
+  color: #161515;
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 
@@ -996,6 +1007,7 @@ button i {
   margin-right: 50px;
   margin-left: -70px;
   height: 50px;
+  width: 810px;
 }
 
 
@@ -1117,9 +1129,10 @@ button i {
   border: 1px solid #ddd;
   border-radius: 15px;
   background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   margin-top: 10px;
-  width: 885px;
+  width: 810px;
   margin-left: -70px;
 }
 
@@ -1143,14 +1156,21 @@ button i {
   margin-left: 40px;
   font-size: 18px;
   font-weight: bold;
+  margin-top: -30px;
 }
 
 .riwayat .card-tutor-p {
   margin: 0;
   font-size: 14px;
-  margin-top: 7px;
   margin-left: 40px;
-  color: #666;
+  margin-top: 7px;
+  color: #ccc;
+}
+
+.riwayat .card-tutor-q {
+  font-size: 14px;
+  margin-left: 40px;
+  margin-top: 7px;
 }
 
 /* Gaya bingkai kartu pada tampilan ponsel */
@@ -1164,28 +1184,22 @@ button i {
   position: relative;
 }
 
-.riwayat .card-body-tutorA{
-    margin: -15px;
-
-}
-
 .riwayat .selengkapnya .btn-selengkapnya {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50px;
-    right: 50;
-    transform: translate(170%, -400%);
-    transition: background-color 0.3s ease-in-out;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 360px;
+  transform: translate(170%, -400%);
+  transition: background-color 0.3s ease-in-out;
 }
 
 
 .riwayat .tanggal .nav-tanggal {
   font-size: 14px;
   font-weight: 400;
-  color: #0B5000;
+  color: #0b5000;
   padding: 0;
   transition: all .4s ease-in-out;
   align-items: flex-start;
@@ -1201,9 +1215,58 @@ button i {
 }
 
 .riwayat .tanggal .nav-tanggal svg {
-  width: 20px;
-  height: 20px;
-  margin-left: 25px;
+  width: 30px;
+  height: 30px;
+  margin-left: 35px;
+}
+
+.riwayat .tanggal {
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.riwayat .options-button {
+  margin-left: 165px;
+  margin-top: 15px;
+}
+
+.riwayat .options-menu {
+  display: flex;
+  float: left;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 150px;
+  transform: translate(170%, -400%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.riwayat .options-dropdown {
+  display: none;
+  position: absolute;
+  right: 15%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 10px;
+}
+
+.riwayat .options-dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.riwayat .options-dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+.riwayat .options-button:focus+.options-dropdown {
+  display: block;
 }
 
 
@@ -1308,19 +1371,21 @@ button i {
 
 /* APLOUAD MODUL */
 
-.uploadModul  .kelas-2-guru, .kelas-2-guru * {
+.uploadModul .kelas-2-guru,
+.kelas-2-guru * {
   box-sizing: border-box;
-  }
-  .uploadModul .kelas-2-guru {
- background: #ffffff;
+}
+
+.uploadModul .kelas-2-guru {
+  background: #ffffff;
   width: 1512px;
   height: 1277px;
   position: relative;
   overflow: hidden;
- }
+}
 
- .uploadModul .rectangle-122 {
- background: rgba(210, 216, 231, 0.50);
+.uploadModul .rectangle-122 {
+  background: rgba(210, 216, 231, 0.50);
   border-radius: 10px;
   border-style: solid;
   border-color: #070d59;
@@ -1329,291 +1394,303 @@ button i {
   height: 264px;
   position: absolute;
   left: 131px;
- top: 444px;
- }
+  top: 444px;
+}
 
- .uploadModul .nav-bar {
- width: 1512px;
+.uploadModul .nav-bar {
+  width: 1512px;
   height: 97px;
   position: absolute;
   left: 0px;
- top: 0px;
+  top: 0px;
   box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.05);
   overflow: hidden;
- }
+}
 
- .uploadModul .frame-3 {
- display: flex;
+.uploadModul .frame-3 {
+  display: flex;
   flex-direction: row;
   gap: 60px;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
   left: 850px;
- top: 38px;
- }
+  top: 38px;
+}
 
- .uploadModul .home {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .home {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: relative;
   width: 50px;
   height: 19px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .tutor {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .tutor {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: relative;
   width: 59px;
   height: 19px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .tentang-kami {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .tentang-kami {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: relative;
   width: 126px;
   height: 19px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .frame-4 {
- width: 120px;
+.uploadModul .frame-4 {
+  width: 120px;
   height: 40px;
   position: absolute;
   left: 1262px;
- top: 28px;
- }
+  top: 28px;
+}
 
- .uploadModul .notifications {
- position: absolute;
+.uploadModul .notifications {
+  position: absolute;
   left: 0px;
- top: 0px;
+  top: 0px;
   overflow: visible;
- }
+}
 
- .uploadModul .ellipse-1 {
- border-radius: 50%;
+.uploadModul .ellipse-1 {
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   position: absolute;
   left: 80px;
- top: 0px;
- }
+  top: 0px;
+}
 
- .uploadModul .guru-link {
- text-align: left;
+.uploadModul .guru-link {
+  text-align: left;
   font: 400 24px 'Ultra', sans-serif;
   position: absolute;
   left: 130px;
- top: 36px;
+  top: 36px;
   width: 158px;
   height: 25px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .guru-link-span {
+.uploadModul .guru-link-span {
 
-         color: #070d59;
+  color: #070d59;
 
-         font: 400 24px 'Ultra', sans-serif;
-
-
-
-     }
-
-     .uploadModul .guru-link-span2 {
-
-         color: #ee6f57;
-
-         font: 400 24px 'Ultra', sans-serif;
+  font: 400 24px 'Ultra', sans-serif;
 
 
 
-     }
+}
 
-     .uploadModul .detail-kelas {
- color: #070d59;
+.uploadModul .guru-link-span2 {
+
+  color: #ee6f57;
+
+  font: 400 24px 'Ultra', sans-serif;
+
+
+
+}
+
+.uploadModul .detail-kelas {
+  color: #070d59;
   text-align: left;
   font: 500 16px 'Poppins', sans-serif;
   position: absolute;
   left: 180px;
- top: 130px;
+  top: 130px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .bagian-1 {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .bagian-1 {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: absolute;
   left: 131px;
- top: 346px;
+  top: 346px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .deskripsi {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .deskripsi {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: absolute;
   left: 133px;
- top: 420px;
+  top: 420px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .lorem-ipsum-dolor-sit-amet-consectetur-posuere-elit-consequat-iaculis-viverra-faucibus-aenean-quis-sodales-donec-quam-egestas-quam-metus-tortor-mi-pretium-eros-aliquet-egestas-orci-consequat-et-velit-urna-urna-commodo-vitae-amet-pulvinar-tortor-leo-pellentesque-ut-vitae-neque-sagittis-egestas-tristique-diam-quam-tristique-neque-vitae-curabitur-nibh-eget-mauris-sed-pharetra-fames-condimentum-et-felis-amet-amet-laoreet-eleifend-vitae-feugiat-non-tempus-consectetur-fermentum-purus-aliquet-dui-venenatis-quam-leo-enim-amet-tristique-neque-ullamcorper-libero-urna-accumsan-ac-enim-consectetur-mauris-aliquet-dignissim-adipiscing-tellus-amet-aenean-ultrices-sit-augue-sagittis-lectus-massa-morbi-risus-tellus-mi {
- color: #000000;
+.uploadModul .lorem-ipsum-dolor-sit-amet-consectetur-posuere-elit-consequat-iaculis-viverra-faucibus-aenean-quis-sodales-donec-quam-egestas-quam-metus-tortor-mi-pretium-eros-aliquet-egestas-orci-consequat-et-velit-urna-urna-commodo-vitae-amet-pulvinar-tortor-leo-pellentesque-ut-vitae-neque-sagittis-egestas-tristique-diam-quam-tristique-neque-vitae-curabitur-nibh-eget-mauris-sed-pharetra-fames-condimentum-et-felis-amet-amet-laoreet-eleifend-vitae-feugiat-non-tempus-consectetur-fermentum-purus-aliquet-dui-venenatis-quam-leo-enim-amet-tristique-neque-ullamcorper-libero-urna-accumsan-ac-enim-consectetur-mauris-aliquet-dignissim-adipiscing-tellus-amet-aenean-ultrices-sit-augue-sagittis-lectus-massa-morbi-risus-tellus-mi {
+  color: #000000;
   text-align: left;
   font: 500 15px 'Poppins', sans-serif;
   position: absolute;
   left: 161px;
- top: 466px;
+  top: 466px;
   width: 689px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .dasar-desain-visual {
- color: #000000;
+.uploadModul .dasar-desain-visual {
+  color: #000000;
   text-align: left;
   font: 700 40px 'Poppins', sans-serif;
   position: absolute;
   left: 131px;
- top: 180px;
+  top: 180px;
   width: 531px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-back {
- display: flex;
+.uploadModul .arrow-back {
+  display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
   left: 130px;
- top: 127px;
- }
+  top: 127px;
+}
 
- .uploadModul .ellipse-17 {
- background: #8f9dc3;
+.uploadModul .ellipse-17 {
+  background: #8f9dc3;
   border-radius: 50%;
   flex-shrink: 0;
   width: 30px;
   height: 30px;
   position: relative;
- }
+}
 
- .uploadModul .chevron-left {
- flex-shrink: 0;
+.uploadModul .chevron-left {
+  flex-shrink: 0;
   position: absolute;
   left: 3px;
- top: 3px;
+  top: 3px;
   overflow: visible;
- }
+}
 
- .uploadModul .tutor2 {
- position: absolute;
+.uploadModul .tutor2 {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .ellipse-18 {
- border-radius: 50%;
+.uploadModul .ellipse-18 {
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   position: absolute;
   left: 131px;
- top: 253px;
- }
+  top: 253px;
+}
 
- .uploadModul .camilla-belle {
- color: #000000;
+.uploadModul .camilla-belle {
+  color: #000000;
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 189px;
- top: 262px;
+  top: 262px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .line-25 {
- position: absolute;
+.uploadModul .line-25 {
+  position: absolute;
   left: 129.97px;
- top: 320.24px;
+  top: 320.24px;
   transform: translate(-0.5px, -0.5px);
   overflow: visible;
- }
+}
 
- .uploadModul .modul-pembelajaran {
- width: 401px;
+.uploadModul .modul-pembelajaran {
+  width: 401px;
   height: 954px;
   position: absolute;
   left: 981px;
- top: 148px;
- }
+  top: 148px;
+}
 
- .uploadModul .rectangle-111 {
- background: #ffffff;
+.uploadModul .rectangle-111 {
+  background: #ffffff;
   border-radius: 20px;
   width: 401px;
   height: 954px;
   position: absolute;
   left: 0px;
- top: 0px;
+  top: 0px;
   box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.08);
- }
+}
 
- .uploadModul .modul-pembelajaran2 {
- color: #000000;
+.uploadModul .modul-pembelajaran2 {
+  color: #000000;
   text-align: left;
   font: 600 20px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 24px;
+  top: 24px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .pembuka {
- position: absolute;
+.uploadModul .pembuka {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .pembuka2 {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .pembuka2 {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 74px;
+  top: 74px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .materi {
- width: 351px;
+.uploadModul .materi {
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
- .uploadModul .rectangle-112 {
- border-radius: 15px;
+.uploadModul .rectangle-112 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1621,51 +1698,53 @@ button i {
   height: 32px;
   position: absolute;
   left: 27px;
- top: 105px;
- }
+  top: 105px;
+}
 
- .uploadModul .pengenalan-kelas {
- color: #000000;
+.uploadModul .pengenalan-kelas {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 38px;
- top: 110px;
+  top: 110px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right {
- position: absolute;
+.uploadModul .arrow-circle-right {
+  position: absolute;
   left: 343px;
- top: 109px;
+  top: 109px;
   overflow: visible;
- }
+}
 
- .uploadModul .minggu-4 {
- position: absolute;
+.uploadModul .minggu-4 {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .minggu-42 {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .minggu-42 {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 682px;
+  top: 682px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .materi-10 {
- width: 351px;
+.uploadModul .materi-10 {
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
- .uploadModul .rectangle-1122 {
- border-radius: 15px;
+.uploadModul .rectangle-1122 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1673,35 +1752,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 713px;
- }
+  top: 713px;
+}
 
- .uploadModul .dasar-desain-visual2 {
- color: #000000;
+.uploadModul .dasar-desain-visual2 {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 718px;
+  top: 718px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right3 {
- position: absolute;
+.uploadModul .arrow-circle-right3 {
+  position: absolute;
   left: 341px;
- top: 717px;
+  top: 717px;
   overflow: visible;
- }
+}
 
- .uploadModul .materi-11 {
- width: 351px;
+.uploadModul .materi-11 {
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
- .uploadModul .rectangle-1123 {
- border-radius: 15px;
+.uploadModul .rectangle-1123 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1709,35 +1789,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 759px;
- }
+  top: 759px;
+}
 
- .uploadModul .dasar-desain-visual3 {
- color: #000000;
+.uploadModul .dasar-desain-visual3 {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 764px;
+  top: 764px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right5 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 763px;
+  top: 763px;
   overflow: visible;
- }
+}
 
 .materi-12 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1124 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1745,51 +1826,53 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 805px;
- }
+  top: 805px;
+}
 
 .dasar-desain-visual4 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 810px;
+  top: 810px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right7 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 809px;
+  top: 809px;
   overflow: visible;
- }
+}
 
 .penutup {
- position: absolute;
+  position: absolute;
   inset: 0;
- }
+}
 
 .penutup2 {
- color: rgba(0, 0, 0, 0.60);
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 27px;
- top: 857px;
+  top: 857px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .eval {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1125 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1797,51 +1880,53 @@ button i {
   height: 32px;
   position: absolute;
   left: 22px;
- top: 888px;
- }
+  top: 888px;
+}
 
 .evaluasi {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 33px;
- top: 893px;
+  top: 893px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right9 {
- position: absolute;
+.uploadModul .arrow-circle-right9 {
+  position: absolute;
   left: 338px;
- top: 892px;
+  top: 892px;
   overflow: visible;
- }
+}
 
 .minggu-3 {
- position: absolute;
+  position: absolute;
   inset: 0;
- }
+}
 
 .minggu-32 {
- color: rgba(0, 0, 0, 0.60);
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 507px;
+  top: 507px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .materi-7 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1126 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1849,35 +1934,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 538px;
- }
+  top: 538px;
+}
 
 .dasar-desain-visual5 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 543px;
+  top: 543px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right11 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 542px;
+  top: 542px;
   overflow: visible;
- }
+}
 
 .materi-8 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1127 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1885,35 +1971,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 584px;
- }
+  top: 584px;
+}
 
 .dasar-desain-visual6 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 589px;
+  top: 589px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right13 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 588px;
+  top: 588px;
   overflow: visible;
- }
+}
 
 .materi-9 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1128 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1921,51 +2008,53 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 630px;
- }
+  top: 630px;
+}
 
 .dasar-desain-visual7 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 635px;
+  top: 635px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right15 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 634px;
+  top: 634px;
   overflow: visible;
- }
+}
 
 .minggu-2 {
- position: absolute;
+  position: absolute;
   inset: 0;
- }
+}
 
 .minggu-22 {
- color: rgba(0, 0, 0, 0.60);
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 332px;
+  top: 332px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .materi-4 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-1129 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -1973,35 +2062,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 363px;
- }
+  top: 363px;
+}
 
 .dasar-desain-visual8 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 368px;
+  top: 368px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right17 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 367px;
+  top: 367px;
   overflow: visible;
- }
+}
 
 .materi-5 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-11210 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -2009,35 +2099,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 409px;
- }
+  top: 409px;
+}
 
 .dasar-desain-visual9 {
- color: #000000;
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 414px;
+  top: 414px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .arrow-circle-right19 {
- position: absolute;
+  position: absolute;
   left: 341px;
- top: 413px;
+  top: 413px;
   overflow: visible;
- }
+}
 
 .materi-6 {
- width: 351px;
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
 .rectangle-11211 {
- border-radius: 15px;
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -2045,45 +2136,47 @@ button i {
   height: 32px;
   position: absolute;
   left: 27px;
- top: 455px;
- }
+  top: 455px;
+}
 
- .uploadModul .dasar-desain-visual10 {
- color: #000000;
+.uploadModul .dasar-desain-visual10 {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 38px;
- top: 460px;
+  top: 460px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right21 {
- position: absolute;
+.uploadModul .arrow-circle-right21 {
+  position: absolute;
   left: 343px;
- top: 459px;
+  top: 459px;
   overflow: visible;
- }
+}
 
- .uploadModul .minggu-1 {
- position: absolute;
+.uploadModul .minggu-1 {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .minggu-12 {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .minggu-12 {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 14px 'Poppins', sans-serif;
   position: absolute;
   left: 25px;
- top: 157px;
+  top: 157px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .rectangle-11212 {
- border-radius: 15px;
+.uploadModul .rectangle-11212 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -2091,35 +2184,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 188px;
- }
+  top: 188px;
+}
 
- .uploadModul .dasar-desain-visual11 {
- color: #000000;
+.uploadModul .dasar-desain-visual11 {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 193px;
+  top: 193px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right23 {
- position: absolute;
+.uploadModul .arrow-circle-right23 {
+  position: absolute;
   left: 341px;
- top: 192px;
+  top: 192px;
   overflow: visible;
- }
+}
 
- .uploadModul .materi-2 {
- width: 351px;
+.uploadModul .materi-2 {
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
- .uploadModul .rectangle-11213 {
- border-radius: 15px;
+.uploadModul .rectangle-11213 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -2127,35 +2221,36 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 234px;
- }
+  top: 234px;
+}
 
- .uploadModul .elemen-visual-design {
- color: #000000;
+.uploadModul .elemen-visual-design {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 239px;
+  top: 239px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right25 {
- position: absolute;
+.uploadModul .arrow-circle-right25 {
+  position: absolute;
   left: 341px;
- top: 238px;
+  top: 238px;
   overflow: visible;
- }
+}
 
- .uploadModul .materi-3 {
- width: 351px;
+.uploadModul .materi-3 {
+  width: 351px;
   height: 32px;
   position: static;
- }
+}
 
- .uploadModul .rectangle-11214 {
- border-radius: 15px;
+.uploadModul .rectangle-11214 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #070d59;
   border-width: 1px;
@@ -2163,47 +2258,48 @@ button i {
   height: 32px;
   position: absolute;
   left: 25px;
- top: 280px;
- }
+  top: 280px;
+}
 
- .uploadModul .prinsip-visual-design {
- color: #000000;
+.uploadModul .prinsip-visual-design {
+  color: #000000;
   text-align: left;
   font: 500 14px 'Poppins', sans-serif;
   position: absolute;
   left: 36px;
- top: 285px;
+  top: 285px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-circle-right27 {
- position: absolute;
+.uploadModul .arrow-circle-right27 {
+  position: absolute;
   left: 341px;
- top: 284px;
+  top: 284px;
   overflow: visible;
- }
+}
 
- .uploadModul .next {
- position: absolute;
+.uploadModul .next {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .arrow-back2 {
- display: flex;
+.uploadModul .arrow-back2 {
+  display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
   left: 875px;
- top: 1056px;
+  top: 1056px;
   transform-origin: 0 0;
   transform: rotate(180deg) scale(1, 1);
- }
+}
 
- .uploadModul .ellipse-172 {
- background: #ffffff;
+.uploadModul .ellipse-172 {
+  background: #ffffff;
   border-radius: 50%;
   border-style: solid;
   border-color: #070d59;
@@ -2212,66 +2308,68 @@ button i {
   width: 30px;
   height: 30px;
   position: relative;
- }
+}
 
- .uploadModul .chevron-left3 {
- flex-shrink: 0;
+.uploadModul .chevron-left3 {
+  flex-shrink: 0;
   position: absolute;
   left: 3px;
- top: 3px;
+  top: 3px;
   overflow: visible;
- }
+}
 
- .uploadModul .selanjutnya {
- color: #070d59;
+.uploadModul .selanjutnya {
+  color: #070d59;
   text-align: left;
   font: 500 16px 'Poppins', sans-serif;
   position: absolute;
   left: 729px;
- top: 1029px;
+  top: 1029px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .arrow-back3 {
- display: flex;
+.uploadModul .arrow-back3 {
+  display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
   left: 130px;
- top: 1026px;
+  top: 1026px;
   transform-origin: 0 0;
   transform: rotate(0deg) scale(1, 1);
- }
+}
 
- .uploadModul .chevron-left5 {
- flex-shrink: 0;
+.uploadModul .chevron-left5 {
+  flex-shrink: 0;
   position: absolute;
   left: 3px;
- top: 3px;
+  top: 3px;
   overflow: visible;
- }
+}
 
- .uploadModul .sebelumnya {
- color: #070d59;
+.uploadModul .sebelumnya {
+  color: #070d59;
   text-align: left;
   font: 500 16px 'Poppins', sans-serif;
   position: absolute;
   left: 178px;
- top: 1029px;
+  top: 1029px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .edit-kelas {
- position: absolute;
+.uploadModul .edit-kelas {
+  position: absolute;
   inset: 0;
- }
+}
 
- .uploadModul .rectangle-117 {
- border-radius: 15px;
+.uploadModul .rectangle-117 {
+  border-radius: 15px;
   border-style: solid;
   border-color: #1f3c88;
   border-width: 2px;
@@ -2279,32 +2377,33 @@ button i {
   height: 42px;
   position: absolute;
   left: 744px;
- top: 151px;
+  top: 151px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
- }
+}
 
- .uploadModul .edit-kelas2 {
- color: #1f3c88;
+.uploadModul .edit-kelas2 {
+  color: #1f3c88;
   text-align: left;
   font: 600 12px 'Poppins', sans-serif;
   position: absolute;
   left: 800px;
- top: 162px;
+  top: 162px;
   width: 70px;
   height: 19px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .icon-edit {
- position: absolute;
+.uploadModul .icon-edit {
+  position: absolute;
   left: 763px;
- top: 161px;
+  top: 161px;
   overflow: visible;
- }
+}
 
- .uploadModul .rectangle-121 {
- background: rgba(210, 216, 231, 0.50);
+.uploadModul .rectangle-121 {
+  background: rgba(210, 216, 231, 0.50);
   border-radius: 10px;
   border-style: solid;
   border-color: #070d59;
@@ -2313,22 +2412,23 @@ button i {
   height: 39px;
   position: absolute;
   left: 130px;
- top: 370px;
- }
+  top: 370px;
+}
 
- .uploadModul .ringkasan {
- color: #000000;
+.uploadModul .ringkasan {
+  color: #000000;
   text-align: left;
   font: 500 16px 'Poppins', sans-serif;
   position: absolute;
   left: 160px;
- top: 378px;
+  top: 378px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
 .uploadModul .rectangle-123 {
- background: rgba(210, 216, 231, 0.50);
+  background: rgba(210, 216, 231, 0.50);
   border-radius: 10px;
   border-style: solid;
   border-color: #070d59;
@@ -2337,61 +2437,64 @@ button i {
   height: 45px;
   position: absolute;
   left: 130px;
- top: 764px;
- }
+  top: 764px;
+}
 
- .uploadModul .link-modul-jika-diperlukan {
- color: rgba(0, 0, 0, 0.60);
+.uploadModul .link-modul-jika-diperlukan {
+  color: rgba(0, 0, 0, 0.60);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: absolute;
   left: 133px;
- top: 740px;
+  top: 740px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .drive-google-com {
- color: rgba(0, 0, 0, 0.50);
+.uploadModul .drive-google-com {
+  color: rgba(0, 0, 0, 0.50);
   text-align: left;
   font: 600 16px 'Poppins', sans-serif;
   position: absolute;
   left: 214px;
- top: 775px;
+  top: 775px;
   display: flex;
- align-items: center;
- justify-content: flex-start}
+  align-items: center;
+  justify-content: flex-start
+}
 
- .uploadModul .add-link {
- position: absolute;
+.uploadModul .add-link {
+  position: absolute;
   left: 164px;
- top: 775px;
+  top: 775px;
   overflow: visible;
- }
+}
 
- .uploadModul .rectangle-1172 {
- background: #1f3c88;
+.uploadModul .rectangle-1172 {
+  background: #1f3c88;
   border-radius: 15px;
   width: 131px;
   height: 50px;
   position: absolute;
   left: 744px;
- top: 856px;
+  top: 856px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
- }
+}
 
- .uploadModul .simpan {
- color: #ffffff;
+.uploadModul .simpan {
+  color: #ffffff;
   text-align: center;
   font: 600 16px 'Poppins', sans-serif;
   position: absolute;
   left: 775px;
- top: 871px;
+  top: 871px;
   width: 70px;
   height: 19px;
   display: flex;
- align-items: center;
- justify-content: center}
+  align-items: center;
+  justify-content: center
+}
 
 
 
@@ -2408,24 +2511,30 @@ button i {
 
 .Modul .rounded-icon {
   background-color: #8F9DC3;
-  border-radius: 50%; /* Ini akan memberikan bentuk lingkaran */
-  padding: 10px; /* Anda dapat mengatur ini sesuai kebutuhan Anda */
-  display: inline-flex; /* Flex akan memastikan ikon tetap terpusat */
+  border-radius: 50%;
+  /* Ini akan memberikan bentuk lingkaran */
+  padding: 10px;
+  /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+  display: inline-flex;
+  /* Flex akan memastikan ikon tetap terpusat */
   justify-content: center;
   align-items: center;
 }
 
 .Modul .material-icons {
-  color: #070D59; /* Mengatur warna ikon menjadi putih */
+  color: #070D59;
+  /* Mengatur warna ikon menjadi putih */
   font-size: 14px;
 }
 
 .Modul .editKelas .title-kelas {
-  margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+  margin-left: 20px;
+  /* Mengatur jarak antara ikon dan judul */
 }
 
 .Modul .editKelas .title-kelas p {
-  font-size: 16px;  /* Mengatur ukuran teks judul */
+  font-size: 16px;
+  /* Mengatur ukuran teks judul */
   color: #070D59;
   margin: 0;
 }
@@ -2438,9 +2547,10 @@ button i {
 }
 
 .Modul .card-left {
-  width: 61%;  /* Menyesuaikan lebar card */
+  width: 61%;
+  /* Menyesuaikan lebar card */
   padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   margin-right: 1%;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -2468,7 +2578,8 @@ button i {
 
 /* Card Kanan */
 .Modul .card-right {
-  width: 35%;  /* Menyesuaikan lebar card */
+  width: 35%;
+  /* Menyesuaikan lebar card */
   padding: 20px;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -2480,57 +2591,73 @@ button i {
   margin-bottom: 20px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .Modul .modul-card {
   border-radius: 10px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .Modul .week-card {
   border-radius: 10px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .Modul .modul {
-  flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+  flex-basis: 55%;
+  /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
 }
 
 .Modul .tutor-image-small {
-  width: 60px;            /* Mengatur lebar gambar */
-  height: 60px;           /* Mengatur tinggi gambar */
-  border-radius: 50%;     /* Membuat gambar menjadi lingkaran */
-  margin-bottom: 20px;    /* Memberikan jarak ke elemen di bawahnya */
-  object-fit: cover;      /* Menjaga aspek rasio gambar */
+  width: 60px;
+  /* Mengatur lebar gambar */
+  height: 60px;
+  /* Mengatur tinggi gambar */
+  border-radius: 50%;
+  /* Membuat gambar menjadi lingkaran */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
+  object-fit: cover;
+  /* Menjaga aspek rasio gambar */
 }
 
 .Modul .card-title-kelas {
-  font-size: 38px;       /* Mengatur ukuran huruf */
-  font-weight: bold;     /* Membuat teks menjadi tebal */
-  margin-bottom: 20px;  /* Memberikan jarak ke elemen di bawahnya */
+  font-size: 38px;
+  /* Mengatur ukuran huruf */
+  font-weight: bold;
+  /* Membuat teks menjadi tebal */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
 }
 
 .Modul .kelas-tutor-details {
-  display: flex;        /* Menggunakan flexbox */
-  align-items: center;  /* Menyelaraskan item-item di tengah secara vertikal */
-  gap: 20px;            /* Memberikan jarak antara gambar dan nama tutor */
+  display: flex;
+  /* Menggunakan flexbox */
+  align-items: center;
+  /* Menyelaraskan item-item di tengah secara vertikal */
+  gap: 20px;
+  /* Memberikan jarak antara gambar dan nama tutor */
 }
 
 .Modul .kelas-info {
-  display: flex; /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+  display: flex;
+  /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
   width: 98.5%;
-  justify-content: space-between; /* Memberi jarak antara duration dan referensi */
-  border-bottom: 1px solid black; /* Menambahkan garis bawah */
-   /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+  justify-content: space-between;
+  /* Memberi jarak antara duration dan referensi */
+  border-bottom: 1px solid black;
+  /* Menambahkan garis bawah */
+  /* Memberikan jarak antara garis bawah dan elemen berikutnya */
 }
 
 .Modul .referensi {
-  margin-right: 150px; /* Menambahkan margin kanan 10px pada elemen duration */
+  margin-right: 150px;
+  /* Menambahkan margin kanan 10px pada elemen duration */
 }
 
 .Modul .duration-title {
@@ -2567,7 +2694,8 @@ button i {
   margin-top: -5px;
   border-radius: 9px;
   background-color: #7b88b646;
-  border: 1px solid black;;
+  border: 1px solid black;
+  ;
   width: 99%;
 }
 
@@ -2592,6 +2720,7 @@ button i {
   border-radius: 15px;
   background-color: #5b6ca346;
 }
+
 .Modul .drive {
   padding-top: 10px;
   width: 100%;
@@ -2632,25 +2761,26 @@ button i {
   color: #1c0bd8;
 }
 
-.sebelumnya{
+.sebelumnya {
   display: flex;
   align-items: center;
 }
 
-.sebelumnya p{
- color: #0f0f0f;
-}
-
-.selanjutnya p{
+.sebelumnya p {
   color: #0f0f0f;
 }
+
+.selanjutnya p {
+  color: #0f0f0f;
+}
+
 .selanjutnya {
   display: flex;
   align-items: center;
   margin-left: 582px;
 }
 
-.sebelumnya-icon{
+.sebelumnya-icon {
   background-color: transparent;
   border: 2px solid #070D59;
   border-radius: 50%;
@@ -2663,6 +2793,7 @@ button i {
   transition: background-color 0.3s;
 
 }
+
 .selanjutnya-icon {
   background-color: transparent;
   border: 2px solid #070D59;
@@ -2698,13 +2829,13 @@ button i {
   color: #ffffff;
 }
 
-.sebelumnya-text
-{
+.sebelumnya-text {
   margin-left: 10px;
 
 }
+
 .selanjutnya-text {
- margin-left: 0px;
+  margin-left: 0px;
 }
 
 
@@ -2832,7 +2963,7 @@ button i {
   margin-left: 80px;
 }
 
-.Modul .wek-wek-card{
+.Modul .wek-wek-card {
   margin-top: -20px;
 }
 
@@ -2868,11 +2999,13 @@ button i {
   border-radius: 50%;
   margin-right: 5px;
 }
+
 /* Gaya ikon */
 .dropdown-trigger .fas {
   margin-right: 5px;
   margin-left: 10px;
 }
+
 .profile-name {
   font-weight: 500;
 }
@@ -2926,7 +3059,8 @@ button i {
 .pembayaran .profile-pic {
   width: 250px;
   height: 250px;
-  border-radius: 10px; /* Adjust the value to control the roundness */
+  border-radius: 10px;
+  /* Adjust the value to control the roundness */
   margin: 0 auto 10px;
 }
 
@@ -3011,7 +3145,7 @@ button i {
   color: #00000099;
 }
 
-.pembayaran  payment-button {
+.pembayaran payment-button {
   text-align: center;
   margin-top: 20px;
 }
@@ -3024,8 +3158,10 @@ button i {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  width: 100%; /* Set width to 100% to match the card width */
-  border: none; /* Menghilangkan border */
+  width: 100%;
+  /* Set width to 100% to match the card width */
+  border: none;
+  /* Menghilangkan border */
   margin-top: 80px;
 }
 
@@ -3090,7 +3226,8 @@ button i {
 .pembayaran .card-title-search {
   margin: 0;
   font-size: 24px;
-  color: #333; /* Ubah warna sesuai kebutuhan */
+  color: #333;
+  /* Ubah warna sesuai kebutuhan */
 }
 
 /* CSS untuk membagi kolom */
@@ -3122,15 +3259,22 @@ button i {
 .pembayaran .back-icon {
   display: inline-block;
   font-size: 30px;
-  color: #333; /* Warna ikon saat normal */
+  color: #333;
+  /* Warna ikon saat normal */
   text-decoration: none;
-  background-color: #d2d8e7; /* Warna latar belakang blok ikon */
-  padding: 10px; /* Ruang dalam blok ikon */
-  border-radius: 8px; /* Sudut melengkung blok ikon */
+  background-color: #d2d8e7;
+  /* Warna latar belakang blok ikon */
+  padding: 10px;
+  /* Ruang dalam blok ikon */
+  border-radius: 8px;
+  /* Sudut melengkung blok ikon */
 }
+
 .pembayaran .back-icon:hover {
-  color: #d2d8e7; /* Warna ikon saat hover */
-  background-color: #333; /* Warna latar belakang blok ikon saat hover */
+  color: #d2d8e7;
+  /* Warna ikon saat hover */
+  background-color: #333;
+  /* Warna latar belakang blok ikon saat hover */
 }
 
 
@@ -3149,7 +3293,7 @@ button i {
   margin-left: -70px;
 }
 
-.card-header-sertifikat p{
+.card-header-sertifikat p {
 
   font-size: 20px;
   color: #0f0f0f;
@@ -3157,6 +3301,7 @@ button i {
   margin-top: 5px;
 
 }
+
 /* Gaya untuk bagian formulir kartu sertifikasi */
 .card-formulir-sertifikasi {
   margin-top: 20px;
@@ -3171,99 +3316,107 @@ button i {
 /* Gaya untuk tampilan select dalam kotak */
 .select-group,
 .tambah-sertifikasi-group {
-position: relative;
+  position: relative;
 }
 
 .select-group select,
 .tambah-sertifikasi-group input {
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-background-color: transparent;
-width: 100%;
-padding: 8px;
-border: 1px solid #ccc;
-border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 /* Gaya untuk memposisikan ikon select di dalam kotak */
 .select-group::before {
-content: '\f078'; /* Kode ikon dropdown dari Font Awesome */
-font-family: 'Font Awesome 5 Free';
-font-weight: 900;
-position: absolute;
-top: 60%;
-right: 10px;
-transform: translateY(-50%);
-pointer-events: none;
+  content: '\f078';
+  /* Kode ikon dropdown dari Font Awesome */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 60%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 /* Gaya untuk tampilan ikon plus pada elemen input */
 .tambah-sertifikasi-group {
-position: relative;
-display: inline-flex;
-align-items: center;
-margin-top: 30px; /* Atur jarak dari atas */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 30px;
+  /* Atur jarak dari atas */
 }
 
 .tambah-sertifikasi-group .btn-tambah {
-border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
-background-color: #D9D9D9;
-border: none;
-color: #000;
-padding: 10px;
-margin-right: 10px; /* Ruang antara ikon dan input */
-cursor: pointer;
-padding-top: 10%;
-padding-top: 10%;
+  border-radius: 50%;
+  /* Membuat latar belakang berbentuk bulat */
+  background-color: #D9D9D9;
+  border: none;
+  color: #000;
+  padding: 10px;
+  margin-right: 10px;
+  /* Ruang antara ikon dan input */
+  cursor: pointer;
+  padding-top: 10%;
+  padding-top: 10%;
 }
 
 .tambah-sertifikasi-group .form-control {
-border-radius: 15px;
-border: 1px solid #D9D9D9;
+  border-radius: 15px;
+  border: 1px solid #D9D9D9;
 }
 
 
 .sertifikasi-group .form-group {
-margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .tambah-sertifikasi-group {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .tambah-sertifikasi-group .form-control {
-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .tambah-sertifikasi-group .btn {
-border-top-left-radius: 0;
-border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .sertifikat .tambah-sertifikasi-group .btn {
-border-top-left-radius: 0;
-border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
 .custom-card {
-width: 740px; /* Lebar maksimal untuk card */
-margin: 8px auto; /* Pusatkan card horizontal di dalam section */
-border: 1px solid #ced4da;
-border-radius: 20px;
-padding: 15px;
-background-color: #E8EBF399;
-margin-bottom: 30px;
-margin-top: 3px;
-text-align: left;
+  width: 740px;
+  /* Lebar maksimal untuk card */
+  margin: 8px auto;
+  /* Pusatkan card horizontal di dalam section */
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #E8EBF399;
+  margin-bottom: 30px;
+  margin-top: 3px;
+  text-align: left;
 }
 
 .input-group-text i {
-font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+  font-size: 1.5em;
+  /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 
-.sertifikat .profile-sertif  .card-profile {
+.sertifikat .profile-sertif .card-profile {
   position: relative;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -3280,7 +3433,8 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 .sertifikat .profile-pic {
   width: 250px;
   height: 250px;
-  border-radius: 10px; /* Adjust the value to control the roundness */
+  border-radius: 10px;
+  /* Adjust the value to control the roundness */
   margin: 0 auto 10px;
 }
 
@@ -3296,7 +3450,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 
-.sertifikat .profile-sertif  .card-menu {
+.sertifikat .profile-sertif .card-menu {
   position: relative;
   width: 270px;
   background-color: white;
@@ -3307,12 +3461,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.sertifikat .profile-sertif  .menu {
+.sertifikat .profile-sertif .menu {
   display: flex;
   flex-direction: column;
 }
 
-.sertifikat .profile-sertif  .menu-item {
+.sertifikat .profile-sertif .menu-item {
   display: flex;
   align-items: center;
   padding: 15px;
@@ -3328,6 +3482,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 .sertifikat .profile-sertif .menu-item:hover {
   background-color: #f5f5f5;
 }
+
 .sertifikat .profile-sertif .menu-item i {
   font-size: 1.25rem;
   margin-right: 10px;
@@ -3341,7 +3496,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 /* TAMBAH MODUL side*/
-.tambahModulSide  .card {
+.tambahModulSide .card {
   position: relative;
   width: 270px;
   padding: 20px;
@@ -3398,7 +3553,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   border-bottom: none;
 }
 
-.tambahModulSide  .menu-item:hover {
+.tambahModulSide .menu-item:hover {
   background-color: #f5f5f5;
 }
 
@@ -3417,9 +3572,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
-  margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
-  margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+  max-width: 1000px;
+  /* Sesuaikan dengan lebar yang diinginkan */
+  margin: 0 auto;
+  /* Untuk mengatur posisi secara horizontal di tengah layar */
+  margin-top: 20px;
+  /* Sesuaikan dengan kebutuhan Anda */
 }
 
 .tambahModulSide .search-text {
@@ -3453,7 +3611,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-bottom: 10px;
 }
 
-.tambahModulSide  .form-control {
+.tambahModulSide .form-control {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -3462,7 +3620,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-bottom: 15px;
 }
 
-.form-control.pembelajaran{
+.form-control.pembelajaran {
   border-radius: 100px;
 }
 
@@ -3509,16 +3667,19 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   position: relative;
   display: inline-flex;
   align-items: center;
-  margin-top: 30px; /* Atur jarak dari atas */
+  margin-top: 30px;
+  /* Atur jarak dari atas */
 }
 
 .tambah-modul-group .btn-tambah {
-  border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+  border-radius: 50%;
+  /* Membuat latar belakang berbentuk bulat */
   background-color: #D9D9D9;
   border: none;
   color: #000;
   padding: 10px;
-  margin-right: 10px; /* Ruang antara ikon dan input */
+  margin-right: 10px;
+  /* Ruang antara ikon dan input */
   cursor: pointer;
   padding-top: 10%;
   padding-top: 10%;
@@ -3547,9 +3708,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .tambahModulSide .custom-card {
-  width: 740px; /* Lebar maksimal untuk card */
-  margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+  width: 740px;
+  /* Lebar maksimal untuk card */
+  margin: 8px auto;
+  /* Pusatkan card horizontal di dalam section */
   border: 1px solid #ced4da;
   border-radius: 20px;
   padding: 15px;
@@ -3560,7 +3724,8 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 .tambahModulSide .input-group-text i {
-font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+  font-size: 1.5em;
+  /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 
@@ -3626,14 +3791,17 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 .kelasLinkGmeet .logo {
   background-color: white;
-  width: 40px; /* Ganti ukuran sesuai keinginan Anda */
-  height: auto; /* Biarkan height otomatis disesuaikan agar proporsi tetap terjaga */
+  width: 40px;
+  /* Ganti ukuran sesuai keinginan Anda */
+  height: auto;
+  /* Biarkan height otomatis disesuaikan agar proporsi tetap terjaga */
   margin-right: 10px;
   border-radius: 8px;
 }
 
 .kelasLinkGmeet .keterangan {
-  color: white; /* Mengubah warna teks menjadi putih */
+  color: white;
+  /* Mengubah warna teks menjadi putih */
   font-size: medium;
   margin: 0;
   text-align: center;
@@ -3648,17 +3816,20 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 /* ringkasan */
-.kelasLinkGmeet .ringkasan-title{
+.kelasLinkGmeet .ringkasan-title {
   color: grey;
 }
-.kelasLinkGmeet .ringkasan{
+
+.kelasLinkGmeet .ringkasan {
   padding-top: 10px;
   width: 100%;
 }
+
 .kelasLinkGmeet .ringkasan-detail {
   color: black;
   font-size: 16px;
-  margin-top: -5px;;
+  margin-top: -5px;
+  ;
 }
 
 
@@ -3670,24 +3841,30 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 .kelasLinkGmeet .rounded-icon {
   background-color: #8F9DC3;
-  border-radius: 50%; /* Ini akan memberikan bentuk lingkaran */
-  padding: 10px; /* Anda dapat mengatur ini sesuai kebutuhan Anda */
-  display: inline-flex; /* Flex akan memastikan ikon tetap terpusat */
+  border-radius: 50%;
+  /* Ini akan memberikan bentuk lingkaran */
+  padding: 10px;
+  /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+  display: inline-flex;
+  /* Flex akan memastikan ikon tetap terpusat */
   justify-content: center;
   align-items: center;
 }
 
 .kelasLinkGmeet .material-icons {
-  color: #070D59; /* Mengatur warna ikon menjadi putih */
+  color: #070D59;
+  /* Mengatur warna ikon menjadi putih */
   font-size: 14px;
 }
 
 .kelasLinkGmeet .title-kelas {
-  margin-left: 20px; /* Mengatur jarak antara ikon dan judul */
+  margin-left: 20px;
+  /* Mengatur jarak antara ikon dan judul */
 }
 
 .kelasLinkGmeet .title-kelas p {
-  font-size: 16px;  /* Mengatur ukuran teks judul */
+  font-size: 16px;
+  /* Mengatur ukuran teks judul */
   color: #070D59;
   margin: 0;
 }
@@ -3700,9 +3877,10 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 .kelasLinkGmeet .card-left {
-  width: 70%;  /* Menyesuaikan lebar card */
+  width: 70%;
+  /* Menyesuaikan lebar card */
   padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   margin-right: 1%;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -3728,7 +3906,8 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 /* Card Kanan */
 .kelasLinkGmeet .card-right {
-  width: 35%;  /* Menyesuaikan lebar card */
+  width: 35%;
+  /* Menyesuaikan lebar card */
   padding: 20px;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -3740,57 +3919,74 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-bottom: 20px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .kelasLinkGmeet .modul-card {
   border-radius: 10px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .kelasLinkGmeet .week-card {
   border-radius: 10px;
   padding: 15px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .kelasLinkGmeet .modul {
-  flex-basis: 55%; /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
+  flex-basis: 55%;
+  /* Menyusun bagian modul pembelajaran dengan lebar 55% dari container */
 }
 
 .kelasLinkGmeet .tutor-image-small {
-  width: 60px;            /* Mengatur lebar gambar */
-  height: 60px;           /* Mengatur tinggi gambar */
-  border-radius: 50%;     /* Membuat gambar menjadi lingkaran */
-  margin-bottom: 20px;    /* Memberikan jarak ke elemen di bawahnya */
-  object-fit: cover;      /* Menjaga aspek rasio gambar */
+  width: 60px;
+  /* Mengatur lebar gambar */
+  height: 60px;
+  /* Mengatur tinggi gambar */
+  border-radius: 50%;
+  /* Membuat gambar menjadi lingkaran */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
+  object-fit: cover;
+  /* Menjaga aspek rasio gambar */
 }
 
 .kelasLinkGmeet .card-title-kelas {
-  font-size: 40px;       /* Mengatur ukuran huruf */
-  font-weight: bold;     /* Membuat teks menjadi tebal */
-  margin-bottom: 20px;  /* Memberikan jarak ke elemen di bawahnya */
+  font-size: 40px;
+  /* Mengatur ukuran huruf */
+  font-weight: bold;
+  /* Membuat teks menjadi tebal */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
 }
 
 .kelasLinkGmeet .kelas-tutor-details {
-  display: flex;        /* Menggunakan flexbox */
-  align-items: center;  /* Menyelaraskan item-item di tengah secara vertikal */
-  gap: 20px;            /* Memberikan jarak antara gambar dan nama tutor */
+  display: flex;
+  /* Menggunakan flexbox */
+  align-items: center;
+  /* Menyelaraskan item-item di tengah secara vertikal */
+  gap: 20px;
+  /* Memberikan jarak antara gambar dan nama tutor */
 }
 
 .kelasLinkGmeet .kelas-info {
-  display: flex; /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+  display: flex;
+  /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
   width: 100%;
-  justify-content: space-between; /* Memberi jarak antara duration dan referensi */
-  border-bottom: 1px solid black; /* Menambahkan garis bawah */
-  padding-bottom: 20px; /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+  justify-content: space-between;
+  /* Memberi jarak antara duration dan referensi */
+  border-bottom: 1px solid black;
+  /* Menambahkan garis bawah */
+  padding-bottom: 20px;
+  /* Memberikan jarak antara garis bawah dan elemen berikutnya */
 }
 
 .kelasLinkGmeet .referensi {
-  margin-right: 150px; /* Menambahkan margin kanan 10px pada elemen duration */
+  margin-right: 150px;
+  /* Menambahkan margin kanan 10px pada elemen duration */
 }
 
 .kelasLinkGmeet .duration-title {
@@ -3850,25 +4046,26 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   color: #1c0bd8;
 }
 
-.kelasLinkGmeet .sebelumnya{
+.kelasLinkGmeet .sebelumnya {
   display: flex;
   align-items: center;
 }
 
-.kelasLinkGmeet .sebelumnya p{
- color: #0f0f0f;
-}
-
-.kelasLinkGmeet .selanjutnya p{
+.kelasLinkGmeet .sebelumnya p {
   color: #0f0f0f;
 }
+
+.kelasLinkGmeet .selanjutnya p {
+  color: #0f0f0f;
+}
+
 .kelasLinkGmeet .selanjutnya {
   display: flex;
   align-items: center;
   margin-left: 635px;
 }
 
-.kelasLinkGmeet .sebelumnya-icon{
+.kelasLinkGmeet .sebelumnya-icon {
   background-color: transparent;
   border: 2px solid #070D59;
   border-radius: 50%;
@@ -3881,6 +4078,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   transition: background-color 0.3s;
 
 }
+
 .kelasLinkGmeet .selanjutnya-icon {
   background-color: transparent;
   border: 2px solid #070D59;
@@ -3916,19 +4114,20 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   color: #ffffff;
 }
 
-.kelasLinkGmeet .sebelumnya-text
-{
+.kelasLinkGmeet .sebelumnya-text {
   margin-left: 10px;
 
 }
+
 .kelasLinkGmeet .selanjutnya-text {
- margin-left:0px;
+  margin-left: 0px;
 }
 
 .kelasLinkGmeet .progress-bar {
   width: 100%;
   height: 10px;
-  background-color: #E0E0E0; /* Warna latar belakang progress bar */
+  background-color: #E0E0E0;
+  /* Warna latar belakang progress bar */
   border-radius: 5px;
   overflow: hidden;
   margin-top: 10px;
@@ -3938,8 +4137,10 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 /* Gaya bagian yang mengisi progress */
 .kelasLinkGmeet .progress-fill {
   height: 100%;
-  background-color: #AD6359; /* Warna yang mengisi progress */
-  width: 30%; /* Ubah angka ini sesuai dengan persentase yang diinginkan */
+  background-color: #AD6359;
+  /* Warna yang mengisi progress */
+  width: 30%;
+  /* Ubah angka ini sesuai dengan persentase yang diinginkan */
 }
 
 .kelasLinkGmeet .pembuka-title {
@@ -3975,7 +4176,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-left: 80px;
 }
 
-.kelasLinkGmeet .wek-wek-card{
+.kelasLinkGmeet .wek-wek-card {
   margin-top: -20px;
 }
 
@@ -4052,7 +4253,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   border-bottom: none;
 }
 
-.tambahPaketKelas  .menu-item:hover {
+.tambahPaketKelas .menu-item:hover {
   background-color: #f5f5f5;
 }
 
@@ -4071,9 +4272,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
-  margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
-  margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+  max-width: 1000px;
+  /* Sesuaikan dengan lebar yang diinginkan */
+  margin: 0 auto;
+  /* Untuk mengatur posisi secara horizontal di tengah layar */
+  margin-top: 20px;
+  /* Sesuaikan dengan kebutuhan Anda */
 }
 
 .tambahPaketKelas .search-text {
@@ -4107,7 +4311,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-bottom: 10px;
 }
 
-.tambahPaketKelas  .form-control {
+.tambahPaketKelas .form-control {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -4116,7 +4320,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-bottom: 15px;
 }
 
-.tambahPaketKelas .form-control.pembelajaran{
+.tambahPaketKelas .form-control.pembelajaran {
   border-radius: 100px;
 }
 
@@ -4159,20 +4363,23 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 /* Gaya untuk tampilan ikon plus pada elemen input */
-.tambahPaketKelas  .tambah-modul-group {
+.tambahPaketKelas .tambah-modul-group {
   position: relative;
   display: inline-flex;
   align-items: center;
-  margin-top: 30px; /* Atur jarak dari atas */
+  margin-top: 30px;
+  /* Atur jarak dari atas */
 }
 
 .tambahPaketKelas .tambah-modul-group .btn-tambah {
-  border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
+  border-radius: 50%;
+  /* Membuat latar belakang berbentuk bulat */
   background-color: #D9D9D9;
   border: none;
   color: #000;
   padding: 10px;
-  margin-right: 10px; /* Ruang antara ikon dan input */
+  margin-right: 10px;
+  /* Ruang antara ikon dan input */
   cursor: pointer;
   padding-top: 10%;
   padding-top: 10%;
@@ -4184,7 +4391,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 
- .tambahPaketKelas.modul-group .form-group {
+.tambahPaketKelas.modul-group .form-group {
   margin-bottom: 15px;
 }
 
@@ -4201,9 +4408,12 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.tambahPaketKelas  .custom-card {
-  width: 740px; /* Lebar maksimal untuk card */
-  margin: 8px auto; /* Pusatkan card horizontal di dalam section */
+
+.tambahPaketKelas .custom-card {
+  width: 740px;
+  /* Lebar maksimal untuk card */
+  margin: 8px auto;
+  /* Pusatkan card horizontal di dalam section */
   border: 1px solid #ced4da;
   border-radius: 20px;
   padding: 15px;
@@ -4214,7 +4424,8 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 .tambahPaketKelas .input-group-text i {
-font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+  font-size: 1.5em;
+  /* Sesuaikan ukuran ikon sesuai kebutuhan */
 }
 
 
@@ -4317,8 +4528,8 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 .filterOnline .filter-button.active,
 .filter-button:hover {
-    background-color: #1F3C88;
-    color: #ffffff;
+  background-color: #1F3C88;
+  color: #ffffff;
 }
 
 
@@ -4343,7 +4554,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.paketKelasIklan  .profile-pic {
+.paketKelasIklan .profile-pic {
   width: 170px;
   height: 170px;
   border-radius: 50%;
@@ -4351,13 +4562,13 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   object-fit: cover;
 }
 
-.paketKelasIklan  .plus-icon {
+.paketKelasIklan .plus-icon {
   position: absolute;
   bottom: 50px;
   right: 55px;
   width: 30px;
   height: 30px;
-  background-color:#070D59;
+  background-color: #070D59;
   border-radius: 50%;
   padding: 4px;
 }
@@ -4371,7 +4582,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 
-.paketKelasIklan  .card-menu {
+.paketKelasIklan .card-menu {
   position: relative;
   width: 270px;
   background-color: white;
@@ -4382,13 +4593,13 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.paketKelasIklan  .menu {
+.paketKelasIklan .menu {
   display: flex;
   flex-direction: column;
   margin-left: 70px;
 }
 
-.paketKelasIklan  .menu-item {
+.paketKelasIklan .menu-item {
   display: flex;
   align-items: center;
   padding: 15px;
@@ -4399,35 +4610,38 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 }
 
-.paketKelasIklan  .menu-item:last-child {
+.paketKelasIklan .menu-item:last-child {
   border-bottom: none;
 }
 
-.paketKelasIklan  .menu-item:hover {
+.paketKelasIklan .menu-item:hover {
   background-color: #f5f5f5;
 }
 
-.paketKelasIklan  .menu-item i {
+.paketKelasIklan .menu-item i {
   font-size: 1.25rem;
   margin-right: 10px;
 }
 
-.paketKelasIklan  .menu-item a {
+.paketKelasIklan .menu-item a {
   font-size: 0.875rem;
 }
 
 /* Gaya untuk bagian detail tutor */
-.paketKelasIklan  .search {
+.paketKelasIklan .search {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* Sesuaikan dengan lebar yang diinginkan */
-  margin: 0 auto; /* Untuk mengatur posisi secara horizontal di tengah layar */
-  margin-top: 20px; /* Sesuaikan dengan kebutuhan Anda */
+  max-width: 1000px;
+  /* Sesuaikan dengan lebar yang diinginkan */
+  margin: 0 auto;
+  /* Untuk mengatur posisi secara horizontal di tengah layar */
+  margin-top: 20px;
+  /* Sesuaikan dengan kebutuhan Anda */
 }
 
-.paketKelasIklan  .search-text {
+.paketKelasIklan .search-text {
   font-size: 16px;
   font-weight: bold;
   color: #333;
@@ -4442,7 +4656,7 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
 
 /* Gaya untuk bagian header kartu sertifikat */
-.paketKelasIklan  .card-header-paketKelas {
+.paketKelasIklan .card-header-paketKelas {
   margin-top: 20px;
   padding: 15px;
   background-color: white;
@@ -4452,43 +4666,43 @@ font-size: 1.5em; /* Sesuaikan ukuran ikon sesuai kebutuhan */
   margin-left: -70px;
 }
 
-.paketKelasIklan  .search-container {
-display: flex;
-align-items: center;
-position: relative;
-right:0;
-margin-left: -70px;
+.paketKelasIklan .search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 0;
+  margin-left: -70px;
 }
 
-.paketKelasIklan  #search-button {
-margin-top: 30px;
-padding: 5px 10px;
-margin-left: 340px;
-background-color: #929292;
-background: none;
-border: none;
-cursor: pointer;
-position: absolute;
-left: 0;
+.paketKelasIklan #search-button {
+  margin-top: 30px;
+  padding: 5px 10px;
+  margin-left: 340px;
+  background-color: #929292;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
 }
 
-.paketKelasIklan  #search-input {
+.paketKelasIklan #search-input {
   background-color: #EBEBEB;
   margin-top: 30px;
   padding: 5px 10px;
   margin-left: 340px;
   border-radius: 20px;
-padding-left: 45px;
-border: none;
+  padding-left: 45px;
+  border: none;
 }
 
 
-.paketKelasIklan  button i.fas.fa-search {
+.paketKelasIklan button i.fas.fa-search {
   color: #a1a1a1;
 }
 
 
-.paketKelasIklan  .add-button {
+.paketKelasIklan .add-button {
   background-color: #1F3C88;
   border: none;
   color: white;
@@ -4504,17 +4718,20 @@ border: none;
 
 }
 
-.paketKelasIklan  .add-icon {
+.paketKelasIklan .add-icon {
   font-size: 20px;
   margin-right: 5px;
 }
 
-.paketKelasIklan  .green-text {
+.paketKelasIklan .green-text {
   color: green;
 }
+
 .paketKelasIklan .card-formulir-paketKelas {
-  position: relative; /* Menjadikan posisi relatif untuk ikon */
+  position: relative;
+  /* Menjadikan posisi relatif untuk ikon */
 }
+
 .paketKelasIklan .ellipsis-icon {
   position: absolute;
   top: 10px;
@@ -4526,24 +4743,24 @@ border: none;
 
 
 .paketKelasIklan .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + -160px);
-      right: 0;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      z-index: 1;
-  }
+  display: none;
+  position: absolute;
+  top: calc(100% + -160px);
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1;
+}
 
-  .paketKelasIklan .show {
-      display: block;
-  }
+.paketKelasIklan .show {
+  display: block;
+}
 
 
 
 /* Gaya untuk bagian formulir kartu sertifikasi */
-.paketKelasIklan  .card-formulir-paketKelas {
+.paketKelasIklan .card-formulir-paketKelas {
   margin-top: 20px;
   padding: 15px;
   background-color: white;
@@ -4552,11 +4769,13 @@ border: none;
   margin-bottom: 50px;
   margin-left: -70px;
 }
+
 .paketKelasIklan .form-group span {
   font-size: 16px;
   margin-bottom: 30px;
   color: #59ad67;
 }
+
 .paketKelasIklan .form-group p {
   font-size: 14px;
   margin-bottom: 20px;
@@ -4594,166 +4813,770 @@ border: none;
 }
 
 .sertifikat .card-menu {
-position: relative;
-width: 270px;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-margin-top: 50px;
-margin-right: 50px;
-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  width: 270px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-right: 50px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .sertifikat .menu {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .sertifikat .menu-item {
-display: flex;
-align-items: center;
-padding: 15px;
-border-bottom: 1px solid #e0e0e0;
-cursor: pointer;
-transition: background-color 0.3s;
-margin-left: -70px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: -70px;
 }
 
 .sertifikat .menu-item:last-child {
-border-bottom: none;
-margin-left: 0px;
+  border-bottom: none;
+  margin-left: 0px;
 }
 
 .sertifikat .menu-item:hover {
-background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .sertifikat .menu-item i {
-font-size: 1.25rem;
-margin-right: 10px;
+  font-size: 1.25rem;
+  margin-right: 10px;
 }
 
 .sertifikat .menu-item span {
-font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .sertifikat .card {
-position: relative;
-width: 270px;
-padding: 20px;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-text-align: center;
-margin-top: 70px;
-transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 70px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .sertifikat .profile-pic {
-width: 170px;
-height: 170px;
-border-radius: 50%;
-margin: 0 auto 10px;
-object-fit: cover;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
 }
 
 .card-header-sertifikat {
-margin-top: 20px;
-padding: 15px;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-margin-top: 60px;
-margin-left: -70px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  margin-left: -70px;
 }
 
 /* Gaya untuk bagian formulir kartu sertifikasi */
 .card-formulir-sertifikasi {
-margin-top: 20px;
-padding: 15px;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-margin-bottom: 50px;
-margin-left: -70px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: -70px;
 }
 
 .sertifikat .custom-card {
-width: 740px; /* Lebar maksimal untuk card */
-margin: 8px auto; /* Pusatkan card horizontal di dalam section */
-border: 1px solid #ced4da;
-border-radius: 20px;
-padding: 15px;
-background-color: #E8EBF399;
-margin-bottom: 30px;
-margin-top: 3px;
-text-align: left;
+  width: 740px;
+  /* Lebar maksimal untuk card */
+  margin: 8px auto;
+  /* Pusatkan card horizontal di dalam section */
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #E8EBF399;
+  margin-bottom: 30px;
+  margin-top: 3px;
+  text-align: left;
 }
 
 .sertifikat .tambah-sertifikasi-group .btn-tambah {
-border-radius: 50%; /* Membuat latar belakang berbentuk bulat */
-background-color: #D9D9D9;
-border: none;
-color: #000;
-padding: 10px;
-margin-right: 10px; /* Ruang antara ikon dan input */
-cursor: pointer;
-padding-top: 10%;
-padding-top: 10%;
+  border-radius: 50%;
+  /* Membuat latar belakang berbentuk bulat */
+  background-color: #D9D9D9;
+  border: none;
+  color: #000;
+  padding: 10px;
+  margin-right: 10px;
+  /* Ruang antara ikon dan input */
+  cursor: pointer;
+  padding-top: 10%;
+  padding-top: 10%;
 }
 
 .sertifikat .btn-primary {
-background-color: #1F3C88;
-border: none;
-padding: 8px 20px;
-color: white;
-font-size: 14px;
-border-radius: 5px;
-cursor: pointer;
+  background-color: #1F3C88;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .sertifikat .btn-primary:hover {
-background-color: #070D59;
+  background-color: #070D59;
 }
 
 .sertifikat .tambah-sertifikasi-group {
-position: relative;
-display: inline-flex;
-align-items: center;
-border-radius: 15px;
-background-color: #D9D9D9;
-margin-top: 20px; /* Atur jarak dari atas */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #D9D9D9;
+  margin-top: 20px;
+  /* Atur jarak dari atas */
 }
 
 .sertifikat .tambah-sertifikasi-group {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .sertifikat .sertifikasi-group .form-group {
-margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
-.sertifikat .btn-custom{
-border-radius: 15px;
-padding: 8px 20px;
-background-color: #D9D9D9;
-border: none;
+.sertifikat .btn-custom {
+  border-radius: 15px;
+  padding: 8px 20px;
+  background-color: #D9D9D9;
+  border: none;
 }
 
-.sertifikat .btn:hover {
-}
-.sertifikat .btn{
-margin-top: 5px;
-border: none;
-padding: 5px 20px;
+.sertifikat .btn:hover {}
+
+.sertifikat .btn {
+  margin-top: 5px;
+  border: none;
+  padding: 5px 20px;
 }
 
 .detailTutor .sertifikat-item {
-  margin-bottom: 20px;  /* Atur jarak antara setiap grup sertifikat */
+  margin-bottom: 20px;
+  /* Atur jarak antara setiap grup sertifikat */
 }
 
 .detailTutor .sertifikat-name,
 .detailTutor .sertifikat-link {
-  margin-bottom: 5px;  /* Atur jarak antara nama sertifikat dan link sertifikat */
+  margin-bottom: 5px;
+  /* Atur jarak antara nama sertifikat dan link sertifikat */
 }
+
+/*Pembayaran*/
+.pembayaran .col-md-4,
+.col-md-8 {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pembayaran-name {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.pembayaran-card {
+  position: relative;
+  width: 270px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  margin-bottom: 50px;
+}
+
+.pembayaran-back-icon {
+  display: inline-block;
+  font-size: 30px;
+  color: #333;
+  text-decoration: none;
+  background-color: #d2d8e7;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pembayaran-card-title-search {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  /* Ubah warna sesuai kebutuhan */
+}
+
+.pembayaran-card-search-pem {
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: -35px;
+  background-color: #d2d8e7;
+}
+
+.pembayaran-card-ringkasan {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-left: -60px;
+  width: 800px;
+}
+
+.pembayaran .value-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-ringkasan-title {
+  margin: 0;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.pembayaran-ringkasan-content {
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.pembayaran-paket-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran .value-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-harga {
+  text-align: right;
+}
+
+.pembayaran-price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.pembayaran-label-bold {
+  flex: 1;
+}
+
+.pembayaran-value {
+  margin-right: 10px;
+  color: #ccc;
+}
+
+.pembayaran-price {
+  text-align: right;
+  font-weight: lighter;
+  color: #ccc;
+}
+
+.pembayaran-total-price {
+  text-align: right;
+}
+
+.pembayaran-payment-button {
+  /* text-align: center; */
+  margin-top: 20px;
+}
+
+.pembayaran-profession {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.button-opsional {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  height: 120px;
+  border: none;
+  /* Menghilangkan border */
+}
+
+/*kelas page*/
+
+.KelasSiswa .container {
+  display: flex;
+  align-items: center;
+}
+
+.KelasSiswa .rounded-icon {
+  background-color: #8F9DC3;
+  border-radius: 50%;
+  /* Ini akan memberikan bentuk lingkaran */
+  padding: 10px;
+  /* Anda dapat mengatur ini sesuai kebutuhan Anda */
+  display: inline-flex;
+  /* Flex akan memastikan ikon tetap terpusat */
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.KelasSiswa .material-icons {
+  color: #070D59;
+  /* Mengatur warna ikon menjadi putih */
+  font-size: 14px;
+}
+
+.KelasSiswa .title-kelas {
+  margin-left: 20px;
+}
+
+.KelasSiswa .title-kelas p {
+  font-size: 16px;
+  color: #070D59;
+  margin: 0;
+}
+
+.KelasSiswa .card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.KelasSiswa .card-left {
+  width: 60%;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-right: 1%;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.KelasSiswa .tutor-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.KelasSiswa .card-left h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.KelasSiswa .card-left p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Card Kanan */
+.KelasSiswa .card-right {
+  width: 35%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  margin-right: 120px;
+}
+
+/* .presentase-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+} */
+
+.KelasSiswa .modul-card {
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.KelasSiswa .week-card {
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.KelasSiswa .modul {
+  flex-basis: 55%;
+}
+
+.KelasSiswa .tutor-image-small {
+  width: 60px;
+  /* Mengatur lebar gambar */
+  height: 60px;
+  /* Mengatur tinggi gambar */
+  border-radius: 50%;
+  /* Membuat gambar menjadi lingkaran */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
+  object-fit: cover;
+  /* Menjaga aspek rasio gambar */
+}
+
+.KelasSiswa .card-title-kelas {
+  font-size: 40px;
+  /* Mengatur ukuran huruf */
+  font-weight: bold;
+  /* Membuat teks menjadi tebal */
+  margin-bottom: 20px;
+  /* Memberikan jarak ke elemen di bawahnya */
+}
+
+.KelasSiswa .kelas-tutor-details {
+  display: flex;
+  /* Menggunakan flexbox */
+  align-items: center;
+  /* Menyelaraskan item-item di tengah secara vertikal */
+  gap: 20px;
+  /* Memberikan jarak antara gambar dan nama tutor */
+}
+
+.KelasSiswa .kelas-info {
+  display: flex;
+  /* Menggunakan flexbox untuk menyusun elemen-elemen anak secara horizontal */
+  width: 100%;
+  justify-content: space-between;
+  /* Memberi jarak antara duration dan referensi */
+  border-bottom: 1px solid black;
+  /* Menambahkan garis bawah */
+  padding-bottom: 20px;
+  /* Memberikan jarak antara garis bawah dan elemen berikutnya */
+}
+
+.KelasSiswa .referensi {
+  margin-right: 150px;
+  /* Menambahkan margin kanan 10px pada elemen duration */
+}
+
+/* .duration-title {
+    color: #ccc;
+}
+
+.duration-details {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+} */
+
+.KelasSiswa .referensi-title {
+  color: #ccc;
+}
+
+.KelasSiswa .referensi-details {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+.KelasSiswa .gambaran-umum {
+  padding-top: 10px;
+  width: 100%;
+}
+
+.KelasSiswa .gambaran-title {
+  color: #ccc;
+}
+
+.KelasSiswa .gambaran-detail {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+.KelasSiswa .produk-desain {
+  padding-top: 10px;
+  width: 100%;
+}
+
+.KelasSiswa .produk-title {
+  color: #ccc;
+}
+
+.KelasSiswa .produk-detail {
+  color: black;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+.KelasSiswa .selanjutnya {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+.KelasSiswa .selanjutnya-icon {
+  background-color: transparent;
+  border: 2px solid #070D59;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.KelasSiswa .selanjutnya-icon i.material-icons {
+  color: #070D59;
+  font-size: 18px;
+  margin-left: 75px
+}
+
+.KelasSiswa .selanjutnya-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #070D59;
+  margin: 0;
+}
+
+
+.KelasSiswa .pembuka-title {
+  color: #ccc;
+}
+
+.KelasSiswa .modul-content {
+  background-color: #FFFFFF;
+  border: 1px solid #070D59;
+  border-radius: 20px;
+  margin-top: -10px;
+  padding: 20px;
+  height: 20px;
+}
+
+.KelasSiswa .modul-card-inner {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+}
+
+.KelasSiswa .modul-card-inner p {
+  color: black;
+  margin: 0%;
+  font-size: 14px;
+}
+
+.KelasSiswa .modul-card-inner i.material-icons {
+  color: black;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: auto;
+}
+
+.KelasSiswa .wek-wek-card {
+  margin-top: -20px;
+}
+
+.KelasSiswa .wek1-title {
+  color: #ccc;
+}
+
+.KelasSiswa .wek1-content {
+  background-color: #FFFFFF;
+  border: 1px solid #070D59;
+  border-radius: 20px;
+  padding: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+
+.KelasSiswa .bagian-title,
+.deskripsi-kelas-title {
+  color: #ccc;
+}
+
+.KelasSiswa .wek1-content:hover {
+  background-color: #0255d2;
+  cursor: pointer;
+}
+
+
+.transaksi .grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px; 
+  margin-right: -15px; 
+}
+
+.transaksi .grid > div {
+  box-sizing: border-box;
+  padding-left: 15px; 
+  padding-right: 15px; 
+}
+
+.transaksi .col-span-3 {
+  flex: 0 0 60%;  
+  max-width: 60%; 
+}
+
+.transaksi .col-span-2 {
+  flex: 0 0 40%;  
+  max-width: 40%; 
+}
+
+@media (max-width: 767.98px) {
+  .transaksi .col-span-3, .transaksi .col-span-2 {
+      flex: 0 0 50%;  
+      max-width: 50%; 
+  }
+}
+
+
+.transaksi .p-4 {
+  padding: 1rem;
+}
+
+.transaksi .rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.transaksi .bg-white {
+  background-color: #fff;
+}
+
+.transaksi .shadow-soft {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transaksi .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transaksi .mt-3 {
+  margin-top: 1rem;
+}
+
+.transaksi .mt-4 {
+  margin-top: 1.5rem;
+}
+
+.transaksi .text-xs {
+  font-size: 0.75rem;
+}
+
+.transaksi .text-sm {
+  font-size: 0.875rem;
+}
+
+.transaksi .text-gray-400 {
+  color: #a0a0a0;
+}
+
+.transaksi .text-primary {
+  color: #007bff; 
+}
+
+.transaksi .text-red-600 {
+  color: #e53e3e;
+}
+
+.transaksi .bg-red-200 {
+  background-color: #fed7d7;
+}
+
+.transaksi .uppercase {
+  text-transform: uppercase;
+}
+
+.transaksi .font-medium {
+  font-weight: 500;
+}
+
+.transaksi .font-semibold {
+  font-weight: 600;
+}
+
+.transaksi .px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.transaksi .py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.transaksi .grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start; 
+}
+
+.transaksi .back-icon {
+  display: inline-block;
+  font-size: 30px;
+  color: #333;
+  text-decoration: none;
+  background-color: #d2d8e7;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.transaksi .card-title-search {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.transaksi .card-search-pem {
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: -35px;
+  background-color: #b2c0de;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+

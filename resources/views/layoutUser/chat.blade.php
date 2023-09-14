@@ -393,30 +393,29 @@
 @endsection
 <script src="/js/app.js"></script>
 <script>
- $(document).ready(function () {
-    // Fungsi untuk menampilkan pesan chat yang sesuai dengan teman yang diklik
-    $('.friend-drawer--onhover').on('click', function () {
-        // Dapatkan teks dari teman yang diklik
-        var friendName = $(this).find('h6').text();
-        var friendMessage = $(this).find('.text-muted').text();
+    $(document).ready(function() {
+        // Fungsi untuk menampilkan pesan chat yang sesuai dengan teman yang diklik
+        $('.friend-drawer--onhover').on('click', function() {
+            // Dapatkan teks dari teman yang diklik
+            var friendName = $(this).find('h6').text();
+            var friendMessage = $(this).find('.text-muted').text();
 
-        // Ganti teks pada panel chat dengan data teman yang diklik
-        $('.chat-panel .friend-drawer h6').text(friendName);
-        $('.chat-panel .friend-drawer p').text(friendMessage);
+            // Ganti teks pada panel chat dengan data teman yang diklik
+            $('.chat-panel .friend-drawer h6').text(friendName);
+            $('.chat-panel .friend-drawer p').text(friendMessage);
 
-        // Sembunyikan semua pesan chat yang ada di panel chat
-        $('.chat-panel .chat-bubble').hide();
+            // Sembunyikan semua pesan chat yang ada di panel chat
+            $('.chat-panel .chat-bubble').hide();
 
-        // Tampilkan pesan chat yang sesuai dengan teman yang diklik
-        $('.chat-panel .chat-bubble--left:contains("' + friendName + '")').show();
-        $('.chat-panel .chat-bubble--right:contains("' + friendName + '")').show();
+            // Tampilkan pesan chat yang sesuai dengan teman yang diklik
+            $('.chat-panel .chat-bubble--left:contains("' + friendName + '")').show();
+            $('.chat-panel .chat-bubble--right:contains("' + friendName + '")').show();
 
-        // Gulir ke bawah panel chat agar pesan yang baru muncul terlihat
-        var chatPanel = $('.chat-panel');
-        chatPanel.scrollTop(chatPanel[0].scrollHeight);
+            // Gulir ke bawah panel chat agar pesan yang baru muncul terlihat
+            var chatPanel = $('.chat-panel');
+            chatPanel.scrollTop(chatPanel[0].scrollHeight);
+        });
     });
-});
-
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src="./script.js"></script>

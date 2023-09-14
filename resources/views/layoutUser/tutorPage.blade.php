@@ -12,7 +12,11 @@
     <section class="breadcrumb">
         <!-- Kode Breadcrumb -->
     </section>
-
+    <div class="row">
+        <div class="col-12">
+            @include('layouts.alert')
+        </div>
+    </div>
     <section class="search">
         <div class="container">
             <div class="card-search-tutor">

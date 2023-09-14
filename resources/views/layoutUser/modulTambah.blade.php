@@ -44,15 +44,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="card-header-modul">
-                    <div class="card-body">
-                        <div class="back-card">
-                            <i class="fas fa-arrow-left back-icon"></i>
-                        </div>
-                        <div class="text-card">
-                            <p class="search-text">Tambah Modul</p>
+                <div class="col-md-8">
+                    <div class="card-header-modul">
+                        <div class="card-body">
+                            <div class="back-card">
+                                <i class="fas fa-arrow-left back-icon"></i>
+                            </div>
+                            <div class="text-card">
+                                <p class="search-text">Tambah Modul</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                             <label for="{{ $inputName }}">{{ $pertemuan }}</label>
                             <input type="text" class="form-control" id="pertemuan_{{ $mingguIndex + 1 }}_{{ $index + 1 }}" name="pertemuan_{{ $mingguIndex + 1 }}_{{ $index + 1 }}" value="{{ old($inputName, $namaModulValue) }}" placeholder="Tambahkan Sub Modul Pembelajaran">
                             <textarea name="Summernotepertemuan_{{ $mingguIndex + 1 }}_{{ $index + 1 }}" id="Summernotepertemuan_{{ $mingguIndex + 1 }}_{{ $index + 1 }}" class="form-control summernote" cols="30" rows="10">{{ old($textareaId, $deskripsiModulValue) }}</textarea>
-                        
+
                         </div>
                         @endforeach
                         @endforeach
@@ -101,6 +101,38 @@
     </div>
 </section>
 @endsection
+<script>
+    $(document).ready(function() {
+        $('#myForm').submit(function(e) {
+            e.preventDefault(); // Mencegah form mengirimkan permintaan standar.
+
+            var form = $(this);
+            var url = form.attr('action');
+            var data = form.serialize(); // Mengambil data form.
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                success: function(response) {
+                    // Proses respons yang diterima dari server.
+                    console.log(response); // Cetak respons ke konsol untuk debugging.
+                    // Jika Anda ingin mengirim pengguna kembali ke halaman form setelah berhasil,
+                    // Anda dapat melakukan ini dengan menggunakan window.location.href.
+                     window.location.href = "{{ route('modul.index') }}";
+                },
+                error: function(xhr) {
+                    // Tangani kesalahan jika ada.
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
 
 <script>
     $(document).ready(function() {

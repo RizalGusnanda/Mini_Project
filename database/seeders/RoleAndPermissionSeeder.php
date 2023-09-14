@@ -89,33 +89,98 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'spesialisasi.edit']);
         Permission::create(['name' => 'spesialisasi.destroy']);
 
-        // create roles 
+        // create roles
         $roleUser = Role::create(['name' => 'user']);
-        $roleUser->givePermissionTo([
-            'dashboard',
-        ]);
 
-        // create pegawai 
-        $roleUser = Role::create(['name' => 'user-pengajar']);
-        $roleUser->givePermissionTo([
-            'dashboard',
-        ]);
+        // create pegawai
+        $roleUserPengajar = Role::create(['name' => 'user-pengajar']);
+
 
         // create Super Admin
         $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        $role->givePermissionTo([
+            'name' => 'dashboard',
+            'name' => 'user.management',
+            'name' => 'role.permission.management',
+            'name' => 'menu.management',
+            'name' => 'daerah.management',
+            'name' => 'pengajaran.management',
+            //user
+            'name' => 'user.index',
+            'name' => 'user.create',
+            'name' => 'user.edit',
+            'name' => 'user.destroy',
+            'name' => 'user.import',
+            'name' => 'user.export',
+
+            //role
+            'name' => 'role.index',
+            'name' => 'role.create',
+            'name' => 'role.edit',
+            'name' => 'role.destroy',
+            'name' => 'role.import',
+            'name' => 'role.export',
+
+            //permission
+            'name' => 'permission.index',
+            'name' => 'permission.create',
+            'name' => 'permission.edit',
+            'name' => 'permission.destroy',
+            'name' => 'permission.import',
+            'name' => 'permission.export',
+
+            //assignpermission
+            'name' => 'assign.index',
+            'name' => 'assign.create',
+            'name' => 'assign.edit',
+            'name' => 'assign.destroy',
+
+            //assingusertorole
+            'name' => 'assign.user.index',
+            'name' => 'assign.user.create',
+            'name' => 'assign.user.edit',
+
+            //menu group 
+            'name' => 'menu-group.index',
+            'name' => 'menu-group.create',
+            'name' => 'menu-group.edit',
+            'name' => 'menu-group.destroy',
+
+            //menu item 
+            'name' => 'menu-item.index',
+            'name' => 'menu-item.create',
+            'name' => 'menu-item.edit',
+            'name' => 'menu-item.destroy',
+            //menu item 
+            'name' => 'kecamatan.index',
+            'name' => 'kecamatan.create',
+            'name' => 'kecamatan.edit',
+            'name' => 'kecamatan.destroy',
+            //menu item 
+            'name' => 'kelurahan.index',
+            'name' => 'kelurahan.create',
+            'name' => 'kelurahan.edit',
+            'name' => 'kelurahan.destroy',
+            //menu item 
+            'name' => 'spesialisasi.index',
+            'name' => 'spesialisasi.create',
+            'name' => 'spesialisasi.edit',
+            'name' => 'spesialisasi.destroy',
+        ]);
+
+        // $role->givePermissionTo(Permission::all());
 
         //assign user id 1 ke super admin
         $user = User::find(1);
         $user->assignRole('super-admin');
 
-        // //assign user id 2 ke super admin
-        // $user = User::find(2);
-        // $user->assignRole('user-pengajar');
+        //assign user id 2 ke super admin
+        $roleUser = User::find(2);
+        $roleUser->assignRole('user');
 
-        // //assign user id 3 ke user
-        // $user = User::find(3);
-        // $user->assignRole('user');
+        $roleUserPengajar = User::find(3);
+        $roleUserPengajar->assignRole('user-pengajar');
 
+        //assign user id 3 ke user
     }
 }

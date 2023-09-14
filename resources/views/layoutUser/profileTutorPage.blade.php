@@ -44,8 +44,8 @@
                                         <span>Detail Tutor</span>
                                     </div>
                                 </a>
-                                <a href="#">
-                                    <div class="menu-item" style="text-decoration: none; color: black">
+                                <a href="/riwayatTutor" style="text-decoration: none; color: black">
+                                    <div class="menu-item">
                                         <i class="fas fa-calendar"></i>
                                         <span>Reservasi</span>
                                     </div>

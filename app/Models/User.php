@@ -56,5 +56,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function pakets() {
         return $this->hasMany(Paket::class);
     }
+
+    public function testimoni() { return $this->hasMany(Testimoni::class, 'user_testimoni'); }
+
     
 }

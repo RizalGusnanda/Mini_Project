@@ -18,25 +18,37 @@
                             $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
                         @endphp
                         @if (file_exists(public_path($profileImagePath)))
-                            <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
+                            <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt=""
                                 style="width: 150px; height: 150px;">
                         @else
-                            <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
-                                alt="" style="width: 150px; height: 150px;">
+                            <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt=""
+                                style="width: 150px; height: 150px;">
                         @endif
                     </div>
                     <div class="card-menu">
                         <div class="menu">
-                            <a href="/profileSiswa" style="text-decoration: none; color: black">
+                            <a href="/profileTutor" style="text-decoration: none; color: black">
                                 <div class="menu-item">
                                     <i class="fas fa-user"></i>
                                     <span>Profile</span>
                                 </div>
                             </a>
-                            <a href="/reservasiUser" style="text-decoration: none;">
+                            <a href="/sertifikat-layout" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Detail Tutor</span>
+                                </div>
+                            </a>
+                            <a href="/riwayatTutor" style="text-decoration: none">
                                 <div class="menu-item">
                                     <i class="fas fa-calendar"></i>
                                     <span>Reservasi</span>
+                                </div>
+                            </a>
+                            <a href="paketKelasIklan" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Paket Kelas</span>
                                 </div>
                             </a>
                         </div>
@@ -74,18 +86,12 @@
                                     </a>
                                 </div>
                                 <div class="deskripsiTutorA">
-                                    <div class="options-menu">
-                                        <button class="options-button">⋮</button>
-                                        <div class="options-dropdown">
-                                            <a href="/kelas-siswa">Lihat Modul</a>
-                                            <a href="/chat">Chat</a>
-                                            <a href="/testimoni">Testimoni</a>
-                                        </div>
+                                    <div class="selengkapnya">
+                                        <a href="#" class="btn btn-selengkapnya">Chat</a>
                                     </div>
                                     <div class="card-body-tutorA">
-                                        <h4 class="card-tutorA">Atmayanti</h4>
-                                        <h6 class="card-tutor-p">UI/UX Designer</h6>
-                                        <h6 class="card-tutor-q">User Interface (UI)</h6>
+                                        <h4 class="card-tutorA">User</h4>
+                                        <h6 class="card-tutor-p">User Interface (UI)</h6>
                                     </div>
                                 </div>
                             </div>
