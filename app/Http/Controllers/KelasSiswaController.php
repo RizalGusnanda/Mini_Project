@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class KelasSiswaController extends Controller
 {
-   
+
     public function showKelas()
     {
         $moduls = Modul::all(); // Mengambil semua modul dari tabel
