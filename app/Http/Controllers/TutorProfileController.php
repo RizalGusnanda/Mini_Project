@@ -27,14 +27,13 @@ class TutorProfileController extends Controller
         $kecamatans = Kecamatan::all();
         $kelurahans = Kelurahan::all();
         $spesalisasis = Spesalisasi::all();
-        $roles = Role::all();
+
 
         return view('layoutUser.profileTutorPage')->with([
             'kecamatans' => $kecamatans,
             'kelurahans' => $kelurahans,
             'profile' => $profile,
             'spesalisasis' => $spesalisasis,
-            'roles' => $roles,
         ]);
     }
 
@@ -42,12 +41,6 @@ class TutorProfileController extends Controller
     {
         $kecamatan['Kecamatan'] = Kecamatan::get();
         return response()->json($kecamatan);
-    }
-
-    public function getRole()
-    {
-        $roles['Role'] = Role::get();
-        return response()->json($roles);
     }
 
 
