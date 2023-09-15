@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('paket_id')->constrained('pakets')->onDelete('restrict');
+            $table->string('reference'); 
+            $table->string('merchant_ref'); 
+            $table->integer('total_amount'); 
             $table->enum('status', ['paid','unpaid'])->default('unpaid');
             $table->timestamps();
         });

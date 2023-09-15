@@ -9,6 +9,7 @@ use App\Http\Requests\UpdatePembayaranRequest;
 use App\Models\Paket;
 use App\Models\Profile;
 use App\Models\Testimoni;
+use Auth;
 use Illuminate\Http\Request;
 
 class PembayaranUserController extends Controller
@@ -59,7 +60,20 @@ class PembayaranUserController extends Controller
         $method = $request->method;
 
         $tripay = new TripayController();
-        $tripay->requestTransaksi($method, $pakets);
+        $transaksi = $tripay->requestTransaksi($method, $pakets);
+
+        Pembayaran::create([
+            'user_id' => Auth()->user()->id,
+            'paket_id' => $pakets->id,
+            'reference' => $transaksi->reference,
+            'merchant_ref' => $transaksi->merchant_ref,
+            'total_amount' => $transaksi->amount,
+            'status' => $transaksi->status,
+        ]);
+
+        return redirect()->route('PembayaranUser.show', [
+            'reference' => $transaksi->reference,
+        ])->with('success', 'Silakan melihat instruksi sebelum pembayaran ');
     }
 
     /**
@@ -68,9 +82,14 @@ class PembayaranUserController extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function show(Pembayaran $pembayaran)
+    public function show($reference)
     {
-        //
+        $tripay = new TripayController();
+        $detail = $tripay->detailTransaksi($reference);
+
+        // dd($detail);
+
+        return view('layoutUser.transaksi', ['detail' => $detail]);
     }
 
     /**

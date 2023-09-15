@@ -6,22 +6,12 @@
         }
     </style>
 
-    <section class="breadcrumb">
-        <div class="container">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Pembayaran</a></li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-
     <section class="header">
         <div class="container">
             <div class="row">
                 <div class="col-1">
-                    <a href="#" class="pembayaran-back-icon"><i class="fas fa-arrow-left"></i></a>
+                    <a href="{{ route('daftar-paket', ['id_user' => $tutor->user->id]) }}" class="pembayaran-back-icon"><i
+                            class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-11">
                     <div class="pembayaran-card-search-pem">
@@ -93,26 +83,25 @@
                                     </div>
                                 </div>
 
-
-                                @foreach ($channels as $channel)
-                                    <div class="col-6 d-flex justify-content-center">
-                                        <div class="row pembayaran-payment-button">
-                                            <div class="button-opsional">
-                                                <form action="{{ route('PembayaranUser.store') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $paket->id }}">
-                                                <input type="hidden" name="method" value="{{ $channel->code }}">
-                                                <button type="submit" class="bg-white rounded-md shadow-soft">
-                                                    <img src="{{asset('assets/img/bank/'. $channel->code . '.png')  }}"
-                                                            class="w-full" alt="" width="150" height="80">
-                                                        <p style="color: #ccc">Pay with {{ $channel->name }}</p>
-                                                   
-                                                </button>
-                                                </form>
+                                <div class="row">
+                                    @foreach ($channels as $channel)
+                                    <div class="col-md-3 mb-2">
+                                        <form action="{{ route('PembayaranUser.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $paket->id }}">
+                                            <input type="hidden" name="method" value="{{ $channel->code }}">
+                                            <div class="card">
+                                                <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}" class="card-img-top equal-image" alt="{{ $channel->name }}">
+                                                <div class="card-body text-center">
+                                                    <p class="card-text" style="color: #ccc; font-size: 14px">Pay with {{ $channel->name }}</p>
+                                                    <button type="submit" class="btn btn-primary" style="margin-top: 20px">Pay</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+                                
 
                             </div>
                         </div>

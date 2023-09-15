@@ -5430,7 +5430,6 @@ button i {
   cursor: pointer;
 }
 
-
 .transaksi .grid {
   display: flex;
   flex-wrap: wrap;
@@ -5574,9 +5573,13 @@ button i {
   margin-top: 20px;
 }
 
+.pembayaran-sertifikat .yellow-star {
+  color: #FFC54D;
+}
 
-
-
-
-
-
+.pembayaran-sertifikat .equal-image {
+  width: 90%;
+  height: 100px; 
+  padding: 15px;
+  object-fit: contain;
+}

@@ -99,7 +99,7 @@ class TripayController extends Controller
         
         
         $response = json_decode($response)->data;
-          dd($response);
+        //   dd($response);
         
         return $response ?: $err;
         

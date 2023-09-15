@@ -141,7 +141,7 @@
                                                 <img class="img-fluid rounded-start"
                                                     src="{{ asset($profileImagePath) }}" alt="">
                                                 <div class="ms-3">
-                                                    <h6>{{ $testimoni->nama }}</h6>
+                                                    <h6>{{ $testimoni->name }}</h6>
                                                     <div>
                                                         @for ($i = 1; $i <= $testimoni->rating; $i++)
                                                             <i class="fas fa-star yellow-star"></i>

@@ -117,13 +117,11 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                        class="btn btn-price">Daftar</a>
-                                    {{-- <a href="{{ route('pembayaran', ['id' => $paket->user_id, 'nama_paket' => $paket->nama_paket, 'harga' => $paket->harga]) }}"
+                                    {{-- <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
                                         class="btn btn-price">Daftar</a> --}}
 
-                                    {{-- <a href="{{ route('PembayaranUser.index', ['user_id' => $paket->user_id, 'id' => $paket->id]) }}"
-                                        class="btn btn-price">Daftar</a> --}}
+                                    <a href="{{ route('PembayaranUser.index', ['user_id' => $paket->user_id, 'id' => $paket->id]) }}"
+                                        class="btn btn-price">Daftar</a>
 
                                 </div>
                             </div>

@@ -15,6 +15,7 @@ use App\Http\Controllers\profileSiswaController;
 use App\Http\Controllers\tutorConntroller;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\KelasSiswaController;
+use App\Http\Controllers\Payment\TripayCallbackController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -47,6 +48,7 @@ use App\Models\Category;
 
 //semua
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
+Route::post('callback',[TripayCallbackController::class, 'handle']);
 Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], function () {
     Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
     Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
@@ -127,9 +129,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], funct
     Route::get('/riwayatTutor', function () {
         return view('layoutUser/riwayatTutor');
     });
-    Route::get('/transaksi', function () {
-        return view('layoutUser/transaksi');
-    });
+    
 });
 
 //role= user-pengajar
@@ -139,10 +139,14 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
 
     Route::get('/pembayaran', [PembayaranUserController::class, 'index'])->name('PembayaranUser.index');
     Route::post('/pembayaran', [PembayaranUserController::class, 'store'])->name('PembayaranUser.store');
+    Route::get('/pembayaran/{reference}', [PembayaranUserController::class, 'show'])->name('PembayaranUser.show');
     Route::get('/testimoni', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
     Route::get('/reservasiUser', function () {
         return view('layoutUser/riwayatPage');
+    });
+    Route::get('/transaksi', function () {
+        return view('layoutUser/transaksi');
     });
 });
 
