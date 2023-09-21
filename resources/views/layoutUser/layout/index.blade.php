@@ -181,6 +181,8 @@
     <!-- end footer section -->
 
 
+    <!-- Berkas Skrip Khusus Halaman -->
+    @stack('customScript')
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -191,15 +193,15 @@
 
     {{-- summernote js --}}
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
-         <script>
-        $('#deskripsi_modul').summernote({
-            placeholder: 'description...',
-            tabsize:2,
-            height:300
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                placeholder: 'deskripsi...',
+                tabsize :2,
+                height: 300
+            });
         });
     </script>
-
 
 
 </body>

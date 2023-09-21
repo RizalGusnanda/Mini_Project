@@ -1034,7 +1034,20 @@ button i {
   margin-top: 80px;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff; 
+  color: #1F3C88;
 }
+
+.riwayat .btn.active {
+  background-color: #1F3C88; 
+  color: #ffffff;
+}
+
+.riwayat .btn:hover:not(.active) {
+  background-color: #1F3C88;
+  color: #ffffff;
+}
+
 
 .riwayat .card {
   position: relative;
@@ -3181,6 +3194,7 @@ button i {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  
 }
 
 .pembayaran .harga {
@@ -5042,8 +5056,8 @@ button i {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-bottom: 8px;
-  margin-left: -60px;
-  width: 800px;
+  margin-left: -90px;
+  width: 820px;
 }
 
 .pembayaran .value-section {
@@ -5056,7 +5070,6 @@ button i {
 .pembayaran-ringkasan-title {
   margin: 0;
   font-size: 20px;
-  color: #ccc;
 }
 
 .pembayaran-ringkasan-content {
@@ -5096,13 +5109,15 @@ button i {
 
 .pembayaran-value {
   margin-right: 10px;
-  color: #ccc;
+  color: #000000;
+  margin-top: -15px;
 }
 
 .pembayaran-price {
   text-align: right;
   font-weight: lighter;
-  color: #ccc;
+  margin-top: -15px;
+  color: #000000;
 }
 
 .pembayaran-total-price {
@@ -5427,9 +5442,10 @@ button i {
 
 .KelasSiswa .wek1-content:hover {
   background-color: #0255d2;
+  /* Ganti warna latar belakang sesuai keinginan Anda */
   cursor: pointer;
+  /* Ubah kursor menjadi tanda tangan ketika di hover */
 }
-
 
 .transaksi .grid {
   display: flex;
@@ -5574,9 +5590,14 @@ button i {
   margin-top: 20px;
 }
 
+.pembayaran-sertifikat .yellow-star {
+  color: #FFC54D;
+}
 
-
-
-
-
+.pembayaran-sertifikat .equal-image {
+  width: 25%;
+  height: 100px; 
+  padding: 15px;
+  object-fit: contain;
+}
 

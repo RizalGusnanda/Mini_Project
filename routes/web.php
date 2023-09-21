@@ -3,16 +3,20 @@
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\IklanPaketTutorPOVController;
 use App\Http\Controllers\KecamatanController;
-use App\Http\Controllers\KelasSiswaController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\ModulController;
+use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\PaketController;
-use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\PembayaranUserController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\profileSiswaController;
+use App\Http\Controllers\tutorConntroller;
+use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\KelasSiswaController;
+use App\Http\Controllers\RiwayatPembayaranController;
+use App\Http\Controllers\Payment\TripayCallbackController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -21,14 +25,15 @@ use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
-use App\Http\Controllers\SertifikatTutorController;
 use App\Http\Controllers\SpesalisasiController;
-use App\Http\Controllers\TestimoniController;
-use App\Http\Controllers\tutorConntroller;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PembayaranUserController;
+use App\Http\Controllers\ReservasiTutorController;
 use App\Http\Controllers\TutorProfileController;
-use App\Http\Controllers\UserController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Http\Controllers\UserController;
+use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +50,7 @@ use Illuminate\Support\Facades\Route;
 
 //semua
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
+Route::post('callback',[TripayCallbackController::class, 'handle']);
 Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], function () {
     Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
     Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
@@ -82,6 +88,8 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], 
     Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->name('get-kecamatan');
     Route::post('/profileSiswa', [profileSiswaController::class, 'update'])->name('profileSiswa.update');
     Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
+
+
 
 });
 
@@ -122,12 +130,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], funct
     Route::get('/tambahModulTutor', function () {
         return view('layoutUser/tambahModulTutor');
     });
-    Route::get('/riwayatTutor', function () {
-        return view('layoutUser/riwayatTutor');
-    });
-    Route::get('/transaksi', function () {
-        return view('layoutUser/transaksi');
-    });
+    Route::get('/riwayatTutor', [ReservasiTutorController::class,'index']);
 });
 
 //role= user-pengajar
@@ -137,11 +140,14 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
 
     Route::get('/pembayaran', [PembayaranUserController::class, 'index'])->name('PembayaranUser.index');
     Route::post('/pembayaran', [PembayaranUserController::class, 'store'])->name('PembayaranUser.store');
+    Route::get('/pembayaran/{reference}', [PembayaranUserController::class, 'show'])->name('PembayaranUser.show');
     Route::get('/testimoni', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
     Route::get('/reservasiUser', function () {
         return view('layoutUser/riwayatPage');
     });
+    Route::get('/riwayatPembayaran', [RiwayatPembayaranController::class, 'index']);
+
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'role:super-admin']], function () {

@@ -26,6 +26,7 @@
                             <table class="table table-bordered table-md">
                                 <tbody>
                                     <tr>
+                                        
                                         <th style="text-align: center; width: 10%;">ID Pembayaran</th>
                                         <th style="text-align: center;">Nama Siswa</th>
                                         <th style="text-align: center;">Nama Tutor</th>
@@ -33,6 +34,28 @@
                                         <th style="text-align: center;">Total Pembayaran</th>
                                         <th style="text-align: center;">Status</th>
                                     </tr>
+                                    @foreach ($pembayaran as $bayar)
+                                    <tr>
+                                            <td>{{ $bayar->merchant_ref }}</td>
+                                            <td>{{ $bayar->name }}</td>
+                                            <td>{{ $bayar->nama_mentor }}</td>
+                                            <td>{{ $bayar->nama_paket }}</td>
+                                            <td>Rp. {{ number_format( $bayar->total_amount) }}</td>
+                                            <td>
+                                                @if($bayar->status == 'paid')
+                                                <span class="bg-green-100 text-green-800" style="color: green">
+                                                    {{ $bayar->status }}
+
+                                                </span>
+                                                @else 
+                                                <span class="bg-red-100 text-red-800" style="color: red">
+                                                    {{ $bayar->status }}
+
+                                                </span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-center">

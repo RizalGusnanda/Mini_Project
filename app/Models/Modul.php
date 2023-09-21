@@ -9,7 +9,6 @@ class Modul extends Model
 {
     protected $fillable = [
         'user_id',
-        'paket_id',
         'nama_modul',
         'deskripsi_modul',
     ];
@@ -18,10 +17,5 @@ class Modul extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
-    public function paket()
-    {
-        return $this->belongsTo(Paket::class, 'paket_id');
-    }
-
+    
 }

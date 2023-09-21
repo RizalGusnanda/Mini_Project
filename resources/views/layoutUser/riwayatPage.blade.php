@@ -39,6 +39,12 @@
                                     <span>Reservasi</span>
                                 </div>
                             </a>
+                            <a href="/riwayatPembayaran" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-money-bill"></i>
+                                    <span>Pembayaran</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

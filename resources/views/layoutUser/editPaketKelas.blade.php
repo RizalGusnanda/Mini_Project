@@ -90,17 +90,20 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="deskripsiKelas">Deskripsi Kelas</label>
-                                        <textarea class="form-control" id="deskripsiKelas" name="deskripsi" rows="3">{{ old('deskripsi', $kelasPaket->deskripsi) }}</textarea>
+                                        <textarea class="form-control" id="summernote" name="deskripsi" rows="3">{{ old('deskripsi', $kelasPaket->deskripsi) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="durasi_start">Durasi Mulai</label>
-                                        <input type="text" class="form-control datepicker" id="durasi_start" name="durasi_start" placeholder="{{ old('durasi', $kelasPaket->durasi_start) }}">
+                                        <input type="text" class="form-control datepicker" id="durasi_start"
+                                            name="durasi_start"
+                                            placeholder="{{ old('durasi', $kelasPaket->durasi_start) }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="durasi_end">Durasi Akhir</label>
-                                        <input type="text" class="form-control datepicker" id="durasi_end" name="durasi_end" placeholder="{{ old('durasi', $kelasPaket->durasi_end) }}">
+                                        <input type="text" class="form-control datepicker" id="durasi_end"
+                                            name="durasi_end" placeholder="{{ old('durasi', $kelasPaket->durasi_end) }}">
                                     </div>
                                 </div>
                                 <div class="text-center mt-4">
@@ -120,7 +123,32 @@
                 dateFormat: "d F Y",
                 enableTime: false,
             });
-    
+
+            flatpickr("#durasi_end", {
+                dateFormat: "d F Y",
+                enableTime: false,
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#durasi_start", {
+                dateFormat: "d F Y",
+                enableTime: false,
+                onChange: function(selectedDates, dateStr, instance) {
+
+                    const startDate = new Date(dateStr);
+
+                    const endDate = new Date(startDate);
+                    endDate.setMonth(startDate.getMonth() + 1);
+
+                    const endDateStr =
+                        `${endDate.getDate()} ${endDate.toLocaleString('default', { month: 'long' })} ${endDate.getFullYear()}`;
+
+                    document.getElementById('durasi_end').value = endDateStr;
+                }
+            });
+
             flatpickr("#durasi_end", {
                 dateFormat: "d F Y",
                 enableTime: false,

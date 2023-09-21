@@ -105,7 +105,7 @@
                                             <p><span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} /
                                                 </span> bulan</p>
                                         </div>
-                                        <p class="black-text">{{ $paket->deskripsi }}</p>
+                                        <p class="black-text">{!! $paket->deskripsi !!}</p>
                                         <div class="durasiKelas">
                                             @php
                                                 $formattedDurasiStart = Carbon::parse($paket->durasi_start)->format('j F Y');
@@ -117,13 +117,13 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
-                                        class="btn btn-price">Daftar</a>
+                                    {{-- <a href="{{ url('/testimoni?id_user=' . $paket->user_id) }}"
+                                        class="btn btn-price">Daftar</a> --}}
                                     {{-- <a href="{{ route('pembayaran', ['id' => $paket->user_id, 'nama_paket' => $paket->nama_paket, 'harga' => $paket->harga]) }}"
                                         class="btn btn-price">Daftar</a> --}}
 
-                                    {{-- <a href="{{ route('PembayaranUser.index', ['user_id' => $paket->user_id, 'id' => $paket->id]) }}"
-                                        class="btn btn-price">Daftar</a> --}}
+                                    <a href="{{ route('PembayaranUser.index', ['user_id' => $paket->user_id, 'id' => $paket->id]) }}"
+                                        class="btn btn-price">Daftar</a>
 
                                 </div>
                             </div>

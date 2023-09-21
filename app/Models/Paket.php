@@ -14,6 +14,7 @@ class Paket extends Model
         'nama_paket',
         'deskripsi',
         'harga',
+        'total_harga',
         'durasi_start',
         'durasi_end'
     ];

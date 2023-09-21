@@ -6,7 +6,6 @@ use App\Http\Requests\UpdateProfileRrequest;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Profile;
-use App\Models\Role;
 use App\Models\Spesalisasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +27,6 @@ class TutorProfileController extends Controller
         $kelurahans = Kelurahan::all();
         $spesalisasis = Spesalisasi::all();
 
-
         return view('layoutUser.profileTutorPage')->with([
             'kecamatans' => $kecamatans,
             'kelurahans' => $kelurahans,
@@ -42,7 +40,6 @@ class TutorProfileController extends Controller
         $kecamatan['Kecamatan'] = Kecamatan::get();
         return response()->json($kecamatan);
     }
-
 
     public function getKelurahans(Request $request)
     {

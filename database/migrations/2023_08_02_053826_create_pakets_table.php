@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama_paket')->nullable();
             $table->text('deskripsi')->nullable();
             $table->integer('harga')->nullable();
+            $table->integer('total_harga')->nullable();
             $table->date('durasi_start')->nullable();
             $table->date('durasi_end')->nullable();
             $table->timestamps();

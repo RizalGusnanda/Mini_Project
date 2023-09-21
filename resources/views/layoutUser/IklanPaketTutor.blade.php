@@ -90,7 +90,7 @@
                                     <h3>{{ $paket->nama_paket }}</h3>
                                     <span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} / bulan
                                     </span>
-                                    <p>{{ $paket->deskripsi }}</p>
+                                    <p>{!! $paket->deskripsi !!}</p>
                                 </div>
                             </div>
                             <div class="dropdown-menu">

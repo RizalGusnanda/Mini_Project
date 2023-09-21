@@ -48,4 +48,8 @@ class LandingController extends Controller
         ]);
     }
 
+
+
+
+
 }

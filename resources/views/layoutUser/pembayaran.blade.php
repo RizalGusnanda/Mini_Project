@@ -79,40 +79,57 @@
                         <h3 class="pembayaran-ringkasan-title" style="margin-left: 3px;">RINGKASAN PRODUK</h3>
                         <div class="pembayaran-ringkasan-content">
                             <div class="pembayaran-paket-section">
-                                <div class="pembayaran-label-bold" style="margin-left: -10px">Paket Belajar</div>
-                                <div class="pembayaran-harga">Harga</div>
+                                <div class="pembayaran-label-bold" style="margin-left: -10px; font-size: 14px; color: #ccc">Paket Kelas Belajar</div>
+                                <div class="pembayaran-harga" style="font-size: 14px; color: #ccc">Harga</div>
                             </div>
                             <div class="row">
                                 <div class="value-section">
                                     <div class="pembayaran-value">{{ $paket->nama_paket }}</div>
-                                    <div class="pembayaran-price">Rp.{{ number_format($paket->harga, 0, ',', '.') }} </div>
+                                    <div class="pembayaran-price">Rp.{{ number_format($paket->harga, 0, ',') }} </div>
+                                </div>
+                                <p style="color: #ccc">-----------------------------------------------------------------------------------</p>
+                                <div class="value-section">
+                                    <div class="tax-value" style="margin-top: -30px">Biaya Admin</div>
+                                    <div class="tax-price" style="margin-top: -30px"> </div>
+                                    
+                                </div>
+
+                                <div class="value-section">
+
+                                </div>
+                                <div class="value-section">
+                                    <div class="total-value" style="margin-top: -45px">Total</div>
+                                    <div class="total-price" style="margin-top: -45px">Rp.{{ number_format($paket->total_harga, 0, ',') }}</div>
                                 </div>
                                 <hr>
                                 <div class="pembayaran-price-section">
-                                    <div class="pembayaran-label-bold" style="text-align: center">Pilih Metode Pembayaran
+                                    <div class="pembayaran-label-bold" style="font-size: 18px">Pilih Metode Pembayaran
                                     </div>
                                 </div>
 
 
-                                @foreach ($channels as $channel)
-                                    <div class="col-6 d-flex justify-content-center">
-                                        <div class="row pembayaran-payment-button">
-                                            <div class="button-opsional">
-                                                <form action="{{ route('PembayaranUser.store') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $paket->id }}">
-                                                <input type="hidden" name="method" value="{{ $channel->code }}">
-                                                <button type="submit" class="bg-white rounded-md shadow-soft">
-                                                    <img src="{{asset('assets/img/bank/'. $channel->code . '.png')  }}"
-                                                            class="w-full" alt="" width="150" height="80">
-                                                        <p style="color: #ccc">Pay with {{ $channel->name }}</p>
-                                                   
-                                                </button>
-                                                </form>
+                                <div class="row">
+                                    @foreach ($channels as $channel)
+                                    <div class="col-md-12 mb-2">
+                                        <form action="{{ route('PembayaranUser.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $paket->id }}">
+                                            <input type="hidden" name="method" value="{{ $channel->code }}">
+                                            <div class="card">
+                                                <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}" class="card-img-top equal-image" alt="{{ $channel->name }}">
+                                                <div class="card-body text-center" style="padding: 0px">
+                                                    <p class="card-text" style="color: #000000; font-size: 14px; margin-top: -60px;">{{ $channel->name }}</p>
+                                                    <button type="submit" class="btn btn-primary" style="margin-left: 550px; margin-top: -80px">Bayar</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+
+
+
+
 
                             </div>
                         </div>
@@ -122,3 +139,18 @@
         </div>
     </section>
 @endsection
+
+@push('customScript')
+    <script>
+        var totalhargaElement = document.querySelector('.total-price');
+        var hargaElement = document.querySelector('.pembayaran-price');
+        var tax = document.querySelector('.tax-price');
+        var totalhargaText = totalhargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
+        var hargaText = hargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
+
+        var totalharga = parseInt(totalhargaText);
+        var harga = parseInt(hargaText);
+        var selisih = totalharga - harga;
+        tax.innerText = 'Rp.' + selisih.toLocaleString();
+    </script>
+@endpush

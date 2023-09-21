@@ -24,7 +24,6 @@ class UpdateProfileRrequest extends FormRequest
     public function rules()
 {
     return [
-        'id_roles' => 'nullable|exists:roles,id',
         'id_kecamatans' => 'nullable|exists:kecamatans,id',
         'id_kelurahans' => 'nullable|exists:kelurahans,id',
         'id_spesalisasis' => 'nullable|exists:spesalisasis,id',

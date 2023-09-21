@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
+use DB;
 
 class PembayaranController extends Controller
 {
@@ -13,10 +14,17 @@ class PembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Pembayaran $pembayaran)
     {
-        //
-        return view('pembayaran.index');
+        $pembayaran = DB::table('pembayarans')
+        ->select('pembayarans.*', 'users.name', 'pakets.nama_paket', 'mentor.name as nama_mentor')
+        ->leftJoin('users', 'pembayarans.user_id', '=', 'users.id')
+        ->leftJoin('pakets', 'pembayarans.paket_id', '=', 'pakets.id')
+        ->leftJoin('users as mentor', 'pakets.user_id', '=', 'mentor.id')
+        ->get();
+
+
+        return view('pembayaran.index', ['pembayaran' => $pembayaran]);
     }
 
     /**

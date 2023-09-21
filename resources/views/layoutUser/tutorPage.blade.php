@@ -150,37 +150,36 @@
         </div>
     </section>
     <script>
-       document.addEventListener("DOMContentLoaded", function() {
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const searchForm = document.querySelector(".search-form");
-    const ajarInput = document.createElement("input");
-    ajarInput.type = "hidden";
-    ajarInput.name = "ajar";
-    searchForm.appendChild(ajarInput);
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterButtons = document.querySelectorAll(".filter-button");
+            const searchForm = document.querySelector(".search-form");
+            const ajarInput = document.createElement("input");
+            ajarInput.type = "hidden";
+            ajarInput.name = "ajar";
+            searchForm.appendChild(ajarInput);
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            filterButtons.forEach(btn => btn.classList.remove("active"));
-            this.classList.add("active");
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
 
-            const filterType = this.getAttribute("data-ajar");
+                    const filterType = this.getAttribute("data-ajar");
 
-            // Hapus parameter "ajar" dari URL jika "Semua" diklik
-            if (filterType === "all") {
-                const urlParams = new URLSearchParams(window.location.search);
-                urlParams.delete("ajar");
-                const newUrl = window.location.pathname + "?" + urlParams.toString();
-                window.location.href = newUrl;
-                return;
-            }
+                    // Hapus parameter "ajar" dari URL jika "Semua" diklik
+                    if (filterType === "all") {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        urlParams.delete("ajar");
+                        const newUrl = window.location.pathname + "?" + urlParams.toString();
+                        window.location.href = newUrl;
+                        return;
+                    }
 
-            // Set nilai ajar pada input hidden dan submit form
-            ajarInput.value = filterType;
-            searchForm.submit();
+                    // Set nilai ajar pada input hidden dan submit form
+                    ajarInput.value = filterType;
+                    searchForm.submit();
+                });
+            });
         });
-    });
-});
-
     </script>
-    
+
 @endsection
