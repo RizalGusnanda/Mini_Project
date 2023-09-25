@@ -129,10 +129,15 @@
             font-weight: bold;
         }
 
-         .btn.btn-lg {
+        .btn.btn-lg {
             padding: 0.55rem 1.5rem;
             font-size: 12px;
+        }
 
+        .btn-responsive {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -150,7 +155,7 @@
                             </div>
                             <div class="col mt-5">
                                 <img src="{{ asset('assets/img/avatar/cuate.png') }}" alt="" srcset=""
-                                    style="width: 100%" >
+                                    style="width: 100%">
                             </div>
                         </div>
                     </div>
@@ -246,7 +251,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 616px">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-lg btn-block btn-responsive">
                                             Registrasi
                                         </button>
                                     </div>

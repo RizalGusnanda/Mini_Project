@@ -74,14 +74,22 @@
         .text-link {
             color: #1F3C88;
         }
+
         .text-link-register {
             color: #EE6F57;
 
         }
-          .btn.btn-lg {
+
+        .btn.btn-lg {
             padding: 0.55rem 1.5rem;
             font-size: 12px;
 
+        }
+
+        .btn-responsive {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -148,13 +156,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" style="width: 627px">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block btn-responsive"
+                                            tabindex="4">
                                             Masuk
                                         </button>
                                     </div>
                                 </form>
                                 <div class="mt-5 text-muted text-center">
-                                    <a href="" class="text-link">Belum punya akun?</a> <a href="/register" class="text-link-register">REGISTRASI</a>
+                                    <a href="" class="text-link">Belum punya akun?</a> <a href="/register"
+                                        class="text-link-register">REGISTRASI</a>
                                 </div>
                                 <div class="simple-footer">
                                     Copyright &copy; Stisla 2018
