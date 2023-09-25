@@ -6,12 +6,14 @@ namespace App\Http\Controllers\Payment;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Http\Controllers\Controller;
+use App\Mail\TripayNotifikasiSuccess;
 use App\Models\Dompet;
 use App\Models\Paket;
 use App\Models\Pembayaran;
 use App\Models\User;
 use DB;
 use Response;
+use Mail;
 use Spatie\Permission\Contracts\Role;
 
 class TripayCallbackController extends Controller
@@ -106,7 +108,13 @@ class TripayCallbackController extends Controller
                     ]
                 );
 
+                $user = User::role('user')->first();
+                $userId = $user->email;
+           
+                Mail::to($userId)->send(new TripayNotifikasiSuccess($data));
                 $transaksi->update(['status' => 'PAID']);
+                // status email 
+
                 return response()->json(['success' => true]);
 
             case 'EXPIRED':
