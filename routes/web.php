@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], 
         return view('layoutUser/chat');
     });
 
-    Route::get('/kelas-siswa', [KelasSiswaController::class, 'showKelas'])->name('kelas-siswa');
+    Route::get('/kelas-siswa/{id}', [KelasSiswaController::class, 'showKelas'])->name('kelas-siswa');
     Route::get('/paket', [PaketController::class, 'showPaketPage'])->name('daftar-paket');
     Route::get('/detail/{id}', [tutorConntroller::class, 'tutorDetail'])->name('tutor.detail');
 

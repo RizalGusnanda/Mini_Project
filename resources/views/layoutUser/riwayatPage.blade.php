@@ -100,7 +100,8 @@
                                             <button class="options-button"
                                                 id="options-button-{{ $pembayaran->id }}">⋮</button>
                                             <div class="options-dropdown" id="options-dropdown-{{ $pembayaran->id }}">
-                                                <a href="/kelas-siswa">Lihat Modul</a>
+                                                <a href={{ route('kelas-siswa', $pembayaran->modul_fk_id) }}>Lihat
+                                                        Modul</a>
                                                 <a href="/chatify">Chat</a>
                                                 @if (!$pembayaran->has_testimoni)
                                                     <a
