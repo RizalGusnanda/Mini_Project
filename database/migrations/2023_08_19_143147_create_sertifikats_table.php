@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('profile_id')->constrained('profiles')->onDelete('restrict');
             $table->string('sertifikasi')->nullable();
+            $table->string('deskripsi_sertifikasi')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();
         });

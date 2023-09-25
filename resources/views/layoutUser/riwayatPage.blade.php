@@ -75,9 +75,9 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     @php
-    $profileImagePath = 'storage/' . ($pembayaran->paket->user->profile->profile ?? 'default.jpg');
-    @endphp
-    <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
+                                        $profileImagePath = 'storage/' . ($pembayaran->paket->user->profile->profile ?? 'default.jpg');
+                                    @endphp
+                                    <img class="card-img-top" src="{{ asset($profileImagePath) }}" alt="">
                                 </div>
                                 <div class="col-md-7">
                                     <div class="tanggal">
@@ -103,7 +103,8 @@
                                                 <a href="/kelas-siswa">Lihat Modul</a>
                                                 <a href="/chatify">Chat</a>
                                                 @if (!$pembayaran->has_testimoni)
-                                                    <a href="{{ route('testimoni.create', ['id_pembayaran' => $pembayaran->id]) }}">Testimoni</a>
+                                                    <a
+                                                        href="{{ route('testimoni.create', ['id_pembayaran' => $pembayaran->id]) }}">Testimoni</a>
                                                 @endif
                                             </div>
                                         </div>

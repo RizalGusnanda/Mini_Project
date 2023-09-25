@@ -26,8 +26,8 @@
                                 <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
-                                    style="width: 150px; height: 150px;">
+                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
+                                    alt="" style="width: 150px; height: 150px;">
                             @endif
                         </div>
                         <div class="card-menu">
@@ -247,5 +247,24 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#inputPhone').on('input', function() {
+                var phoneNumber = $(this).val().replace(/\D/g, '');
+
+                if (phoneNumber.length < 11 || phoneNumber.length > 13) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+
+                if (phoneNumber.length >= 13) {
+                    phoneNumber = phoneNumber.substring(0, 13);
+                    $(this).val(phoneNumber);
+                }
+
+            });
+        });
     </script>
 @endsection

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('pendidikan')->nullable();
             $table->string('jurusan')->nullable();
             $table->string('instansi')->nullable();
-            $table->integer('norek')->nullable();
+            $table->string('norek')->nullable();
             $table->enum('bank',['BRI','BCA','BNI'])->nullable();
             $table->integer('pengalaman')->nullable();
             $table->text('penjelasan_pengalaman')->nullable();

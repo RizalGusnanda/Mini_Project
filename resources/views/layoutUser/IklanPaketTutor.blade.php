@@ -1,19 +1,8 @@
 @extends('layoutUser.layout.index')
 @section('content')
-    <style>
-        body {
-            background-color: white;
-        }
-    </style>
-<style>
-
-</style>
-
-
-
+<head>
     <title>Guru Link</title>
 </head>
-
 <body>
     <style>
         body {

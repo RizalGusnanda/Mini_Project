@@ -26,64 +26,13 @@ class IklanPaketTutorPOVController extends Controller
     //         3. editPaketKelas.blade.php = menampilkan form jika tutor ingin edit paket
     // =============================================================================================
 
-    // public function showIklanPaket(Request $request)
-    // {
-    //     $nama_paket = $request->input('nama_paket');
-    //     $paket_id = DB::table('pakets')
-    //         ->select(
-    //             'pakets.id',
-    //         )
-    //         ->leftJoin('users', 'pakets.user_id', '=', 'users.id')
-    //         ->where('user_id', auth()->user()->id)
-    //         ->when($request->input('nama_paket'), function ($query, $nama_paket) {
-    //             return $query->where('nama_paket', 'LIKE', '%' . $nama_paket . '%');
-    //         })->first();
-
-    //     $modul_id = DB::table('moduls')
-    //         ->select(
-    //             'moduls.id',
-    //         )
-    //         ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-    //         ->where('user_id', auth()->user()->id)
-    //         ->where('paket_id', $paket_id->id)
-    //         ->first();
-
-
-    //     $pakets = DB::table('pakets')
-    //         ->select(
-    //             'pakets.id as paket_Id',
-    //             'pakets.user_id',
-    //             'pakets.nama_paket',
-    //             'pakets.deskripsi',
-    //             'pakets.harga',
-    //             'pakets.total_harga',
-    //             'pakets.*',
-    //             'users.name'
-    //         )
-    //         ->leftJoin('users', 'pakets.user_id', '=', 'users.id')
-    //         ->where('user_id', auth()->user()->id)
-    //         ->when($request->input('nama_paket'), function ($query, $nama_paket) {
-    //             return $query->where('nama_paket', 'LIKE', '%' . $nama_paket . '%');
-    //         })
-    //         ->paginate(5);
-
-
-
-    //     return redirect()->route('modul.daftar', [
-    //         'paket_id' => $paket_id->id,
-    //         'modul_id' => $modul_id->id,
-    //     ])->with([
-    //         'pakets' => $pakets,
-    //         'nama_paket' => $nama_paket,
-
-    //     ]);
-    // }
 
     public function showIklanPaket(Request $request)
     {
-            $nama_paket = $request->input('nama_paket');
-            $pakets = DB::table('pakets')
-                ->select(
+        $nama_paket = $request->input('search'); // Change 'nama_paket' to 'search'
+
+        $pakets = DB::table('pakets')
+            ->select(
                 'pakets.id as paket_Id',
                 'pakets.user_id',
                 'pakets.nama_paket',
@@ -91,19 +40,17 @@ class IklanPaketTutorPOVController extends Controller
                 'pakets.harga',
                 'pakets.total_harga',
                 'pakets.*',
-                'users.name')
-                ->leftJoin('users', 'pakets.user_id', '=', 'users.id')
-                ->where('user_id', auth()->user()->id)
-                ->when($request->input('nama_paket'), function($query, $nama_paket){
-                return $query->where('nama_paket', 'LIKE', '%' .$nama_paket. '%');
-                })
-                ->paginate(5);
-    
-    
-    
-        return view('layoutUser.iklanPaketTutor')->with( ['pakets' => $pakets , 'nama_paket' => $nama_paket]);
+                'users.name'
+            )
+            ->leftJoin('users', 'pakets.user_id', '=', 'users.id')
+            ->where('user_id', auth()->user()->id)
+            ->when($nama_paket, function ($query, $nama_paket) {
+                return $query->where('nama_paket', 'LIKE', '%' . $nama_paket . '%');
+            })
+            ->paginate(5);
+
+        return view('layoutUser.iklanPaketTutor')->with(['pakets' => $pakets, 'nama_paket' => $nama_paket]);
     }
-    
 
 
     public function create()
@@ -169,7 +116,7 @@ class IklanPaketTutorPOVController extends Controller
     // =============================================================================================
     public function showModul($id)
     {
-        
+
         $paket = DB::table('pakets')
             ->select(
                 'pakets.id as paket_Id',
@@ -180,7 +127,7 @@ class IklanPaketTutorPOVController extends Controller
                 'pakets.total_harga',
                 'pakets.id',
             )
-            ->leftJoin('users', 'pakets.user_id' , '=' , 'users.id')
+            ->leftJoin('users', 'pakets.user_id', '=', 'users.id')
             ->where('pakets.id', $id)->first();
 
         if (!$paket) {
@@ -235,51 +182,52 @@ class IklanPaketTutorPOVController extends Controller
         return view('layoutUser.modulKelasTutor', ['paket' => $paket, 'modules' => $modules, 'modules1' => $modules1, 'nama_modul' => $firstModule->nama_modul, 'deskripsi_modul' => $firstModule->deskripsi_modul]);
     }
 
-// tampilan sebenrannya 
-    public function tampilanModul(Request $request , $id) {
+    // tampilan sebenrannya 
+    public function tampilanModul(Request $request, $id)
+    {
 
         $modules = DB::table('moduls')
-        ->select(
-            'moduls.id as moduls_Id',
-            'moduls.user_id',
-            'moduls.nama_modul',
-            'moduls.deskripsi_modul',
-            'moduls.*',
-            'pakets.id',
-            'pakets.nama_paket',
-            'users.id',
-            'users.name'
-        )
-        ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
-        ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-        ->where('moduls.user_id', auth()->user()->id)
-        ->get();
+            ->select(
+                'moduls.id as moduls_Id',
+                'moduls.user_id',
+                'moduls.nama_modul',
+                'moduls.deskripsi_modul',
+                'moduls.*',
+                'pakets.id',
+                'pakets.nama_paket',
+                'users.id',
+                'users.name'
+            )
+            ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
+            ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
+            ->where('moduls.user_id', auth()->user()->id)
+            ->get();
 
         $modules1 = Modul::where('moduls.id', $id)
-        ->select(
-            'moduls.id as moduls_Id',
-            'moduls.user_id',
-            'moduls.nama_modul',
-            'moduls.deskripsi_modul',
-            'moduls.*',
-            'pakets.id',
-            'pakets.nama_paket',
-            'users.id',
-            'users.name'
-        )
-        ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
-        ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-        ->where('moduls.user_id', auth()->user()->id)
-        ->first();
+            ->select(
+                'moduls.id as moduls_Id',
+                'moduls.user_id',
+                'moduls.nama_modul',
+                'moduls.deskripsi_modul',
+                'moduls.*',
+                'pakets.id',
+                'pakets.nama_paket',
+                'users.id',
+                'users.name'
+            )
+            ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
+            ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
+            ->where('moduls.user_id', auth()->user()->id)
+            ->first();
 
         // dd($modules1);
 
         $nextModule = Modul::where('id', '>', $id)->orderBy('id')->first();
         $previousModule = Modul::where('id', '<', $id)->orderByDesc('id')->first();
 
-            // dd($modules);
+        // dd($modules);
 
-        return view('layoutUser.modulTampilanKelasTutor')->with(['modules'=> $modules , 'modules1' => $modules1, 'nextModule' => $nextModule,  'previousModule' =>  $previousModule]);
+        return view('layoutUser.modulTampilanKelasTutor')->with(['modules' => $modules, 'modules1' => $modules1, 'nextModule' => $nextModule,  'previousModule' =>  $previousModule]);
     }
 
 

@@ -26,8 +26,8 @@
                                 <img class="profile-pic" id="preview" src="{{ asset($profileImagePath) }}" alt=""
                                     style="width: 150px; height: 150px;">
                             @else
-                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt=""
-                                    style="width: 150px; height: 150px;">
+                                <img class="profile-pic" id="preview" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
+                                    alt="" style="width: 150px; height: 150px;">
                             @endif
                         </div>
                         <div class="card-menu">
@@ -201,8 +201,9 @@
                                 <div class="mb-3">
                                     <label for="norek" class="form-label">Nomor Rekening</label>
                                     <input class="form-control" id="norek" type="norek" name="norek"
-                                        maxlength="10" required
+                                        maxlength="15" required
                                         value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                        <p><small style="color: green;">Hanya boleh diisi dengan angka (10-15 digit).</small></p>
                                 </div>
                                 <div class="mb-3">
                                     <label for="ajar" class="form-label">Pilihan Mengajar</label>
@@ -256,12 +257,16 @@
                     dataType: 'json',
                     success: function(response) {
                         console.log('Spesialisasi berhasil diperbarui:', response);
+
+                        // Setel kembali pilihan spesialisasi setelah berhasil diperbarui
+                        $('#spesalisasis').val(idSpesialisasi);
                     },
                     error: function(error) {
                         console.error('Error dalam memperbarui spesialisasi:', error);
                     }
                 });
             });
+
 
             $('#id_kecamatans').change(function() {
                 var id_kecamatans = this.value;
@@ -360,14 +365,18 @@
                     e.preventDefault();
                 }
 
-                if (norek.length > 10) {
-                    alert('Nomor Rekening tidak boleh lebih dari 10 angka!');
+                // Validasi nomor rekening
+                if (!norek.match(/^\d+$/)) {
+                    alert('Nomor rekening hanya boleh diisi dengan angka.');
+                    e.preventDefault();
+                } else if (norek.length < 10 || norek.length > 15) {
+                    alert('Nomor rekening harus memiliki panjang antara 10 hingga 15 angka.');
                     e.preventDefault();
                 }
                 if (phone.length === 0 || !phone.match(/^08\d{9,11}$/) || !phone.match(/^\d+$/)) {
                     alert(
                         'Nomor telepon harus dimulai dengan "08", hanya boleh diisi dengan angka, dan memiliki total 11 hingga 13 digit angka.'
-                        );
+                    );
                     e.preventDefault();
                 }
             });
