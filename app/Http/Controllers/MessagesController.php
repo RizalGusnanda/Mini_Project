@@ -221,7 +221,6 @@ class MessagesController extends Controller
      */
     public function getContacts(Request $request)
     {
-        // get all users that received/sent message from/to [Auth user]
         $users = Message::join('users',  function ($join) {
             $join->on('ch_messages.from_id', '=', 'users.id')
                 ->orOn('ch_messages.to_id', '=', 'users.id');
@@ -237,7 +236,7 @@ class MessagesController extends Controller
                 'users.id',
                 'users.name',
                 'users.email',
-                'userspassword',
+                'users.password',
             )
             ->paginate($request->per_page ?? $this->perPage);
 

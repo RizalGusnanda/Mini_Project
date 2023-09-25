@@ -48,7 +48,9 @@ use App\Models\Category;
 
 
 
-
+Route::post('/broadcasting/auth', function (Request $request) {
+    return \Broadcast::auth($request);
+});
 //semua
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 Route::post('callback', [TripayCallbackController::class, 'handle']);
