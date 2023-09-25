@@ -30,7 +30,8 @@
                 <h6 class="card-title beri-testimoni-tittle">Beri Testimoni</h6>
                 <form action="{{ route('testimoni.store') }}" method="post" id="form">
                     @csrf
-                    <input type="hidden" name="user_id" value="{{ $user_id }}">
+                    <input type="hidden" name="paket_id" value="{{ $paket->id }}">
+                    <input type="hidden" name="user_id" value="{{ $paket->user->id }}">
                     <div class="mb-3 input-container">
                         <label for="testimoniTextarea" class="form-label">Testimoni</label>
                         <textarea class="form-control" id="testimoniTextarea" name="testimoni" rows="3"

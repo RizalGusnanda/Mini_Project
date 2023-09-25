@@ -16,9 +16,11 @@ class UpdateSertifikatRequest extends FormRequest
     {
         return [
             'pengalaman' => 'nullable|integer|max:255', // Mengubah validasi menjadi integer
-            'penjelasan_pengalaman' => 'nullable|string|max:255',
+            'penjelasan_pengalaman' => 'nullable|string',
             'sertifikasi' => 'array', // Menambahkan validasi array
-            'sertifikasi.*' => 'nullable|string|max:255', // Validasi setiap elemen array
+            'sertifikasi.*' => 'nullable|string|max:255',
+            'deskripsi_sertifikasi'=>'array',
+            'deskripsi_sertifikasi*'=>'nullable|string', // Validasi setiap elemen array
             'link' => 'array', // Menambahkan validasi array
             'link*' => 'nullable|string|max:255', // Validasi setiap elemen array
 

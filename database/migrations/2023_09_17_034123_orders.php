@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('dompets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('id_users')->nullable();
             $table->unsignedBigInteger('paket_id')->nullable();
             $table->unsignedBigInteger('pembayaran_id')->nullable();
-            $table->string('dompet');
-            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
+            $table->integer('saldo');
+            $table->timestamps();
+
+            $table->foreign('id_users')->references('id')->on('users')->restrictOnDelete();
             $table->foreign('paket_id')->references('id')->on('pakets')->restrictOnDelete();
             $table->foreign('pembayaran_id')->references('id')->on('pembayarans')->restrictOnDelete();
-            
-            $table->timestamps();
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('dompets');
     }
 };

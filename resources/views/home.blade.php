@@ -59,7 +59,7 @@
                         </div>
                         <div class="col col-stats ml-3 ml-sm-0">
                             <div class="numbers">
-                                <h4 class="card-title" style="color: black">Rp.200.000</h4>
+                                <h4 class="card-title" style="color: black">Rp.{{ number_format($uang) }}</h4>
                                 <p class="card-category"> Total Pendapatan</p>
                             </div>
                         </div>

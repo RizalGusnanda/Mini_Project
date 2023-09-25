@@ -6,22 +6,12 @@
         }
     </style>
 
-    <section class="breadcrumb">
-        <div class="container">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Pembayaran</a></li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-
     <section class="header">
         <div class="container">
             <div class="row">
                 <div class="col-1">
-                    <a href="#" class="pembayaran-back-icon"><i class="fas fa-arrow-left"></i></a>
+                    <a href="{{ route('daftar-paket', ['id_user' => $tutor->user->id]) }}" class="pembayaran-back-icon"><i
+                            class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-11">
                     <div class="pembayaran-card-search-pem">
@@ -76,22 +66,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="pembayaran-card-ringkasan">
-                        <h3 class="pembayaran-ringkasan-title" style="margin-left: 3px;">RINGKASAN PRODUK</h3>
+                        <h3 class="pembayaran-ringkasan-title" style="margin-left: 3px; color: #000000">RINGKASAN PRODUK
+                        </h3>
                         <div class="pembayaran-ringkasan-content">
                             <div class="pembayaran-paket-section">
-                                <div class="pembayaran-label-bold" style="margin-left: -10px; font-size: 14px; color: #ccc">Paket Kelas Belajar</div>
+                                <div class="pembayaran-label-bold" style="margin-left: -10px; font-size: 14px; color: #ccc">
+                                    Paket Kelas Belajar</div>
                                 <div class="pembayaran-harga" style="font-size: 14px; color: #ccc">Harga</div>
                             </div>
                             <div class="row">
-                                <div class="value-section">
+                                <div class="value-section dashed-line">
                                     <div class="pembayaran-value">{{ $paket->nama_paket }}</div>
                                     <div class="pembayaran-price">Rp.{{ number_format($paket->harga, 0, ',') }} </div>
                                 </div>
-                                <p style="color: #ccc">-----------------------------------------------------------------------------------</p>
+                                <p></p>
                                 <div class="value-section">
                                     <div class="tax-value" style="margin-top: -30px">Biaya Admin</div>
                                     <div class="tax-price" style="margin-top: -30px"> </div>
-                                    
+
                                 </div>
 
                                 <div class="value-section">
@@ -99,7 +91,8 @@
                                 </div>
                                 <div class="value-section">
                                     <div class="total-value" style="margin-top: -45px">Total</div>
-                                    <div class="total-price" style="margin-top: -45px">Rp.{{ number_format($paket->total_harga, 0, ',') }}</div>
+                                    <div class="total-price" style="margin-top: -45px">
+                                        Rp.{{ number_format($paket->total_harga, 0, ',') }}</div>
                                 </div>
                                 <hr>
                                 <div class="pembayaran-price-section">
@@ -110,26 +103,27 @@
 
                                 <div class="row">
                                     @foreach ($channels as $channel)
-                                    <div class="col-md-12 mb-2">
-                                        <form action="{{ route('PembayaranUser.store') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $paket->id }}">
-                                            <input type="hidden" name="method" value="{{ $channel->code }}">
-                                            <div class="card">
-                                                <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}" class="card-img-top equal-image" alt="{{ $channel->name }}">
-                                                <div class="card-body text-center" style="padding: 0px">
-                                                    <p class="card-text" style="color: #000000; font-size: 14px; margin-top: -60px;">{{ $channel->name }}</p>
-                                                    <button type="submit" class="btn btn-primary" style="margin-left: 550px; margin-top: -80px">Bayar</button>
+                                        <div class="col-md-12 mb-2">
+                                            <form action="{{ route('PembayaranUser.store') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $paket->id }}">
+                                                <input type="hidden" name="method" value="{{ $channel->code }}">
+                                                <div class="card">
+                                                    <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}"
+                                                        style="width: 25%; height: 100px; padding: 15px;"
+                                                        class="card-img-top equal-image" alt="{{ $channel->name }}">
+                                                    <div class="card-body text-center" style="padding: 0px;"">
+                                                        <p class="card-text"
+                                                            style="color: #000000; font-size: 14px; margin-top: -60px;">
+                                                            {{ $channel->name }}</p>
+                                                        <button type="submit" class="btn btn-primary"
+                                                            style="margin-left: 550px; margin-top: -80px">Bayar</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            </form>
+                                        </div>
                                     @endforeach
                                 </div>
-
-
-
-
 
                             </div>
                         </div>
@@ -152,5 +146,11 @@
         var harga = parseInt(hargaText);
         var selisih = totalharga - harga;
         tax.innerText = 'Rp.' + selisih.toLocaleString();
+    </script>
+    <script>
+        document.querySelector('.pembayaran-back-icon').addEventListener('click', function() {
+            var selectedPackageId = "{{ $paket->id }}";
+            window.location.href = "{{ route('daftar-paket') }}?id_user=" + selectedPackageId;
+        });
     </script>
 @endpush

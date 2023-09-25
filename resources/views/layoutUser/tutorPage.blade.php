@@ -29,19 +29,24 @@
                                 <select name="spesialisasis" id="spesalisasis" class="form-control">
                                     <option value="">Pilih Spesialisasi</option>
                                     @foreach ($spesialisasiData as $spesialisasi)
-                                        <option value="{{ $spesialisasi->id }}">{{ $spesialisasi->nama_spesialisasi }}
+                                        <option value="{{ $spesialisasi->id }}" {{ $search1 == $spesialisasi->id ? 'selected' : '' }}>
+                                            {{ $spesialisasi->nama_spesialisasi }}
                                         </option>
                                     @endforeach
                                 </select>
+
                             </div>
                             <div class="search-input">
                                 <i class="material-icons">location_on</i>
                                 <select name="id_kecamatans" id="id_kecamatans" class="form-control">
                                     <option value="">Pilih Kecamatan</option>
                                     @foreach ($kecamatanData as $kecamatan)
-                                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->kecamatan }}</option>
+                                        <option value="{{ $kecamatan->id }}" {{ $search2 == $kecamatan->id ? 'selected' : '' }}>
+                                            {{ $kecamatan->kecamatan }}
+                                        </option>
                                     @endforeach
                                 </select>
+
                             </div>
                             <button type="submit" class="card-search-tutor button-tutor">
                                 <i class="fas fa-search"></i>

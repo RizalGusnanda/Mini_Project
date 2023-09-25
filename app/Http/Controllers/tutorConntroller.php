@@ -48,9 +48,13 @@ class tutorConntroller extends Controller
             'spesialisasiData' => $spesialisasiData,
             'kecamatanData' => $kecamatanData,
             'searchResults' => $searchResults,
-            'otherTutors' => $otherTutors
+            'otherTutors' => $otherTutors,
+            'search1' => $search1,
+            'search2' => $search2,
+            'searchAjar' => $searchAjar,
         ]);
     }
+
 
 
     private function getAllTutors()
@@ -70,7 +74,7 @@ class tutorConntroller extends Controller
         )
             ->leftJoin('users', 'users.id', 'testimonis.user_testimoni')
             ->leftJoin('profiles', 'profiles.user_id', 'testimonis.user_testimoni')
-            ->where('testimonis.id_users', $tutor->user->id) // Ganti 'id_users' sesuai dengan nama kolom yang sesuai di tabel testimoni
+            ->where('testimonis.id_users', $tutor->user->id)
             ->paginate(10);
 
         $averageRating = Testimoni::where('id_users', $tutor->user->id)->avg('rating');

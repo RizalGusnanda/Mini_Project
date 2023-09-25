@@ -28,8 +28,9 @@ use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\SpesalisasiController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PembayaranUserController;
-use App\Http\Controllers\ReservasiTutorController;
+use App\Http\Controllers\ReservasiUserController;
 use App\Http\Controllers\TutorProfileController;
+use App\Http\Controllers\ReservasiTutorController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -50,7 +51,7 @@ use App\Models\Category;
 
 //semua
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
-Route::post('callback',[TripayCallbackController::class, 'handle']);
+Route::post('callback', [TripayCallbackController::class, 'handle']);
 Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], function () {
     Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
     Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
@@ -88,9 +89,6 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], 
     Route::get('/get-kecamatan', [profileSiswaController::class, 'getKecamatan'])->name('get-kecamatan');
     Route::post('/profileSiswa', [profileSiswaController::class, 'update'])->name('profileSiswa.update');
     Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
-
-
-
 });
 
 
@@ -115,13 +113,16 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], funct
     Route::put('/update-paket/{id}', [IklanPaketTutorPOVController::class, 'update'])->name('updatePaket.update');
     Route::delete('/hapus-paket/{id}', [IklanPaketTutorPOVController::class, 'destroy'])->name('hapusPaket.destroy');
 
-// DIBAWAH INI ROUTE UNTUK HALAMAN (modulKelasTutor.blade.php , tambahModulTutor.blade.php , editModulTutor.blade.php)
+    // DIBAWAH INI ROUTE UNTUK HALAMAN (modulKelasTutor.blade.php , tambahModulTutor.blade.php , editModulTutor.blade.php)
     Route::get('/edit-modul/{id}', [IklanPaketTutorPOVController::class, 'editModul'])->name('editModul.edit');
-    Route::get('/tambah-modul/{paket_id}', [IklanPaketTutorPOVController::class, 'createModul'])->name('tambahModul.create');
+    Route::get('/tambah-modul/{id}', [IklanPaketTutorPOVController::class, 'createModul'])->name('tambahModul.create');
     Route::put('/update-modul/{id}', [IklanPaketTutorPOVController::class, 'updateModul'])->name('updateModul.update');
-    Route::get('/isiModul/{id}',  [IklanPaketTutorPOVController::class, 'showModul'])->name('modul.daftar');
+    Route::get('/isiModul-paket/{id}',  [IklanPaketTutorPOVController::class, 'showModul'])->name('modul.daftar');
+    Route::get('/isiModul-paket-detail/{modul_id}',  [IklanPaketTutorPOVController::class, 'tampilanModul'])->name('modultampilan.daftar');
+    // Route::get('/paket={paket_id}-modul={modul_id}',  [IklanPaketTutorPOVController::class, 'showModul'])->name('modul.daftar');
     Route::post('/simpan-modul', [IklanPaketTutorPOVController::class, 'storeModul'])->name('simpan-modul');
-
+    Route::get('/get-deskripsi-modul/{nama_modul}', [IklanPaketTutorPOVController::class, 'getDeskripsiModul']);
+    Route::get('/get-modul/{id}', [IklanPaketTutorPOVController::class, 'getIdModul']);
 
     Route::get('/paketKelas', function () {
         return view('layoutUser/tambahPaketKelas');
@@ -130,7 +131,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], funct
     Route::get('/tambahModulTutor', function () {
         return view('layoutUser/tambahModulTutor');
     });
-    Route::get('/riwayatTutor', [ReservasiTutorController::class,'index']);
+    Route::get('/riwayatTutor', [ReservasiTutorController::class, 'index']);
 });
 
 //role= user-pengajar
@@ -141,13 +142,10 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
     Route::get('/pembayaran', [PembayaranUserController::class, 'index'])->name('PembayaranUser.index');
     Route::post('/pembayaran', [PembayaranUserController::class, 'store'])->name('PembayaranUser.store');
     Route::get('/pembayaran/{reference}', [PembayaranUserController::class, 'show'])->name('PembayaranUser.show');
-    Route::get('/testimoni', [TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::get('/testimoni/create/{id_pembayaran}', [TestimoniController::class, 'create'])->name('testimoni.create');
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
-    Route::get('/reservasiUser', function () {
-        return view('layoutUser/riwayatPage');
-    });
+    Route::get('/reservasiUser', [ReservasiUserController::class, 'index']);
     Route::get('/riwayatPembayaran', [RiwayatPembayaranController::class, 'index']);
-
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'role:super-admin']], function () {
@@ -162,7 +160,11 @@ Route::group(['middleware' => ['auth', 'verified', 'role:super-admin']], functio
             $query->where('name', 'user-pengajar');
         })->count();
 
-        return view('home', ['totalSiswa' => $totalSiswa, 'totalTutor' => $totalTutor]);
+        $uang = DB::table('dompets')
+            ->where('id_users', User::role('super-admin')->first()->id)
+            ->sum('saldo');
+
+        return view('home', ['totalSiswa' => $totalSiswa, 'totalTutor' => $totalTutor, 'uang' => $uang]);
     });
 
     Route::prefix('user-management')->group(function () {
@@ -227,5 +229,4 @@ Route::group(['middleware' => ['auth', 'verified', 'role:super-admin']], functio
     Route::prefix('pembayaran-management')->group(function () {
         Route::resource('pembayaran', PembayaranController::class);
     });
-
 });

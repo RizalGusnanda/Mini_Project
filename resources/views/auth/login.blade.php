@@ -76,6 +76,12 @@
         }
         .text-link-register {
             color: #EE6F57;
+
+        }
+          .btn.btn-lg {
+            padding: 0.55rem 1.5rem;
+            font-size: 12px;
+
         }
     </style>
 </head>
@@ -142,7 +148,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" style="width: 526px">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" style="width: 627px">
                                             Masuk
                                         </button>
                                     </div>

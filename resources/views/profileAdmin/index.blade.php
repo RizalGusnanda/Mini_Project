@@ -30,18 +30,18 @@
                                 @if (file_exists(public_path($profileImagePath)))
                                     <img class="img-account-profile rounded-circle mb-2"
                                         src="{{ asset($profileImagePath) }}" alt=""
-                                        style="width: 150px; height: 150px;">
+                                        style="width: 150px; height: 150px;" id="preview">
                                 @else
                                     <img class="img-account-profile rounded-circle mb-2"
                                         src="{{ asset('path/to/default/image.jpg') }}" alt=""
-                                        style="width: 150px; height: 150px;">
+                                        style="width: 150px; height: 150px;" id="preview">
                                 @endif
 
                                 <!-- Profile picture help block-->
                                 <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                                 <!-- Profile picture upload button-->
-                                <input type="file" name="image" class="d-none" id="profile-picture-input">
-                                <label for="profile-picture-input" class="btn btn-primary">Unggah Foto Baru</label>
+                                <input type="file" name="image" class="d-none" id="profile-picture-input" onchange="previewImage(this)">
+                                <label for="profile-picture-input" class="btn btn-primary" >Unggah Foto Baru</label>
                             </div>
                         </div>
                     </div>
@@ -146,10 +146,23 @@
             });
         });
     </script>
+
+
 @endpush
 
 @push('customStyle')
     <!-- ... Kode style kustom lainnya ... -->
 @endpush
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
 
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

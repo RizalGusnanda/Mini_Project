@@ -6,12 +6,17 @@ namespace App\Http\Controllers\Payment;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Http\Controllers\Controller;
+use App\Models\Dompet;
+use App\Models\Paket;
 use App\Models\Pembayaran;
+use App\Models\User;
+use DB;
 use Response;
+use Spatie\Permission\Contracts\Role;
 
 class TripayCallbackController extends Controller
 {
-  
+
     // Isi dengan private key anda
     protected $privateKey = 'euGfa-JVkvk-xSA1h-XSkER-ZzkmV';
 
@@ -42,7 +47,7 @@ class TripayCallbackController extends Controller
         if (1 === (int) $data->is_closed_payment) {
             $transaksi = Pembayaran::where('reference', $reference)->first();
 
-            if (! $transaksi) {
+            if (!$transaksi) {
                 return 'No $transaksi found for this unique ref: ' . $reference;
             }
 
@@ -60,7 +65,7 @@ class TripayCallbackController extends Controller
             ->where('status', 'UNPAID')
             ->first();
 
-        if (! $transaksi) {
+        if (!$transaksi) {
             return '$transaksi not found or current status is not UNPAID';
         }
 
@@ -70,6 +75,37 @@ class TripayCallbackController extends Controller
 
         switch ($data->status) {
             case 'PAID':
+
+                $tutor_id = Paket::where('id', $transaksi->paket_id)->value('user_id');
+                $superadminUser = User::role('super-admin')->first();
+                $adminId = $superadminUser->id;
+
+                $hargaKelas = Paket::where('id', $transaksi->paket_id)->value('harga'); // asumsi harga kelas tersimpan di kolom 'harga'
+                $saldoAdmin = $transaksi->total_amount + 0.1 * $hargaKelas - $hargaKelas;
+                $saldoTutor = $transaksi->total_amount - $saldoAdmin;
+
+                Dompet::updateOrInsert(
+                    [
+                        'id_users' => $tutor_id,
+                        'paket_id' => $transaksi->paket_id,
+                        'pembayaran_id' => $transaksi->id,
+                    ],
+                    [
+                        'saldo' => DB::raw('saldo + ' . $saldoTutor),
+                    ]
+                );
+
+                Dompet::updateOrInsert(
+                    [
+                        'id_users' => $adminId,
+                        'paket_id' => $transaksi->paket_id,
+                        'pembayaran_id' => $transaksi->id,
+                    ],
+                    [
+                        'saldo' => DB::raw('saldo + ' . $saldoAdmin),
+                    ]
+                );
+
                 $transaksi->update(['status' => 'PAID']);
                 return response()->json(['success' => true]);
 
@@ -85,5 +121,4 @@ class TripayCallbackController extends Controller
                 return response()->json(['error' => 'Unrecognized payment status']);
         }
     }
-    
 }

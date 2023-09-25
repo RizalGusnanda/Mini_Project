@@ -6,6 +6,7 @@ use App\Models\Profile;
 use App\Models\Sertifikat;
 use App\Http\Requests\UpdateSertifikatRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class SertifikatTutorController extends Controller
 {
@@ -15,66 +16,79 @@ class SertifikatTutorController extends Controller
         return view('layoutUser.sertifikat-tutor', compact('sertifikats'));
     }
 
-
     public function updateSertif(UpdateSertifikatRequest $request)
-{
-    $user = Auth::user();
-    $profile = $user->profile;
+    {
+        $user = Auth::user();
+        $profile = $user->profile;
 
-    // Perbarui atau Buat data Profil
-    if (!$profile) {
-        $profile = new Profile();
-        $profile->user_id = $user->id;
+        // Perbarui atau Buat data Profil
+        if (!$profile) {
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+            $profile->save();
+        }
+
+
+        // Perbarui bidang pengalaman
+        $profile->pengalaman = $request->input('pengalaman');
+        $profile->penjelasan_pengalaman = $request->input('penjelasan_pengalaman');
         $profile->save();
-    }
+        if ($request->hasFile('image')) {
+            if ($profile->penjelasan_pengalaman) {
+                Storage::disk('public')->delete( $profile->penjelasan_pengalaman);
+            }
+            $imagePath = $request->file('image')->store('profile_images', 'public');
+            $profile->penjelasan_pengalaman = $imagePath;
+            $profile->save();
 
-    // Perbarui bidang pengalaman
-    $profile->pengalaman = $request->input('pengalaman');
-    $profile->penjelasan_pengalaman = $request->input('penjelasan_pengalaman');
-    $profile->save();
+        }
+        // Ambil kembali daftar sertifikat yang diperbarui setelah menambahkan yang baru
+        $sertifikats = [];
 
-    // Ambil kembali daftar sertifikat yang diperbarui setelah menambahkan yang baru
-    $sertifikats = [];
+        // Handle Sertifikat Baru
+        $namaSertifikasi = $request->input('sertifikasi');
+        $deskripsiSertifikat = $request->input('deskripsi_sertifikasi'); // Tambahkan ini
+        $linkKegiatan = $request->input('link');
 
-    // Handle Sertifikat Baru
-    $namaSertifikasi = $request->input('sertifikasi');
-    $linkKegiatan = $request->input('link');
-        
-    if ($namaSertifikasi && is_array($namaSertifikasi)) {
-        foreach ($namaSertifikasi as $index => $nama) {
-            if (!empty($nama)) {
-                $sertifikatId = $request->input('sertifikat_id')[$index] ?? null;
+        if ($namaSertifikasi && is_array($namaSertifikasi)) {
+            foreach ($namaSertifikasi as $index => $nama) {
+                if (!empty($nama)) {
+                    $sertifikatId = $request->input('sertifikat_id')[$index] ?? null;
 
-                // Jika ada ID sertifikat, berarti ini adalah pengeditan sertifikat yang sudah ada
-                if ($sertifikatId) {
-                    $existingSertifikat = Sertifikat::where('id', $sertifikatId)
-                        ->where('user_id', Auth::id())
-                        ->first();
+                    // Jika ada ID sertifikat, berarti ini adalah pengeditan sertifikat yang sudah ada
+                    if ($sertifikatId) {
+                        $existingSertifikat = Sertifikat::where('id', $sertifikatId)
+                            ->where('user_id', Auth::id())
+                            ->first();
 
-                    if ($existingSertifikat) {
-                        $existingSertifikat->sertifikasi = $nama;
-                        $existingSertifikat->link = $linkKegiatan[$index] ?? null;
-                        $existingSertifikat->save();
-                        $sertifikats[] = $existingSertifikat;
+                        if ($existingSertifikat) {
+                            $existingSertifikat->sertifikasi = $nama;
+                            $existingSertifikat->deskripsi_sertifikasi = $deskripsiSertifikat[$index] ?? null; // Tambahkan ini
+                            $existingSertifikat->link = $linkKegiatan[$index] ?? null;
+                            $existingSertifikat->save();
+                            $sertifikats[] = $existingSertifikat;
+                        }
+                    } else {
+                        // Jika sertifikat belum ada, simpan sertifikat baru
+                        $sertifikat = new Sertifikat([
+                            'user_id' => Auth::id(),
+                            'sertifikasi' => $nama,
+                            'deskripsi_sertifikasi' => $deskripsiSertifikat[$index] ?? null, // Tambahkan ini
+                            'link' => $linkKegiatan[$index] ?? null,
+                        ]);
+
+                        $profile->sertifikats()->save($sertifikat);
+                        $sertifikats[] = $sertifikat;
                     }
-                } else {
-                    // Jika sertifikat belum ada, simpan sertifikat baru
-                    $sertifikat = new Sertifikat([
-                        'user_id' => Auth::id(),
-                        'sertifikasi' => $nama,
-                        'link' => $linkKegiatan[$index] ?? null,
-                    ]);
 
-                    $profile->sertifikats()->save($sertifikat);
-                    $sertifikats[] = $sertifikat;
+
                 }
             }
         }
-    }
 
-    // Alihkan kembali ke halaman yang relevan dengan data yang diperbarui
-    return view('layoutUser.sertifikat-tutor', compact('sertifikats'))->with('success', 'Sertifikat berhasil diperbarui.');
-}
+        // Alihkan kembali ke halaman yang relevan dengan data yang diperbarui
+        return view('layoutUser.sertifikat-tutor', compact('sertifikats'))->with('success', 'Sertifikat berhasil diperbarui.');
+    }
 
     public function destroySertifikat(Sertifikat $sertifikat)
     {

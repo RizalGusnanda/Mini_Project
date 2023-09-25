@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="deskripsiTutorA">
                                     <div class="selengkapnya">
-                                        <a href="#" class="btn btn-selengkapnya">Chat</a>
+                                        <a href="/chatify" class="btn btn-selengkapnya">Chat</a>
                                     </div>
                                     <div class="card-body-tutorA">
                                         <h4 class="card-tutorA">{{ $pembayaran->user->name ?? 'N/A' }}</h4>

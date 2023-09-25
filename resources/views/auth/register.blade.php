@@ -60,7 +60,7 @@
             margin-top: 30px;
             margin-left: 50px;
             margin-right: 50px;
-            
+
         }
 
         /* Input style */
@@ -127,6 +127,12 @@
             margin-left: 30px;
             color: #070D59;
             font-weight: bold;
+        }
+
+         .btn.btn-lg {
+            padding: 0.55rem 1.5rem;
+            font-size: 12px;
+
         }
     </style>
 </head>
@@ -240,7 +246,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 526px">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 616px">
                                             Registrasi
                                         </button>
                                     </div>

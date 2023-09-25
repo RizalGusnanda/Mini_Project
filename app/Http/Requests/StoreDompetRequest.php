@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreModulRequest extends FormRequest
+class StoreDompetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreModulRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,8 +24,7 @@ class StoreModulRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_modul' => 'nullable|string|max:255',
-            'deskripsi_modul' => 'nullable|string|max:500',
+            //
         ];
     }
 }

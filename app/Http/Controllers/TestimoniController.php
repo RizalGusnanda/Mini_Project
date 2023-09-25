@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Testimoni;
 use App\Http\Requests\StoreTestimoniRequest;
 use App\Http\Requests\UpdateTestimoniRequest;
+use App\Models\Paket;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,12 +27,21 @@ class TestimoniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create($id_pembayaran)
     {
-        $user_id = $request->input('id_user');
-        $testimoni = Testimoni::where('id_users', $user_id)->latest()->first();
-        return view('layoutUser.testimoni', ['user_id' => $user_id, 'testimoni' => $testimoni]);
+        $pembayaran = Pembayaran::find($id_pembayaran);
+
+        // Pastikan pembayaran ditemukan
+        if (!$pembayaran) {
+            return redirect()->back()->with('error', 'Pembayaran tidak ditemukan.');
+        }
+
+        $paket = $pembayaran->paket;
+
+        return view('layoutUser.testimoni', ['paket' => $paket]);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,6 +60,14 @@ class TestimoniController extends Controller
         $testimoni->testimoni = $request->input('testimoni');
         $testimoni->rating = $request->input('rating');
         $testimoni->save();
+
+        $pembayaran_id = $request->input('pembayaran_id');
+
+        $pembayaran = Pembayaran::find($pembayaran_id);
+        if ($pembayaran) { // cek apakah pembayaran ditemukan
+            $pembayaran->has_testimoni = true;
+            $pembayaran->save();
+        }
 
         return redirect()->route('tutor.search')->with('success', 'Testimoni berhasil ditambahkan!');
     }

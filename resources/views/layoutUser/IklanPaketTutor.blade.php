@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Edit Modul</a>
+                                <a href="{{route('modul.daftar', $paket->paket_Id)}}" class="dropdown-item">Lihat Modul</a>
                                 <a href="{{ route('editPaket.edit', ['id' => $paket->id]) }}" class="dropdown-item">Edit Kelas</a>
                                 <form action="{{ route('hapusPaket.destroy', ['id' => $paket->id]) }}" method="POST">
                                     @csrf

@@ -92,11 +92,11 @@
                                     <div class="deskripsiTutorA">
                                         <div class="card-body-tutorA">
                                             <h4 class="card-tutorA">
-                                                {{ $pembayaran->paket->nama_paket ?? 'Nama Paket Belum ditemukan' }}</h4>
+                                                {{ $pembayaran->nama_paket ?? 'Nama Paket Belum ditemukan' }}
                                             <h6 class="card-tutor-p" style="color: black">
                                                 Rp.{{ number_format($pembayaran->total_amount, 0, ',', '.') }}</h6>
                                             @if ($pembayaran->status == 'unpaid')
-                                                <a href="#" class="btn btn-primary btn-bayar"
+                                                <a href="{{route('PembayaranUser.show',$pembayaran->reference)}}" class="btn btn-primary btn-bayar"
                                                     style="margin-left: 650px; margin-top: -85px;">Bayar</a>
                                             @endif
                                         </div>

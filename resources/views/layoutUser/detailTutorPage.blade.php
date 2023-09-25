@@ -5,6 +5,21 @@
         body {
             background-color: white;
         }
+
+        .sertifikat-item i {
+            color: #121ec0;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+
+        .list-pendidikan li {
+            color: #151518;
+            font-size: 13px;
+        }
+
+        .detailTutor h5 {
+            color: rgb(18, 3, 86);
+        }
     </style>
 
     <section class="detailTutor">
@@ -73,43 +88,75 @@
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card h-100" style="background-color: #FFFFFF; border-radius: 15px;">
-                        <div class="card-body">
-                            <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Informasi Tutor</h5>
-                            <p class="card-text" style="font-size: 14px;">
-                                <span style="color: #ccc;">Jenis Kelamin:</span> {{ $tutor->jenis_kelamin }}.<br>
-                                <span style="color: #ccc;">Alamat Lengkap:</span> {{ $tutor->alamat }},
-                                {{ $tutor->kelurahan->kelurahan }},
-                                {{ $tutor->kecamatan->kecamatan }}. <br>
-                                <span style="color: #ccc;">Latar Belakang Pendidikan:</span> {{ $tutor->pendidikan }}
-                                {{ $tutor->jurusan }}, {{ $tutor->instansi }}.<br>
-                            </p>
+                    <aside>
+                        <div class="card card-left" style="background-color: #FFFFFF; border-radius: 15px;">
+                            <div class="card-body">
+                                <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Informasi Tutor</h5>
+                                <p class="card-text" style="font-size: 14px;">
+                                    <span style="color: #ccc;">Jenis Kelamin:</span> {{ $tutor->jenis_kelamin }}.<br>
+                                    <span style="color: #ccc;">Alamat Lengkap:</span> {{ $tutor->alamat }},
+                                    {{ $tutor->kelurahan->kelurahan }},
+                                    {{ $tutor->kecamatan->kecamatan }}. <br>
+                                    <span style="color: #ccc;">Latar Belakang Pendidikan:</span>
+                                <div class="list-pendidikan">
+                                    <li>Asal Perguruan Tinggi: {{ $tutor->instansi }}</li>
+                                    <li>Tingkat: {{ $tutor->pendidikan }}</li>
+                                    <li>Jurusan: {{ $tutor->jurusan }}</li>
+                                </div>
+
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
                 <div class="col-md-8">
                     <div class="card h-100" style="background-color: #FFFFFF; border-radius: 15px;">
                         <div class="card-body">
-                            <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Sertifikat Pendidikan</h5>
+                            <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Sertifikat</h5>
                             <p style="font-size: 14px;">
-                                @foreach ($tutor->sertifikats as $sertifikat)
-                                    <div class="sertifikat-item">
-                                        <p class="sertifikat-name">Nama Sertifikat: {{ $sertifikat->sertifikasi }}</p>
-                                        <p class="sertifikat-link">Link Sertifikat: {{ $sertifikat->link }}</p>
+                            <div class="sertifikat-item">
+                                <p class="sertifikat-name">Nama Sertifikat: </p>
+                                @foreach ($tutor->sertifikats as $index => $sertifikat)
+                                    <li>
+                                        {{ $sertifikat->sertifikasi }}
+                                        <i class="sertifikat-link" data-toggle="modal"
+                                            data-target="#exampleModalCenter{{ $index }}">Lihat</i>
+                                    </li>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter{{ $index }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                        {{ $sertifikat->sertifikasi }}</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p> {{ $sertifikat->deskripsi_sertifikasi }}</p>
+                                                    <hr>
+                                                    <h6>Berikut adalah link</h6>
+                                                    <p><a id="sertifikat-link" href="{{ $sertifikat->link }}" class="tooltip-test" title="Tooltip">{{ $sertifikat->link }}</a></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endforeach
-                            </p>
+
+                            </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Deskripsi Pembelajaran</h5>
-                            <p style="font-size: 14px; margin-right: 0; margin-left: 0;">
-                                {{ $tutor->penjelasan_pengalaman }}
-                            </p>
+                            <h5 class="card-title" style="border-bottom: 2px solid #0e1d4a;">Deskripsi Tutor</h5>
+                            <div>
+                                {!! $tutor->penjelasan_pengalaman !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- End Card Informasi Tutor -->
 
         <!-- Card Testimoni Siswa -->
@@ -138,8 +185,11 @@
                                                 @php
                                                     $profileImagePath = 'storage/' . ($testimoni->profile ?? 'default.jpg');
                                                 @endphp
-                                                <img class="img-fluid rounded-start"
-                                                    src="{{ asset($profileImagePath) }}" alt="">
+
+                                                {{-- class="rounded-circle" style="width: 60px; height: 60px; --}}
+                                                <img class="rounded-circle"
+                                                    src="{{ asset($profileImagePath) }}" alt=""
+                                                    style="width: 60px; height: 60px;">
                                                 <div class="ms-3">
                                                     <h6>{{ $testimoni->nama }}</h6>
                                                     <div>
@@ -166,6 +216,10 @@
             <!-- End Card Testimoni Siswa -->
 
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.6.0/js/bootstrap.min.js"></script>
+
     <script>
         let currentTestimonialIndex = 0;
         let testimonials = document.getElementsByClassName('card-container');
@@ -192,4 +246,28 @@
         // Show the first two testimonials initially
         showTestimonials(0, 2);
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.sertifikat-link').click(function() {
+                let targetModalId = $(this).data('target');
+                $(targetModalId).modal('show');
+            });
+        });
+    </script>
+    <script>
+        // Ambil elemen link
+        var sertifikatLink = document.getElementById('sertifikat-link');
+
+        // Tambahkan event listener untuk mengarahkan pengguna ke halaman yang sesuai ketika link diklik
+        sertifikatLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah aksi default dari link
+
+            var url = this.getAttribute('href'); // Ambil URL dari atribut href
+
+            // Redirect pengguna ke halaman yang sesuai dengan URL
+            window.location.href = url;
+        });
+    </script>
+
 @endsection

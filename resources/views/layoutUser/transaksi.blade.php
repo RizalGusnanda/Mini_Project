@@ -11,13 +11,14 @@
         <section class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-1 d-flex align-items-center">
-                        <a href="#" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+                    <div class="col-1">
+                        <a href="/tutor" class="pembayaran-back-icon"><i
+                                class="fas fa-arrow-left"></i></a>
                     </div>
                     <div class="col-11">
-                        <div class="card-search-pem">
+                        <div class="pembayaran-card-search-pem">
                             <div class="card-body">
-                                <h5 class="card-title-search mb-0">Pembayaran</h5>
+                                <h5 class="pembayaran-card-title-search">Pembayaran</h5>
                             </div>
                         </div>
                     </div>
@@ -53,7 +54,7 @@
                                       {{ $trans->title }}
                                     </span>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" style="height: 20px; width: 20px;" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M19 9l-7 7-7-7" />
@@ -74,6 +75,6 @@
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
     </section>
 @endsection

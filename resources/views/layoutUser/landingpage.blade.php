@@ -1,6 +1,6 @@
 @extends('layoutUser.layout.index')
 @php
-use App\Http\Controllers\tutorConntroller;
+    use App\Http\Controllers\tutorConntroller;
 @endphp
 @section('content')
     <!-- start hero -->
@@ -161,47 +161,6 @@ use App\Http\Controllers\tutorConntroller;
 
 <!-- end about me -->
 
-<!-- price -->
-{{-- <section class="price-section-paket">
-    <div class="background-container">
-        <div class="container">
-            <div class="row">
-                <div class="title-about">
-                    <div class="col-md-12 text-center">
-                        <h1>Paket Belajar <img src="assets/img/GuruLink.png" alt=""></h1>
-                    </div>
-                </div>
-                @if (isset($pakets) && count($pakets) > 0)
-                    @foreach ($pakets as $paket)
-                        <div class="col-md-4">
-                            <div class="price-card">
-                                <div class="card-body">
-                                    <h2>{{ $paket->nama_paket }}</h2>
-                                    <div class="line-container">
-                                        <div class="line"></div>
-                                    </div>
-                                    <div class="price-harga">
-                                        <p><span class="harga">Rp.{{ number_format($paket->harga, 0, ',', '.') }} /
-                                            </span> bulan</p>
-                                    </div>
-
-                                    <p class="black-text">{{ $paket->deskripsi }}</p>
-                                    <a href="{{ route('tutor') }}" class="btn btn-price">Daftar</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <!-- Debug: No Pakets -->
-                    <p>No Pakets available.</p>
-                @endif
-            </div>
-        </div>
-    </div>
-</section> --}}
-
-<!-- end price -->
-
 
 <section class="tutorLanding">
     <div class="container">
@@ -248,8 +207,32 @@ use App\Http\Controllers\tutorConntroller;
                                 <div class="teaching-duration">
                                     <i class="fas fa-clock"></i> {{ $tutor->pengalaman }} tahun mengajar
                                 </div>
+
                                 <div class="rating">
-                                    <i class="fas fa-star" style="color: gold;"></i> 4.9/5
+                                    @php
+                                        $averageRating = $averageRatings[$tutor->user->id] ?? 0;
+                                        $fullStars = floor($averageRating);
+                                        $halfStar = $averageRating - $fullStars >= 0.5 ? 1 : 0;
+                                        $emptyStars = 5 - $fullStars - $halfStar;
+                                    @endphp
+
+                                    <!-- Full stars -->
+                                    @for ($i = 1; $i <= $fullStars; $i++)
+                                        <i class="fas fa-star yellow-star"></i>
+                                    @endfor
+
+                                    <!-- Half star -->
+                                    @if ($halfStar)
+                                        <i class="fas fa-star-half-alt yellow-star"></i>
+                                    @endif
+
+                                    <!-- Empty stars -->
+                                    @for ($i = 1; $i <= $emptyStars; $i++)
+                                        <i class="far fa-star"></i>
+                                    @endfor
+
+                                    <!-- Tampilkan rating dalam format "4.9/5" -->
+                                    <span class="rating-text">{{ number_format($averageRating, 1) }}/5</span>
                                 </div>
                                 <div class="Selengkapnya">
                                     <a href="#" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
@@ -262,6 +245,7 @@ use App\Http\Controllers\tutorConntroller;
                 <p>No other tutors available</p>
             @endif
         </div>
+
 
         <!-- Tombol navigasi berbentuk ikon panah -->
         <div class="text-center">
@@ -285,7 +269,7 @@ use App\Http\Controllers\tutorConntroller;
     $(document).ready(function() {
         var owl = $(".owl-carousel").owlCarousel({
             items: 4,
-            loop: true,
+            loop: false,
             nav: false, // Matikan tombol navigasi default
             margin: 20,
             responsive: {
@@ -314,4 +298,3 @@ use App\Http\Controllers\tutorConntroller;
         });
     });
 </script>
-
