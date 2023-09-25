@@ -50,8 +50,8 @@
                             </div>
 
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('kecamatan.create') }}">Tambah Kecamatan Baru</a>
-                                <a class="btn btn-info btn-primary active import">
+                                <a class="btn btn-icon icon-left btn-primary" style="width: auto" href="{{ route('kecamatan.create') }}">Tambah Kecamatan Baru</a>
+                                <a class="btn btn-info btn-primary active import" style="width: auto">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Import Kecamatan</a>
                             </div>

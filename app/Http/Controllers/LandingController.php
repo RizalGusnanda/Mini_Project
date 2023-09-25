@@ -50,21 +50,29 @@ class LandingController extends Controller
         $kecamatanData = Kecamatan::all();
 
         $otherTutors = Profile::where('user_id', '!=', 1)
-                        ->with('user', 'kecamatan','spesialisasi')
-                        ->get();
+            ->whereHas('user', function ($query) {
+                $query->whereHas('roles', function ($roleQuery) {
+                    $roleQuery->where('name', 'user-pengajar');
+                });
+            })
+            ->with('user', 'kecamatan', 'spesialisasi')
+            ->get();
 
+        // Membuat array untuk menyimpan rata-rata rating setiap tutor
+        $averageRatings = [];
 
+        foreach ($otherTutors as $tutor) {
+            // Menghitung rata-rata rating untuk setiap tutor
+            $averageRating = Testimoni::where('id_users', $tutor->user->id)->avg('rating');
+            $averageRatings[$tutor->user->id] = $averageRating;
+        }
 
         return view('layoutUser.landingpage', [
             'pakets' => $pakets,
             'spesialisasiData' => $spesialisasiData,
             'kecamatanData' => $kecamatanData,
-            'otherTutors' => $otherTutors
+            'otherTutors' => $otherTutors,
+            'averageRatings' => $averageRatings
         ]);
     }
-
-
-
-
-
 }

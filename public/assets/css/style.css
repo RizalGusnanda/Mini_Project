@@ -856,6 +856,7 @@ select.form-control:not([size]):not([multiple]) {
     border-radius: 30px !important;
     padding-left: 13px !important;
     padding-right: 13px !important;
+    width: auto;
 }
 .card .card-header h4 + .card-header-action .btn.active,
 .card .card-header h4 + .card-header-form .btn.active {
