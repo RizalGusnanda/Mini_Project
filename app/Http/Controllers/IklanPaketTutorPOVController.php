@@ -75,11 +75,13 @@ class IklanPaketTutorPOVController extends Controller
         return redirect()->route('daftar-paket-iklanTutor');
     }
 
-    public function edit(Paket $paket)
+    public function edit(Paket $paket, $id)
     {
-        // $kelasPaket = Paket::findOrFail($id);
+        $kelasPaket = Paket::findOrFail($id);
 
-        return view('layoutUser.editPaketKelas', ['kelasPaket' => $paket]);
+ 
+
+        return view('layoutUser.editPaketKelas', ['kelasPaket' => $kelasPaket]);
     }
 
 

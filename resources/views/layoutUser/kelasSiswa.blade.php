@@ -8,7 +8,7 @@
     </style>
     <section class="KelasSiswa">
         <div class="container" style="margin-top: 50px;">
-            <a href="/tutor" class="rounded-icon">
+            <a href="#" class="rounded-icon">
                 <i class="material-icons">arrow_back_ios_new</i>
             </a>
             <div class="title-kelas">
@@ -20,15 +20,12 @@
             <!-- Card Kiri -->
             <div class="card-left">
                 <h2 class="card-title-kelas">{{ $modules1->nama_modul }}</h2>
-                <div class="kelas-tutor-details">
-                    <img src="assets/img/tutor1.jpeg" alt="Tutor Image" class="tutor-image-small">
-                    <h3>{{ $modules1->name }}</h3>
-                </div>
                 <div class="kelas-info">
                     <div class="duration">
                         <p class="duration-title" style="font-size: 14px;">Durasi</p>
                         <p class="duration-details" style="font-size: 14px;"><i class="fas fa-calendar-alt"
-                                style="padding: 5px;"></i>{{$modules1->durasi_mulai}} - {{ $modules1->durasi_berhenti}}</p>
+                                style="padding: 5px;"></i>{{ $modules1->durasi_mulai }} - {{ $modules1->durasi_berhenti }}
+                        </p>
                     </div>
                     {{-- <div class="referensi">
                         <p class="referensi-title" style="font-size: 14px;">Referensi</p>
@@ -40,24 +37,28 @@
                     <p class="gambaran-title">Modul Yang diPelajari</p>
                     <p class="gambaran-detail">{!! $modules1->deskripsi_modul !!}</p>
                 </div>
-               
+
                 <div class="next-back">
                     <div class="selanjutnya">
                         @if ($nextModule)
-                            <a href="{{ route('modultampilan.daftar', $nextModule->id) }}" id="selanjutnya-button" style="text-decoration: none;">
+                            <a href="{{ route('kelas-siswa', $nextModule->id) }}" id="selanjutnya-button"
+                                style="text-decoration: none;">
                                 <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
                             </a>
                         @else
-                            <p class="selanjutnya-text" style="margin-left: 470px; margin-right: 5px;">Tidak Ada Selanjutnya</p>
+                            <p class="selanjutnya-text" style="margin-left: 470px; margin-right: 5px;">Tidak Ada Selanjutnya
+                            </p>
                         @endif
                     </div>
                     <div class="sebelumnya">
                         @if ($previousModule)
-                            <a href="{{ route('modultampilan.daftar', $previousModule->id) }}" id="sebelumnya-button" style="text-decoration: none;">
+                            <a href="{{ route('kelas-siswa', $previousModule->id) }}" id="sebelumnya-button"
+                                style="text-decoration: none;">
                                 <p class="sebelumnya-text" style="margin-left: 510px; margin-right: 5px;">Sebelumnya</p>
                             </a>
                         @else
-                            <p class="sebelumnya-text" style="margin-left: 510px; margin-right: 5px;">Tidak Ada Sebelumnya</p>
+                            <p class="sebelumnya-text" style="margin-left: 510px; margin-right: 5px;">Tidak Ada Sebelumnya
+                            </p>
                         @endif
                     </div>
                 </div>
@@ -71,13 +72,14 @@
                         <div class="wek1">
                             <p class="wek1-title">Pembuka</p>
                         </div>
-                          @foreach ($modules as $module)
+                        @foreach ($modules3 as $module)
                             <div class="wek1-content">
                                 @if ($modules)
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="modul-card-inner">
-                                                <a href="{{ route('modultampilan.daftar', $module->moduls_Id) }}" style="text-decoration: none;">
+                                                <a href="{{ route('kelas-siswa', $module->moduls_Id) }}"
+                                                    style="text-decoration: none;">
                                                     <p class="nama_modul" data-id="{{ $module->id }}">
                                                         {{ $module->nama_modul }}</p>
                                             </div>

@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('updatePaket.update', ['id' => $kelasPaket->id]) }}" method="POST">
+                        <form action="{{ route('updatePaket.update', $kelasPaket->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-formulir-modul">
@@ -143,7 +143,7 @@
                     endDate.setMonth(startDate.getMonth() + 1);
 
                     const endDateStr =
-                        `${endDate.getDate()} ${endDate.toLocaleString('default', { month: 'long' })} ${endDate.getFullYear()}`;
+                        ${endDate.getDate()} ${endDate.toLocaleString('default', { month: 'long' })} ${endDate.getFullYear()};
 
                     document.getElementById('durasi_end').value = endDateStr;
                 }

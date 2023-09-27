@@ -29,14 +29,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="pembayaran-card">
-                        @php
-                            $profileImagePath = 'storage/' . (auth()->user()->profile->profile ?? 'default.jpg');
-                        @endphp
-                        @if (file_exists(public_path($profileImagePath)))
-                            <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt="">
-                        @else
-                            <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}" alt="">
-                        @endif
+                    @php
+                                        $profileImagePath = 'storage/' . ($tutor->profile ?? 'default.jpg');
+                                    @endphp
+                                    @if (file_exists(public_path($profileImagePath)))
+                                        <img class="profile-pic" src="{{ asset($profileImagePath) }}" alt="">
+                                    @else
+                                        <img class="profile-pic" src="{{ asset('path/to/default/image.jpg') }}"
+                                            alt="">
+                                    @endif
 
                         <h2 class="pembayaran-name">{{ $tutor->user->name }}</h2>
                         <p class="pembayaran-profession">{{ $tutor->spesialisasi->nama_spesialisasi }}</p>

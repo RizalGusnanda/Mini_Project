@@ -29,12 +29,30 @@ class KelasSiswaController extends Controller
             )
             ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
             ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-            ->where('moduls.paket_id', $id)
+            ->where('moduls.id', $id)
             ->get();
 
-  
+        $modules3 = DB::table('moduls')
+            ->select(
+                'moduls.id as moduls_Id',
+                'moduls.user_id',
+                'moduls.nama_modul',
+                'moduls.paket_id',
+                'moduls.*',
+                'moduls.deskripsi_modul',
+                'pakets.id',
+                'pakets.nama_paket',
+                'users.id',
+                'users.name'
+            )
+            ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
+            ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
+            // ->where('moduls.id', $id)
+            ->get();
 
-            $modules1 = DB::table('moduls')
+
+
+        $modules1 = DB::table('moduls')
             ->select(
                 'moduls.id as moduls_Id',
                 'moduls.user_id',
@@ -53,10 +71,10 @@ class KelasSiswaController extends Controller
             // ->leftJoin('pembayarans', 'pembayarans.user_id', 'pakets1.user_id')
             ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
             ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-            ->where('moduls.paket_id', $id)
+            ->where('moduls.id', $id)
             ->first();
 
-                //   dd($modules1);
+        //   dd($modules1);
         // Mengambil semua modul dari tabel
 
 
@@ -66,6 +84,7 @@ class KelasSiswaController extends Controller
         return view('layoutUser.kelasSiswa', ([
             'modules' => $modules,
             'modules1' => $modules1,
+            'modules3' => $modules3,
             'nextModule' => $nextModule,
             'previousModule' => $previousModule
         ]));
