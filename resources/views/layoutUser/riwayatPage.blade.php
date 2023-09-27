@@ -68,6 +68,10 @@
                         <button class="btn" id="btn-selesai" data-filter="selesai">Selesai</button>
                     </div>
 
+                    <div id="riwayat-kosong" style="display: none;">
+                        Riwayat Reservasi Kosong
+                    </div>
+
                     @foreach ($pembayarans as $pembayaran)
                         <div class="tutorA-card"
                             data-start-date="{{ $pembayaran->paket->durasi_start? \Carbon\Carbon::parse($pembayaran->paket->durasi_start)->tz('Asia/Jakarta')->toIso8601String(): '' }}"
@@ -101,7 +105,7 @@
                                                 id="options-button-{{ $pembayaran->id }}">⋮</button>
                                             <div class="options-dropdown" id="options-dropdown-{{ $pembayaran->id }}">
                                                 <a href={{ route('kelas-siswa', $pembayaran->modul_fk_id) }}>Lihat
-                                                        Modul</a>
+                                                    Modul</a>
                                                 <a href="/chatify">Chat</a>
                                                 @if (!$pembayaran->has_testimoni)
                                                     <a
@@ -193,5 +197,46 @@
             setActiveButton('btn-selesai');
             filterData('selesai');
         });
+    </script>
+    <script>
+        function filterData(filterType) {
+            $('.tutorA-card').hide();
+            $('#riwayat-kosong').hide(); // Sembunyikan pesan "Riwayat Reservasi Kosong" pada awalnya
+
+            if (filterType === 'semua') {
+                $('.tutorA-card').show();
+            } else if (filterType === 'berlangsung') {
+                var currentDate = new Date();
+                var found = false; // Gunakan ini untuk menandai apakah ada data yang sesuai
+                $('.tutorA-card').each(function() {
+                    var startDate = new Date($(this).data('start-date'));
+                    var endDate = new Date($(this).data('end-date'));
+                    if (startDate <= currentDate && currentDate <= endDate) {
+                        $(this).show();
+                        found = true; // Ada data yang sesuai
+                    }
+                });
+
+                // Jika tidak ada data yang sesuai, tampilkan pesan "Riwayat Reservasi Kosong"
+                if (!found) {
+                    $('#riwayat-kosong').show();
+                }
+            } else if (filterType === 'selesai') {
+                var currentDate = new Date();
+                var found = false; // Gunakan ini untuk menandai apakah ada data yang sesuai
+                $('.tutorA-card').each(function() {
+                    var endDate = new Date($(this).data('end-date'));
+                    if (endDate < currentDate) {
+                        $(this).show();
+                        found = true; // Ada data yang sesuai
+                    }
+                });
+
+                // Jika tidak ada data yang sesuai, tampilkan pesan "Riwayat Reservasi Kosong"
+                if (!found) {
+                    $('#riwayat-kosong').show();
+                }
+            }
+        }
     </script>
 @endsection

@@ -8,7 +8,7 @@
     </style>
     <section class="KelasSiswa">
         <div class="container" style="margin-top: 50px;">
-            <a href="#" class="rounded-icon">
+            <a href="/reservasiUser" class="rounded-icon">
                 <i class="material-icons">arrow_back_ios_new</i>
             </a>
             <div class="title-kelas">

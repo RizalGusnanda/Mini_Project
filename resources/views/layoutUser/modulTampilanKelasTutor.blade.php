@@ -54,7 +54,7 @@
                         @endif
                     </div>
                 </div>
-                
+
             </div>
 
             <!-- Card Kanan (Anda dapat mengisi konten sesuai kebutuhan) -->
