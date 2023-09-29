@@ -21,6 +21,8 @@
 </head>
 
 <body>
+
+
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
@@ -38,13 +40,9 @@
                         <a class="nav-link" href="{{ route('tutor.search') }}">Tutor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about-me">Tentang Kami</a>
+                        <a class="nav-link" href="/landing">Tentang Kami</a>
                     </li>
-                    <li class="nav-item close-icons">
-                        <a class="nav-link">
-                            
-                        </a>
-                    </li>
+
                     <li class="nav-item close-icons custom-dropdown">
                         <!-- Gambar profil dan "Hi, [Nama User]" atau "Login" -->
                         <div class="dropdown-trigger">
@@ -55,15 +53,16 @@
                                 @if (file_exists(public_path($profileImagePath)))
                                     <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
                                 @else
-                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
-                                        alt="">
+                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt="">
                                 @endif
                                 <span class="profile-name">Hi, {{ auth()->user()->name }}</span>
                             @else
-                                <span class="profile-name">Anonymous</span>
+                                <a href="{{ route('login') }}" class="profile-name">Login</a>
+                                <span class="spacer">|</span> <!-- Ini adalah elemen pemisah berupa garis vertikal -->
+                                <a href="{{ route('register') }}" class="profile-name">Register</a>
                             @endif
-                            <i class="fas fa-chevron-down"></i>
                         </div>
+
 
 
                         <div class="dropdown-content" style="z-index: 1">
@@ -93,10 +92,10 @@
                                     class="dropdown-item has-icon text-danger">
                                     <i class="fas fa-sign-out-alt"></i> Logout
                                 </a>
-                            @else
+                            {{-- @else
                                 <a href="{{ route('login') }}" class="dropdown-item has-icon">
                                     <i class="fas fa-sign-in-alt"></i> Login
-                                </a>
+                                </a> --}}
                             @endif
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                 style="display: none;">
