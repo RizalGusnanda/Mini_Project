@@ -1316,6 +1316,9 @@ body {
   .navbar .nav-item .nav-link:hover {
     color: #070D59;
   }
+.dropdown-trigger .profile-name:hover {
+    color: #070D59;
+  }
 
   .riwayat .tanggal .nav-tanggal svg {
     width: 30px;
@@ -5885,6 +5888,7 @@ body {
   .custom-dropdown {
     position: relative;
     display: inline-block;
+    margin-left: -23px
   }
 
   .dropdown-trigger {
@@ -5908,6 +5912,10 @@ body {
 
   .profile-name {
     font-weight: 500;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #545454;
   }
 
   .custom-dropdown .dropdown-content {

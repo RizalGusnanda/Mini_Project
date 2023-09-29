@@ -104,25 +104,21 @@
 
                                 <div class="row">
                                     @foreach ($channels as $channel)
-                                        <div class="col-md-12 mb-2">
-                                            <form action="{{ route('PembayaranUser.store') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $paket->id }}">
-                                                <input type="hidden" name="method" value="{{ $channel->code }}">
-                                                <div class="card">
-                                                    <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}"
-                                                        style="width: 25%; height: 100px; padding: 15px;"
-                                                        class="card-img-top equal-image" alt="{{ $channel->name }}">
-                                                    <div class="card-body text-center" style="padding: 0px;"">
-                                                        <p class="card-text"
-                                                            style="color: #000000; font-size: 14px; margin-top: -60px;">
-                                                            {{ $channel->name }}</p>
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="margin-left: 550px; margin-top: -80px">Bayar</button>
-                                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <form action="{{ route('PembayaranUser.store') }}" method="POST" class="payment-form">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $paket->id }}">
+                                            <input type="hidden" name="method" value="{{ $channel->code }}">
+                                            <div class="card">
+                                                <img src="{{ asset('assets/img/bank/' . $channel->code . '.png') }}" style="width: 25%; height: 100px; padding: 15px;" class="card-img-top equal-image" alt="{{ $channel->name }}">
+                                                <div class="card-body text-center" style="padding: 0px;">
+                                                    <p class="card-text" style="color: #000000; font-size: 14px; margin-top: -60px;">
+                                                        {{ $channel->name }}</p>
+                                                    <button type="button" class="btn btn-primary btn-bayar" style="margin-left: 550px; margin-top: -80px">Bayar</button>
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                     @endforeach
                                 </div>
 
@@ -133,25 +129,56 @@
             </div>
         </div>
     </section>
+    <!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda Yakin Untuk Beli Paket Ini?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="confirmPayment">Yakin!</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('customScript')
-    <script>
-        var totalhargaElement = document.querySelector('.total-price');
-        var hargaElement = document.querySelector('.pembayaran-price');
-        var tax = document.querySelector('.tax-price');
-        var totalhargaText = totalhargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
-        var hargaText = hargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
+<script>
+    var totalhargaElement = document.querySelector('.total-price');
+    var hargaElement = document.querySelector('.pembayaran-price');
+    var tax = document.querySelector('.tax-price');
+    var totalhargaText = totalhargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
+    var hargaText = hargaElement.textContent.replace('Rp.', '').replace(/,/g, '');
 
-        var totalharga = parseInt(totalhargaText);
-        var harga = parseInt(hargaText);
-        var selisih = totalharga - harga;
-        tax.innerText = 'Rp.' + selisih.toLocaleString();
-    </script>
-    <script>
-        document.querySelector('.pembayaran-back-icon').addEventListener('click', function() {
-            var selectedPackageId = "{{ $paket->id }}";
-            window.location.href = "{{ route('daftar-paket') }}?id_user=" + selectedPackageId;
+    var totalharga = parseInt(totalhargaText);
+    var harga = parseInt(hargaText);
+    var selisih = totalharga - harga;
+    tax.innerText = 'Rp.' + selisih.toLocaleString();
+</script>
+<script>
+    document.querySelector('.pembayaran-back-icon').addEventListener('click', function() {
+        var selectedPackageId = "{{ $paket->id }}";
+        window.location.href = "{{ route('daftar-paket') }}?id_user=" + selectedPackageId;
+    });
+</script>
+<script>
+    document.querySelectorAll('.btn-bayar').forEach(function(button) {
+        button.addEventListener('click', function() {
+            $('#confirmationModal').modal('show');
         });
-    </script>
+    });
+
+    document.querySelector('#confirmPayment').addEventListener('click', function() {
+        // Submit the form when "Yakin!" is clicked
+        document.querySelector('.payment-form').submit();
+    });
+</script>
 @endpush
