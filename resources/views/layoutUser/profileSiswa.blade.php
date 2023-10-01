@@ -66,20 +66,30 @@
                             <div class="card-body">
                                 <form action="#" method="POST" enctype="multipart/form-data">
                                     @csrf
-
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputUsername">Username</label>
                                         <input class="form-control" id="inputUsername" type="text" name="username"
-                                            value="{{ auth()->user()->name }}">
+                                            value="{{ auth()->user()->name }}" pattern="^[A-Za-z\s]+$" maxlength="100"
+                                            title="Harap masukkan hanya huruf. Maksimal 100 karakter."
+                                            oninput="validateUsername(this)">
+                                        <div class="invalid-feedback">
+                                            Harap masukkan hanya huruf. Maksimal 100 karakter.
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
                                         <input class="form-control" id="inputEmailAddress" type="email" name="email"
-                                            value="{{ auth()->user()->email }}">
+                                            value="{{ auth()->user()->email }}" pattern="^.+@gmail\.com$"
+                                            title="Harap masukkan alamat email dengan format @gmail.com."
+                                            oninput="validateEmail(this)">
+                                        <div class="invalid-feedback">
+                                            Harap masukkan alamat email dengan format @gmail.com.
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputAlamat" class="form-label">Alamat</label>
                                         <input type="text" class="form-control" id="inputAlamat" name="alamat"
+                                            maxlength="50"
                                             value="{{ old('alamat', optional(auth()->user()->profile)->alamat) }}">
                                     </div>
                                     <div class="row gx-3 mb-3">
@@ -141,7 +151,11 @@
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputPhone">Nomor Telepon</label>
                                             <input class="form-control" id="inputPhone" type="tel" name="telepon"
+                                                pattern="^\d{10,13}$"
                                                 value="{{ old('telepon', optional(auth()->user()->profile)->telepon) }}">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Harap masukkan nomor telepon yang valid (hanya angka dan antara 10-13 digit).
                                         </div>
                                     </div>
                                     <div class="text-center mt-4">
@@ -251,9 +265,11 @@
     <script>
         $(document).ready(function() {
             $('#inputPhone').on('input', function() {
+                // Remove non-numeric characters
                 var phoneNumber = $(this).val().replace(/\D/g, '');
+                $(this).val(phoneNumber);
 
-                if (phoneNumber.length < 11 || phoneNumber.length > 13) {
+                if (phoneNumber.length < 10 || phoneNumber.length > 13) {
                     $(this).addClass('is-invalid');
                 } else {
                     $(this).removeClass('is-invalid');
@@ -263,7 +279,48 @@
                     phoneNumber = phoneNumber.substring(0, 13);
                     $(this).val(phoneNumber);
                 }
+            });
+        });
 
+        function validateUsername(input) {
+            var username = input.value;
+
+            if (!/^[A-Za-z\s]+$/.test(username) || username.length > 100) {
+                input.setCustomValidity('Harap masukkan hanya huruf. Maksimal 100 karakter.');
+                input.classList.add('is-invalid');
+            } else {
+                input.setCustomValidity('');
+                input.classList.remove('is-invalid');
+            }
+        }
+
+        $(document).ready(function() {
+            validateUsername(document.getElementById('inputUsername'));
+        });
+
+        function validateEmail(input) {
+            var email = input.value;
+
+            if (!/^.+@gmail\.com$/.test(email)) {
+                input.setCustomValidity('Harap masukkan alamat email dengan format @gmail.com.');
+                input.classList.add('is-invalid');
+            } else {
+                input.setCustomValidity('');
+                input.classList.remove('is-invalid');
+            }
+        }
+
+        $(document).ready(function() {
+            validateEmail(document.getElementById('inputEmailAddress'));
+        });
+
+        $(document).ready(function() {
+            $('#inputAlamat').on('input', function() {
+                if ($(this).val().length > 50) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
             });
         });
     </script>

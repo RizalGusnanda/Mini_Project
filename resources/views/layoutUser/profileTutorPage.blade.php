@@ -73,16 +73,26 @@
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputUsername">Username</label>
                                     <input class="form-control" id="inputUsername" type="text" name="username"
-                                        value="{{ auth()->user()->name }}">
+                                        value="{{ auth()->user()->name }}" pattern="^[A-Za-z\s]+$" maxlength="100"
+                                        title="Harap masukkan hanya huruf. Maksimal 100 karakter."
+                                        oninput="validateUsername(this)">
+                                    <div class="invalid-feedback">
+                                        Harap masukkan hanya huruf. Maksimal 100 karakter.
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputEmailAddress">Alamat Email</label>
                                     <input class="form-control" id="inputEmailAddress" type="email" name="email"
-                                        value="{{ auth()->user()->email }}">
+                                        value="{{ auth()->user()->email }}" pattern="^.+@gmail\.com$"
+                                        title="Harap masukkan alamat email dengan format @gmail.com."
+                                        oninput="validateEmail(this)">
+                                    <div class="invalid-feedback">
+                                        Harap masukkan alamat email dengan format @gmail.com.
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputAlamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control" id="inputAlamat" name="alamat" required>{{ old('alamat', optional(auth()->user()->profile)->alamat) }}</textarea>
+                                    <textarea class="form-control" id="inputAlamat" name="alamat" required maxlength="50">{{ old('alamat', optional(auth()->user()->profile)->alamat) }}</textarea>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
@@ -151,20 +161,27 @@
                                     <div class="col-md-6">
                                         <label for="pendidikan" class="small mb-1">Pendidikan Terakhir</label>
                                         <input class="form-control" id="pendidikan" type="text" name="pendidikan"
-                                            required
+                                            required maxlength="30"
                                             value="{{ old('pendidikan', optional(auth()->user()->profile)->pendidikan) }}">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="jurusan" class="small mb-1">Jurusan</label>
                                         <input class="form-control" id="jurusan" type="text" name="jurusan"
-                                            required
+                                            maxlength="50" required pattern="^[A-Za-z\s]{1,50}$"
                                             value="{{ old('jurusan', optional(auth()->user()->profile)->jurusan) }}">
+                                        <div class="invalid-feedback">
+                                            Harap masukkan hanya huruf dan maksimal 50 karakter.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="instansi" class="form-label">Instansi</label>
-                                    <input class="form-control" id="instansi" type="instansi" name="instansi" required
+                                    <input class="form-control" id="instansi" type="text" name="instansi" required
+                                        pattern="^[A-Za-z\s]{1,50}$"
                                         value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
+                                    <div class="invalid-feedback">
+                                        Harap masukkan hanya huruf dan maksimal 50 karakter.
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="spesalisasis" class="form-label">Spesialisasi</label>
@@ -200,10 +217,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="norek" class="form-label">Nomor Rekening</label>
-                                    <input class="form-control" id="norek" type="norek" name="norek"
-                                        maxlength="15" required
-                                        value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
-                                        <p><small style="color: green;">Hanya boleh diisi dengan angka (10-15 digit).</small></p>
+                                    <input class="form-control" id="norek" type="text" name="norek"
+                                        pattern="^\d{10,15}$" title="Hanya boleh diisi dengan angka (10-15 digit)." maxlength="15"
+                                        required value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                    <div class="invalid-feedback">
+                                        Hanya boleh diisi dengan angka (10-15 digit).
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="ajar" class="form-label">Pilihan Mengajar</label>
@@ -339,6 +358,8 @@
             }
 
         });
+
+
         $(document).ready(function() {
             $('form').on('submit', function(e) {
                 let alamat = $('#inputAlamat').val();
@@ -360,25 +381,15 @@
                     e.preventDefault();
                 }
 
-                if (phone.length > 13) {
-                    alert('Nomor Telepon tidak boleh lebih dari 13 angka!');
+                // Validasi nomor telepon
+                if (!phone.match(/^\d+$/)) {
+                    alert('Nomor telepon hanya boleh diisi dengan angka.');
+                    e.preventDefault();
+                } else if (phone.length < 10 || phone.length > 13) {
+                    alert('Nomor telepon harus memiliki panjang antara 10 hingga 13 digit angka.');
                     e.preventDefault();
                 }
 
-                // Validasi nomor rekening
-                if (!norek.match(/^\d+$/)) {
-                    alert('Nomor rekening hanya boleh diisi dengan angka.');
-                    e.preventDefault();
-                } else if (norek.length < 10 || norek.length > 15) {
-                    alert('Nomor rekening harus memiliki panjang antara 10 hingga 15 angka.');
-                    e.preventDefault();
-                }
-                if (phone.length === 0 || !phone.match(/^08\d{9,11}$/) || !phone.match(/^\d+$/)) {
-                    alert(
-                        'Nomor telepon harus dimulai dengan "08", hanya boleh diisi dengan angka, dan memiliki total 11 hingga 13 digit angka.'
-                    );
-                    e.preventDefault();
-                }
             });
         });
     </script>
@@ -394,5 +405,76 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+
+        function validateUsername(input) {
+            var username = input.value;
+
+            if (!/^[A-Za-z\s]+$/.test(username) || username.length > 100) {
+                input.setCustomValidity('Harap masukkan hanya huruf. Maksimal 100 karakter.');
+                input.classList.add('is-invalid');
+            } else {
+                input.setCustomValidity('');
+                input.classList.remove('is-invalid');
+            }
+        }
+
+        $(document).ready(function() {
+            validateUsername(document.getElementById('inputUsername'));
+        });
+
+
+        function validateEmail(input) {
+            var email = input.value;
+
+            if (!/^.+@gmail\.com$/.test(email)) {
+                input.setCustomValidity('Harap masukkan alamat email dengan format @gmail.com.');
+                input.classList.add('is-invalid');
+            } else {
+                input.setCustomValidity('');
+                input.classList.remove('is-invalid');
+            }
+        }
+
+
+        $(document).ready(function() {
+            validateEmail(document.getElementById('inputEmailAddress'));
+        });
+
+        $(document).ready(function() {
+            $('#jurusan').on('input', function() {
+                var jurusan = $(this).val();
+
+                if (!/^[A-Za-z\s]{1,50}$/.test(jurusan)) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#instansi').on('input', function() {
+                var instansi = $(this).val();
+
+                if (!/^[A-Za-z\s]{1,50}$/.test(instansi)) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#norek').on('input', function() {
+                var norek = $(this).val();
+
+                if (!/^\d{10,15}$/.test(norek)) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
     </script>
 @endsection

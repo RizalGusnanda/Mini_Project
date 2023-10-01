@@ -10,6 +10,34 @@
             background-color: #007bff;
             color: #fff;
         }
+
+        .options-button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 20px;
+            /* Atur ukuran ikon sesuai keinginan Anda */
+            margin: 0;
+            padding: 0;
+        }
+
+        .options-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            padding: 10px;
+            top: 30px;
+            left: -10px;
+        }
+
+        .options-dropdown a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: black;
+        }
     </style>
 
     <section class="riwayat">
@@ -68,9 +96,14 @@
                         <button class="btn" id="btn-selesai" data-filter="selesai">Selesai</button>
                     </div>
 
-                    <div id="riwayat-kosong" style="display: none;">
-                        Riwayat Reservasi Kosong
+                    <div id="riwayat-kosong" style="display: none; margin-top: 20px; color: red;">
+                        Riwayat Reservasi Kosong!
                     </div>
+
+                    <div id="no-reservation" style="display: none; margin-top: 20px; color: red;">
+                        Anda belum melakukan reservasi!
+                    </div>
+
 
                     @foreach ($pembayarans as $pembayaran)
                         <div class="tutorA-card"
@@ -101,8 +134,8 @@
                                     </div>
                                     <div class="deskripsiTutorA">
                                         <div class="options-menu">
-                                            <button class="options-button"
-                                                id="options-button-{{ $pembayaran->id }}">⋮</button>
+                                            <i class="fas fa-ellipsis-v options-button"
+                                                id="options-button-{{ $pembayaran->id }}"></i>
                                             <div class="options-dropdown" id="options-dropdown-{{ $pembayaran->id }}">
                                                 <a href={{ route('kelas-siswa', $pembayaran->modul_fk_id) }}>Lihat
                                                     Modul</a>
@@ -133,7 +166,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // Temukan semua elemen options-button dan options-dropdown
-        const optionsButtons = document.querySelectorAll('[class^="options-button"]');
+        const optionsButtons = document.querySelectorAll('.options-button');
         const optionsDropdowns = document.querySelectorAll('[class^="options-dropdown"]');
 
         // Tambahkan event listener ke setiap options-button
@@ -160,8 +193,18 @@
         // Fungsi untuk menyaring data
         function filterData(filterType) {
             $('.tutorA-card').hide();
+            $('#riwayat-kosong').hide();
+            $('#no-reservation').hide();
+
+            let found = false;
+
             if (filterType === 'semua') {
-                $('.tutorA-card').show();
+                $('.tutorA-card').each(function() {
+                    if ($(this).length > 0) {
+                        $(this).show();
+                        found = true;
+                    }
+                });
             } else if (filterType === 'berlangsung') {
                 var currentDate = new Date();
                 $('.tutorA-card').each(function() {
@@ -169,6 +212,7 @@
                     var endDate = new Date($(this).data('end-date'));
                     if (startDate <= currentDate && currentDate <= endDate) {
                         $(this).show();
+                        found = true;
                     }
                 });
             } else if (filterType === 'selesai') {
@@ -177,8 +221,17 @@
                     var endDate = new Date($(this).data('end-date'));
                     if (endDate < currentDate) {
                         $(this).show();
+                        found = true;
                     }
                 });
+            }
+
+            if (!found) {
+                if (filterType === 'semua') {
+                    $('#no-reservation').show();
+                } else {
+                    $('#riwayat-kosong').show();
+                }
             }
         }
 
