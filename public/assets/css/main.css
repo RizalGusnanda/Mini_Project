@@ -1170,7 +1170,7 @@ body {
 }
 
 .button-reservasi .btn {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 
@@ -1503,7 +1503,7 @@ body {
 
 .riwayat .options-button {
   margin-left: 165px;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .riwayat .options-menu {
@@ -1512,8 +1512,8 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  margin-top: 100px;
-  margin-left: 150px;
+  margin-top: 40px;
+  margin-left: 180px;
   transform: translate(170%, -400%);
   transition: background-color 0.3s ease-in-out;
 }
@@ -7653,8 +7653,8 @@ body {
   .paketKelasIklan .dropdown-menu {
     display: none;
     position: absolute;
-    top: calc(100% + -160px);
-    right: 0;
+    top: calc(100% + -150px);
+    right: 25px;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;

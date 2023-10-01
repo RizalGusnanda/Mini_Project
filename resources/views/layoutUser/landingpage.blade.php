@@ -3,6 +3,32 @@
     use App\Http\Controllers\tutorConntroller;
 @endphp
 @section('content')
+    <style>
+        .img-fluid {
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .img-fluid {
+                max-width: 55%;
+                height: auto;
+                margin: auto;
+                display: block;
+                position: relative;
+                top: 50%;
+            }
+
+            .about-image img {
+                max-width: 80%;
+                height: auto;
+                margin: auto;
+                display: block;
+                position: relative;
+                top: 50%;
+            }
+
+        }
+    </style>
     <!-- start hero -->
     <section class="hero">
         <div class="container d-flex align-items-center">
@@ -42,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <img src="assets/img/cuate.png" alt="" class="img-fluid" style="margin-top: 80px;">
+                    <img src="assets/img/cuate.png" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
