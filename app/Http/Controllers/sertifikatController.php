@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Profile;
 use  App\Http\Requests\UpdateProfileRrequest;
 use Illuminate\Http\Request;
@@ -34,6 +35,4 @@ class sertifikatController extends Controller
         // Redirect back to the relevant page
         return redirect()->route('sertifikat-layout.edit')->with('success', 'Profil berhasil diperbarui.');
     }
-
-
 }

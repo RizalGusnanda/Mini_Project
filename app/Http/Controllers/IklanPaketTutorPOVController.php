@@ -98,12 +98,12 @@ class IklanPaketTutorPOVController extends Controller
                 return $query->where('nama_paket', 'LIKE', '%' .$nama_paket. '%');
                 })
                 ->paginate(5);
-    
-    
-    
+
+
+
         return view('layoutUser.iklanPaketTutor')->with( ['pakets' => $pakets , 'nama_paket' => $nama_paket]);
     }
-    
+
 
 
     public function create()
@@ -149,8 +149,13 @@ class IklanPaketTutorPOVController extends Controller
         $kelasPaket->durasi_end = date('Y-m-d', strtotime($request->input('durasi_end')));
         $kelasPaket->save();
 
+
+
+
         // Redirect atau lakukan tindakan lain setelah pembaruan data
         return redirect()->route('daftar-paket-iklanTutor');
+        // return redirect()->to('isiModul-paket-detail/' . $id . '?id=' . $paket);
+
     }
 
     public function destroy($id)
@@ -171,7 +176,7 @@ class IklanPaketTutorPOVController extends Controller
     // =============================================================================================
     public function showModul($id)
     {
-        
+
         $paket = DB::table('pakets')
             ->select(
                 'pakets.id as paket_Id',
@@ -237,7 +242,7 @@ class IklanPaketTutorPOVController extends Controller
         return view('layoutUser.modulKelasTutor', ['paket' => $paket, 'modules' => $modules, 'modules1' => $modules1, 'nama_modul' => $firstModule->nama_modul, 'deskripsi_modul' => $firstModule->deskripsi_modul]);
     }
 
-// tampilan sebenrannya 
+// tampilan sebenrannya
     public function tampilanModul(Request $request , $id) {
 
         $paketId = $request->input('id');
@@ -258,9 +263,9 @@ class IklanPaketTutorPOVController extends Controller
             ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
             ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
             ->where('moduls.user_id', auth()->user()->id)
-            ->where('moduls.paket_id', $paketId) 
+            ->where('moduls.paket_id', $paketId)
             ->get();
-        
+
 
         $modules1 = Modul::where('moduls.id', $id)
         ->select(
@@ -277,12 +282,13 @@ class IklanPaketTutorPOVController extends Controller
         ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
         ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
         ->where('moduls.user_id', auth()->user()->id)
+        ->where('moduls.paket_id', $paketId)
         ->first();
 
         // dd($modules1);
 
         $nextModule = Modul::where('id', '>', $id)
-        ->where('paket_id', $paketId) 
+        ->where('paket_id', $paketId)
         ->orderBy('id')
         ->first();
 
@@ -336,15 +342,44 @@ class IklanPaketTutorPOVController extends Controller
         }
     }
 
-    public function editModul($id)
+    public function editModul(Request $request1, $id)
     {
-        $modul = Modul::find($id);
-        return view('layoutUser.editModulTutor', ['modul' => $modul]);
+        // $pakets = $id
+        $moduls = $request1->input('modul_id');
+        $pakets = Paket::find($id);
+        // $modul = Modul::find($id);
+
+        // $paket = DB::table('pakets')
+        // ->select(
+        //     'pakets.id as paket_Id',
+        //     'pakets.user_id',
+        //     'pakets.nama_paket',
+        //     'pakets.deskripsi',
+        //     'pakets.harga',
+        //     'pakets.total_harga',
+        //     'pakets.id',
+        // )
+        // ->leftJoin('users', 'pakets.user_id' , '=' , 'users.id')
+        // ->where('pakets.id', $id)->first();
+        // dd($pakets->id);
+
+        $modul = Modul::find($moduls);
+        return view('layoutUser.editModulTutor', ['pakets' => $pakets, 'modul' => $modul]);
     }
 
-    public function updateModul(UpdateModulRequest $request, $id)
+    public function updateModul(Request $request1, UpdateModulRequest $request, $id)
     {
-        $modul = Modul::findOrFail($id);
+
+        // $pakets = $request1->input('paket_id');
+
+        $moduls = $request1->input('modul_id');
+
+        //
+        $pakets = Paket::find($id);
+
+
+        // $modul = Modul::findOrFail($id);
+        $modul = Modul::find($moduls);
 
 
         $modul->nama_modul = $request->input('nama_modul');
@@ -363,7 +398,11 @@ class IklanPaketTutorPOVController extends Controller
         }
 
 
-        return redirect()->route('modultampilan.daftar', ['modul_id' => $modul->id]);
+        // dd($paket);
+
+        //    return redirect()->to('isiModul-paket-detail/' . $id . '?id=' . $paket);
+        // return redirect()->route('modultampilan.daftar', ['modul_id' => $modul->id]);
+        return redirect()->route('modultampilan.daftar', ['id' => $pakets->id, 'modul_id' => $modul->id]);
     }
 
     public function getDeskripsiModul()

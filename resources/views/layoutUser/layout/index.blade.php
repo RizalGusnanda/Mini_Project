@@ -36,14 +36,17 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('landing.show') }}">Home</a>
                     </li>
+                    @role(['user-pengajar', 'user'])
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('tutor.search') }}">Tutor</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/landing">Tentang Kami</a>
                     </li>
-
+                    @endrole
                     <li class="nav-item close-icons custom-dropdown">
+
                         <!-- Gambar profil dan "Hi, [Nama User]" atau "Login" -->
                         <div class="dropdown-trigger">
                             @if (auth()->check())
@@ -84,11 +87,6 @@
                                         $profileRoute = url('/profileSiswa');
                                     }
                                 @endphp
-                                @role('user-pengajar')
-                                    <a href="{{ route('dashboard.index') }}" class="dropdown-item has-icon">
-                                        <i class="far fa-user"></i> Dashboard
-                                    </a>
-                                @endrole
                                 <a href="{{ $profileRoute }}" class="dropdown-item has-icon">
                                     <i class="far fa-user"></i> Profile
                                 </a>

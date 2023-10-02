@@ -56,6 +56,12 @@
                                         <span>Paket Kelas</span>
                                     </div>
                                 </a>
+                                <a href="{{ route('dashboard.index') }}" style="text-decoration: none; color: black">
+                                    <div class="menu-item">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Dashboard</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>

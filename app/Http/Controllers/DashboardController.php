@@ -49,6 +49,7 @@ class DashboardController extends Controller
         $paketTerjual = DB::table('pembayarans')
             ->join('pakets', 'pembayarans.paket_id', '=', 'pakets.id')
             ->select('pakets.nama_paket', DB::raw('count(*) as total_terjual'))
+            ->where('pakets.user_id', $userId)
             ->groupBy('pakets.nama_paket')
             ->orderBy('total_terjual', 'desc')
             ->get();

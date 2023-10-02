@@ -15,6 +15,7 @@ class Sertifikat extends Model
         'user_id',
         'profile_id',
         'sertifikasi',
+        'deskripsi_sertifikasi',
         'link',
     ];
 
@@ -27,6 +28,4 @@ class Sertifikat extends Model
     {
         return $this->belongsTo(Profile::class, 'profile_id');
     }
-
-    
 }

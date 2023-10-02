@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="{{ route('updateModul.update', ['id' => $modul->id]) }}" method="post">
+                    <form action="{{ route('updateModul.update', ['id' => $pakets->id, 'modul_id' => $modul->id]) }}" method="post">
                         @csrf
                         @method('PUT')
 

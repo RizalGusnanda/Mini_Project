@@ -25,7 +25,7 @@ class StoreModulRequest extends FormRequest
     {
         return [
             'nama_modul' => 'nullable|string|max:255',
-            'deskripsi_modul' => 'nullable|string|max:500',
+            'deskripsi_modul' => 'nullable|string',
         ];
     }
 }

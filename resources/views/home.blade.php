@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <section class="section">
         <div class="section-header">
             <h1>DASHBOARD</h1>
@@ -68,13 +69,13 @@
 
                                     </div>
 
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <a href="#" data-toggle="modal" data-target="#saldoModal">
                                             <div class="col bg-primary rounded-lg text-center mt-4">
                                                 <p class="text-white ml-3 mt-1" style="font-size: 15px"> tarik saldo</p>
                                             </div>
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
@@ -90,7 +91,7 @@
                     <div class="col col-lg-6 col-md-6 col-sm-5">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tabel Pengajar Tertop</h4>
+                                <h4>Pengajar Terlaris</h4>
                             </div>
                             <div class="card-body">
                                 <canvas id="myPengajar" height="100"></canvas>
@@ -389,7 +390,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Jumlah Pengajar topglobal',
+                    label: 'Jumlah Pengajar',
                     data: data,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',

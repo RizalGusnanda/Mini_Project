@@ -8,7 +8,7 @@
     </style>
     <section class="KelasSiswa">
         <div class="container" style="margin-top: 50px;">
-            <a href="#" class="rounded-icon">
+            <a href="#" class="roun ded-icon">
                 <i class="material-icons">arrow_back_ios_new</i>
             </a>
             <div class="title-kelas">
@@ -20,10 +20,6 @@
             <!-- Card Kiri -->
             <div class="card-left">
                 <h2 class="card-title-kelas">{{ $modules1->nama_modul }}</h2>
-                <div class="kelas-tutor-details">
-                    <img src="assets/img/tutor1.jpeg" alt="Tutor Image" class="tutor-image-small">
-                    <h3>{{ $modules1->name }}</h3>
-                </div>
                 <div class="kelas-info">
                     <div class="duration">
                         <p class="duration-title" style="font-size: 14px;">Durasi</p>

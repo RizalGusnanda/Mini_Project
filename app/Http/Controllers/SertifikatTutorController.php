@@ -18,6 +18,7 @@ class SertifikatTutorController extends Controller
 
     public function updateSertif(UpdateSertifikatRequest $request)
     {
+
         $user = Auth::user();
         $profile = $user->profile;
 
@@ -35,12 +36,11 @@ class SertifikatTutorController extends Controller
         $profile->save();
         if ($request->hasFile('image')) {
             if ($profile->penjelasan_pengalaman) {
-                Storage::disk('public')->delete( $profile->penjelasan_pengalaman);
+                Storage::disk('public')->delete($profile->penjelasan_pengalaman);
             }
             $imagePath = $request->file('image')->store('profile_images', 'public');
             $profile->penjelasan_pengalaman = $imagePath;
             $profile->save();
-
         }
         // Ambil kembali daftar sertifikat yang diperbarui setelah menambahkan yang baru
         $sertifikats = [];
@@ -75,13 +75,12 @@ class SertifikatTutorController extends Controller
                             'sertifikasi' => $nama,
                             'deskripsi_sertifikasi' => $deskripsiSertifikat[$index] ?? null, // Tambahkan ini
                             'link' => $linkKegiatan[$index] ?? null,
+
                         ]);
 
                         $profile->sertifikats()->save($sertifikat);
                         $sertifikats[] = $sertifikat;
                     }
-
-
                 }
             }
         }

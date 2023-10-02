@@ -20,29 +20,29 @@
                 </a>
             </div> --}}
         </div>
-
         <div class="card-container" style="display: flex;
         justify-content: space-between;">
-            <!-- Card Kiri -->
-            <div class="card-left" style=" display: none;">
-                <h2 class="card-title-kelas">{{ $nama_modul }}</h2>
-                <div class="kelas-info" data-initial-deskripsi="{!! $deskripsi_modul !!}">
-                    <p>Loading...</p>
-                </div>
-                <div class="next-back">
-                    <div class="selanjutnya">
-                        <a href="#" id="selanjutnya-button">
-                            <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
-                        </a>
+            @role('user')
+                <!-- Card Kiri -->
+                <div class="card-left" style=" display: none;">
+                    <h2 class="card-title-kelas">{{ $nama_modul }}</h2>
+                    <div class="kelas-info" data-initial-deskripsi="{!! $deskripsi_modul !!}">
+                        <p>Loading...</p>
                     </div>
-                    <div class="sebelumnya">
-                        <a href="#" id="sebelumnya-button">
-                            <p class="sebelumnya-text" style="margin-left: 550px; margin-right: 5px;">Sebelumnya</p>
-                        </a>
+                    <div class="next-back">
+                        <div class="selanjutnya">
+                            <a href="#" id="selanjutnya-button">
+                                <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
+                            </a>
+                        </div>
+                        <div class="sebelumnya">
+                            <a href="#" id="sebelumnya-button">
+                                <p class="sebelumnya-text" style="margin-left: 550px; margin-right: 5px;">Sebelumnya</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            @endrole
             <!-- Card Kanan (Anda dapat mengisi konten sesuai kebutuhan) -->
             <div class="card-right" style="  margin: auto;">
                 <div class="modul-card">

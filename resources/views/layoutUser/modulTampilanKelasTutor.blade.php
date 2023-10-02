@@ -15,7 +15,7 @@
                 <p>Detail Kelas</p>
             </div>
             <div class="edit-button-container">
-                <a href="{{ route('editModul.edit', $modules1->moduls_Id) }}" class="edit-button">
+                <a href="{{ route('editModul.edit',['id' => $paket->id, 'modul_id' => $modules1->moduls_Id]) }}" class="edit-button">
                     <i class="fas fa-edit"></i> Edit Kelas
                 </a>
             </div>
@@ -54,7 +54,7 @@
                         @endif
                     </div>
                 </div>
-                
+
             </div>
 
             <!-- Card Kanan (Anda dapat mengisi konten sesuai kebutuhan) -->

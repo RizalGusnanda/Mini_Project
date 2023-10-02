@@ -48,6 +48,12 @@
                                 <i class="fas fa-graduation-cap"></i>
                                 <span>Paket Kelas</span>
                             </div>
+                            <a href="{{ route('dashboard.index') }}" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Dashboard</span>
+                                </div>
+                            </a>
                         </a>
                     </div>
                 </div>
@@ -165,8 +171,7 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_sertifikasi_${sertifikasiCount}">Deskripsi Sertifikat</label>
-                    <textarea class="form-control" id="deskripsi_sertifikasi_${sertifikasiCount}" name="deskripsi_sertifikasi[]" cols="30"
-                        rows="10"></textarea>
+                    <textarea class="form-control" id="deskripsi_sertifikasi_${sertifikasiCount}" name="deskripsi_sertifikasi[]" cols="10"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="link_${sertifikasiCount}">Link Kegiatan</label>
