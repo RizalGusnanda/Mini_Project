@@ -1,9 +1,11 @@
 <html>
-    <p>Status {{ $data->status }},</p>
-    <p>Terima kasih telah melakukan transaksi sebesar Rp {{ $data->total_amount }}.</p>
-    <br/>
-    <br/>
-    <p>Regards,</p>
-    <p>Guru Link Team</p>
-     
+
+<p>Halo,</p>
+<p>Status Transaksi Anda: <strong>{{ $data->status }}</strong></p>
+<p>Kami ingin mengucapkan terima kasih atas transaksi Anda sebesar Rp <strong>{{ $data->total_amount }}</strong>.</p>
+<p>Jika Anda memiliki pertanyaan atau memerlukan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
+<br />
+<p>Terima kasih lagi,</p>
+<p>Guru Link Team</p>
+
 </html>

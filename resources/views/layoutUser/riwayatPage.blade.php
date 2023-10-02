@@ -137,7 +137,7 @@
                                             <i class="fas fa-ellipsis-v options-button"
                                                 id="options-button-{{ $pembayaran->id }}"></i>
                                             <div class="options-dropdown" id="options-dropdown-{{ $pembayaran->id }}">
-                                                <a href={{ route('kelas-siswa', $pembayaran->modul_fk_id) }}>Lihat
+                                                <a href={{ route('kelas-siswa', ['paket_id' => $paket->id, 'id' => $pembayaran->modul_fk_id]) }}>Lihat
                                                     Modul</a>
                                                 <a href="/chatify">Chat</a>
                                                 @if (!$pembayaran->has_testimoni)

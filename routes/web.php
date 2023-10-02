@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\IklanPaketTutorPOVController;
 use App\Http\Controllers\KecamatanController;
@@ -30,11 +31,14 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PembayaranUserController;
 use App\Http\Controllers\ReservasiTutorController;
 use App\Http\Controllers\ReservasiUserController;
+use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\TutorProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
+use App\Models\Pembayaran;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,12 +52,11 @@ use App\Models\Category;
 
 
 
-Route::post('/broadcasting/auth', function (Request $request) {
-    return \Broadcast::auth($request);
-});
+
 //semua
 Route::get('/', [LandingController::class, 'showLanding'])->name('landing.show');
 Route::post('callback', [TripayCallbackController::class, 'handle']);
+
 Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], function () {
     Route::get('/landing', [LandingController::class, 'showDashboard'])->name('dahboard.show');
     Route::get('/tutor', [tutorConntroller::class, 'tutorShow'])->name('tutor.search');
@@ -93,9 +96,8 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user|user-pengajar']], 
     Route::POST('/load-filter', [profileSiswaController::class, 'loadFilter'])->name('load.filter');
 });
 
-
-
 Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], function () {
+
     Route::get('/edit-kelas-guru', function () {
         return view('layoutUser/editKelasGuru');
     });
@@ -134,8 +136,14 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar']], funct
         return view('layoutUser/tambahModulTutor');
     });
     Route::get('/riwayatTutor', [ReservasiTutorController::class, 'index']);
+    // Route::resource('dashboard', DashboardController::class);
 });
-
+Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar|super-admin']], function () {
+    Route::resource('dashboard', DashboardController::class);
+    Route::get('/status-saldo', [SaldoController::class, 'penarikan'])->name('saldo.penarikan');
+    Route::POST('/pencairan-saldo', [SaldoController::class, 'store'])->name('saldo.store');
+    Route::post('/edit-status/{id}', [SaldoController::class, 'editStatus'])->name('penarikan.editStatus');
+});
 //role= user-pengajar
 
 Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
@@ -150,24 +158,11 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
     Route::get('/riwayatPembayaran', [RiwayatPembayaranController::class, 'index']);
 });
 
+
+
 Route::group(['middleware' => ['auth', 'verified', 'role:super-admin']], function () {
 
     //superadmin
-    Route::get('/dashboard', function () {
-        $totalSiswa = User::whereHas('roles', function ($query) {
-            $query->where('name', 'user');
-        })->count();
-
-        $totalTutor = User::whereHas('roles', function ($query) {
-            $query->where('name', 'user-pengajar');
-        })->count();
-
-        $uang = DB::table('dompets')
-            ->where('id_users', User::role('super-admin')->first()->id)
-            ->sum('saldo');
-
-        return view('home', ['totalSiswa' => $totalSiswa, 'totalTutor' => $totalTutor, 'uang' => $uang]);
-    });
 
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);

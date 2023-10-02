@@ -176,8 +176,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="instansi" class="form-label">Instansi</label>
-                                    <input class="form-control" id="instansi" type="text" name="instansi" required
-                                        pattern="^[A-Za-z\s]{1,50}$"
+                                    <input class="form-control" id="instansi" type="text" name="instansi"
+                                        pattern="^[A-Za-z\s]{1,50}$" title="Harap masukkan hanya huruf dan maksimal 50 karakter."
                                         value="{{ old('instansi', optional(auth()->user()->profile)->instansi) }}">
                                     <div class="invalid-feedback">
                                         Harap masukkan hanya huruf dan maksimal 50 karakter.
@@ -218,8 +218,8 @@
                                 <div class="mb-3">
                                     <label for="norek" class="form-label">Nomor Rekening</label>
                                     <input class="form-control" id="norek" type="text" name="norek"
-                                        pattern="^\d{10,15}$" title="Hanya boleh diisi dengan angka (10-15 digit)." maxlength="15"
-                                        required value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
+                                        pattern="^\d{10,15}$"  maxlength="15"
+                                        value="{{ old('norek', optional(auth()->user()->profile)->norek) }}">
                                     <div class="invalid-feedback">
                                         Hanya boleh diisi dengan angka (10-15 digit).
                                     </div>
@@ -262,29 +262,6 @@
     @endif
     <script>
         $(document).ready(function() {
-            $('#spesalisasis').change(function() {
-                var idSpesialisasi = $(this).val();
-
-                // Melakukan permintaan AJAX untuk memperbarui spesialisasi
-                $.ajax({
-                    url: '{{ route('update-spesialisasi') }}',
-                    method: 'POST',
-                    data: {
-                        id_spesialisasis: idSpesialisasi,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log('Spesialisasi berhasil diperbarui:', response);
-
-                        // Setel kembali pilihan spesialisasi setelah berhasil diperbarui
-                        $('#spesalisasis').val(idSpesialisasi);
-                    },
-                    error: function(error) {
-                        console.error('Error dalam memperbarui spesialisasi:', error);
-                    }
-                });
-            });
 
 
             $('#id_kecamatans').change(function() {

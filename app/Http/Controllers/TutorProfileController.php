@@ -81,7 +81,7 @@ class TutorProfileController extends Controller
         $profile = $user->profile;
 
         if ($profile) {
-            $profile->id_spesalisasis = $request->input('id_spesialisasis');
+            $profile->id_spesalisasis = $request->input('spesalisasis');
             $profile->save();
 
             return response()->json(['message' => 'Spesialisasi berhasil diperbarui']);
@@ -122,7 +122,7 @@ class TutorProfileController extends Controller
         // Mengambil data id_kecamatans, id_kelurahans, dan id_spesalisasis dari database
         $kecamatan = Kecamatan::find($request->input('id_kecamatans'));
         $kelurahan = Kelurahan::find($request->input('id_kelurahans'));
-        $spesalisasis = Spesalisasi::find($request->input('id_spesalisasis'));
+        $spesalisasis = Spesalisasi::find($request->input('spesalisasis'));
 
         // Hubungkan data yang diambil dengan model Profile
         if ($kecamatan) {

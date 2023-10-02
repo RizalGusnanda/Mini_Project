@@ -53,7 +53,8 @@
                                 @if (file_exists(public_path($profileImagePath)))
                                     <img class="profile-icon" src="{{ asset($profileImagePath) }}" alt="">
                                 @else
-                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}" alt="">
+                                    <img class="profile-icon" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
+                                        alt="">
                                 @endif
                                 <span class="profile-name">Hi, {{ auth()->user()->name }}</span>
                             @else
@@ -83,6 +84,11 @@
                                         $profileRoute = url('/profileSiswa');
                                     }
                                 @endphp
+                                @role('user-pengajar')
+                                    <a href="{{ route('dashboard.index') }}" class="dropdown-item has-icon">
+                                        <i class="far fa-user"></i> Dashboard
+                                    </a>
+                                @endrole
                                 <a href="{{ $profileRoute }}" class="dropdown-item has-icon">
                                     <i class="far fa-user"></i> Profile
                                 </a>
@@ -92,7 +98,7 @@
                                     class="dropdown-item has-icon text-danger">
                                     <i class="fas fa-sign-out-alt"></i> Logout
                                 </a>
-                            {{-- @else
+                                {{-- @else
                                 <a href="{{ route('login') }}" class="dropdown-item has-icon">
                                     <i class="fas fa-sign-in-alt"></i> Login
                                 </a> --}}
@@ -189,7 +195,7 @@
         $(document).ready(function() {
             $('#summernote').summernote({
                 placeholder: 'deskripsi...',
-                tabsize :2,
+                tabsize: 2,
                 height: 300
             });
         });
