@@ -8,7 +8,7 @@
     </style>
     <section class="KelasSiswa">
         <div class="container" style="margin-top: 50px;">
-            <a href="/reservasiUser" class="rounded-icon">
+            <a href="#" class="rounded-icon">
                 <i class="material-icons">arrow_back_ios_new</i>
             </a>
             <div class="title-kelas">
@@ -20,6 +20,10 @@
             <!-- Card Kiri -->
             <div class="card-left">
                 <h2 class="card-title-kelas">{{ $modules1->nama_modul }}</h2>
+                <div class="kelas-tutor-details">
+                    <img src="assets/img/tutor1.jpeg" alt="Tutor Image" class="tutor-image-small">
+                    <h3>{{ $modules1->name }}</h3>
+                </div>
                 <div class="kelas-info">
                     <div class="duration">
                         <p class="duration-title" style="font-size: 14px;">Durasi</p>
@@ -41,7 +45,7 @@
                 <div class="next-back">
                     <div class="selanjutnya">
                         @if ($nextModule)
-                            <a href="{{ route('kelas-siswa', $nextModule->id) }}" id="selanjutnya-button"
+                            <a href="{{ route('kelas-siswa', ['paket_id' =>$paket->id, 'id' => $nextModule->id]) }}" id="selanjutnya-button"
                                 style="text-decoration: none;">
                                 <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
                             </a>
@@ -52,7 +56,7 @@
                     </div>
                     <div class="sebelumnya">
                         @if ($previousModule)
-                            <a href="{{ route('kelas-siswa', $previousModule->id) }}" id="sebelumnya-button"
+                            <a href="{{ route('kelas-siswa', ['paket_id' =>$paket->id, 'id' => $previousModule->id]) }}" id="sebelumnya-button"
                                 style="text-decoration: none;">
                                 <p class="sebelumnya-text" style="margin-left: 510px; margin-right: 5px;">Sebelumnya</p>
                             </a>
@@ -78,7 +82,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="modul-card-inner">
-                                                <a href="{{ route('kelas-siswa', $module->moduls_Id) }}"
+                                                <a href="{{ route('kelas-siswa', ['paket_id' => $paket->id, 'id' => $module->moduls_Id]) }}"
                                                     style="text-decoration: none;">
                                                     <p class="nama_modul" data-id="{{ $module->id }}">
                                                         {{ $module->nama_modul }}</p>

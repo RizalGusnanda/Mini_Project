@@ -37,7 +37,7 @@
                 <div class="next-back">
                     <div class="selanjutnya">
                         @if ($nextModule)
-                            <a href="{{ route('modultampilan.daftar', $nextModule->id) }}" id="selanjutnya-button" style="text-decoration: none;">
+                            <a href="{{ route('modultampilan.daftar',['id' =>$paket->id, 'modul_id' => $nextModule->id]) }}" id="selanjutnya-button" style="text-decoration: none;">
                                 <p class="selanjutnya-text" style="margin-left: 550px; margin-right: 5px;">Selanjutnya</p>
                             </a>
                         @else
@@ -46,7 +46,7 @@
                     </div>
                     <div class="sebelumnya">
                         @if ($previousModule)
-                            <a href="{{ route('modultampilan.daftar', $previousModule->id) }}" id="sebelumnya-button" style="text-decoration: none;">
+                            <a href="{{ route('modultampilan.daftar', ['id' =>$paket->id, 'modul_id' => $previousModule->id]) }}" id="sebelumnya-button" style="text-decoration: none;">
                                 <p class="sebelumnya-text" style="margin-left: 510px; margin-right: 5px;">Sebelumnya</p>
                             </a>
                         @else
@@ -54,7 +54,7 @@
                         @endif
                     </div>
                 </div>
-
+                
             </div>
 
             <!-- Card Kanan (Anda dapat mengisi konten sesuai kebutuhan) -->
@@ -71,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="modul-card-inner">
-                                                <a href="{{ route('modultampilan.daftar', $module->moduls_Id) }}" style="text-decoration: none;">
+                                                <a href="{{ route('modultampilan.daftar',['id' => $paket->id, 'modul_id' => $module->moduls_Id]) }}" style="text-decoration: none;">
                                                     <p class="nama_modul" data-id="{{ $module->id }}">
                                                         {{ $module->nama_modul }}</p>
                                             </div>

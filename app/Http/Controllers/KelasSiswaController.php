@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Modul;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Paket;
 use DB;
 
 class KelasSiswaController extends Controller
@@ -13,6 +14,10 @@ class KelasSiswaController extends Controller
     public function showKelas(Request $request, $id)
     {
         // $moduls = Modul::all(); 
+
+        $paketId = $request->input('paket_id');
+
+        $paket = Paket::find($paketId);
 
         $modules = DB::table('moduls')
             ->select(
@@ -29,7 +34,8 @@ class KelasSiswaController extends Controller
             )
             ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
             ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-            ->where('moduls.id', $id)
+            ->where('moduls.user_id', auth()->user()->id)
+            ->where('moduls.paket_id', $paket)
             ->get();
 
         $modules3 = DB::table('moduls')
@@ -47,9 +53,12 @@ class KelasSiswaController extends Controller
             )
             ->leftJoin('pakets', 'moduls.paket_id', '=', 'pakets.id')
             ->leftJoin('users', 'moduls.user_id', '=', 'users.id')
-            // ->where('moduls.id', $id)
+            // ->where('moduls.user_id', auth()->user()->id)
+            ->where('moduls.paket_id', $paket->id)
             ->get();
 
+            // dd($modules3);
+            // dd($paket->id);
 
 
         $modules1 = DB::table('moduls')
@@ -78,10 +87,18 @@ class KelasSiswaController extends Controller
         // Mengambil semua modul dari tabel
 
 
-        $nextModule = Modul::where('id', '>', $id)->orderBy('id')->first();
-        $previousModule = Modul::where('id', '<', $id)->orderByDesc('id')->first();
+        $nextModule = Modul::where('id', '>', $id)
+        ->where('paket_id', $paketId) 
+        ->orderBy('id')
+        ->first();
+
+        $previousModule = Modul::where('id', '<', $id)
+          ->where('paket_id', $paketId)
+          ->orderByDesc('id')
+          ->first();
 
         return view('layoutUser.kelasSiswa', ([
+            'paket' => $paket,
             'modules' => $modules,
             'modules1' => $modules1,
             'modules3' => $modules3,

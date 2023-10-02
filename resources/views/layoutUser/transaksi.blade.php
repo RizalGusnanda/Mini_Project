@@ -34,12 +34,21 @@
                             <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Transaction Detail</p>
                             <p class="text-sm text-primary font-medium">{{ $detail->reference }}</p>
                         </div>
-                        <div class="mt-3">
-                            <h3 class="text-3xl font-medium text-primary">Rp. {{ number_format($detail->amount) }}</h3>
+                        <div class="row">
+                            <div class="mt-3 col-md-5">
+                                    <h4 class="text-sm font-medium text-gray-400 ">Nama Pengajar : {{ $detail->customer_name }}</h4>
+                                   
+                                <h3 class="text-3xl font-medium text-primary mt-2">Rp. {{ number_format($detail->amount) }}</h3>
+                                
+                            </div>
+                            <div class="mt-3 col-md-7">
+                                <h4 class="text-sm font-medium text-gray-400" style="margin-left: 234px;">Nama Paket :  {{ $detail->order_items[0]->name }}</h4>
+                            </div>
+                        </div>
+                        <div class="">
                             <div
-                                class="text-xs px-2 py-1 rounded-full bg-red-200 inline-block mt-4 text-red-600 font-semibold status-unpaid">
-                                {{ $detail->status }}</div>
-                            
+                                    class="text-xs px-2 py-1 rounded-full bg-red-200 inline-block text-red-600 font-semibold status-unpaid">
+                                    {{ $detail->status }}</div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +73,7 @@
                             </div>
                             <div class="collapse-content">
                                <ul style=" list-style-type: none;">
-                                @foreach ($trans->steps as $step )    
+                                @foreach ($trans->steps as $step )
                                 <li class="text-sm">{{ $loop->iteration }}.{!! $step !!} </li>
                                 @endforeach
                                </ul>

@@ -57,7 +57,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="modul-card-inner">
-                                                <a href="{{ route('modultampilan.daftar', $module->moduls_Id) }}" style="text-decoration: none;">
+                                                <a href="{{ route('modultampilan.daftar', ['id' => $paket->id, 'modul_id' => $module->moduls_Id]) }}"
+                                                    style="text-decoration: none;">
                                                     <p class="nama_modul" data-id="{{ $module->id }}">
                                                         {{ $module->nama_modul }}</p>
                                             </div>

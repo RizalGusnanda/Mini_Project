@@ -1,48 +1,48 @@
 "use strict";
 
-var statistics_chart = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(statistics_chart, {
-  type: 'line',
-  data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: 'Statistics',
-      data: [640, 387, 530, 302, 430, 270, 488, 500, 300, 200, 450, 600],
-      borderWidth: 5,
-      borderColor: '#5D87FF',
-      backgroundColor: 'transparent',
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#5D87FF',
-      pointRadius: 4
-    }]
-  },
-  options: {
-    legend: {
-      display: false
-    },
-    scales: {
-      yAxes: [{
-        gridLines: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          stepSize: 150
-        }
-      }],
-      xAxes: [{
-        gridLines: {
-          color: '#fbfbfb',
-          lineWidth: 2
-        },
-        ticks: {
-          autoSkip: false, // This will prevent skipping labels
-          maxRotation: 0 // This will set the label rotation to 0 degrees
-        }
-      }]
-    },
-  }
-});
+// var statistics_chart = document.getElementById("myChart").getContext('2d');
+// var myChart = new Chart(statistics_chart, {
+//   type: 'line',
+//   data: {
+//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+//     datasets: [{
+//       label: 'Statistics',
+//       data: [640, 387, 530, 302, 430, 270, 488, 500, 300, 200, 450, 600],
+//       borderWidth: 5,
+//       borderColor: '#5D87FF',
+//       backgroundColor: 'transparent',
+//       pointBackgroundColor: '#fff',
+//       pointBorderColor: '#5D87FF',
+//       pointRadius: 4
+//     }]
+//   },
+//   options: {
+//     legend: {
+//       display: false
+//     },
+//     scales: {
+//       yAxes: [{
+//         gridLines: {
+//           display: false,
+//           drawBorder: false,
+//         },
+//         ticks: {
+//           stepSize: 150
+//         }
+//       }],
+//       xAxes: [{
+//         gridLines: {
+//           color: '#fbfbfb',
+//           lineWidth: 2
+//         },
+//         ticks: {
+//           autoSkip: false, // This will prevent skipping labels
+//           maxRotation: 0 // This will set the label rotation to 0 degrees
+//         }
+//       }]
+//     },
+//   }
+// });
 
 
 $('#visitorMap').vectorMap(

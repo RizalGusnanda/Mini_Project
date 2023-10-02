@@ -62,7 +62,7 @@ class TripayController extends Controller
             'method'         => $method,
             'merchant_ref'   => $merchantRef,
             'amount'         => $amount,
-            'customer_name'  => $user->name,
+            'customer_name' => $pakets->user->name,
             'customer_email' => $user->email,
             'customer_phone' => $user->no_hp,
             'order_items'    => [

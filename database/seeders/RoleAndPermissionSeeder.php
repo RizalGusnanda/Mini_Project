@@ -27,6 +27,8 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'menu.management']);
         Permission::create(['name' => 'daerah.management']);
         Permission::create(['name' => 'pengajaran.management']);
+
+        Permission::create(['name' => 'dashboard.index']);
         //user
         Permission::create(['name' => 'user.index']);
         Permission::create(['name' => 'user.create']);
@@ -89,17 +91,18 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'spesialisasi.edit']);
         Permission::create(['name' => 'spesialisasi.destroy']);
 
+
         // create roles
         $roleUser = Role::create(['name' => 'user']);
 
         // create pegawai
-        $roleUserPengajar = Role::create(['name' => 'user-pengajar']);
 
 
         // create Super Admin
         $role = Role::create(['name' => 'super-admin']);
         $role->givePermissionTo([
             'dashboard',
+            'dashboard.index',
             'user.management',
             'role.permission.management',
             'menu.management',
@@ -168,6 +171,11 @@ class RoleAndPermissionSeeder extends Seeder
             'spesialisasi.destroy',
         ]);
 
+        $roleUserPengajar = Role::create(['name' => 'user-pengajar']);
+        $roleUserPengajar->givePermissionTo([
+            'dashboard',
+            'dashboard.index'
+        ]);
         // $role->givePermissionTo(Permission::all());
 
         //assign user id 1 ke super admin
