@@ -41,6 +41,7 @@ class DashboardController extends Controller
             ->where('id_users', $userId)
             ->sum('saldo');
         $uang = $uangAwalAdmin - $saldoAkhir;
+
         $uangAwalPengajar = DB::table('dompets')
             ->where('id_users', $userId)
             ->sum('saldo');

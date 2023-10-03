@@ -42,7 +42,7 @@ class SaldoController extends Controller
     {
         $request->validate([
             'id_users' => 'required|exists:users,id',
-            'jumlah' => 'required|integer|min:1',
+            'jumlah' => 'required|integer|min:400000',
         ]);
 
         PencairanSaldo::create([
@@ -57,6 +57,16 @@ class SaldoController extends Controller
     {
         try {
             $statusPenarikan = PencairanSaldo::find($id);
+            $uangAwalPengajar = DB::table('dompets')
+                ->where('id_users', $statusPenarikan->id_users)
+                ->sum('saldo');
+
+            $uangPengajar = $uangAwalPengajar;
+
+            if ($statusPenarikan->jumlah <= $uangPengajar) {
+                return response()->json(['success' => false, 'message' => 'Pencairan melebihi saldo yang tersedia.'], 400);
+            }
+
             $statusPenarikan->status = $request->status;
             $statusPenarikan->save();
 

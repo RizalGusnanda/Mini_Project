@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <section class="section">
         <div class="section-header">
             <h1>DASHBOARD</h1>
@@ -68,14 +67,6 @@
                                         </div>
 
                                     </div>
-
-                                    {{-- <div class="col-md-6">
-                                        <a href="#" data-toggle="modal" data-target="#saldoModal">
-                                            <div class="col bg-primary rounded-lg text-center mt-4">
-                                                <p class="text-white ml-3 mt-1" style="font-size: 15px"> tarik saldo</p>
-                                            </div>
-                                        </a>
-                                    </div> --}}
                                 </div>
                             </div>
 
@@ -263,20 +254,25 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <!-- Form untuk input nominal -->
-                    <form id="tarikSaldoForm">
-                        <div class="form-group">
-                            <label for="nominal">Nominal</label>
-                            <input type="number" class="form-control" id="nominal" placeholder="Masukkan nominal">
-                            <div class="invalid-feedback" id="nominal-feedback">
-                            </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary rounded-lg" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary rounded-lg" id="tarikSaldoBtn">Tarik Saldo</button>
-                </div>
+                @if ($uangPengajar <= 400000)
+                    <div class="modal-body">
+                        Saldo Tidak Dapat Ditarik Karena Kurang Dari Jumlah Minimum
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-lg" data-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-primary rounded-lg" id="tarikSaldoBtn" disabled>Tarik
+                            Saldo</button>
+                    </div>
+                @else
+                    <div class="modal-body">
+                        Anda yakin ingin menarik semua saldo Anda?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-lg" data-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-primary rounded-lg" id="tarikSaldoBtn">Tarik Saldo</button>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>
@@ -295,63 +291,29 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const tarikSaldoBtn = document.getElementById("tarikSaldoBtn");
-            const nominalInput = document.getElementById("nominal");
-            const nominalFeedback = document.getElementById("nominal-feedback");
-            const maxSaldoSuperAdmin = {{ $uang }};
-            const maxSaldoPengajar = {{ $uangPengajar }};
-            const userRole = '{{ $namaRole }}';
-
-            nominalInput.addEventListener("input", function() {
-                validateNominal();
-            });
 
             tarikSaldoBtn.addEventListener("click", function() {
-                validateNominal();
-
-                const nominal = parseFloat(nominalInput.value);
-
-                if (!nominalInput.classList.contains("is-invalid")) {
-                    // Jika validasi berhasil, kirim data ke controller
-                    $.ajax({
-                        url: '/pencairan-saldo', // Ganti dengan URL endpoint yang sesuai
-                        method: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            id_users: '{{ auth()->user()->id }}',
-                            jumlah: nominal
-                        },
-                        success: function(response) {
-                            if (response.success) {
-                                $('#saldoModal').modal('hide');
-                                alert('Permintaan pencairan saldo berhasil dibuat.');
-                            } else {
-                                alert('Gagal membuat permintaan pencairan saldo.');
-                            }
-                        },
-                        error: function() {
-                            alert('Terjadi kesalahan saat mengirim permintaan.');
+                $.ajax({
+                    url: '/pencairan-saldo', // Adjust this if your endpoint is different
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id_users: '{{ auth()->user()->id }}',
+                        jumlah: 400000 // Assuming you want to set this amount statically
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#saldoModal').modal('hide');
+                            alert('Permintaan pencairan saldo berhasil dibuat.');
+                        } else {
+                            alert('Gagal membuat permintaan pencairan saldo.');
                         }
-                    });
-                }
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat mengirim permintaan.');
+                    }
+                });
             });
-
-            function validateNominal() {
-                const nominal = parseFloat(nominalInput.value);
-                nominalInput.classList.remove("is-invalid");
-                nominalFeedback.textContent = "";
-                const maxSaldo = (userRole === 'super-admin') ? maxSaldoSuperAdmin : maxSaldoPengajar;
-
-                if (isNaN(nominal)) {
-                    nominalInput.classList.add("is-invalid");
-                    nominalFeedback.textContent = "Masukkan nominal yang valid.";
-                } else if (nominal <= 0) {
-                    nominalInput.classList.add("is-invalid");
-                    nominalFeedback.textContent = "Nominal harus lebih besar dari 0.";
-                } else if (nominal > maxSaldo) {
-                    nominalInput.classList.add("is-invalid");
-                    nominalFeedback.textContent = "Nominal melebihi saldo maksimum yang diizinkan.";
-                }
-            }
         });
     </script>
     <script>

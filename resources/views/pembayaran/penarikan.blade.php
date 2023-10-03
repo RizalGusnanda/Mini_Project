@@ -50,8 +50,9 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    <button class="btn-action bg-primary text-white rounded-lg text-right" data-id="{{ $bayar->id }}"
-                                                        data-status="{{ $bayar->status }}">Ubah Status</button>
+                                                    <button class="btn-action bg-primary text-white rounded-lg text-right"
+                                                        data-id="{{ $bayar->id }}" data-status="{{ $bayar->status }}">Ubah
+                                                        Status</button>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -109,6 +110,7 @@
     <script>
         $(document).ready(function() {
             $('.btn-action').click(function() {
+                // e.preventDefault();
                 var id = $(this).data('id');
                 var status = $(this).data('status') == 'disetujui' ? 'ditolak' : 'disetujui';
                 console.log(id);
@@ -140,7 +142,7 @@
                         }
                     }.bind(this),
                     error: function() {
-                        alert('Terjadi kesalahan pada server');
+                        alert('Saldo Kurang');
                     }
                 });
             });
