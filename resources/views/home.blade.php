@@ -67,6 +67,14 @@
                                         </div>
 
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <a href="#" data-toggle="modal" data-target="#saldoModal">
+                                            <div class="col bg-primary rounded-lg text-center mt-4">
+                                                <p class="text-white ml-3 mt-1" style="font-size: 15px"> tarik saldo</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -82,7 +90,7 @@
                     <div class="col col-lg-6 col-md-6 col-sm-5">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Pengajar Terlaris</h4>
+                                <h4>Tabel Pengajar Tertop</h4>
                             </div>
                             <div class="card-body">
                                 <canvas id="myPengajar" height="100"></canvas>
@@ -143,6 +151,11 @@
     @role('user-pengajar')
         <section class="adminDashborad">
             <div class="row">
+                <div class="col-md-12">
+                    @include('layouts.alert')
+                    <div id="alertSuccess"></div>
+                    <div id="alertWarning"></div>
+                </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="card">
                         <div class="card-header">
@@ -258,11 +271,11 @@
                     <div class="modal-body">
                         Saldo Tidak Dapat Ditarik Karena Kurang Dari Jumlah Minimum
                     </div>
-                    <div class="modal-footer">
+                    {{-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary rounded-lg" data-dismiss="modal">Tutup</button>
                         <button type="button" class="btn btn-primary rounded-lg" id="tarikSaldoBtn" disabled>Tarik
                             Saldo</button>
-                    </div>
+                    </div> --}}
                 @else
                     <div class="modal-body">
                         Anda yakin ingin menarik semua saldo Anda?
@@ -299,14 +312,31 @@
                     data: {
                         _token: '{{ csrf_token() }}',
                         id_users: '{{ auth()->user()->id }}',
-                        jumlah: 400000 // Assuming you want to set this amount statically
+                        jumlah: {{ $uangPengajar }} // Assuming you want to set this amount statically
                     },
                     success: function(response) {
                         if (response.success) {
                             $('#saldoModal').modal('hide');
-                            alert('Permintaan pencairan saldo berhasil dibuat.');
+                            var successAlert = '<div class="alert alert-success alert-dismissible show fade" id="success-alert">';
+                        successAlert += '<div class="alert-body">';
+                        successAlert += '<button class="close" data-dismiss="alert">';
+                        successAlert += '<span>×</span>';
+                        successAlert += '</button>';
+                        successAlert += '<p> Permintaan pencairan saldo berhasil dibuat. </p>';
+                        successAlert += '</div></div>';
+
+                        $(successAlert).insertBefore('#alertSuccess');
                         } else {
-                            alert('Gagal membuat permintaan pencairan saldo.');
+                            $('#saldoModal').modal('hide');
+                            var successAlert1 = '<div class="alert  alert-danger alert-dismissible show fade" id="error-alert">';
+                        successAlert1 += '<div class="alert-body">';
+                        successAlert1 += '<button class="close" data-dismiss="alert">';
+                        successAlert1 += '<span>×</span>';
+                        successAlert1 += '</button>';
+                        successAlert1 += '<p> Gagal membuat permintaan pencairan saldo. </p>';
+                        successAlert1 += '</div></div>';
+
+                        $(successAlert1).insertBefore('#alertWarning');
                         }
                     },
                     error: function() {
@@ -352,7 +382,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Jumlah Pengajar',
+                    label: 'Jumlah Pengajar Lonte',
                     data: data,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -385,6 +415,7 @@
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
+
                     }]
                 },
                 options: {

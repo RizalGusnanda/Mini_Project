@@ -113,11 +113,11 @@
                 // e.preventDefault();
                 var id = $(this).data('id');
                 var status = $(this).data('status') == 'disetujui' ? 'ditolak' : 'disetujui';
-                console.log(id);
                 var url = '{{ route('penarikan.editStatus', ['id' => ':id']) }}';
                 url = url.replace(':id',
                     id); // Menggantikan placeholder :id dengan nilai id yang sesungguhnya
-
+                // console.log(url);
+                console.log(id);
                 $.ajax({
                     url: url, // Menggunakan URL yang sudah dimodifikasi
                     type: 'POST',
@@ -127,7 +127,9 @@
                             'content') // Mengambil CSRF Token dari meta tag
                     },
                     success: function(response) {
+                        console.log(url);
                         if (response.success) {
+                            console.log(response);
                             // Update UI
                             $(this).data('status', status);
                             var statusLabel = $(this).closest('tr').find('td').eq(2).find(
@@ -141,7 +143,8 @@
                             alert('Gagal mengubah status');
                         }
                     }.bind(this),
-                    error: function() {
+                    error: function(error) {
+                        console.error(error);
                         alert('Saldo Kurang');
                     }
                 });

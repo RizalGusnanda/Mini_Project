@@ -59,7 +59,7 @@
                                 <a href="{{ route('dashboard.index') }}" style="text-decoration: none; color: black">
                                     <div class="menu-item">
                                         <i class="fas fa-chart-bar"></i>
-                                        <span>Dashboard</span>
+                                        <span>Pendapatan</span>
                                     </div>
                                 </a>
                             </div>

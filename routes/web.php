@@ -146,7 +146,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user-pengajar|super-adm
 });
 //role= user-pengajar
 
-Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
+// Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
     // role=user
 
     Route::get('/pembayaran', [PembayaranUserController::class, 'index'])->name('PembayaranUser.index');
@@ -156,7 +156,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:user']], function () {
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
     Route::get('/reservasiUser', [ReservasiUserController::class, 'index']);
     Route::get('/riwayatPembayaran', [RiwayatPembayaranController::class, 'index']);
-});
+// });
 
 
 

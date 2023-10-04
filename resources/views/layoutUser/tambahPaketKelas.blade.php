@@ -50,6 +50,12 @@
                                     <span>Paket Kelas</span>
                                 </div>
                             </a>
+                            <a href="{{ route('dashboard.index') }}" style="text-decoration: none; color: black">
+                                <div class="menu-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Pendapatan</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -163,7 +169,7 @@
 
             totalhargaInput.value = totalharga;
         }
-    
+
         hitungTotalHarga();
     </script>
     <script>
@@ -172,7 +178,7 @@
                 dateFormat: "d F Y",
                 enableTime: false,
                 onChange: function(selectedDates, dateStr, instance) {
-                    
+
                     const startDate = new Date(dateStr);
 
                     const endDate = new Date(startDate);
